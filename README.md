@@ -160,7 +160,7 @@ Everything else is proved here, including:
 * the decay of the Laplace transform `F(x + iY)` in `Y` (integration by parts), the finiteness
   of the zeros of `L(s, χ)` in a disc, and the positivity and conjugation symmetry of zero
   multiplicities;
-* the threshold identity (T) (ported from `lean/Linnik430`);
+* the threshold identity (T);
 * the row relaxations of the certificates: the first-order relaxation, the tangent pair by
   convexity, and the safe direction of every integer rounding; weak duality with the free dual
   of the second-family equality; exclusions; the bisection trees and the root box;

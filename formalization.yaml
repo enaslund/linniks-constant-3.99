@@ -11,20 +11,27 @@ project:
     itself is NOT formally verified here: the paper's zero-location arguments,
     case analysis and exterior regimes have conventional proofs and computer
     checks only.
-    (1) The graded near lemma: for fixed test data (a detector f and a Gram
-    test g satisfying Heath-Brown's Conditions 1-2, a Selberg-sieve weight on
-    cells [t_k, t_{k+1}) with t_0 > 1/3 + 2 eps', finitely many anchor offsets)
-    and every eta > 0, for all large q and any finite family of entries
+    (1) The graded near lemma: fix test data (a detector f satisfying
+    Heath-Brown's Condition 1, a Gram test g satisfying his Conditions 1 and 2,
+    a Selberg-sieve weight with heights h_k >= 0 on cells [t_k, t_{k+1}) with
+    t_0 > 1/3 + 2 eps', finitely many nonnegative anchor offsets, a positive
+    lower bound for the weight omega where f is nonzero, and I_B > 0) and
+    eta > 0. For all large q, take a finite family of entries
     (chi_j, gamma_j, delta_j) of non-principal characters mod q with heights
-    |gamma_j| <= T <= (log q)/3 and a safe anchor at height 2T+1, the prime-sum
-    responses satisfy (sum_j a_j R_j)_+^2 <= (1+eta) I_B [sum_j (D(delta_j) -
-    d_1 + e_j) a_j^2 + (d_1 + eta)(sum_j a_j)^2] for all a_j >= 0. This is a
+    |gamma_j| <= T <= (log q)/3 and a safe anchor at height 2T+1, whose
+    characters are pairwise distinct whenever some sieve height h_k is nonzero
+    (condition (iii) of the paper's Theorem 8.4; without sieve weights a
+    character may repeat, and repeated characters enter through the pair
+    excess e_j). Then the prime-sum responses satisfy (sum_j a_j R_j)_+^2 <=
+    (1+eta) I_B [sum_j (D(delta_j) - d_1 + e_j) a_j^2 + (d_1 + eta)(sum_j
+    a_j)^2] for all a_j >= 0. This is a
     weighted version of Heath-Brown's Lemma 12.1 (1992), which Heath-Brown
     remarks (section 16, item 9) no neat way of achieving "seems available".
     Its zero form: the response lemma (a response is bounded below by the zeros
     it keeps, via the local explicit formula), the threshold form
     exists tau: sum_j (v_j - tau)_+^2 / D_j <= 1 - tau^2/d with features
-    computed from kept zeros, the entry bounds F(hi - s_j) of the rows, the
+    computed from kept zeros, provided every diagonal numerator
+    D(delta_j) - d_1 + e_j is positive, the entry bounds F(hi - s_j) of the rows, the
     normalization used by the leaf builders, and the vanishing of the pair
     excess for separated same-character pairs.
     (2) The leaf LPs: an exact integer checker for the certificates of the
@@ -39,7 +46,7 @@ project:
     The analytic part is conditional on four published estimates, stated as
     explicit hypotheses in the Challenge, each no stronger than its source:
     Xylouris's Lemmas 3.1 and 3.2 (= Heath-Brown's Lemmas 5.3 and 5.2),
-    Burgess's character-sum bound with r = 3 as printed for primitive
+    Burgess's character-sum bound with k = 3 as printed for primitive
     characters (Heath-Brown's Lemma 2.1; the form for all non-principal
     characters is derived), and Graham's asymptotic for Selberg-sieve sums.
     Mertens' estimate, Abel and partial summation, the Selberg majorant, the
@@ -55,12 +62,15 @@ project:
 sources:
   - title: "Linnik's constant is at most 3.99"
     authors: ["Eric Naslund"]
-    type: "original-proof"
+    type: "paper"
     location: "paper/linnik399.pdf in this repository: section 8 (the graded near-density lemma, Theorem 8.4; the response lemma, Lemma 8.7; the threshold form, Proposition 8.8 and Corollary 8.10), section 9 (the near rows) and section 10 (leaf programs and exact certificates)"
-    relationship: "other"
+    relationship: "formalizes"
+    author_endorsement: "participated"
     note: >
-      The graded near lemma, its zero form and the certificate format are first presented in this
-      paper, which has not been refereed. Its literature review and a literature search in
+      This paper is the first presentation of the graded near lemma, its zero form and the
+      certificate format, and this repository formalizes those parts of it (the locations above).
+      The paper's main theorem, the bound for Linnik's constant, is not formalized. The paper has
+      not been refereed. Its literature review and a literature search in
       September 2026 found no earlier inequality of this kind; novelty is not otherwise
       established. The paper and this formalization were produced by AI systems under human
       direction (see automation).
@@ -116,7 +126,8 @@ status:
     printed), verified enclosures of the leaf data, Heath-Brown's Conditions 1-2 for the
     parabolic autocorrelation tests, and a native checker of the leaves' near rows proved sound
     (each row a concrete instance of the near lemma, including the family terms that keep a
-    second zero), composed with the leaf theorem.
+    second zero; it covers every near row except the two-test rows of the paper's section 9,
+    which are not instances of the near lemma), composed with the leaf theorem.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: ["propext", "Classical.choice", "Quot.sound"]
@@ -186,12 +197,13 @@ automation:
 
 fidelity:
   divergences: >
-    Relative to the paper's Theorem 8.4: the pair excess e_j is defined from the exact Gram
-    values of all same-character partners (the paper bounds it by constants c^hi, which this
-    implies); entry heights satisfy |gamma_j| <= T <= (log q)/3; the safe-anchor hypothesis is the
-    zero-free statement SafeAnchor q s1 (2T+1) for all zeros; NearData.Valid requires a uniform
-    positive lower bound for omega where f is nonzero, and I_B > 0. Burgess enters as printed for
-    primitive characters and the non-principal form is derived. The checker accepts a superset of
+    The statement of graded_near_lemma follows the paper's Theorem 8.4 with its Definitions
+    8.1-8.3 (near datum, entries and pair excess, safe anchor), including the theorem's condition
+    (iii): the characters must be pairwise distinct whenever the sieve weight is nonzero. The
+    paper's theorem also assumes Mertens' estimate and the divisor bound; both are proved here,
+    so neither is a hypothesis of the Lean statement. Burgess enters for primitive characters, as
+    in the paper's Input 3.7, and the form for all non-principal characters is derived. The
+    checker accepts a superset of
     what the replay's checker (computations/graded/graded_cert.py in the research repository) accepts (it omits input assertions that soundness does
     not need), and requires nonnegative family counts.
 

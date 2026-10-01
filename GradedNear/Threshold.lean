@@ -7,11 +7,9 @@ public import Mathlib
 
 If `(Σ a_j v_j)_+² ≤ Σ D_j a_j² + d (Σ a_j)²` for all `a ≥ 0`, with every `D_j > 0` and `d > 0`,
 then some `τ ∈ [0, √d]` satisfies `Σ_j (v_j - τ)_+² / D_j ≤ 1 - τ² / d`.
-(Ported from `Linnik430.Near.common_threshold_iff` of the 4.30 library.)
 
-The helpers in `GradedNear.ThresholdAux` are a port of the direction
-"quadratic ⇒ threshold" (`Linnik430.Near.exists_common_threshold`). The threshold
-is a zero of the continuous scalar function `t ↦ d Σ_j (v_j - t)_+ / D_j - t` on
+The helpers in `GradedNear.ThresholdAux` prove this direction, "quadratic ⇒ threshold".
+The threshold is a zero of the continuous scalar function `t ↦ d Σ_j (v_j - t)_+ / D_j - t` on
 `[0, b]`, found by the intermediate value theorem; the test vector
 `a_j = (v_j - t)_+ / D_j` then turns the quadratic hypothesis into the threshold bound.
 -/

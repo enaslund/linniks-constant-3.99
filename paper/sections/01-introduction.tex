@@ -239,10 +239,9 @@ Each leaf, or each subcase of a leaf, has its own certificate, a binary tree of 
 boxes. The $4788$ leaves give $5591$ such certificate trees, because some leaves are
 subdivided further, and these trees contain $4{,}196{,}879$ threshold boxes. The largest certified value is
 $0.9999998223\ldots<1$; it bounds the zero sum together with the required error allowance.
-All certificate inequalities are checked in integer arithmetic. The tree was constructed
-for an earlier computation at exponent $4.30$. Its subdivisions and zero-location
-arguments are independent of the target exponent, so we retain them and certify new
-leaf programs at $3.99$. \Cref{tab:scale} compares these numbers with the case analyses of
+All certificate inequalities are checked in integer arithmetic. The subdivisions and
+zero-location arguments of the tree do not depend on the target exponent; only the leaf
+programs do. \Cref{tab:scale} compares these numbers with the case analyses of
 Heath-Brown and Xylouris, and \cref{tab:census} lists every level of the analysis.
 
 The exterior ranges are shorter arguments. An exceptionally small $\lambda_1$ is covered
@@ -331,9 +330,6 @@ remark \cite[\S1]{HeathBrown1992zero}, quoted above.}
 \end{itemize}
 The last source alone does not go far. Xylouris estimates that his method, with much larger
 computations (smaller intervals and finer grids), would give about $4.96$ \cite[p.~82]{Xylouris2018linnik}.
-The earlier form of our method, with the linear programs and a fine case analysis but without the
-graded lemma, reached $4.30$, using several ad hoc near-density models. The graded lemma replaces
-almost all of them, and it is the main reason for the further gain to $3.99$.
 
 \subsection{The certified exponent and numerical evidence}\label{subsec:why}
 We state the result at $3.99$ because this is the exponent for which the complete cover
