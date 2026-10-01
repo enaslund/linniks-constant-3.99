@@ -1,0 +1,521 @@
+% !TEX root = ../linnik399.tex
+\section{Introduction}\label{sec:intro}
+
+\subsection{The result}
+For an integer $q\ge2$ and an integer $a$ with $(a,q)=1$, let $P(a,q)$ be the least prime
+congruent to $a$ modulo $q$. Dirichlet's theorem \cite{Dirichlet1889beweis} ensures that this
+prime exists. Linnik \cite{Linnik1944least,Linnik1944deuring} proved that there are absolute
+constants $C$ and $L$ such that
+\begin{equation}\label{eq:linnik}
+  P(a,q)\le Cq^L
+\end{equation}
+for every reduced residue class. An exponent $L$ for which such a constant $C$ exists is
+called \emph{admissible}; Linnik's constant is the infimum of the admissible exponents.
+
+\begin{theorem}[Least prime in a reduced residue class]\label{thm:main}
+There is an absolute constant $q_0\ge2$ such that, for every integer $q\ge q_0$ and every
+integer $a$ with $(a,q)=1$, there is a prime $p$ satisfying
+\[
+  p\equiv a\pmod q,\qquad p<q^{3.99}.
+\]
+Consequently, there is an absolute constant $C>0$ such that
+$P(a,q)\le Cq^{3.99}$ for all $q\ge2$ and $(a,q)=1$. In particular, Linnik's constant is at
+most $3.99$.
+\end{theorem}
+
+We do not compute $q_0$ or $C$; the issue of effectivity is discussed at the end of
+\cref{sec:join}. Except in the presence of an extremely close real zero, the proof finds a
+prime in the smaller interval
+\[
+  q^{3.156342}<p<q^{3.99}.
+\]
+The lower endpoint comes from the support of the weight used to detect primes. When a
+real zero is extremely close to $1$, Heath-Brown's theorem on Siegel zeros
+\cite{HeathBrown1990siegel} instead gives $P(a,q)\le q^{3.5}$.
+
+The argument combines published analytic estimates, new lemmas proved here, and exact
+finite computations. The theorem requires all three parts. In particular, checking a
+numerical certificate proves a bound for its specified configuration of zeros; the
+analytic argument must also show that every modulus gives a configuration covered by
+one of the certificates. We make this passage explicit in \cref{sec:casetree,sec:join}.
+
+\subsection{Earlier work}
+The admissible exponents in \cref{tab:history} record the main numerical developments.
+Heath-Brown \cite{HeathBrown1992zero} obtained $5.5$, and Xylouris
+\cite{Xylouris2009linnik,Xylouris2011least,Xylouris2011nullstellen,Xylouris2018linnik}
+subsequently obtained $5.2$, $5.18$, and $5$. Before them, Pan \cite{Pan1957least,Pan1958least} gave
+the first numerical values, and Chen, Jutila, Graham and Wang lowered them in a long series of
+papers, which includes Graham's introduction of Selberg sieve weights into zero-density estimates
+\cite{Graham1977thesis,Graham1981linnik}. Our proof uses the framework of these works. It rests on
+the three principles that Heath-Brown isolates at the start of his paper: a zero-free region
+with at most one exceptional zero
+\cite{delaValleePoussin1896recherches,Gronwall1913series,Landau1918imaginar,Page1935number}, the
+repulsion of other zeros by an exceptional zero, known as the Deuring--Heilbronn phenomenon
+\cite{Deuring1933imaginare,Heilbronn1934class,Linnik1944deuring}, and a log-free zero-density
+estimate \cite{Linnik1944least}. The last means that the density bound has no additional power of
+$\log q$, a feature needed when studying zeros at distance $O(1/\log q)$ from $1$. Simpler proofs
+of these principles, and of Linnik's theorem, were given by Rodosski\u\i{} \cite{Rodosskii1954least},
+Tur\'an \cite{Turan1961density,Turan1984new}, Knapowski \cite{Knapowski1962linnik}, Fogels
+\cite{Fogels1965zeros}, Gallagher \cite{Gallagher1970large}, Jutila \cite{Jutila1972density},
+Motohashi \cite{Motohashi1975density,Motohashi1978primes} and Bombieri \cite{Bombieri1987grand},
+among others; accounts are in the books \cite{Prachar1957primzahlverteilung,Montgomery1971topics,
+IwaniecKowalski2004analytic,FriedlanderIwaniec2010opera}.
+
+The conjectured scale is much smaller. Chowla \cite{Chowla1934least} conjectured
+$P(a,q)\ll_\eps q^{1+\eps}$ for every $\eps>0$; the maximum over reduced classes is
+conjecturally of order $\varphi(q)(\log q)^2$
+\cite{Wagstaff1979greatest,Pomerance1980note,GranvillePomerance1990least,LiPrattShakan2017lower}.
+The Generalized Riemann Hypothesis gives admissible exponents $2+\eps$; see
+\cite{BachSorenson1996explicit,LamzouriLiSoundararajan2015conditional,CarneiroMilinovichQuesadaHerreraRamos2025fourier}
+for explicit conditional bounds. Explicit \cite{BennettMartinOBryantRechnitzer2018explicit} and
+uniform \cite{ThornerZaman2024refinements} unconditional estimates for primes in progressions are
+also known. In the other direction, an exceptional (Siegel) zero helps: Heath-Brown
+\cite{HeathBrown1990siegel} showed that a sufficiently strong exceptional zero forces
+$P(a,q)\le q^{3+\delta}$, in an effective form that we use below, and $q^{2+\delta}$ ineffectively; see also
+\cite{FriedlanderIwaniec2003exceptional,Iwaniec2006conversations,Zaman2016least}. Other proofs of
+Linnik's theorem use pretentious methods \cite{Sachpazis2023pretentious}, sieve methods
+\cite{FriedlanderIwaniec2023sifting}, or avoid $L$-functions
+\cite{MatomakiMerikoskiTeravainen2024primes}, but give larger exponents. For moduli with special
+multiplicative structure there are stronger zero-free regions
+\cite{BarbanLinnikChudakov1964prime,Gallagher1972primes,Iwaniec1974zeros}, and much smaller
+exponents are known \cite{Chang2014short}.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{llll}
+\toprule
+$L$ & Year & Author(s) & Reference \\
+\midrule
+$10000$ & 1957 & Pan (announced) & \cite{Pan1957least} \\
+$5448$ & 1958 & Pan & \cite{Pan1958least} \\
+$777$ & 1965 & Chen & \cite{Chen1965least} \\
+$630$ & 1971 & Jutila (reported by Tur\'an) & \cite{Turan1971recent} \\
+$550$ & 1970 & Jutila & \cite{Jutila1970new} \\
+$168$ & 1977 & Chen & \cite{Chen1977least} \\
+$80$ & 1977 & Jutila & \cite{Jutila1977linnik} \\
+$36$ & 1977 & Graham & \cite{Graham1977thesis} \\
+$20$ & 1981 & Graham & \cite{Graham1981linnik} \\
+$17$ & 1979 & Chen & \cite{Chen1979least} \\
+$16$ & 1986 & Wang & \cite{Wang1986least} \\
+$13.5$ & 1989 & Chen and Liu & \cite{ChenLiu1989III,ChenLiu1989IV} \\
+$11.5$ & 1991 & Chen and Liu & \cite{ChenLiu1991V} \\
+$8$ & 1991 & Wang & \cite{Wang1991least} \\
+$5.5$ & 1992 & Heath-Brown & \cite{HeathBrown1992zero} \\
+$5.2$ & 2009 & Xylouris & \cite{Xylouris2009linnik} \\
+$5.18$ & 2011 & Xylouris & \cite{Xylouris2011least} \\
+$5$ & 2011 & Xylouris & \cite{Xylouris2011nullstellen,Xylouris2018linnik} \\
+\midrule
+$3.99$ & 2026 & this paper & \\
+\bottomrule
+\end{tabular}
+\caption{Admissible values of Linnik's constant, following the tables in
+\cite{HeathBrown1992zero} and \cite{Xylouris2011least}, in order of the bound. Graham's value $20$
+was submitted before Chen's $17$ appeared.}
+\label{tab:history}
+\end{table}
+
+\subsection{From zeros to primes}\label{subsec:outline}
+Write $\LL=\log q$ and express a zero of a Dirichlet $L$-function as
+\[
+  \rho=1-\frac{\lambda}{\LL}+i\frac{\mu}{\LL}.
+\]
+Thus small $\lambda$ means that the zero is close to the line $\sigma=1$; $\mu$ is its
+height multiplied by $\log q$. We group each nonprincipal character with its complex
+conjugate and call this a \emph{family}. The parameters $\lambda_1,\lambda_2,\lambda_3$
+record the first zero of successive families in a specified rectangle near $1$.
+The parameter $\lambda'$ records the next zero occurrence in the first family, after
+removing the distinguished zero and its conjugate where appropriate. Precise definitions,
+including multiplicities and ties, are given in \cref{sec:notation}.
+
+A nonnegative weight $h$, supported in $[A,L]$ with $A=L-2T$ and $T=0.416829$, detects
+primes between $q^A$ and $q^L$. Let $H$ be its Laplace transform. Xylouris's positivity
+criterion \cite[(3.57)]{Xylouris2011nullstellen} gives
+\[
+  \sum_{p\equiv a\,(q)}\frac{\log p}{p}\,h\Bigl(\frac{\log p}{\LL}\Bigr)
+  \ge \frac{\LL H(0)}{\varphi(q)}\bigl(1-W-\eta\bigr),
+\]
+where $\eta=10^{-6}$ and
+\[
+  W=\frac1{H(0)}\sum_{\chi\ne\chi_0}\ \sum_{\rho\in R_P}
+       \bigl|H\bigl((1-\rho)\LL\bigr)\bigr|.
+\]
+Here $R_P$ is a fixed square in the normalized coordinates, and zeros are counted with
+multiplicity. It is therefore enough to prove $W\le1-2\eta$. The contribution of an
+individual zero decays exponentially with $\lambda$, so zeros close to $1$ require the
+most accurate estimates.
+
+We combine three kinds of information about these zeros. First, a \emph{per-character
+bound} estimates the total contribution of one $L$-function from a lower bound for the
+parameters of its zeros. Second, a \emph{far-density bound} limits a weighted sum over
+characters, with weight depending on a selected zero of each character. Third,
+\emph{near-density bounds} constrain the characters whose selected zeros lie closest to
+$1$. Zero-location estimates for $\lambda_1$, $\lambda'$, $\lambda_2$, and $\lambda_3$ determine
+which of these bounds are available in a given case.
+
+\subsection{The new near-density estimate}\label{subsec:newlemma}
+Heath-Brown's near-density estimate \cite[Lemma~12.1]{HeathBrown1992zero} bounds the number
+$N(\lambda)$ of characters with a zero in $\sigma\ge1-\lambda/\LL$, $|t|\le1$. Its proof applies
+the Cauchy--Schwarz inequality to a prime sum at the single point $\beta_1=1-\lambda_1/\LL$, and
+compares the resulting Gram form of the characters with the diagonal. Because every character
+is tested at the same point, a zero at distance $\lambda$ counts only through the single number
+$N(\lambda)$, and the bound is weaker than the density estimate of Heath-Brown's \S11 as soon as
+$\lambda\ge1.1$ and void soon after. That density estimate, proved with Selberg sieve weights
+after Graham, has the form (11.4) of a sum over characters of a weight that depends on each
+character's own distance $\lambda^{(k)}$, and it contains the count (11.5) of the characters with
+$\lambda^{(k)}\le\lambda$. In his closing list of possible improvements Heath-Brown writes
+\cite[\S16, item~9]{HeathBrown1992zero}:
+\begin{quote}
+It would be nice to have a weighted version of Lemma~12.1, in the way that (11.4) is a
+weighted version of (11.5). Unfortunately, no neat way of achieving this seems available.
+\end{quote}
+
+The graded near-density lemma (\cref{thm:graded}) supplies such an estimate. We test each
+character at its own \emph{anchor}, a real parameter determining the point at which a
+smoothed prime sum is evaluated. Cauchy--Schwarz relates these prime sums to a Gram form
+of the characters. We estimate its off-diagonal terms by the local explicit formula and,
+where sieve weights are used, Burgess's bound; Graham's sieve asymptotic controls the
+diagonal terms. Allowing the anchors to vary is the grading in the name of the lemma.
+
+After normalization, the resulting constraint has the form
+\[
+  \Bigl(\sum_j a_jv_j\Bigr)_+^2
+  \le \sum_j D_ja_j^2+d\Bigl(\sum_j a_j\Bigr)^2
+  \qquad(a_j\ge0).
+\]
+Here $x_+=\max(x,0)$, the index $j$ runs over character--height entries, $v_j$ is a lower
+bound for the response of an entry, and $D_j>0$ and $d>0$ bound its diagonal and common
+correlation costs. Most entries correspond to one selected zero; some retain a second zero
+of the same character, with an explicit correction for their correlation.
+
+\Cref{prop:threshold} turns this inequality into a form suited to computation: there is a
+number $\tau\in[0,\sqrt d]$ such that
+\[
+  \sum_j\frac{(v_j-\tau)_+^2}{D_j}\le1-\frac{\tau^2}{d}.
+\]
+A single constraint now distinguishes zeros at different distances from $1$.
+The sieve weighting has precedents in Graham's work
+\cite{Graham1977thesis,Graham1981linnik}, Heath-Brown's far-density argument, and the
+sieve-weighted large-sieve inequalities of Motohashi \cite{Motohashi1975density}.
+
+\emph{Where the new lemma enters.} In Heath-Brown's proof the near-density estimate enters at the very end, in the assembly of
+\cite[\S15]{HeathBrown1992zero}. There the characters with a zero below a level $\Lambda$ are sorted into
+bins $(\Lambda_{r+1},\Lambda_r]$, with $\Lambda_r=\Lambda-0.025r$; each character is charged the cost of the end of its
+bin nearer to $s=1$; and the numbers of characters in the bins are controlled only through the
+counts $N(\Lambda_r)$, bounded one level at a time by Lemma~12.1 (his Table~13). The far-density lemma
+controls the characters beyond $\Lambda$. Xylouris's assembly \cite[\S6]{Xylouris2011nullstellen} has the same
+structure, with a sharper form of Lemma~12.1 (his Lemma~5.3). A count $N(\lambda)$ treats all characters
+with a zero below $\lambda$ alike, so it cannot tell a few zeros very close to $s=1$ from many zeros
+further away. In our proof this place is taken by the \emph{near rows} of the leaf programs
+described below. Each near row is one instance of \cref{thm:graded}: a single quadratic constraint
+in which every bin of characters enters with its own feature, computed at its own anchor. The
+weighted version of Lemma~12.1 that Heath-Brown asked for is thus used exactly where his count was
+used, in every leaf program, and it is the main source of the improvement
+(\cref{subsec:compare}).
+
+\subsection{The finite case analysis}
+We divide the middle range $0.1\le\lambda_1<1.5$ into cases determined by the type of the
+first family and intervals for the first few zero parameters. There are four levels in
+the computation, serving different purposes.
+\begin{enumerate}[(1)]
+  \item A \emph{root case} specifies a range of possible zero configurations.
+    The $58$ parent rows taken from published zero-location tables lead to $4453$
+    root cases, covering the middle range.
+  \item A \emph{leaf} is a terminal case after further subdivision and valid
+    zero-location exclusions. There are $4788$ leaves that require numerical bounds.
+  \item A \emph{leaf program} groups characters into bins according to their selected
+    zero parameters. Its nonnegative variables are the numbers of characters in these
+    bins, together with weighted masses for the tails. The objective bounds $W$, and
+    its constraints express the far-density bound, restrictions on the first families,
+    and the near-density inequalities. For fixed thresholds these constraints are linear.
+  \item A \emph{threshold box} bounds the auxiliary numbers $\tau$ in the near rows.
+    On each box, a linear relaxation is either excluded or bounded by exact dual
+    multipliers. Subdividing these boxes covers every possible choice of thresholds.
+\end{enumerate}
+The case tree partitions information about zeros; the threshold boxes partition the
+auxiliary parameters used to bound them. Keeping these two subdivisions distinct is
+essential to the coverage argument.
+
+Each leaf, or each subcase of a leaf, has its own certificate, a binary tree of threshold
+boxes. The $4788$ leaves give $5591$ such certificate trees, because some leaves are
+subdivided further, and these trees contain $4{,}196{,}879$ threshold boxes. The largest certified value is
+$0.9999998223\ldots<1$; it bounds the zero sum together with the required error allowance.
+All certificate inequalities are checked in integer arithmetic. The tree was constructed
+for an earlier computation at exponent $4.30$. Its subdivisions and zero-location
+arguments are independent of the target exponent, so we retain them and certify new
+leaf programs at $3.99$. \Cref{tab:scale} compares these numbers with the case analyses of
+Heath-Brown and Xylouris, and \cref{tab:census} lists every level of the analysis.
+
+The exterior ranges are shorter arguments. An exceptionally small $\lambda_1$ is covered
+by Heath-Brown's theorem on Siegel zeros. The rest of $\lambda_1\le0.1$ is handled by his
+quantitative Deuring--Heilbronn estimates and zero-location tables. A single further
+certificate treats $\lambda_1\ge1.5$. If the relevant rectangle contains no zero, then
+$W=0$ and the positivity criterion applies immediately.
+
+\subsection{Comparison with Heath-Brown and Xylouris}\label{subsec:compare}
+
+Our framework is Heath-Brown's \cite{HeathBrown1992zero} with Xylouris's refinements
+\cite{Xylouris2011nullstellen,Xylouris2018linnik}. We use the following from their work:
+\begin{itemize}
+  \item the positivity criterion \cite[(3.57)]{Xylouris2011nullstellen};
+  \item the per-character bound \cite[Lemma~3.10]{Xylouris2011nullstellen};
+  \item the far-density lemma \cite[Lemma~5.1]{Xylouris2011nullstellen};
+  \item the zero-free regions and Deuring--Heilbronn estimates, as printed in their tables;
+  \item the local explicit formulas \cite[Lemmas~3.1, 3.2]{Xylouris2011nullstellen}, which are
+    \cite[Lemmas~5.3, 5.2]{HeathBrown1992zero}.
+\end{itemize}
+
+\emph{The case analyses compared.} Both earlier proofs are computer-assisted, and both are
+organized, like ours, as a case analysis on the first zeros; \cref{tab:scale} compares the three.
+Heath-Brown's paper has twelve numerical tables of zero-location and density bounds. Its final
+assembly \cite[\S15]{HeathBrown1992zero} treats $\lambda_1\ge0.348$ in fourteen intervals, mostly of length
+$0.02$, each by a chain of inequalities evaluated numerically; the largest total it reports is
+$0.9943$. Heath-Brown writes \cite[\S1]{HeathBrown1992zero} that ``the arguments rely heavily on
+numerical calculations. These we do not reproduce in full, nor have we attempted any rigorous
+analysis of the rounding and truncation errors in the computer algorithms employed.'' Xylouris's
+dissertation adds eleven tables. Its final assembly \cite[\S6.4, pp.~86--87]{Xylouris2011nullstellen}
+has $21$ cases: three intervals of $\lambda_1$ for a real zero of a real character, two for a complex
+zero of a real character, and sixteen for a nonreal character. Each case is split further
+according to the possible values of two zero-counting functions
+\cite[(6.46)]{Xylouris2011nullstellen}, and the computations were done in Maple with ten digits
+\cite[p.~14]{Xylouris2011nullstellen}; the largest value is $W<0.998$. In both, each case is closed by a
+chain of inequalities in which the unknown zeros are estimated separately, one after another.
+
+In our proof the same role is played by $4453$ root cases and $4788$ leaves, and each leaf is
+closed by a linear program with an exact certificate instead of a floating-point evaluation. The
+$4.2$ million boxes have no counterpart in the earlier work. They do not subdivide the
+configurations of zeros. They subdivide the auxiliary thresholds of the near rows, and they arise
+because the graded lemma is a quadratic constraint rather than a count. The largest certified
+value, $0.99999982$ against $0.9943$ and $0.998$, shows how much finer the analysis must be at
+$L=3.99$.
+
+\begin{table}[tb]
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.05cm}
+                >{\centering\arraybackslash}p{3.25cm}
+                >{\centering\arraybackslash}p{3.25cm}
+                >{\columncolor{ourcolumn}\centering\arraybackslash}p{3.65cm}}
+\toprule
+ & \textbf{Heath-Brown} \cite{HeathBrown1992zero} & \textbf{Xylouris} \cite{Xylouris2011nullstellen} & \textbf{This paper}\\
+ & $L=5.5$ \ (1992) & $L=5$ \ (2011) & $L=3.99$\\
+\midrule
+Near-density input & counts $N(\lambda)$ from Lemma~12.1 & counts $N(\lambda)$ from a sharper Lemma~12.1 &
+  the weighted (graded) lemma, \cref{thm:graded}\\
+Numerical tables & $12$ & $11$ more & $58$ rows from theirs, plus over $100$ new\\
+Final case analysis & $14$ intervals of $\lambda_1$ & $21$ cases, each split by two zero counts &
+  $4453$ roots, $4788$ leaves\\
+How a case is closed & floating point, without rounding analysis & Maple, $10$-digit floating point &
+  exact certificates on $4.2$~million boxes\\
+Largest value of $W$ (must be below $1$) & $0.9943$ & $0.998$ & $0.99999982$\\
+\bottomrule
+\end{tabular}
+\caption{Three proofs of an explicit Linnik constant compared, in the middle range of the first
+zero ($\lambda_1\ge0.348$ for Heath-Brown and Xylouris, $0.1\le\lambda_1<1.5$ here). The last row is the largest
+bound for the normalized zero sum $W$ over all cases of the final assembly: for Heath-Brown the
+largest total he reports, for Xylouris his stated bound, and for this paper the largest certified
+value, a bound for $W+2\eta$. The entry ``without rounding analysis'' paraphrases Heath-Brown's own
+remark \cite[\S1]{HeathBrown1992zero}, quoted above.}
+\label{tab:scale}
+\end{table}
+
+\emph{Where the gain comes from.} The gain from $5$ to $3.99$ has three sources:
+\begin{itemize}
+  \item the graded near-density lemma, which replaces the counts $N(\lambda)$ and applies to every
+    range of $\lambda$ at once;
+  \item the linear-programming combination, which lets all constraints act together on each
+    case instead of chaining worst cases;
+  \item a fine case analysis of the first zeros, possible because every case is certified by
+    machine.
+\end{itemize}
+The last source alone does not go far. Xylouris estimates that his method, with much larger
+computations (smaller intervals and finer grids), would give about $4.96$ \cite[p.~82]{Xylouris2018linnik}.
+The earlier form of our method, with the linear programs and a fine case analysis but without the
+graded lemma, reached $4.30$, using several ad hoc near-density models. The graded lemma replaces
+almost all of them, and it is the main reason for the further gain to $3.99$.
+
+\subsection{The certified exponent and numerical evidence}\label{subsec:why}
+We state the result at $3.99$ because this is the exponent for which the complete cover
+has been certified. The tightest cases have a nonreal first character and
+$\lambda_1\in[0.64,0.80]$. In this range the available lower bounds for $\lambda_2$ are
+comparatively small, which restricts the anchors in the near-density estimates.
+Several of the corresponding leaf bounds are within $10^{-7}$ of $1$ after the error
+allowance, and require fine subdivisions.
+
+Exploratory floating-point computations suggest that a somewhat smaller exponent may
+be accessible. One difficult leaf, with the reserved-family columns of
+\cref{subsec:leafmodel}, has computed values $0.992$ at $L=3.97$ and $1.020$ at $L=3.95$.
+These are values of particular relaxations, not certified global bounds or an obstruction
+to other methods. Similarly, the positive numerical margins for the exterior ranges at
+smaller exponents do not constitute a complete proof there. The verification reported in
+this paper is at $L=3.99$.
+
+\subsection{Verification and a guide to the proof}\label{subsec:checked}
+The certificates have been checked by independent programs. Parts of the analytic
+argument and the soundness of the checkers have also been formalized in Lean, with the
+published analytic inputs stated as hypotheses. This formalization includes a theorem
+that a valid certified leaf yields a prime when the modulus satisfies that leaf's
+hypotheses about zeros. It does not include the full passage from arbitrary moduli to
+leaves, or the exterior arguments. \Cref{sec:verification} gives the verification records
+and separates these claims precisely.
+
+\Cref{sec:notation,sec:inputs} give the notation and published inputs.
+\Cref{sec:detection,sec:costs,sec:far} reduce prime detection to bounds for the zero sum,
+and \cref{sec:location} supplies the zero-location estimates. The main new analytic
+argument is in \cref{sec:near}; \cref{sec:rows} derives the constraints used in the
+computation. \Cref{sec:lp} proves certificate soundness, while \cref{sec:casetree} shows
+that the zero configurations are covered and satisfy the programs. The exterior cases
+and the final choice of constants are treated in \cref{sec:exteriors,sec:join}.
+A reader interested first in the new density estimate may read \cref{sec:notation,sec:inputs}
+and then \cref{sec:near}, returning to the numerical construction afterwards.
+
+\Cref{fig:proofmap} shows how the main results depend on one another, and which of them are
+published inputs, new results, computations or formally verified statements. The terms of the
+case analysis are introduced in \cref{subsec:vocabulary}, and the fixed constants and the error
+budget in \cref{subsec:budget}. \Cref{tab:census} in \cref{sec:casetree} lists all levels of the
+finite analysis, and \cref{tab:status} in \cref{sec:verification} records, for each component,
+its source and how it was checked.
+
+\begin{figure}[tbp]
+\centering
+\begin{tikzpicture}[
+  x=1cm, y=1cm, font=\footnotesize,
+  box/.style={rectangle, rounded corners=1.5pt, align=center, inner sep=3pt,
+    minimum height=8.5mm, minimum width=17mm, line width=0.5pt},
+  pub/.style={box, fill=black!12, draw=black!55},
+  new/.style={box, fill=white, draw=black},
+  comp/.style={box, fill=white, draw=black, dash pattern=on 2.2pt off 1.4pt},
+  lean/.style={double, double distance=1pt, line width=0.45pt},
+  dep/.style={-{Stealth[length=3.4pt,width=2.8pt]}, draw=black!75, line width=0.45pt},
+  wire/.style={draw=black!75, line width=0.45pt},
+]
+% ---------------------------------------------------------------- theorem and regimes
+\node[new] (main) at (8,0)
+  {\textbf{Theorem~\ref{thm:main}}\\ $P(a,q)<q^{3.99}$ for $q\ge q_0$};
+\node[new] (tiny) at (1.2,-1.8)
+  {(R2) $\lambda_1<u_{\mathrm{exc}}$:\\ $P(a,q)\le q^{3.5}$\\ Prop.~\ref{prop:tiny}};
+\node[new] (small) at (4.2,-1.8)
+  {(R2)\\ $u_{\mathrm{exc}}\le\lambda_1<0.1$\\ Thm.~\ref{thm:small}};
+\node[new] (r1) at (6.75,-1.8)
+  {(R1) no zero\\ in $R(l)$,\\ so $W=0$};
+\node[new, lean] (detect) at (9.7,-1.8)
+  {$W\le1-2\eta$\\ gives a prime\\ Prop.~\ref{prop:detect}};
+\node[pub] (crit) at (13.3,-1.8)
+  {Xylouris's\\ criterion\\ Input~\ref{inp:criterion}};
+\node[pub] (siegel) at (1.2,-3.6)
+  {Siegel zeros\\ (Heath-Brown)\\ Input~\ref{inp:siegel}};
+\node[pub] (hb) at (4.2,-3.6)
+  {Heath-Brown's\\ lemmas\\ Inputs~\ref{inp:hb132}--\ref{inp:hb111}};
+\node[comp] (marg) at (6.75,-3.6)
+  {Interval\\ margins};
+\node[new] (r3) at (9.7,-3.6)
+  {(R3) $0.1\le\lambda_1<1.5$\\ Thm.~\ref{thm:cover}};
+\node[new] (r4) at (12.6,-3.6)
+  {(R4) $\lambda_1\ge1.5$\\ Thm.~\ref{thm:large}};
+% ---------------------------------------------------------------- the middle range
+\node[new] (src) at (1.0,-6.3)
+  {4453 root\\ cases cover\\ Thm.~\ref{thm:sourcecover}};
+\node[comp] (tree) at (3.3,-6.3)
+  {Refinement\\ trees, \S\ref{subsec:refinement}\\ 4788 leaves};
+\node[comp, lean] (certs) at (5.9,-6.3)
+  {Exact\\ certificates:\\ $4{,}196{,}879$ boxes};
+\node[new] (real) at (8.6,-6.3)
+  {Realization:\\ feasible points\\ Prop.~\ref{prop:realization}};
+\node[new, lean] (certthm) at (11.6,-6.3)
+  {Certificate\\ soundness\\ Thm.~\ref{thm:certificate}};
+\node[comp, lean] (largecert) at (14.4,-6.3)
+  {One\\ certificate\\ (36 intervals)};
+% ----
+\node[new] (parent) at (1.0,-8.5)
+  {58 parent\\ rows\\ Prop.~\ref{prop:parentrows}};
+\node[new] (newloc) at (3.5,-8.5)
+  {New location\\ bounds\\ Props.~\ref{prop:realrows}--\ref{prop:third}};
+\node[new] (costs) at (6.3,-8.5)
+  {Per-character\\ costs, \S\ref{sec:costs}};
+\node[new] (farb) at (8.8,-8.5)
+  {Far budget,\\ representatives\\ \S\ref{sec:far}};
+\node[new] (rows) at (11.4,-8.5)
+  {Near rows\\ hold\\ Prop.~\ref{prop:rowsvalid}};
+% ----
+\node[pub] (tables) at (1.3,-10.6)
+  {Published\\ zero tables\\ Inputs~\ref{inp:rrtables}--\ref{inp:lambda3}};
+\node[pub] (env) at (5.9,-10.6)
+  {Envelope lemma\\ (Xylouris)\\ Input~\ref{inp:envelope}};
+\node[pub] (farin) at (8.9,-10.6)
+  {Far density\\ (Xylouris)\\ Input~\ref{inp:far}};
+\node[new, lean] (zt) at (11.7,-10.6)
+  {Threshold form\\ Prop.~\ref{prop:threshold},\\ Cor.~\ref{cor:zeroform}};
+\node[new] (twotest) at (14.4,-10.6)
+  {Two-test row\\ Thm.~\ref{thm:twotest}};
+% ----
+\node[new, lean] (response) at (10.1,-12.6)
+  {Response lemma\\ Lem.~\ref{lem:response}};
+\node[new, lean] (graded) at (13.5,-12.6)
+  {\textbf{Graded}\\ \textbf{near-density lemma}\\ Thm.~\ref{thm:graded}};
+\node[pub] (expl) at (10.3,-14.5)
+  {Explicit formulas\\ Inputs~\ref{inp:X31}, \ref{inp:X32}};
+\node[pub] (burgra) at (13.7,-14.5)
+  {Burgess, Graham\\ Inputs~\ref{inp:burgess}, \ref{inp:graham}};
+% ---------------------------------------------------------------- arrows
+% both parts of (R2) give primes directly
+\draw[wire] (tiny.north) |- (main.west);
+\draw[dep] (small.north) |- (main.west);
+\draw[dep] (detect.north) -- (detect.north |- main.south);
+\draw[dep] (r1) -- (detect);
+\draw[dep] (crit) -- (detect);
+\draw[dep] (r3) -- (detect);
+\draw[dep] (r4) -- (detect);
+\draw[dep] (siegel) -- (tiny);
+\draw[dep] (hb) -- (small);
+\draw[dep] (marg) -- (small);
+% the ingredients of the cover theorem, joined
+\coordinate (bus) at ($(r3.south)+(0,-0.6)$);
+\foreach \nd in {src,tree,certs,real}
+  \draw[wire] (\nd.north) -- (\nd.north |- bus);
+\draw[wire] ([xshift=-3mm]certthm.north) -- ([xshift=-3mm]certthm.north |- bus);
+\draw[wire] (src.north |- bus) -- ([xshift=-3mm]certthm.north |- bus);
+\draw[dep] (bus) -- (r3.south);
+\draw[dep] ([xshift=4mm]certthm.north) -- ([xshift=4mm]certthm.north |- r4.south);
+\draw[dep] (largecert) -- (r4);
+% below
+\draw[dep] (parent) -- (src);
+\draw[dep] (newloc) -- (tree);
+\draw[dep] (costs) -- (real);
+\draw[dep] (farb) -- (real);
+\draw[dep] (rows) -- (real);
+\draw[dep] (tables) -- (parent);
+\draw[dep] (tables) -- (newloc);
+\draw[dep] (env) -- (costs);
+\draw[dep] (farin) -- (farb);
+\draw[dep] (zt) -- (rows);
+\draw[dep] (twotest) -- (rows);
+\draw[dep] (response) -- (zt);
+\draw[dep] (graded) -- (zt);
+\draw[dep] (expl) -- (response);
+\draw[dep] (expl) -- (graded);
+\draw[dep] (burgra) -- (graded);
+% ---------------------------------------------------------------- legend
+\node[pub, minimum width=7.5mm, minimum height=4.6mm] (k1) at (0.55,-12.3) {};
+\node[new, minimum width=7.5mm, minimum height=4.6mm] (k2) at (0.55,-12.95) {};
+\node[comp, minimum width=7.5mm, minimum height=4.6mm] (k3) at (0.55,-13.6) {};
+\node[new, lean, minimum width=7.5mm, minimum height=4.6mm] (k4) at (0.55,-14.25) {};
+\node[anchor=west] at ([xshift=1mm]k1.east) {published input};
+\node[anchor=west] at ([xshift=1mm]k2.east) {result proved in this paper};
+\node[anchor=west] at ([xshift=1mm]k3.east) {computation};
+\node[anchor=west] at ([xshift=1mm]k4.east) {formally verified in Lean};
+\end{tikzpicture}
+\caption{Proof map for \cref{thm:main}. An arrow points from a result to a result whose
+proof uses it; the joined lines into (R3) are the ingredients of \cref{thm:cover}. The
+regimes (R1)--(R4) of \cref{sec:join} are defined by the first zero $\lambda_1$, and (R2)
+splits at the constant $u_{\mathrm{exc}}$ of \cref{sec:exteriors}. A double border marks a
+statement formally verified in Lean, with the published inputs as hypotheses, or, for the
+certificates, a computation accepted by a checker proved sound in Lean. The formalization
+also covers the far budget and parts of \cref{prop:rowsvalid,prop:realization}; the
+zero-location results, the case tree, the costs, the two-test row, the exterior regimes and
+the assembly are not formally verified (\cref{subsec:lean}). Some arrows are omitted, for
+instance from the explicit formulas to \cref{sec:costs,sec:location} and into
+\cref{thm:large}.}
+\label{fig:proofmap}
+\end{figure}
+

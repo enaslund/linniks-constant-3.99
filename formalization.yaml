@@ -1,0 +1,210 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+# Metadata for Palomar (formalization.yaml v0.4). `scripts/palomar_check.py` checks the shapes.
+version: "v0.4"
+
+project:
+  name: "Linnik's constant is at most 3.99: the formalized components, namely the graded near-density lemma and the verified checker of the leaf certificates, assuming published estimates"
+  description: >
+    Two components of the proof, in the paper "Linnik's constant is at most
+    3.99" (paper/linnik399.pdf in this repository), that every reduced residue
+    class modulo q contains a prime below q^3.99 for all large q. That bound
+    itself is NOT formally verified here: the paper's zero-location arguments,
+    case analysis and exterior regimes have conventional proofs and computer
+    checks only.
+    (1) The graded near lemma: for fixed test data (a detector f and a Gram
+    test g satisfying Heath-Brown's Conditions 1-2, a Selberg-sieve weight on
+    cells [t_k, t_{k+1}) with t_0 > 1/3 + 2 eps', finitely many anchor offsets)
+    and every eta > 0, for all large q and any finite family of entries
+    (chi_j, gamma_j, delta_j) of non-principal characters mod q with heights
+    |gamma_j| <= T <= (log q)/3 and a safe anchor at height 2T+1, the prime-sum
+    responses satisfy (sum_j a_j R_j)_+^2 <= (1+eta) I_B [sum_j (D(delta_j) -
+    d_1 + e_j) a_j^2 + (d_1 + eta)(sum_j a_j)^2] for all a_j >= 0. This is a
+    weighted version of Heath-Brown's Lemma 12.1 (1992), which Heath-Brown
+    remarks (section 16, item 9) no neat way of achieving "seems available".
+    Its zero form: the response lemma (a response is bounded below by the zeros
+    it keeps, via the local explicit formula), the threshold form
+    exists tau: sum_j (v_j - tau)_+^2 / D_j <= 1 - tau^2/d with features
+    computed from kept zeros, the entry bounds F(hi - s_j) of the rows, the
+    normalization used by the leaf builders, and the vanishing of the pair
+    excess for separated same-character pairs.
+    (2) The leaf LPs: an exact integer checker for the certificates of the
+    leaf linear programs (bisection trees over threshold boxes, first-order
+    and tangent relaxations with safe rounding, exclusions, weak duality with
+    a free dual) is proved sound: if it accepts a certificate with value v,
+    every feasible point of the LP has objective at most v < 10^16. A bridge
+    lemma turns the threshold form into the LP's near rows. Seven certificates
+    (six leaves of the 3.99 corpus and the program of the large first-zero
+    range) are checked by the kernel (decide +kernel) in the repository (not
+    part of the compared theorems).
+    The analytic part is conditional on four published estimates, stated as
+    explicit hypotheses in the Challenge, each no stronger than its source:
+    Xylouris's Lemmas 3.1 and 3.2 (= Heath-Brown's Lemmas 5.3 and 5.2),
+    Burgess's character-sum bound with r = 3 as printed for primitive
+    characters (Heath-Brown's Lemma 2.1; the form for all non-principal
+    characters is derived), and Graham's asymptotic for Selberg-sieve sums.
+    Mertens' estimate, Abel and partial summation, the Selberg majorant, the
+    decay of Laplace transforms, the finiteness and multiplicities of zeros in
+    a disc, the equality of multiplicities of conjugate zeros for real
+    characters, and all error bookkeeping are proved.
+  authors:
+    - "Eric Naslund"
+  responsible_maintainers:
+    - "Eric Naslund"
+  license: "Apache-2.0"
+
+sources:
+  - title: "Linnik's constant is at most 3.99"
+    authors: ["Eric Naslund"]
+    type: "original-proof"
+    location: "paper/linnik399.pdf in this repository: section 8 (the graded near-density lemma, Theorem 8.4; the response lemma, Lemma 8.7; the threshold form, Proposition 8.8 and Corollary 8.10), section 9 (the near rows) and section 10 (leaf programs and exact certificates)"
+    relationship: "other"
+    note: >
+      The graded near lemma, its zero form and the certificate format are first presented in this
+      paper, which has not been refereed. Its literature review and a literature search in
+      September 2026 found no earlier inequality of this kind; novelty is not otherwise
+      established. The paper and this formalization were produced by AI systems under human
+      direction (see automation).
+  - title: "Zero-free regions for Dirichlet L-functions, and the least prime in an arithmetic progression"
+    authors: ["D. R. Heath-Brown"]
+    id: "doi:10.1112/plms/s3-64.2.265"
+    type: "paper"
+    location: "Proc. London Math. Soc. (3) 64 (1992) 265-338: Conditions 1-2 (pp. 280, 286), Lemma 2.1, Lemmas 5.2-5.3, (11.13), Lemma 12.1, section 16 item 9"
+    relationship: "background"
+    note: >
+      Heath-Brown's Lemma 12.1 is the unweighted inequality that the graded near lemma
+      generalizes. His Lemma 2.1 (Burgess, k = 3) and (11.13) (Graham) are stated as hypotheses
+      (BurgessPrimitive, GrahamEstimate); his Lemmas 5.2-5.3 are Xylouris's Lemmas 3.2 and 3.1.
+    author_endorsement: "not-contacted"
+  - title: "Über die Nullstellen der Dirichletschen L-Funktionen und die kleinste Primzahl in einer arithmetischen Progression"
+    authors: ["T. Xylouris"]
+    id: "https://bonndoc.ulb.uni-bonn.de/xmlui/handle/20.500.11811/5074"
+    type: "book"
+    location: "Dissertation, Universität Bonn (2011); Bonner Mathematische Schriften 404: Bedingungen 1-2 (pp. 17-18), Lemma 3.1 and Lemma 3.2 (p. 18)"
+    relationship: "background"
+    note: "Lemmas 3.1 and 3.2 are stated as the hypotheses XylourisLemma31 and XylourisLemma32."
+    author_endorsement: "not-contacted"
+  - title: "An asymptotic estimate related to Selberg's sieve"
+    authors: ["S. W. Graham"]
+    type: "paper"
+    location: "J. Number Theory 10 (1978) 83-94; used in the form of Heath-Brown (1992), (11.13) with U = 1"
+    relationship: "background"
+    note: "Stated as the hypothesis GrahamEstimate."
+    author_endorsement: "not-contacted"
+  - title: "On character sums and L-series. II"
+    authors: ["D. A. Burgess"]
+    type: "paper"
+    location: "Proc. London Math. Soc. (3) 13 (1963) 524-536; used in the form of Heath-Brown (1992), Lemma 2.1 with k = 3"
+    relationship: "background"
+    note: "Stated as the hypothesis BurgessPrimitive, for primitive characters as printed by Heath-Brown."
+    author_endorsement: "not-contacted"
+
+related_formalizations: []
+
+classification:
+  arxiv: ["math.NT"]
+  msc2020: ["11M20", "11M26", "11N13", "11N35", "11Y35", "68V15", "90C05"]
+
+status:
+  scope: >
+    The graded near lemma with its zero form (the response lemma, the threshold form, the entry
+    bounds of the rows and the builders' normalization), and the soundness of the exact checker of
+    the leaf-LP certificates with the bridge from the threshold form to the LP rows. The rest of the
+    Linnik-constant argument (zero location, the case tree, the exterior regimes and the reduction to
+    the theorem) is not part of this formalization. The repository also proves results that are not
+    compared: seven kernel-checked certificates, a native checker proved equal to the verified one,
+    what a certified leaf proves about primes (from Xylouris (3.57) and Lemma 5.1, stated as
+    printed), verified enclosures of the leaf data, Heath-Brown's Conditions 1-2 for the
+    parabolic autocorrelation tests, and a native checker of the leaves' near rows proved sound
+    (each row a concrete instance of the near lemma, including the family terms that keep a
+    second zero), composed with the leaf theorem.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "GradedNear.graded_near_lemma"
+      file: "GradedNear/Statement.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies:
+        - statement: "Xylouris, Lemma 3.1 (principal prime sums)"
+          source: "Xylouris 2011"
+        - statement: "Xylouris, Lemma 3.2 (local explicit formula), with phi <= 1/3"
+          source: "Xylouris 2011"
+        - statement: "Burgess's bound, k = 3, for primitive characters (Heath-Brown, Lemma 2.1)"
+          source: "Heath-Brown 1992; Burgess 1963"
+        - statement: "Graham's estimate for Selberg-sieve sums (Heath-Brown, (11.13), U = 1)"
+          source: "Heath-Brown 1992; Graham 1978"
+    - declaration: "GradedNear.graded_near_threshold"
+      file: "GradedNear/ZeroForm.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies:
+        - statement: "the four inputs of graded_near_lemma"
+          source: "Xylouris 2011; Heath-Brown 1992"
+    - declaration: "GradedNear.builder_threshold"
+      file: "GradedNear/Builder.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies:
+        - statement: "the four inputs of graded_near_lemma"
+          source: "Xylouris 2011; Heath-Brown 1992"
+    - declaration: "GradedNear.Cert.checkLeaf_sound"
+      file: "GradedNear/Cert/Sound.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+    - declaration: "GradedNear.Cert.near_row_of_bins"
+      file: "GradedNear/Cert/Bins.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["claude-opus-5-5"]
+      framework: "Claude Code"
+      tool_setup: >
+        Lean 4 with Mathlib v4.35.0-rc3, built with Lake; the agent wrote the definitions,
+        statements and proofs, compiled them, and ran the local checks (scripts/verify.sh, the
+        stand-in comparison scripts/Compare.lean, leanchecker replay, and the Lean FRO Comparator).
+      prompting_notes: >
+        Work under human direction in a research repository: the human set the goals (formalize
+        the graded near lemma and the certificate checker of the project's proof, then prepare the
+        package for Palomar) and the working rules; the agent chose the statements and proofs.
+  notes: >
+    The mathematical argument and the paper were also developed by AI systems under human
+    direction (Anthropic's Claude Opus 5.5 and OpenAI's GPT Astra 6; the author reports that
+    xAI's Grok contributed to formalization work elsewhere in the project). The formalization found one missing hypothesis of the informal argument (both row
+    relaxations of the checker need nonnegative family counts), which the certificate builders
+    already assert.
+
+fidelity:
+  divergences: >
+    Relative to the paper's Theorem 8.4: the pair excess e_j is defined from the exact Gram
+    values of all same-character partners (the paper bounds it by constants c^hi, which this
+    implies); entry heights satisfy |gamma_j| <= T <= (log q)/3; the safe-anchor hypothesis is the
+    zero-free statement SafeAnchor q s1 (2T+1) for all zeros; NearData.Valid requires a uniform
+    positive lower bound for omega where f is nonzero, and I_B > 0. Burgess enters as printed for
+    primitive characters and the non-principal form is derived. The checker accepts a superset of
+    what the replay's checker (computations/graded/graded_cert.py in the research repository) accepts (it omits input assertions that soundness does
+    not need), and requires nonnegative family counts.
+
+review:
+  status: "agent-reviewed"
+  reviewers: ["independent Claude (Anthropic) review sessions"]
+  notes: >
+    Independent AI reviews (2026-09-29) audited the Challenge statements against the printed
+    sources (Heath-Brown 1992 and Xylouris 2011, page by page) and the leaf-level statements
+    against the builders' code, and found no soundness problem; their scope findings were fixed
+    (recorded in the research repository, research/notes/leaf-formalization-2026-09-29.md,
+    section 5). No human has reviewed the
+    statements or the underlying mathematics.
+
+acknowledgements: >
+  Mathlib; the Lean FRO Comparator (leanprover/comparator), used locally to check the package.

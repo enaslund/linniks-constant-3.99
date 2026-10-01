@@ -1,0 +1,213 @@
+% !TEX root = ../linnik399.tex
+\appendix
+\section{The complex location rows}\label{app:rows}
+
+The $94$ rows below make the implications of \cref{prop:complexrows,prop:polyrows}
+explicit. In each row, the hypothesis is that $\chi_1$ is nonreal and
+$\lambda_1\in[a,b]$. The number $h$ is the resulting strict lower bound for
+$\lambda_2$ or $\lambda'$, as specified in the caption. The parameters $\gamma$ and
+$t$ select the test function \eqref{eq:ftest} and the polynomial $P_t$.
+
+Each margin is the interval-certified amount, divided by $f(0)$, by which the necessary
+inequality fails at error tolerance $0$; the displayed margins are rounded for
+readability. Their positivity allows a common sufficiently large $q$.
+For the $\lambda_2$ rows, the real-second-character case uses the test parameter $\gamma_{\mathrm r}$ and $t'=0.85$;
+the column labelled ``alias'' gives the margin in \eqref{eq:alias}.
+The $\lambda'$ rows use the parent lower bound described after \cref{prop:polyrows}
+and assume $\ord\chi_1\ge5$. For orders $3$ and $4$, the stronger published bound
+quoted there applies.
+
+\begin{center}
+\scriptsize
+\begin{longtable}{@{}cccccccc@{}}
+\caption{Rows of \cref{prop:complexrows}: $\lambda_1\in[a,b]$ implies $\lambda_2>h$.}\label{tab:complexrows}\\
+\toprule
+$[a,b]$ & $h$ & $\gamma$ & $t$ & $\gamma_{\mathrm r}$ & generic & real & alias \\
+\midrule
+\endfirsthead
+\toprule
+$[a,b]$ & $h$ & $\gamma$ & $t$ & $\gamma_{\mathrm r}$ & generic & real & alias \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+$[.66,.6625]$ & $.763$ & $1.3$ & $.95$ & $1.15$ & $0.00146$ & $0.0323$ & $0.1637$ \\
+$[.6625,.665]$ & $.762$ & $1.3$ & $.95$ & $1.15$ & $0.00084$ & $0.0314$ & $0.1639$ \\
+$[.665,.6675]$ & $.76$ & $1.3$ & $.9$ & $1.15$ & $0.00114$ & $0.0311$ & $0.1644$ \\
+$[.6675,.67]$ & $.758$ & $1.3$ & $.9$ & $1.15$ & $0.00148$ & $0.0308$ & $0.1647$ \\
+$[.67,.6725]$ & $.757$ & $1.3$ & $.9$ & $1.15$ & $0.00091$ & $0.0299$ & $0.1649$ \\
+$[.6725,.675]$ & $.755$ & $1.3$ & $.9$ & $1.15$ & $0.00126$ & $0.0296$ & $0.1651$ \\
+$[.675,.6775]$ & $.753$ & $1.3$ & $.9$ & $1.15$ & $0.00162$ & $0.0293$ & $0.1654$ \\
+$[.6775,.68]$ & $.752$ & $1.3$ & $.9$ & $1.15$ & $0.00106$ & $0.0284$ & $0.1655$ \\
+$[.68,.6825]$ & $.75$ & $1.3$ & $.9$ & $1.15$ & $0.00143$ & $0.0281$ & $0.1658$ \\
+$[.6825,.685]$ & $.749$ & $1.3$ & $.9$ & $1.15$ & $0.00088$ & $0.0272$ & $0.1658$ \\
+$[.685,.6875]$ & $.747$ & $1.3$ & $.9$ & $1.15$ & $0.00126$ & $0.0269$ & $0.1658$ \\
+$[.6875,.69]$ & $.745$ & $1.3$ & $.9$ & $1.15$ & $0.00164$ & $0.0266$ & $0.1658$ \\
+$[.69,.6925]$ & $.744$ & $1.3$ & $.9$ & $1.15$ & $0.00110$ & $0.0258$ & $0.1658$ \\
+$[.6925,.695]$ & $.742$ & $1.3$ & $.9$ & $1.15$ & $0.00150$ & $0.0254$ & $0.1658$ \\
+$[.695,.6975]$ & $.741$ & $1.3$ & $.9$ & $1.15$ & $0.00095$ & $0.0246$ & $0.1658$ \\
+$[.6975,.7]$ & $.739$ & $1.3$ & $.9$ & $1.1$ & $0.00136$ & $0.0243$ & $0.1657$ \\
+$[.7,.7025]$ & $.738$ & $1.3$ & $.9$ & $1.1$ & $0.00082$ & $0.0236$ & $0.1657$ \\
+$[.7025,.705]$ & $.736$ & $1.3$ & $.9$ & $1.1$ & $0.00124$ & $0.0234$ & $0.1657$ \\
+$[.705,.7075]$ & $.734$ & $1.3$ & $.9$ & $1.1$ & $0.00167$ & $0.0232$ & $0.1657$ \\
+$[.7075,.71]$ & $.733$ & $1.3$ & $.9$ & $1.1$ & $0.00114$ & $0.0225$ & $0.1657$ \\
+$[.71,.7125]$ & $.731$ & $1.3$ & $.9$ & $1.1$ & $0.00158$ & $0.0223$ & $0.1657$ \\
+$[.7125,.715]$ & $.73$ & $1.3$ & $.9$ & $1.1$ & $0.00106$ & $0.0216$ & $0.1657$ \\
+$[.715,.7175]$ & $.728$ & $1.25$ & $.95$ & $1.1$ & $0.00146$ & $0.0214$ & $0.1657$ \\
+$[.7175,.72]$ & $.727$ & $1.25$ & $.95$ & $1.1$ & $0.00105$ & $0.0207$ & $0.1657$ \\
+$[.72,.7225]$ & $.725$ & $1.25$ & $.95$ & $1.1$ & $0.00155$ & $0.0206$ & $0.1657$ \\
+\end{longtable}
+\end{center}
+
+\begin{center}
+\scriptsize
+\begin{longtable}{@{}ccccc@{\qquad}ccccc@{}}
+\caption{Rows of \cref{prop:polyrows}: $\lambda_1\in[a,b]$ implies $\lambda'>h$ (for $\chi_1$ of order at least $5$).}\label{tab:polyrows}\\
+\toprule
+$[a,b]$ & $h$ & $\gamma$ & $t$ & margin & $[a,b]$ & $h$ & $\gamma$ & $t$ & margin \\
+\midrule
+\endfirsthead
+\toprule
+$[a,b]$ & $h$ & $\gamma$ & $t$ & margin & $[a,b]$ & $h$ & $\gamma$ & $t$ & margin \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+$[.68,.6825]$ & $.975$ & $1.15$ & $.95$ & $0.00179$ & $[.77,.7725]$ & $.908$ & $1.1$ & $.95$ & $0.00169$ \\
+$[.6825,.685]$ & $.973$ & $1.15$ & $.95$ & $0.00175$ & $[.7725,.775]$ & $.906$ & $1.1$ & $.95$ & $0.00187$ \\
+$[.685,.6875]$ & $.971$ & $1.15$ & $.95$ & $0.00171$ & $[.775,.7775]$ & $.904$ & $1.1$ & $.95$ & $0.00205$ \\
+$[.6875,.69]$ & $.968$ & $1.15$ & $.95$ & $0.00228$ & $[.7775,.78]$ & $.903$ & $1.1$ & $.95$ & $0.00161$ \\
+$[.69,.6925]$ & $.966$ & $1.15$ & $.95$ & $0.00225$ & $[.78,.7825]$ & $.901$ & $1.1$ & $.95$ & $0.00180$ \\
+$[.6925,.695]$ & $.964$ & $1.15$ & $.95$ & $0.00222$ & $[.7825,.785]$ & $.899$ & $1.1$ & $.95$ & $0.00199$ \\
+$[.695,.6975]$ & $.962$ & $1.15$ & $.95$ & $0.00220$ & $[.785,.7875]$ & $.897$ & $1.1$ & $.95$ & $0.00219$ \\
+$[.7,.7025]$ & $.958$ & $1.15$ & $.95$ & $0.00216$ & $[.7875,.79]$ & $.896$ & $1.1$ & $.95$ & $0.00175$ \\
+$[.7025,.705]$ & $.956$ & $1.15$ & $.95$ & $0.00215$ & $[.79,.7925]$ & $.894$ & $1.1$ & $.95$ & $0.00196$ \\
+$[.705,.7075]$ & $.954$ & $1.15$ & $.95$ & $0.00214$ & $[.7925,.795]$ & $.892$ & $1.1$ & $.95$ & $0.00217$ \\
+$[.7075,.71]$ & $.952$ & $1.15$ & $.95$ & $0.00213$ & $[.795,.7975]$ & $.891$ & $1.1$ & $.95$ & $0.00173$ \\
+$[.71,.7125]$ & $.95$ & $1.15$ & $.9$ & $0.00214$ & $[.7975,.8]$ & $.889$ & $1.1$ & $.95$ & $0.00195$ \\
+$[.7125,.715]$ & $.948$ & $1.15$ & $.9$ & $0.00218$ & $[.8,.8025]$ & $.887$ & $1.1$ & $.95$ & $0.00217$ \\
+$[.715,.7175]$ & $.946$ & $1.15$ & $.9$ & $0.00222$ & $[.8025,.805]$ & $.886$ & $1.1$ & $.95$ & $0.00174$ \\
+$[.7175,.72]$ & $.945$ & $1.1$ & $.95$ & $0.00170$ & $[.805,.8075]$ & $.884$ & $1.1$ & $.9$ & $0.00197$ \\
+$[.72,.7225]$ & $.943$ & $1.1$ & $.95$ & $0.00181$ & $[.8075,.81]$ & $.883$ & $1.1$ & $.9$ & $0.00157$ \\
+$[.7225,.725]$ & $.941$ & $1.1$ & $.95$ & $0.00193$ & $[.81,.8125]$ & $.881$ & $1.1$ & $.9$ & $0.00184$ \\
+$[.725,.7275]$ & $.939$ & $1.1$ & $.95$ & $0.00205$ & $[.8125,.815]$ & $.879$ & $1.1$ & $.9$ & $0.00212$ \\
+$[.7275,.73]$ & $.937$ & $1.1$ & $.95$ & $0.00217$ & $[.815,.8175]$ & $.878$ & $1.1$ & $.9$ & $0.00173$ \\
+$[.73,.7325]$ & $.936$ & $1.1$ & $.95$ & $0.00170$ & $[.8175,.82]$ & $.876$ & $1.1$ & $.9$ & $0.00202$ \\
+$[.7325,.735]$ & $.934$ & $1.1$ & $.95$ & $0.00183$ & $[.82,.8225]$ & $.875$ & $1.1$ & $.9$ & $0.00163$ \\
+$[.735,.7375]$ & $.932$ & $1.1$ & $.95$ & $0.00196$ & $[.8225,.825]$ & $.873$ & $1.1$ & $.9$ & $0.00192$ \\
+$[.7375,.74]$ & $.93$ & $1.1$ & $.95$ & $0.00210$ & $[.825,.8275]$ & $.872$ & $1.1$ & $.9$ & $0.00153$ \\
+$[.74,.7425]$ & $.928$ & $1.1$ & $.95$ & $0.00223$ & $[.8275,.83]$ & $.87$ & $1.1$ & $.9$ & $0.00183$ \\
+$[.7425,.745]$ & $.927$ & $1.1$ & $.95$ & $0.00177$ & $[.83,.8325]$ & $.868$ & $1.1$ & $.9$ & $0.00214$ \\
+$[.745,.7475]$ & $.925$ & $1.1$ & $.95$ & $0.00192$ & $[.8325,.835]$ & $.867$ & $1.1$ & $.9$ & $0.00175$ \\
+$[.7475,.75]$ & $.923$ & $1.1$ & $.95$ & $0.00207$ & $[.835,.8375]$ & $.865$ & $1.1$ & $.9$ & $0.00207$ \\
+$[.75,.7525]$ & $.921$ & $1.1$ & $.95$ & $0.00222$ & $[.8375,.84]$ & $.864$ & $1.1$ & $.9$ & $0.00169$ \\
+$[.7525,.755]$ & $.92$ & $1.1$ & $.95$ & $0.00176$ & $[.84,.8425]$ & $.862$ & $1.1$ & $.9$ & $0.00200$ \\
+$[.755,.7575]$ & $.918$ & $1.1$ & $.95$ & $0.00192$ & $[.8425,.845]$ & $.861$ & $1.1$ & $.9$ & $0.00163$ \\
+$[.7575,.76]$ & $.916$ & $1.1$ & $.95$ & $0.00208$ & $[.845,.8475]$ & $.859$ & $1.1$ & $.9$ & $0.00195$ \\
+$[.76,.7625]$ & $.915$ & $1.1$ & $.95$ & $0.00163$ & $[.8475,.85]$ & $.858$ & $1.1$ & $.9$ & $0.00158$ \\
+$[.7625,.765]$ & $.913$ & $1.1$ & $.95$ & $0.00179$ & $[.85,.8525]$ & $.856$ & $1.05$ & $.95$ & $0.00193$ \\
+$[.765,.7675]$ & $.911$ & $1.1$ & $.95$ & $0.00196$ & $[.8525,.855]$ & $.855$ & $1.05$ & $.95$ & $0.00166$ \\
+$[.7675,.77]$ & $.909$ & $1.1$ & $.95$ & $0.00214$ & & & & & \\
+\end{longtable}
+\end{center}
+
+\section{The fixed constants}\label{app:constants}
+
+This appendix collects the constants and parameters of the proof. The error budget that they
+serve is summarized in \cref{subsec:budget}.
+
+{\small
+\setlength{\tabcolsep}{4pt}
+\setlength{\LTcapwidth}{\linewidth}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr0.13\linewidth-6.4pt\relax}
+                  >{\raggedright\arraybackslash}p{\dimexpr0.28\linewidth-6.4pt\relax}
+                  >{\raggedright\arraybackslash}p{\dimexpr0.35\linewidth-6.4pt\relax}
+                  >{\raggedright\arraybackslash}p{\dimexpr0.17\linewidth-6.4pt\relax}
+                  >{\raggedright\arraybackslash}p{\dimexpr0.07\linewidth-6.4pt\relax}@{}}
+\caption{Fixed constants and parameters. The last column gives the stage of the order of
+choices of \cref{subsec:order} in which the constant is fixed; a dash marks a quantity computed
+from earlier ones. Apart from the tolerances $\eps=\eta H_0$ and $\eps=\eta J^2$, the constants
+of stages (S2)--(S6) are not computed; they exist by the arguments cited. Decimals are exact
+rational numbers unless they end with an ellipsis.}
+\label{tab:constants}\\
+\toprule
+Symbol & Value & Role & Where fixed & Stage\\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\emph{\cref{tab:constants}, continued}}\\
+\toprule
+Symbol & Value & Role & Where fixed & Stage\\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{5}{@{}l}{\emph{Exponent and kernel}}\\
+$L$ & $3.99$ & The exponent & \cref{sec:notation} & (S1)\\
+$T$ & $0.416829$ & Support of $\psi$ is $[0,T]$; $h$ is supported in $[L-2T,L]$ & \cref{subsec:kernel} & (S1)\\
+$\kappa$ & $T/16=0.0260518125$ & Width of the $16$ steps of $\psi$ & \cref{subsec:kernel} & (S1)\\
+$b_0,\dots,b_{15}$ & \cref{tab:beta} & Step heights of $\psi$ & \cref{tab:beta} & (S1)\\
+$A$ & $L-2T=3.156342$ & Lower end of the support of $h$; primes are found in $(q^A,q^L)$; $A>3$ and $A>2x$ & \cref{subsec:kernel}, \cref{lem:decay} & --\\
+$\Psi(0)$ & $\kappa\sum_ib_i=0.1936422928\ldots$ & Integral of $\psi$ & \cref{subsec:kernel} & --\\
+$H_0$ & $\Psi(0)^2=0.0374973375\ldots$ & $H(0)$; normalizes the zero sum $W$ & \eqref{eq:Hkernel} & --\\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Tolerances}}\\
+$\eta$ & $10^{-6}$ & Detection needs $W\le1-2\eta$; far budget $(1+\eta)V$; allowance $5\eta$ & \cref{sec:notation}, \cref{prop:detect} & (S1)\\
+$\eta'$ & $10^{-6}$ & Tolerance of the near rows: in every feature, diagonal and correlation term & \cref{subsec:rowdata} & (S1)\\
+$\eps_1$ & $\eta/23$ & Envelope error $\eps_1e^{-A\lambda}$ per character; $23=19+4$, where $19>K_{\mathrm{far}}$ bounds $\sum_\chi e^{-A\lambda_\chi}$ over the ordinary characters and $4$ counts the first and reserved characters & \cref{subsec:allowance} & (S1)\\
+$\mathrm{final}/S$ & $5\eta$ & Allowance included in every leaf value & \cref{subsec:leafmodel} & (S1)\\
+$\eps$ in \cref{inp:criterion} & $\eta H_0$ & Tolerance of the positivity criterion & \cref{prop:detect} & (S5)\\
+$\eps$ in \cref{inp:far} & $\eta J^2$ & Tolerance of the far-density lemma; gives \eqref{eq:farbudget} & \cref{sec:far} & (S5)\\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Analytic constants}}\\
+$\lambda_{11}$ & $0.05$ & Least anchor of the envelope; the anchor set $\mathcal A$ lies in $[\lambda_{11},C_P]$ & \cref{subsec:zerocount} & (S1)\\
+$s_{\max}$ & $3$ & Largest anchor of an ordinary entry; $K_0$ counts zeros with $\lambda\le s_{\max}$ & \cref{subsec:representatives} & (S1)\\
+$C_P$ & $\ge\max(C_0(\eta H_0),3)$ & Size of the prime window $R_P$; $C_0$ is the constant of \cref{inp:criterion} & \eqref{eq:CP} & (S2)\\
+$N$ & $N(C_P)$ & Bound for the zeros of one character in $R_P$ & \cref{lem:zerocount} & (S3)\\
+$h_{\mathcal A}$, $\mathcal A$ & Mesh with $|B_\phi(x)-B_\phi(y)|\le\eps_1/4$ for $|x-y|\le h_{\mathcal A}$ & Finite anchor set: the grid $\lambda_{11}+h_{\mathcal A}\ZZ$ and the anchors $a$, $p^*$, $p^\circ$ of the leaves & \cref{subsec:zerocount} & (S3)\\
+$\theta$ (smoothing) & In $(0,1)$, with \eqref{eq:thetachoice} & $L^1$-distance of the smooth step function $\psi^\theta$ from $\psi$ & \cref{subsec:smoothing} & (S3)\\
+$c_{\mathrm{out}}$ & $C_Pf^\theta_p(0)+|(f^\theta_p)'(0)|+e^{C_PT}\|(f^\theta_p)''\|_1$, maximized over the anchors $p$ & Cost of the distinguished terms of an outside first family & \cref{prop:firstoutside} & (S3)\\
+$K_0$ & Independent of $q$ & Bound for the zeros with $\lambda\le s_{\max}$ and $|\gamma|\le2$ & \cref{subsec:representatives} & (S4)\\
+$M$ & Large & Height separation for \cref{lem:Tstar,lem:response}; depends on $K_0$ and $\eta''_{\min}$ & \cref{subsec:order} & (S4)\\
+$C_B$ & $>\max(C_P+M,1.5)$, with $4c_{\mathrm{out}}/(H_0C_B^2)\le\eta$ & Size of the buffer $R_B$, which separates inside from outside & \cref{sec:notation}, \cref{subsec:order} & (S4)\\
+$\delta_0$ & In $(0,\frac13]$ & Common disc radius of the explicit formulas & \cref{subsec:zerocount} & (S5)\\
+$q_0$ & Not computed & Maximum of the finitely many thresholds & \cref{subsec:order} & (S6)\\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Far density} (profile~I; profile~II)}\\
+$J$, $\eps_0$ & $10$, $10^{-7}$ & Number of weights $\alpha_i$; offset in $w_0$ (both profiles) & \cref{sec:far} & (S1)\\
+$c_1$ & $0.09035$; $0.0821922$ & Parameter of \cref{inp:far} & \cref{sec:far} & (S1)\\
+$c_2$ & $0.235968$; $0.2170903$ & Parameter of \cref{inp:far} & \cref{sec:far} & (S1)\\
+$\theta_{\mathrm{far}}$ & $1.28683$; $1.4964274$ & Exponent in $w_0(t)^2$ & \cref{sec:far} & (S1)\\
+$\alpha_1,\dots,\alpha_{10}$ & \cref{tab:alpha} & Weights of \cref{inp:far}, of sum $1$ & \cref{tab:alpha} & (S1)\\
+$x$ & $1.1736846\ldots$; $1.1303335\ldots$ & Upper end $\frac23+3c_1+c_2$ of the profile; $2x<A$ & \cref{lem:decay} & --\\
+$V$ & $175.26640331\ldots$; $243.32098105\ldots$ & Right side of \cref{inp:far} with $\eps=0$; far budget $(1+\eta)V$ & \cref{sec:far} & --\\
+$w(0)$ & $10.7054\ldots$; $13.1730\ldots$ & Far weight at $\lambda=0$ & \cref{sec:far} & --\\
+$K_{\mathrm{far}}$ & $(1+\eta)V/w(0)$: $<16.38$; $<18.48$ & Bound for $\sum_\chi e^{-A\lambda_\chi}$ & \eqref{eq:Kfar} & --\\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Leaf programs and certificates}}\\
+$S$ & $10^{16}$ & Scale of the stored coefficients & \cref{sec:notation}, \cref{subsec:leafdata} & (S1)\\
+$T_S$ & $10^{6}$ & Thresholds are measured in ticks of $1/T_S$ & \cref{sec:lp} & (S1)\\
+$D_S$ & $10^{12}$ & Scale of the dual multipliers & \cref{sec:lp} & (S1)\\
+$\mathrm{den}$ & One of $200$, $400$, $500$, $800$, $2000$ per leaf & Ordinary bins between $r$ and $R=\max(3,r)$ on the grid $1/\mathrm{den}$ & \cref{subsec:leafmodel} & (S1)\\
+Reserved grid & $1/400$ & Grid of the columns of a reserved second family & \cref{subsec:leafmodel} & (S1)\\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Near rows}}\\
+$\eps'$ & $1/2000$ & Sieve levels $\vartheta_k=\frac12(t_k-\frac13)-\eps'$ & \cref{subsec:rowdata} & (S1)\\
+Cells & $2000$ sieve cells; $4000$ cells for $I_u$ & Equal cells $t_0<\dots<t_{2000}=2\gamma_f$; upper Riemann sum for $I_B$ & \cref{subsec:rowdata} & (S1)\\
+$h_k$, $\mu_{\mathrm{row}}$ & Rational, denominators at most $10^{12}$; $\mu_{\mathrm{row}}=10^9$ in family and shifted rows & Sieve heights; they vanish in family and shifted rows & \cref{subsec:rowdata} & (S1)\\
+$\lfloor\delta\rfloor_{1/200}$ & Grid $1/200$ & Offsets at which the diagonal $D(\delta)$ is evaluated & \cref{subsec:rowdata} & (S1)\\
+$s_1$ & $\lfloor50a\rfloor/50$ & Safe anchor of a leaf with first-zero cell $[a,b]$ & \cref{subsec:leaffacts} & (S1)\\
+$s$ (shift) & $\min(1.9,p^*,l_2)$ & Anchor of the shifted row and of the two-test row & \cref{subsec:rowkinds}, \cref{subsec:leafmodel} & (S1)\\
+Graded anchors & $1.5$, $1.6$, $1.9$, $2.1$, $2.3$ & Reference anchors $s$ of the graded rows used & \cref{subsec:rowkinds} & (S1)\\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Exterior regimes}}\\
+$u_{\mathrm{exc}}$ & $\min\bigl(1/\eta_{\mathrm{HB}}(\frac12),0.08\bigr)$ & Below it, \cref{prop:tiny} ($P(a,q)\le q^{3.5}$); not computed & \cref{sec:exteriors} & (S1)\\
+$K$, $A_s$ & $0.1821$; $L-2K=3.6258$ & Single triangle $h_{L,K}$ of the small branch & \cref{thm:small} & (S1)\\
+$c_1$, $c_2$, $\phi$ & $0.057$, $0.1554$, $\frac13$ & Parameters of \cref{inp:hb111} & \cref{thm:small} & (S1)\\
+$a_d$, $b_d$, $V_d$ & $\frac{3724}{1875}$, $\frac{671}{750}$, $\frac{184750}{6993}$ & Exponents and constant of \cref{inp:hb111} & \cref{thm:small} & --\\
+$\alpha$ & $1.09<\frac{12}{11}$ & Exponent in the bounds $\lambda',\lambda_2\ge\alpha\log(1/\lambda_1)$ on $[u_{\mathrm{exc}},0.08]$ & \cref{thm:small} & (S1)\\
+$m^*$ & $\alpha\log12.5=2.7530442\ldots$ & Anchor for the other characters on $[u_{\mathrm{exc}},0.08]$ & \cref{thm:small} & --\\
+$m_2$, $m_2'$ & $2.829$, $4.959$ & Bounds $\lambda_2\ge2.83-\eps$, $\lambda'\ge4.96-\eps$ with $\eps=0.001$, on $[0.08,0.1]$ & \cref{thm:small} & (S1)\\
+$B_1$ & $K^2+\frac K4$ & Bound for $\mathcal B_{1/4}$ for the first character & \cref{thm:small} & --\\
+Large branch & $s=s_1=\frac32$, $\gamma_f=1$, $\gamma_g=\frac32$, $t_0=1$ & One near row; bins of width $\frac1{100}$ on $[1.5,3)$ and a tail & \cref{thm:large} & (S1)\\
+\end{longtable}
+}

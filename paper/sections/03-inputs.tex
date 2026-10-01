@@ -1,0 +1,194 @@
+% !TEX root = ../linnik399.tex
+\section{Published inputs}\label{sec:inputs}
+
+This section records the analytic estimates used in the proof. Statements labelled
+\emph{Input} are taken from the literature, with notation adapted to this paper. Our main
+sources are Heath-Brown \cite{HeathBrown1992zero} and Xylouris's dissertation
+\cite{Xylouris2011nullstellen}; the dissertation, rather than Xylouris's shorter article,
+is the source of the lemma and equation numbers cited below. Any additional hypothesis
+needed from a source proof, or extension of a printed statement, is identified explicitly.
+
+\subsection{Test functions}
+
+\begin{definition}[Conditions 1 and 2]\label{def:conditions}
+Let $x_0>0$ and let $f:[0,\infty)\to\RR$ be continuous with $f(t)=0$ for $t\ge x_0$.
+\begin{itemize}
+  \item $f$ satisfies \emph{Condition~1} if it is twice continuously differentiable on
+    $(0,x_0)$ with $|f''|\le B$ there for some constant $B$
+    \cite[p.~280]{HeathBrown1992zero}, \cite[Bedingung~1, p.~17]{Xylouris2011nullstellen}.
+  \item $f$ satisfies \emph{Condition~2} if $f\ge0$ and its Laplace transform
+    $F(z)=\int_0^\infty f(t)e^{-zt}\,dt$ satisfies $\Re F(z)\ge0$ for $\Re z\ge0$
+    \cite[p.~286]{HeathBrown1992zero}, \cite[Bedingung~2, p.~18]{Xylouris2011nullstellen}.
+\end{itemize}
+\end{definition}
+
+Condition~1 supplies the regularity needed for the explicit formula. Condition~2 ensures
+that zero terms with nonnegative real argument can be discarded in an upper bound.
+The two conditions have different roles, so we specify each one when it is needed.
+
+A function satisfying Condition~1 is bounded, its derivative is bounded on $(0,x_0)$, and its
+transform $F$ is entire. The \emph{conductor coefficient} of a nonprincipal character $\chi$ modulo
+$q$ is \cite[p.~17]{Xylouris2011nullstellen}
+\[
+  \varphi(\chi)=\begin{cases}\frac14,& q\text{ cube-free, or }\ord\chi\le\LL,\\[2pt]
+  \frac13,&\text{otherwise.}\end{cases}
+\]
+In particular $\varphi(\chi)=\frac14$ for every real character when $q\ge8$ (its order is $2\le\LL$), and
+$\varphi(\chi)\le\frac13$ always.
+
+\begin{inp}[Comparison lemma {\cite[Lemma~4.1]{HeathBrown1992zero}, \cite[Lemma~3.5, p.~22]{Xylouris2011nullstellen}}]\label{inp:comparison}
+Let $F_1,F_2$ be holomorphic in $\{\Re z\ge0\}$, with $\Re F_1(z)\ge|F_2(z)|$ on $\Re z=0$, and
+suppose that $F_1$ and $F_2$ tend to $0$ uniformly as $|z|\to\infty$ in $\Re z\ge0$. Then
+$\Re F_1(z)\ge|F_2(z)|$ for all $\Re z\ge0$.
+\end{inp}
+
+This is a consequence of the maximum principle
+\cite{PhragmenLindelof1908extension,Titchmarsh1939theory}. All transforms below are Laplace
+transforms of bounded functions of compact support \cite{Widder1941laplace}.
+
+\subsection{Explicit formulas}
+The following two lemmas are Heath-Brown's Lemmas~5.3 and~5.2, as stated by Xylouris
+\cite[Lemmas~3.1 and~3.2, p.~18]{Xylouris2011nullstellen}. In them $s=\sigma+it$ with
+\begin{equation}\label{eq:lemmaregion}
+  |\sigma-1|\le\frac{(\log\LL)^{1/2}}\LL,\qquad|t|\le\LL .
+\end{equation}
+
+\begin{inp}[Principal character]\label{inp:X31}
+Let $f$ satisfy Condition~1 and let $s$ satisfy \eqref{eq:lemmaregion}. Then
+\[
+  \sum_{n=1}^\infty\Lambda(n)\frac{\chi_0(n)}{n^s}\,f\Bigl(\frac{\log n}\LL\Bigr)=\LL\,F\bigl((s-1)\LL\bigr)
+  +O\Bigl(\frac\LL{\log\LL}\Bigr),
+\]
+with an implied constant depending only on $f$.
+\end{inp}
+
+\begin{inp}[Local explicit formula]\label{inp:X32}
+Let $\chi\ne\chi_0$, let $s=\sigma+it$ satisfy \eqref{eq:lemmaregion}, and let $f$ satisfy
+Condition~1 with $f(0)\ge0$. For every $\eps>0$ there are
+$\delta=\delta(f,\eps)\in(0,1)$ and $q_0=q_0(f,\eps)$, independent of $\chi$ and $s$, such that
+for $q\ge q_0$
+\[
+  \sum_{n=1}^\infty\Lambda(n)\,\Re\frac{\chi(n)}{n^s}\,f\Bigl(\frac{\log n}\LL\Bigr)\le
+  -\LL\sum_{|1+it-\rho|\le\delta}\Re F\bigl((s-\rho)\LL\bigr)+\frac{f(0)}2\varphi(\chi)\LL+\eps\LL,
+\]
+where the sum runs over the nontrivial zeros of $L(s,\chi)$ in the disc, with multiplicity.
+\end{inp}
+
+These are smoothed forms of the explicit formula
+\cite{Weil1952formules,Davenport2000multiplicative,MontgomeryVaughan2007multiplicative,IwaniecKowalski2004analytic};
+the conductor coefficient $\varphi(\chi)$ comes from Burgess's bounds, through Heath-Brown's
+growth estimate for $L(s,\chi)$ and a Jensen-type formula \cite[\S\S2--3]{HeathBrown1992zero}. Heath-Brown's printed Lemma~5.2 omits the factor $\Lambda(n)$ on
+the left, a misprint that Xylouris's statement corrects. Xylouris notes \cite[p.~36]{Xylouris2011nullstellen}
+that the radius $\delta$ and the threshold $q_0$ of \cref{inp:X32}, and the implied constant of
+\cref{inp:X31}, depend only on $\eps$ and on upper bounds for $x_0$, $x_0^{-1}$, $\sup|f|$ and
+$\sup_{(0,x_0)}(|f'|+|f''|)$; so both inputs hold uniformly for a family of test functions with
+such common bounds. In the proof of Heath-Brown's Lemma~3.1, on which Lemma~5.2
+rests, the disc radius is $\delta=\min(1/(2k),\eps_0/(3c_0k^2))$ with $k\ge3$, so $\delta\le1/6$.
+The same proof works for every smaller radius, and Heath-Brown remarks after Lemma~5.2 that
+$\delta=1/\log\LL$ may be taken. We may and do assume $\delta<1/2$.
+
+\begin{inp}[The height $l$ {\cite[Lemma~6.1]{HeathBrown1992zero}, \cite[Lemma~3.3, p.~19]{Xylouris2011nullstellen}}]\label{inp:rectangle}
+There are $q_0$ and a number $l=l(q)\in\NN$ with $l\le\LL/10$ such that for $q\ge q_0$ the function
+$\prod_{\chi}L(s,\chi)$ has no zeros in $R(10l)\setminus R(l)$.
+\end{inp}
+
+The principal $L$-function has no zeros in $R(l)$ for large $q$ \cite[p.~21]{Xylouris2011nullstellen}.
+All results we quote from the tables of \cite{HeathBrown1992zero,Xylouris2011nullstellen} concern zeros in
+$R(l)$ for this $l$; Heath-Brown's proof of Lemma~6.1 produces $l$ and the later sections use it
+only through $1\le l\le\LL/10$ and the zero-free annulus.
+
+\begin{inp}[All-zero envelope {\cite[Lemma~3.10, pp.~35--36]{Xylouris2011nullstellen}}]\label{inp:envelope}
+Let $C_0$ be the size of the square in \cref{inp:criterion}, and fix
+$\eps,\lambda_{11}>0$ and an integer $m\ge1$. For $\lambda\in(\lambda_{11},C_0]$, suppose that:
+\begin{enumerate}[(i)]
+  \item each $f^\lambda_{1i}$, $1\le i\le m$, satisfies Condition~1 with support parameter
+    $x_{0i}>0$ and $f^\lambda_{1i}(0)\ge0$;
+  \item the quantities $x_{0i}$, $x_{0i}^{-1}$, $\sup|f^\lambda_{1i}|$, and
+    $\sup_{(0,x_{0i})}(|(f^\lambda_{1i})'|+|(f^\lambda_{1i})''|)$ have common bounds depending
+    only on $\lambda_{11}$ and $C_0$, and $f_1^\lambda=\sum_i f^\lambda_{1i}\ge0$;
+  \item $H_2$ is holomorphic in $\Re z\ge0$,
+    $|H_2(\lambda+it)|\le\Re F_1^\lambda(it)$ for every real $t$, and both transforms tend
+    uniformly to $0$ as $|z|\to\infty$ in that half-plane;
+  \item $\chi\ne\chi_0$ and $L(s,\chi)$ has no zero with
+    $1-\lambda/\LL<\beta\le1$ and $|\gamma|\le1$.
+\end{enumerate}
+Here $F_1^\lambda$ is the Laplace transform of $f_1^\lambda$.
+Then there is an effectively computable $q_0$,
+depending on $\eps,m,\lambda_{11},C_0$ but not on $\lambda$, such that for $q\ge q_0$
+\[
+  {\sum_\rho}'\bigl|H_2\bigl((1-\rho)\LL\bigr)\bigr|\le F_1^\lambda(-\lambda)+\frac{f_1^\lambda(0)}6+\eps,
+\]
+the sum running over the zeros of $L(s,\chi)$ in the square of \cref{inp:criterion}.
+\end{inp}
+
+We have included the hypothesis $f^\lambda_{1i}(0)\ge0$ in (i), although it is omitted
+from the printed statement. The proof \cite[pp.~35--36]{Xylouris2011nullstellen} applies \cref{inp:comparison}, then
+\cref{inp:X32} at $s=1-\lambda/\LL$ to each $f^\lambda_{1i}$, then \cref{inp:X31}. It therefore uses
+$f^\lambda_{1i}(0)\ge0$ for each $i$; every application below has this property.
+The zero-free hypothesis is used only to know
+that the zeros of $L(s,\chi)$ in the disc of \cref{inp:X32} about $1$ have $\beta\le1-\lambda/\LL$.
+We use the lemma in this localized form (\cref{sec:costs}).
+
+\subsection{Character sums and the Selberg sieve}
+
+\begin{inp}[Burgess {\cite[Lemma~2.1]{HeathBrown1992zero}, $k=3$}]\label{inp:burgess}
+Let $q\ge1$ and let $\chi$ be a primitive character modulo $q$. Let $N\ge1$ and $1\le H\le q$. Then
+for every $\eps>0$
+\[
+  \sum_{N<n\le N+H}\chi(n)\ll_\eps q^{1/9+\eps}H^{2/3}.
+\]
+\end{inp}
+
+This is the case $k=3$ of Heath-Brown's statement, which is Burgess's theorem
+\cite{Burgess1962primitive,Burgess1962character,Burgess1963character,Burgess1986character}; see
+\cite{HeathBrown2013burgess} for an account. It improves on the P\'olya--Vinogradov inequality
+\cite{Polya1918verteilung,Vinogradov1918distribution} for short intervals. For special moduli stronger
+bounds are known \cite{BarbanLinnikChudakov1964prime,Chang2014short,BanksShparlinski2019bounds,
+Kerr2019moments,PetrowYoung2020weyl}, but we do not use them.
+
+The weights $\xi_d$ in the next input are Selberg's sieve weights
+\cite{Selberg1947elementary,Selberg1991lectures} in the form used for zero-density estimates by Graham
+and Heath-Brown; see \cite{HalberstamRichert1974sieve,Motohashi1983lectures,FriedlanderIwaniec2010opera}
+for the Selberg sieve in general.
+
+\begin{inp}[Graham {\cite[p.~84]{Graham1978asymptotic}; \cite[(11.13), $U=1$]{HeathBrown1992zero}}]\label{inp:graham}
+Let $z\ge2$ and $\xi_d=\mu(d)\log(z/d)/\log z$ for $d\le z$, $\xi_d=0$ otherwise. Then for $N\ge z$
+\[
+  \sum_{n\le N}\Bigl(\sum_{d\mid n}\xi_d\Bigr)^2=\frac N{\log z}+O\Bigl(\frac N{\log^2z}\Bigr).
+\]
+\end{inp}
+
+\subsection{Log-free zero density}
+
+\begin{inp}[Log-free density {\cite[Theorem~1]{Jutila1977linnik}, as quoted in the proof of \cite[Lemma~6.1]{HeathBrown1992zero}}]\label{inp:logfree}
+For $T\ge1$, $\frac45\le\sigma\le1$ and every $\eps>0$,
+\[
+  \sum_{\chi\bmod q}N(\sigma,T,\chi)\ll_\eps(qT)^{(2+\eps)(1-\sigma)},
+\]
+where $N(\sigma,T,\chi)$ counts the nontrivial zeros $\beta+i\gamma$ of $L(s,\chi)$, with multiplicity, in
+$\beta\ge\sigma$, $|\gamma|\le T$.
+\end{inp}
+
+Estimates of this kind go back to Linnik \cite{Linnik1944least,Linnik1944deuring}; see
+\cite{Turan1961density,Fogels1965zeros,Gallagher1970large,Montgomery1971topics,Jutila1977linnik,
+Motohashi1975density,Bombieri1987grand} and \cite[(1.4)]{HeathBrown1992zero},
+\cite[Prinzip~3, p.~11]{Xylouris2011nullstellen}; explicit versions are in
+\cite{ThornerZaman2024explicit}, and related estimates in
+\cite{Ingham1940estimation,Huxley1972difference,Jutila1972density,HeathBrown1979density,
+SoundararajanThorner2019weak,Pintz2019some}. We use it only to see that the number of zeros of all
+$L(s,\chi)$ modulo $q$, counted with multiplicity, with $\lambda\le3$ and $|\gamma|\le T$ is bounded
+independently of $q$, for $T=2$ and for $T=\LL$: take $1-\sigma=3/\LL$; then
+$(qT)^{(2+\eps)(1-\sigma)}\ll(q\LL)^{7/\LL}\ll1$.
+
+\subsection{Exceptional zeros}
+
+\begin{inp}[Siegel zeros {\cite[Corollary~1, p.~406]{HeathBrown1990siegel}}]\label{inp:siegel}
+Suppose $L(\beta_0,\chi)=0$ for a real character $\chi$ modulo $q$, not necessarily primitive,
+and a real $\beta_0\ge1-1/(3\log q)$, and put $\eta_0=((1-\beta_0)\log q)^{-1}$. For every $\delta>0$
+there is an effectively computable constant $\eta_{\mathrm{HB}}(\delta)$ such that $\eta_0\ge\eta_{\mathrm{HB}}(\delta)$
+implies $P(a,q)\le q^{3+\delta}$ for every $a$ coprime to $q$.
+\end{inp}
+
+The zero-location results of Heath-Brown and Xylouris that we use are stated in
+\cref{sec:location}, where they are applied, and the inputs for the small first-zero regime in
+\cref{sec:exteriors}.

@@ -1,0 +1,117 @@
+module
+
+public import Solution
+public import GradedNear.Cert.Samples.O1193_0
+public import GradedNear.Cert.Samples.O1202_0
+public import GradedNear.Cert.Samples.O2455_0
+public import GradedNear.Cert.Samples.I2766_0
+public import GradedNear.Cert.Samples.I1155_0
+public import GradedNear.Cert.Samples.I1155_1
+public import GradedNear.Cert.Samples.Large
+
+@[expose] public section
+
+#print axioms GradedNear.graded_near_lemma
+#print axioms GradedNear.response_lemma
+#print axioms GradedNear.graded_near_threshold
+#print axioms GradedNear.keptBound_single
+#print axioms GradedNear.keptBound_pair
+#print axioms GradedNear.single_zero_threshold
+#print axioms GradedNear.keptBound_double
+#print axioms GradedNear.keptBound_pair_neg
+#print axioms GradedNear.zeroTerm_conj
+#print axioms GradedNear.builder_threshold
+#print axioms GradedNear.pairExcess_eq_zero
+#print axioms GradedNear.burgessBound_of_primitive
+#print axioms GradedNear.LFunction_conj
+#print axioms GradedNear.zmult_conj
+#print axioms GradedNear.keptBound_pair_neg_real
+#print axioms GradedNear.Cert.near_row_of_bins
+#print axioms GradedNear.Cert.checkLeaf_sound
+#print axioms GradedNear.Cert.checkLeaf_lt
+#print axioms GradedNear.Cert.certified
+#print axioms GradedNear.Cert.Samples.bound_o1193_0
+#print axioms GradedNear.Cert.Samples.bound_o1202_0
+#print axioms GradedNear.Cert.Samples.bound_o2455_0
+#print axioms GradedNear.Cert.Samples.bound_i2766_0
+#print axioms GradedNear.Cert.Samples.bound_i1155_0
+#print axioms GradedNear.Cert.Samples.bound_i1155_1
+#print axioms GradedNear.Cert.Samples.bound_large_3_99
+-- The native checker's equality with the proved checker
+#print axioms GradedNear.Cert.checkLeaf_ofCore
+-- What a certified leaf proves
+#print axioms GradedNear.exists_prime_of_criterion
+#print axioms GradedNear.Kernel.exists_prime
+#print axioms GradedNear.Cert.leaf_relaxation
+#print axioms GradedNear.Cert.leaf_interpretation
+#print axioms GradedNear.certified_leaf_gives_prime
+#print axioms GradedNear.Cert.valid_leaf_gives_prime
+#print axioms GradedNear.Cert.checked_leaf_gives_prime
+#print axioms GradedNear.envelope_column
+#print axioms GradedNear.far_from_lemma
+#print axioms GradedNear.Kernel.FarProfile.far_bound_corpus
+-- Verified numerics
+#print axioms IntervalCore.Ival.mem_exp
+#print axioms LeafNumCore.gphi_sound
+#print axioms LeafNumCore.cpa_sound
+#print axioms LeafNumCore.jold_sound
+#print axioms LeafNumCore.jnew_sound
+#print axioms LeafNumCore.winv_sound
+#print axioms LeafNumCore.w_sound
+#print axioms LeafNumCore.V_le_vUpper
+#print axioms GradedNear.Cert.checkNum_sound
+#print axioms GradedNear.Cert.checkNum_profile
+#print axioms GradedNear.Cert.checkNum_phi
+#print axioms GradedNear.Cert.checkNum_L
+#print axioms GradedNear.Cert.checkNum_eta
+#print axioms GradedNear.Cert.checkNum_jnew
+-- Heath-Brown's Conditions 1-2 for the parabolic tests
+#print axioms GradedNear.Admissible.laplace_differentiable
+#print axioms GradedNear.condition2_of_imag_axis
+#print axioms GradedNear.Parabolic.fpar_condition1
+#print axioms GradedNear.Parabolic.fpar_condition2
+-- The near rows: a concrete instance of the near lemma, the verified row checker, and the rows at
+-- the masses
+#print axioms GradedNear.Parabolic.Phi_eq_closed
+#print axioms GradedNear.Parabolic.Phi_sub_taylor
+#print axioms GradedNear.Parabolic.laplace_fpar_real
+#print axioms GradedNear.Row.Params.valid
+#print axioms GradedNear.Row.Params.IB_le
+#print axioms GradedNear.Row.Params.IB_pos
+#print axioms GradedNear.Row.Params.Dδ_eq
+#print axioms GradedNear.Row.Params.Dδ_anti
+#print axioms GradedNear.Row.phiI_sound
+#print axioms GradedNear.Row.fI_sound
+#print axioms GradedNear.Row.ibUpper_sound
+#print axioms GradedNear.Row.dI_sound
+-- The special entries: the transform at complex points, the exponential moment, interpolation,
+-- the tails, the minimum principle, and the checker's values
+#print axioms GradedNear.Parabolic.PhiC_eq_closed
+#print axioms GradedNear.Parabolic.PhiC_sub_taylor
+#print axioms GradedNear.Parabolic.laplace_fpar_eq
+#print axioms GradedNear.Parabolic.E2_eq_closed
+#print axioms GradedNear.Parabolic.E2_sub_taylor
+#print axioms GradedNear.Parabolic.moment2_exp_eq
+#print axioms GradedNear.interp_lower
+#print axioms GradedNear.grid_lower
+#print axioms GradedNear.Parabolic.vert_grid_lower
+#print axioms GradedNear.Parabolic.vert_grid_upper
+#print axioms GradedNear.Parabolic.vert_cell_upper
+#print axioms GradedNear.Parabolic.horiz_lipschitz
+#print axioms GradedNear.Parabolic.tail_re_le
+#print axioms GradedNear.Parabolic.tail_neg_re_le
+#print axioms GradedNear.Parabolic.re_ge_of_line
+#print axioms GradedNear.Row.cosSinI_sound
+#print axioms GradedNear.Row.rePhiCI_sound
+#print axioms GradedNear.Row.reFI_sound
+#print axioms GradedNear.Row.e2I_sound
+#print axioms GradedNear.Row.twoVals_sound
+#print axioms GradedNear.Row.czC_sound
+#print axioms GradedNear.Row.specVals_sound
+#print axioms GradedNear.Row.rowCheck_sound
+#print axioms GradedNear.Row.checkRow_sound
+#print axioms GradedNear.Row.checkRows_sound
+#print axioms GradedNear.Row.row_threshold
+#print axioms GradedNear.Row.row_at_masses
+#print axioms GradedNear.Row.checked_row_holds
+#print axioms GradedNear.Row.checked_leaf_rows_gives_prime

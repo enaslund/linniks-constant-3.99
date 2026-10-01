@@ -1,0 +1,79 @@
+name = "GradedNear"
+version = "0.1.0"
+defaultTargets = ["GradedNear", "Challenge", "Solution"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "v4.35.0-rc3"
+
+[[lean_lib]]
+name = "GradedNear"
+
+[[lean_lib]]
+name = "Challenge"
+roots = ["Challenge"]
+
+[[lean_lib]]
+name = "Solution"
+roots = ["Solution"]
+
+# Kernel-checked certificates: `lake build Samples` (7–16 GB of memory per leaf). `Large` is the
+# certificate of the large first-zero range (`computations/graded/graded_large.py --lean-module` in the research repository).
+[[lean_lib]]
+name = "Samples"
+roots = ["GradedNear.Cert.Samples.O1193_0", "GradedNear.Cert.Samples.O1202_0", "GradedNear.Cert.Samples.O2455_0", "GradedNear.Cert.Samples.I2766_0", "GradedNear.Cert.Samples.I1155_0", "GradedNear.Cert.Samples.I1155_1", "GradedNear.Cert.Samples.Large"]
+
+# The checker without Mathlib, and its native runner: `lake build certrun` (no Mathlib compiled).
+# `GradedNear.Cert.FastEq` proves that `CertCore.checkLeaf` computes `GradedNear.Cert.checkLeaf`.
+[[lean_lib]]
+name = "CertCore"
+roots = ["CertCore"]
+
+[[lean_exe]]
+name = "certrun"
+root = "CertRunNative"
+
+# Interval arithmetic without Mathlib (natively compilable): `lake build IntervalCore`.
+# Soundness (inclusion theorems, including `Real.exp`): `GradedNear.Interval.Sound`.
+[[lean_lib]]
+name = "IntervalCore"
+roots = ["IntervalCore"]
+
+# Interval enclosures of the leaf functions without Mathlib: `lake build LeafNumCore`.
+# Soundness (`B_φ`, `G_φ`, `h`, `C`, `J_old`, `J_new`, `w⁻¹`, `w`, `V`): `GradedNear.LeafNumSound`.
+[[lean_lib]]
+name = "LeafNumCore"
+roots = ["LeafNumCore"]
+
+# Leaf metadata for the numeric checker (Mathlib-free).
+[[lean_lib]]
+name = "LeafMetaCore"
+roots = ["LeafMetaCore"]
+
+# The numeric checker of a leaf's data against its metadata, without Mathlib:
+# `lake build LeafCheckCore`. Soundness (`checkNum_sound : checkNum m L = true →
+# MetaValid m (Leaf.ofCore L)`): `GradedNear.Cert.NumericsSound`.
+[[lean_lib]]
+name = "LeafCheckCore"
+roots = ["LeafCheckCore"]
+
+# The near-row checker without Mathlib, with the enclosures at complex points for the special
+# family terms: `lake build RowCheckCore`. Soundness: `GradedNear.Row.rowCheck_sound`
+# (`GradedNear/Row/RowSound.lean`) and `GradedNear.Row.specVals_sound` (`GradedNear/Row/SpecSound.lean`).
+[[lean_lib]]
+name = "RowCheckCore"
+roots = ["RowCheckCore"]
+
+# The native runner of the near-row checker (`lake build rowcheck`, no Mathlib compiled): JSON
+# lines `{"name", "leaf", "rows"}` from `graded_lean_export.py --rows`.
+[[lean_exe]]
+name = "rowcheck"
+root = "RowCheckNative"
+
+# The native runner of the certificate checker and the numeric checker (`lake build leafcheck`,
+# no Mathlib compiled): JSON lines `{"name", "leaf", "tree", "meta"}` from
+# `graded_lean_export.py --full`.
+[[lean_exe]]
+name = "leafcheck"
+root = "LeafCheckNative"

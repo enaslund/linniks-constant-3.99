@@ -1,0 +1,452 @@
+% !TEX root = ../linnik399.tex
+\section{Zero costs}\label{sec:costs}
+
+The zero sum $W$ of \cref{sec:detection} is a sum over characters. This section bounds the
+contribution of a single character, in terms of an \emph{anchor} (\cref{subsec:vocabulary}): a
+number $\lambda_*$ such that no zero of $L(s,\chi)$ near $s=1$ has parameter below $\lambda_*$, at which
+the explicit formula is evaluated. For most characters the anchor is
+the parameter of a representative zero (\cref{def:representative}); the first family needs a
+finer treatment. The argument is Xylouris's proof of his Lemma~3.10 \cite[pp.~35--36]{Xylouris2011nullstellen},
+which we reproduce in the localized form we need.
+
+\subsection{The envelope functions}\label{subsec:envelope}
+The function $\mathcal G_\phi(\lambda)$ below bounds the total cost of one character.
+The auxiliary functions $B_\phi$, $\tilde h$, and $C$ separate the common exponential
+decay from the correction for a distinguished zero. The parameter $\phi$ will be
+$\varphi(\chi)$, or an upper bound for it.
+
+For real $\lambda$ let $\psi_\lambda(u)=\psi(u)e^{-\lambda u}$ and
+\[
+  f_\lambda(t)=2\int_0^\infty\psi_\lambda(u)\,\psi_\lambda(u+t)\,du
+  =2\int_0^{T-t}\psi(u)\psi(u+t)e^{-\lambda(2u+t)}\,du\qquad(t\ge0),
+\]
+so that $f_\lambda(t)=0$ for $t\ge T$. Let $F_\lambda$ be its Laplace transform. For
+$0\le\phi\le\frac13$, $\lambda\ge0$ and $p\ge a\ge0$ put
+\begin{align*}
+  B_\phi(\lambda)&=\frac1{H_0}\Bigl[2\int_0^T\psi(u)e^{-2\lambda u}\int_u^T\psi(v)\,dv\,du
+    +\phi\int_0^T\psi(u)^2e^{-2\lambda u}\,du\Bigr],\\
+  \mathcal G_\phi(\lambda)&=e^{-A\lambda}B_\phi(\lambda),\qquad \mathcal G=\mathcal G_{1/3},\qquad
+  \tilde h(\lambda)=\frac{\Psi(\lambda)^2}{H_0},\\
+  C(p,a)&=\frac2{H_0}\int_0^T\psi(u)e^{-2pu}\int_u^T\psi(v)e^{-a(v-u)}\,dv\,du .
+\end{align*}
+
+\begin{lemma}[Properties of the envelope functions]\label{lem:envelope}
+With the functions just defined, the following hold. Parts (i)--(iii) hold for every
+real $\lambda$; in (iv)--(v), take $0\le\phi\le1/3$, $\lambda\ge0$, and $p\ge a\ge0$.
+\begin{enumerate}[(i)]
+  \item $f_\lambda\ge0$, $f_\lambda$ is Lipschitz on $[0,T]$, and $f_\lambda(T)=0$.
+  \item $\Re F_\lambda(iy)=|\Psi(\lambda+iy)|^2$ for real $y$.
+  \item $\Re F_\lambda(z)\ge|\Psi(\lambda+z)|^2$ for $\Re z\ge0$. In particular $\Re F_\lambda(z)\ge0$
+    for $\Re z\ge0$.
+  \item $H_0B_\phi(\lambda)=F_\lambda(-\lambda)+\frac\phi2f_\lambda(0)$ and
+    $H_0C(p,a)=F_p(a-p)$. Moreover $C(a,a)=\tilde h(a)$.
+  \item $B_\phi$, $\mathcal G_\phi$ and $\tilde h$ are positive and decreasing on $[0,\infty)$, and so is
+    $\mathcal G_\phi/w$, where $w$ is either far weight of \cref{sec:far}.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Nonnegativity is clear. For $0\le t<t'\le T$,
+$|f_\lambda(t)-f_\lambda(t')|\le2\|\psi_\lambda\|_\infty\int|\psi_\lambda(u+t)-\psi_\lambda(u+t')|\,du$,
+which is $O(t'-t)$ because $\psi_\lambda$ has bounded variation.
+
+(ii) Let $a_\lambda(t)=\int\psi_\lambda(u)\psi_\lambda(u+|t|)\,du$ for $t\in\RR$; it is even and
+integrable, and its Fourier transform is $|\widehat{\psi_\lambda}(y)|^2=|\Psi(\lambda+iy)|^2$.
+Hence $\Re F_\lambda(iy)=\int_0^\infty f_\lambda(t)\cos(yt)\,dt=\int_\RR a_\lambda(t)e^{-iyt}\,dt
+=|\Psi(\lambda+iy)|^2$.
+
+(iii) Apply \cref{inp:comparison} to $F_1=F_\lambda$ and $F_2(z)=\Psi(\lambda+z)^2$. Both are
+entire. By (i), $F_\lambda(z)=z^{-1}\bigl(f_\lambda(0)+\int_0^Tf_\lambda'(t)e^{-zt}\,dt\bigr)$, so
+$|F_\lambda(z)|\le(f_\lambda(0)+\|f'_\lambda\|_1)/|z|$ for $\Re z\ge0$; similarly
+$|\Psi(\lambda+z)|\le(\psi_\lambda(0^+)+V(\psi_\lambda))/|z|$ with $V$ the total variation. So both tend to
+$0$ uniformly, and on $\Re z=0$ we have equality by (ii).
+
+(iv) Substitute $v=u+t$:
+$F_\lambda(-\lambda)=2\int\!\!\int\psi(u)\psi(v)e^{-\lambda(u+v)}e^{\lambda(v-u)}\,dv\,du$ over $0\le u\le v\le T$,
+which is the first term of $H_0B_\phi$; and $f_\lambda(0)=2\int\psi^2e^{-2\lambda u}$. The same
+substitution gives $F_p(a-p)=2\int_0^T\psi(u)e^{-2pu}\int_u^T\psi(v)e^{-a(v-u)}\,dv\,du$. Finally
+$H_0C(a,a)=2\int\!\!\int_{u\le v}\psi(u)\psi(v)e^{-a(u+v)}=\Psi(a)^2$.
+
+(v) All integrands are positive and decrease in $\lambda$. For the last claim,
+\[
+  \frac{\mathcal G_\phi(\lambda)}{w(\lambda)}=B_\phi(\lambda)\int_{u_0}^xw_0(t)^2e^{(2t-A)\lambda}\,dt,
+\]
+and $2t-A<0$ on $[u_0,x]$ (\cref{lem:decay}).
+\end{proof}
+
+The number $\mathcal G(\lambda)$ is the cost, in units of $H_0$, that the argument below assigns to a
+character whose zeros near $s=1$ all have parameter at least $\lambda$. For a real character
+the factor $\phi=\frac13$ may be replaced by $\frac14$ (\cref{prop:envelope}).
+
+\subsection{Smoothing}\label{subsec:smoothing}
+Since $\psi$ is a step function, $f_\lambda$ has corners at the multiples of $\kappa$ and does
+not satisfy Condition~1. We therefore work with smooth approximations of $\psi$ in the
+auxiliary functions only; the prime weight $h$ and its transform $H$ are never changed. For
+$\theta\in(0,1)$ fix a function $\psi^\theta\in C^\infty(\RR)$ with support in $(0,T)$ such that
+\[
+  0\le\psi^\theta\le1,\qquad\|\psi-\psi^\theta\|_{L^1}\le\theta,
+\]
+for instance a mollification of $\psi\,\1_{[\theta/4,\,T-\theta/4]}$. Let $\Psi^\theta$,
+$f^\theta_\lambda$, $F^\theta_\lambda$, $B^\theta_\phi$, $\tilde h^\theta$ and $C^\theta$ be defined as above
+with $\psi^\theta$ in place of $\psi$, and $H_0$ kept.
+
+\begin{lemma}[Uniform smooth approximation]\label{lem:smoothing}
+Fix $\theta\in(0,1)$ and $\Lambda\ge1$, and choose $\psi^\theta$ as above.
+\begin{enumerate}[(i)]
+  \item For every $\lambda\in[0,\Lambda]$, $f^\theta_\lambda$ satisfies Condition~1 and
+    Condition~2 with $x_0=T$. The quantities $x_0$, $x_0^{-1}$, $\sup|f^\theta_\lambda|$ and
+    $\sup_{(0,T)}(|(f^\theta_\lambda)'|+|(f^\theta_\lambda)''|)$ are bounded independently of
+    $\lambda\in[0,\Lambda]$; the bounds may depend on $\theta$ and $\Lambda$.
+    \Cref{lem:envelope}(i)--(iv) hold for $\psi^\theta$.
+  \item For $\Re z\ge0$, $\bigl|\Psi(z)^2-\Psi^\theta(z)^2\bigr|\le3\theta$.
+  \item As $\theta\to0$, $B^\theta_\phi\to B_\phi$, $\tilde h^\theta\to\tilde h$ and $C^\theta\to C$ uniformly on
+    $\{0\le a\le p\le\Lambda\}$ and $0\le\phi\le\frac13$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) The function $(t,\lambda)\mapsto f^\theta_\lambda(t)$ is smooth on $\RR^2$, and it vanishes for
+$t\ge T$ because $\psi^\theta$ is supported in a compact subset of $(0,T)$; this gives
+Condition~1 and the uniform bounds. The proof of \cref{lem:envelope} applies verbatim to
+$\psi^\theta$, and Condition~2 is \cref{lem:envelope}(i) and (iii) for $\psi^\theta$.
+(ii) For $\Re z\ge0$ we have $|\Psi(z)|\le\|\psi\|_1\le T<\frac12$, $|\Psi^\theta(z)|\le\|\psi\|_1+\theta$
+and $|\Psi(z)-\Psi^\theta(z)|\le\theta$; hence $|\Psi^2-(\Psi^\theta)^2|\le\theta(2T+\theta)\le3\theta$.
+(iii) Each quantity is a bilinear expression in $(\psi,\psi)$ with a kernel bounded by $1$ on
+$[0,T]^2$ for the parameters in question, and $\|\psi\|_\infty,\|\psi^\theta\|_\infty\le1$.
+\end{proof}
+
+\subsection{The disc and a uniform zero count}\label{subsec:zerocount}
+Throughout this section $\lambda_{11}=0.05$, the smoothing parameter $\theta$ is the one fixed in stage
+(S3) of \cref{subsec:order}, and $\eps_1=\eta/23$. Let $\mathcal A\subset[\lambda_{11},C_P]$ be the finite set
+consisting of the points of the grid $\lambda_{11}+h_{\mathcal A}\ZZ$ in $[\lambda_{11},C_P]$ together with the
+anchors of the first-family bounds of all leaves (\cref{subsec:firstinside,subsec:firstoutside}). For a leaf
+with first-zero cell $[a,b]$ and lower bound $p^*$ for $\lambda'$ (the lower end of its gap if it has
+one, and $p$ otherwise; \cref{subsec:vocabulary}), these are $a$ and $p^*$ if the leaf is inside and
+$p^\circ=\max(a,p^*)$ if it is outside (\cref{subsec:leafmodel});
+the mesh $h_{\mathcal A}>0$ is chosen so that $|B_\phi(x)-B_\phi(y)|\le\eps_1/4$ for $\phi\in\{\frac14,\frac13\}$
+and $x,y\in[0,C_P]$ with $|x-y|\le h_{\mathcal A}$. In stage (S5) we fix a radius $\delta_0\in(0,\frac13]$ such
+that \cref{inp:X32} holds with radius $\delta_0$ for each of the finitely many pairs of a test
+function and a tolerance used in this paper: the function $f^{(1)}$ below with tolerance $1$, the
+functions $f^\theta_\sigma$ ($\sigma\in\mathcal A$) with tolerance $H_0\eps_1/8$, and the detectors (\cref{def:neardatum}) of the near
+rows with the tolerances of \cref{lem:response}. This is possible because \cref{inp:X32} remains
+true for every smaller radius (see the remark after it). The \emph{disc} of a character $\chi$ is the
+set of zeros $\rho$ of $L(s,\chi)$ with $|1-\rho|\le\delta_0$. For fixed $C$ and large $q$ the square
+$\{\lambda\le C,\,|\mu|\le C\}$ lies in the disc, since there $|1-\rho|\le\sqrt2C/\LL$.
+
+\begin{lemma}[A uniform bound for zeros in a fixed window]\label{lem:zerocount}
+Let $C\ge1$. There are $N=N(C)$ and $q_0$ such that for $q\ge q_0$ the following holds. If
+$\chi\ne\chi_0$ and every zero in the disc of $\chi$ has parameter at least $\lambda_{11}$, then $L(s,\chi)$
+has at most $N$ zeros, counted with multiplicity, with $\lambda\le C$ and $|\mu|\le C$.
+\end{lemma}
+
+\begin{proof}
+Let $K_1=1/(4C)$ and $\vartheta(z)=(1-e^{-K_1z})/z$, the transform of $\1_{[0,K_1]}$. Let
+$f^{(1)}(t)=2\int_0^{K_1-t}e^{-\lambda_{11}(2u+t)}\,du$ for $0\le t\le K_1$ and $f^{(1)}(t)=0$ for
+$t\ge K_1$. This is the function $f_{\lambda_{11}}$ of \cref{subsec:envelope} for the step
+$\1_{[0,K_1]}$; it equals $(e^{-\lambda_{11}t}-e^{-\lambda_{11}(2K_1-t)})/\lambda_{11}$ on $[0,K_1]$, so
+it satisfies Condition~1, and $f^{(1)}(0)\ge0$. As in \cref{lem:envelope}(iii),
+$\Re F^{(1)}(z)\ge|\vartheta(\lambda_{11}+z)|^2\ge0$ for $\Re z\ge0$.
+
+Apply \cref{inp:X32} to $f^{(1)}$ at $s=1-\lambda_{11}/\LL$, with tolerance $1$ and a radius
+at most $\delta_0$. For large $q$, the fixed normalized square lies in this smaller disc.
+All its zeros still have parameter at least $\lambda_{11}$. In the remainder of this proof,
+``the disc'' refers to this smaller disc. The
+point $s$ lies in the range \eqref{eq:lemmaregion} for large $q$, and $(s-\rho)\LL=(\lambda_\rho-\lambda_{11})-i\mu_\rho$.
+Since $-\Re\chi(n)\le\chi_0(n)$ for every $n$ and $f^{(1)}\ge0$, \cref{inp:X31} gives
+\[
+  -\sum_n\Lambda(n)\Re\frac{\chi(n)}{n^s}f^{(1)}\Bigl(\frac{\log n}\LL\Bigr)\le
+  \sum_n\Lambda(n)\frac{\chi_0(n)}{n^s}f^{(1)}\Bigl(\frac{\log n}\LL\Bigr)=\LL F^{(1)}(-\lambda_{11})+o(\LL).
+\]
+Hence
+$\sum_{\rho\text{ in the disc}}\Re F^{(1)}\bigl((\lambda_\rho-\lambda_{11})-i\mu_\rho\bigr)\le
+F^{(1)}(-\lambda_{11})+\frac16f^{(1)}(0)+2=:c_1$ for large $q$. Every term is nonnegative, because
+$\lambda_\rho\ge\lambda_{11}$. For a zero with $\lambda\le C$, $|\mu|\le C$ put $z=\lambda-i\mu$; then
+$|K_1z|\le\sqrt2/4<\frac12$ and $|1-e^{-w}|\ge|w|-|w|^2e^{|w|}/2\ge|w|/2$ for $|w|\le\frac12$, so
+the term is at least $|\vartheta(z)|^2\ge K_1^2/4$. The number of such zeros is therefore at most
+$N=\lfloor4c_1/K_1^2\rfloor$.
+\end{proof}
+
+\subsection{The anchored envelope}
+The following inequality is the common source of all the costs below. For $\sigma\in\mathcal A$, a character
+$\chi\ne\chi_0$ and a zero $\rho$ put
+\[
+  \Phi^\theta_\sigma(\rho)=\Re F^\theta_\sigma\bigl((\lambda_\rho-\sigma)-i\mu_\rho\bigr).
+\]
+By \cref{lem:envelope}(iii), $\Phi^\theta_\sigma(\rho)\ge|\Psi^\theta(\lambda_\rho-i\mu_\rho)|^2\ge0$ whenever
+$\lambda_\rho\ge\sigma$.
+
+\begin{lemma}[Anchored inequality]\label{lem:anchored}
+Fix the smoothing, finite anchor set $\mathcal A$, and common disc radius as in
+\cref{subsec:zerocount}. There is $q_0$, uniform over $\chi\ne\chi_0$ and
+$\sigma\in\mathcal A$, such that for $q\ge q_0$,
+\[
+  \sum_{\rho\text{ in the disc of }\chi}\Phi^\theta_\sigma(\rho)\le H_0B^\theta_{\varphi(\chi)}(\sigma)+\tfrac14H_0\eps_1 .
+\]
+\end{lemma}
+
+\begin{proof}
+Apply \cref{inp:X32} to $f=f^\theta_\sigma$ at $s=1-\sigma/\LL$ (so $t=0$), with tolerance $H_0\eps_1/8$ and
+radius $\delta_0$, and bound the prime sum as in the proof of \cref{lem:zerocount}, using
+\cref{inp:X31}:
+\[
+  \LL\sum_{\rho}\Phi^\theta_\sigma(\rho)\le\frac{f^\theta_\sigma(0)}2\varphi(\chi)\LL+\LL F^\theta_\sigma(-\sigma)
+  +\tfrac18H_0\eps_1\LL+O\Bigl(\frac\LL{\log\LL}\Bigr).
+\]
+By \cref{lem:envelope}(iv) for $\psi^\theta$ the right side is at most
+$\LL(H_0B^\theta_{\varphi(\chi)}(\sigma)+\frac14H_0\eps_1)$ for large $q$. Only the finitely many functions
+$f^\theta_\sigma$, $\sigma\in\mathcal A$, occur, so one $q_0$ serves them all.
+\end{proof}
+
+\begin{proposition}[Localized envelope]\label{prop:envelope}
+For $q\ge q_0$ the following holds. Let $\chi\ne\chi_0$ and $\lambda_*\in[\lambda_{11},C_P]$, and suppose that
+every zero in the disc of $\chi$ has parameter at least $\lambda_*$. Then
+\[
+  \frac1{H_0}\sum_{\rho\in R_P}\bigl|H\bigl((1-\rho)\LL\bigr)\bigr|\le
+  \mathcal G_{\varphi(\chi)}(\lambda_*)+\eps_1e^{-A\lambda_*},
+\]
+the sum running over the zeros of $L(s,\chi)$ in $R_P$ with multiplicity. In particular the
+left side is at most $\mathcal G(\lambda_*)+\eps_1e^{-A\lambda_*}$, and at most
+$\mathcal G_{1/4}(\lambda_*)+\eps_1e^{-A\lambda_*}$ if $\chi$ is real.
+\end{proposition}
+
+\begin{proof}
+Let $N=N(C_P)$ be as in \cref{lem:zerocount}. The parameter $\theta$ of stage (S3) satisfies
+\begin{equation}\label{eq:thetachoice}
+  3(N+6)\theta+H_0\sup\bigl|B^\theta_\phi-B_\phi\bigr|\le\tfrac14H_0\eps_1,
+\end{equation}
+the supremum over $[0,C_P]$ and $\phi\in\{\frac14,\frac13\}$ (\cref{lem:smoothing}(iii)). Let
+$\sigma\in\mathcal A$ be the largest grid point with $\sigma\le\lambda_*$, so that $\lambda_*-\sigma\le h_{\mathcal A}$. Let
+$\rho\in R_P$. Then $\rho$ is in the disc, so $\lambda_\rho\ge\lambda_*\ge\sigma$, and by \eqref{eq:termbound},
+\cref{lem:smoothing}(ii) and \cref{lem:envelope}(iii) for $\psi^\theta$,
+\[
+  \bigl|H\bigl((1-\rho)\LL\bigr)\bigr|=e^{-A\lambda_\rho}|\Psi(\lambda_\rho-i\mu_\rho)|^2
+  \le e^{-A\lambda_*}\bigl(\Phi^\theta_\sigma(\rho)+3\theta\bigr).
+\]
+The zeros of the disc that are not in $R_P$ have $\Phi^\theta_\sigma\ge0$. Summing over the at most $N$
+zeros in $R_P$ and using \cref{lem:anchored} and \eqref{eq:thetachoice},
+\[
+  \sum_{\rho\in R_P}\bigl|H\bigl((1-\rho)\LL\bigr)\bigr|\le
+  e^{-A\lambda_*}\Bigl(H_0B^\theta_{\varphi(\chi)}(\sigma)+\tfrac14H_0\eps_1+3N\theta\Bigr)
+  \le e^{-A\lambda_*}H_0\bigl(B_{\varphi(\chi)}(\sigma)+\tfrac12\eps_1\bigr),
+\]
+and $B_{\varphi(\chi)}(\sigma)\le B_{\varphi(\chi)}(\lambda_*)+\frac14\eps_1$ by the choice of $h_{\mathcal A}$. Finally
+$\varphi(\chi)\le\frac13$ always, $\varphi(\chi)=\frac14$ for real $\chi$ (whose order is $2\le\LL$), and $B_\phi$
+increases with $\phi$.
+\end{proof}
+
+\begin{remark}\label{rem:lemma310}
+\Cref{prop:envelope} is a localized form of Xylouris's Lemma~3.10 \cite[pp.~35--36]{Xylouris2011nullstellen},
+applied with $m=1$, $f_1=f^\theta_\sigma$ and $H_2=(\Psi^\theta)^2$, for which his condition (3.59) holds
+with equality by \cref{lem:envelope}(ii); the prime weight $H$ is then compared with $(\Psi^\theta)^2$
+through \cref{lem:smoothing}(ii). We require only that the zeros in the disc have parameter at least
+$\lambda_*$, where Xylouris requires that $L(s,\chi)$ have no zero with $1-\lambda_*/\LL<\beta\le1$ and
+$|\gamma|\le1$; his proof uses this hypothesis only for the zeros in the disc, which have
+$|\gamma|\le\delta_0<1$. His printed statement allows $f_1$ to be a sum of $m$ pieces; for $m>1$ his proof
+needs in addition that $f_{1i}(0)\ge0$ for each piece, and that the sum over the square be enlarged to
+a sum over a disc common to all pieces before \cref{inp:X32} is applied to them. With $m=1$ neither
+point arises. Finally, we use finitely many anchors, so that no uniformity in the anchor is needed.
+The coefficient $\varphi(\chi)/2$ comes from \cref{inp:X32}; the printed Lemma~3.10 uses
+$\varphi(\chi)\le\frac13$.
+\end{remark}
+
+\subsection{Ordinary and reserved characters}\label{subsec:ordinarycost}
+Let $\chi$ be a nonprincipal character (in the case tree, one outside the first family; in
+\cref{thm:large}, any), and let $\lambda_\chi$ be the parameter of its $T^*$-representative or of its
+height-one representative (\cref{def:representative}). If $L(s,\chi)$ has a zero in $R_P$, then that zero lies in $R(l)$ and
+has $|\gamma|\le C_P/\LL<T^*$, so the representative exists and $\lambda_\chi\le C_P$. In the regimes
+in which we use these costs $\lambda_1\ge0.1$, so $\lambda_\chi\ge\lambda_{11}$.
+
+\begin{corollary}[Cost of a character with a representative]\label{cor:ordinarycost}
+Suppose $\lambda_1\ge0.1$. Let $\chi\ne\chi_0$ have a zero in $R_P$, and let
+$\lambda_\chi$ be the parameter of either its $T^*$-representative or its height-one
+representative. For sufficiently large $q$, its contribution to $W$ is at most
+\[
+  \mathcal G(\lambda_\chi)+\eps_1e^{-A\lambda_\chi},\qquad \eps_1=\eta/23.
+\]
+If $\chi$ is real, $\mathcal G$ may be replaced by $\mathcal G_{1/4}$.
+The threshold is uniform over these choices of character and representative.
+\end{corollary}
+
+\begin{proof}
+We check the hypothesis of \cref{prop:envelope} with $\lambda_*=\lambda_\chi$. A zero in the disc
+with parameter at most $C_P$ lies in $R(l)$ for large $q$, since $C_P<\frac13\log\log\LL$ and
+$|\gamma|\le\delta_0<1\le l$; it has $|\gamma|\le\delta_0<\frac12\le T^*$, so its parameter is at least
+$\lambda_\chi$ by the minimality of the representative. A zero in the disc with parameter
+above $C_P$ has parameter above $\lambda_\chi$.
+\end{proof}
+
+\subsection{The first family inside the buffer}\label{subsec:firstinside}
+Suppose that $\rho_1\in R_B$, that $\lambda_1\in[a,b]$ with $a\ge\lambda_{11}$, and that every zero
+occurrence of the first family in $R(l)$ other than the \emph{distinguished} ones has parameter at
+least $p$, where $p\le C_P$; equivalently, $p\le\lambda'$. We assume that $a,p\in\mathcal A$ (in the leaves they are
+the numbers $a$ and $p^*$ of \cref{subsec:zerocount}). The distinguished occurrences and their
+number $\alpha$ per character are those of \cref{def:additionalzero} and the table after it. Let $\phi_1=\frac14$ if $\chi_1$ is real and $\phi_1=\frac13$ otherwise, and put
+\begin{align*}
+  J_{\mathrm{old}}&=n\Bigl[e^{-Ap}\bigl(B_{\phi_1}(a)-\alpha\tilde h(a)\bigr)_++\alpha e^{-Aa}\tilde h(a)\Bigr],\\
+  J_{\mathrm{new}}&=n\Bigl[\alpha e^{-Aa}\tilde h(a)+e^{-Ap}\bigl(B_{\phi_1}(p)-\alpha C(p,a)\bigr)\Bigr]
+  \qquad(p\ge b).
+\end{align*}
+
+\begin{proposition}[Cost of the first family inside the buffer]\label{prop:firstinside}
+Suppose $\rho_1\in R_B$, $\lambda_1\in[a,b]$, $a,p\in\mathcal A$,
+$a\ge\lambda_{11}$, and $p\le\min(\lambda',C_P)$.
+For sufficiently large $q$, the contribution of all $n$ characters of the first family
+to $W$ is at most $J_{\mathrm{old}}+n\eps_1$. If also $p\ge b$, it is at most
+$J_{\mathrm{new}}+n\eps_1$. Here $J_{\mathrm{old}}$ and $J_{\mathrm{new}}$ are the displayed
+functions of $a,p,n,\alpha$, and $\phi_1$.
+\end{proposition}
+
+The two bounds use different anchors. The bound $J_{\mathrm{old}}$ uses the lower endpoint
+$a$ of the first-zero cell. The bound $J_{\mathrm{new}}$ uses $p$, the lower bound for the
+remaining zeros, and estimates the distinguished zero together with its correction in
+the explicit formula. Their combined expression is smaller than a separate estimate
+of the two terms.
+
+\begin{proof}
+It suffices to treat one first-family character $\chi$; the bound for its conjugate is the same,
+because $R_P$ and the disc are symmetric under conjugation. A zero of the disc of $\chi$ lies in $R(l)$
+or has parameter above $\frac13\log\log\LL>C_P$. So every zero of the disc has parameter at least
+$\lambda_1\ge a$, and every non-distinguished one has parameter at least $p$. Write $\cS$ for the
+distinguished occurrences of $\chi$; they lie in $R_B$, hence in the disc.
+
+\emph{The bound $J_{\mathrm{old}}$.} Every non-distinguished occurrence has parameter at least
+$\max(p,\lambda_1)\ge\max(p,a)$, and $J_{\mathrm{old}}$ decreases as $p$ increases; so we may and do
+assume $p\ge a$. For a non-distinguished $\rho\in R_P$ we then have $\lambda_\rho\ge p\ge a$, and
+$|H((1-\rho)\LL)|\le e^{-Ap}|\Psi(\lambda_\rho-i\mu_\rho)|^2\le e^{-Ap}(\Phi^\theta_a(\rho)+3\theta)$. By
+\cref{lem:anchored} at $\sigma=a$, since every term $\Phi^\theta_a$ in the disc is nonnegative and there are
+at most $N$ zeros in $R_P$,
+\[
+  \sum_{\rho\in R_P\setminus\cS}\bigl|H\bigl((1-\rho)\LL\bigr)\bigr|\le
+  e^{-Ap}\Bigl(H_0B^\theta_{\phi_1}(a)+\tfrac14H_0\eps_1+3N\theta-\sum_{\rho\in\cS}\Phi^\theta_a(\rho)\Bigr).
+\]
+For $\rho\in\cS$ put $X_\rho=|\Psi(\lambda_1-i\mu_\rho)|^2$; then $\Phi^\theta_a(\rho)\ge X_\rho-3\theta$ and
+$|H((1-\rho)\LL)|=e^{-A\lambda_1}X_\rho$. We add $e^{-A\lambda_1}X_\rho$ for every $\rho\in\cS$; for those in $R_P$
+this is their contribution, and for the others it is a nonnegative addition. By \eqref{eq:thetachoice}
+the total is at most
+\[
+  e^{-Ap}H_0B_{\phi_1}(a)+\sum_{\rho\in\cS}X_\rho\bigl(e^{-A\lambda_1}-e^{-Ap}\bigr)+H_0\eps_1 .
+\]
+If $\lambda_1\le p$, each summand increases with $X_\rho$, and
+$X_\rho\le\Psi(\lambda_1)^2\le\Psi(a)^2=H_0\tilde h(a)$; so the total is at most
+$H_0[e^{-Ap}(B_{\phi_1}(a)-\alpha\tilde h(a))+\alpha e^{-A\lambda_1}\tilde h(a)+\eps_1]$, which is at most
+$H_0(J_{\mathrm{old}}/n+\eps_1)$. If $\lambda_1>p$, each summand is $\le0$, and the total is at
+most $H_0[e^{-Ap}B_{\phi_1}(a)+\eps_1]\le H_0[e^{-Ap}(B_{\phi_1}(a)-\alpha\tilde h(a))_++\alpha e^{-Ap}\tilde h(a)+\eps_1]$,
+which is again at most $H_0(J_{\mathrm{old}}/n+\eps_1)$ because $p\ge a$.
+
+\emph{The bound $J_{\mathrm{new}}$.} Now $p\ge b\ge\lambda_1$. Apply \cref{lem:anchored} at
+$\sigma=p$. The non-distinguished zeros of the disc have $\Phi^\theta_p\ge0$, and for those in $R_P$,
+$|H((1-\rho)\LL)|\le e^{-Ap}(\Phi^\theta_p(\rho)+3\theta)$. Therefore the contribution of $\chi$ is at
+most
+\[
+  e^{-Ap}\Bigl(H_0B^\theta_{\phi_1}(p)+\tfrac14H_0\eps_1+3N\theta\Bigr)
+  +\sum_{\rho\in\cS}\Bigl(e^{-A\lambda_1}|\Psi(\lambda_1-i\mu_\rho)|^2\,\1_{\rho\in R_P}-e^{-Ap}\Phi^\theta_p(\rho)\Bigr).
+\]
+The indicator may be replaced by $1$, since the term it multiplies is nonnegative, and
+$|\Psi(\lambda_1-i\mu_\rho)|^2\le|\Psi^\theta(\lambda_1-i\mu_\rho)|^2+3\theta$. For a real number $y$ consider
+\[
+  D(y)=e^{-A\lambda_1}|\Psi^\theta(\lambda_1+iy)|^2-e^{-Ap}\,\Re F^\theta_p(\lambda_1-p+iy)
+  =\int_0^\infty k(t)\cos(yt)\,dt,
+\]
+where, by \cref{lem:envelope}(ii) for $\psi^\theta$ and the definition of $f^\theta_p$,
+\[
+  k(t)=e^{-A\lambda_1}f^\theta_{\lambda_1}(t)-e^{-Ap}e^{(p-\lambda_1)t}f^\theta_p(t)
+  =2\int\psi^\theta(u)\psi^\theta(u+t)e^{-\lambda_1t}\bigl(e^{-\lambda_1(A+2u)}-e^{-p(A+2u)}\bigr)\,du .
+\]
+Since $\lambda_1\le p$, the integrand is nonnegative, so $k\ge0$ and $D(y)\le D(0)=\int_0^\infty
+k(t)\,dt$. Moreover $k(t)$ decreases as $\lambda_1$ increases, for each $t$, because both
+$e^{-\lambda_1t}$ and the bracket decrease. Hence
+\[
+  D(y)\le\int_0^\infty k(t)\big|_{\lambda_1=a}\,dt=e^{-Aa}\Psi^\theta(a)^2-e^{-Ap}F^\theta_p(a-p)
+  =H_0\bigl(e^{-Aa}\tilde h^\theta(a)-e^{-Ap}C^\theta(p,a)\bigr),
+\]
+by \cref{lem:envelope}(iv). By \cref{lem:smoothing}(ii),(iii), $H_0|\tilde h^\theta(a)-\tilde h(a)|\le3\theta$ and
+$H_0|C^\theta(p,a)-C(p,a)|\le3\theta$. So each of the $\alpha\le2$ distinguished occurrences contributes at
+most $H_0(e^{-Aa}\tilde h(a)-e^{-Ap}C(p,a))+9\theta$, and with \eqref{eq:thetachoice} the contribution of $\chi$ is
+at most $H_0(J_{\mathrm{new}}/n+\eps_1)$.
+\end{proof}
+
+We write $J_1=\min(J_{\mathrm{old}},J_{\mathrm{new}})$, where $J_{\mathrm{new}}$ is omitted when
+$p<b$. In every leaf of the case tree the anchor $p$ is at most $2.293<3\le C_P$, so the hypothesis
+$p\le C_P$ holds. In $J_{\mathrm{new}}$ the quantity $B_{\phi_1}(p)-\alpha C(p,a)$ may be negative; the
+argument does not require it to be positive.
+
+\subsection{The first family outside the buffer}\label{subsec:firstoutside}
+Suppose now that $\rho_1\notin R_B$. Since $\lambda_1<C_B$ in the regimes where this occurs,
+this means $|\mu_1|>C_B$. The global zero $\rho_1$ is not in $R_P$ and contributes nothing to $W$,
+but the first-family characters may have other zeros in $R_P$. As before, the distinguished
+occurrences are $\rho_1$ (and $\overline{\rho_1}$) for $\chi_1$ and $\overline{\rho_1}$ for $\bchi_1$, and
+every other zero occurrence of the first family in $R(l)$ has parameter at least $p\ge a$, where $p\in\mathcal A$
+(in the leaves, $p=p^\circ$).
+
+For a first-family character $\chi$ with a zero in $R_P$, let $t_\chi$ be the least parameter of
+its zeros in $R_P$. Then $t_\chi\ge p$, and the corresponding zero has $|\gamma|\le C_P/\LL\le1$.
+
+\begin{proposition}[Cost of the first family outside the buffer]\label{prop:firstoutside}
+Suppose $\rho_1\notin R_B$, $\lambda_1\ge a\ge\lambda_{11}$, and
+$p\in\mathcal A$ satisfies $a\le p\le\lambda'$. For a first-family character with a
+zero in $R_P$, let $t_\chi$ be the least parameter of its zeros in $R_P$.
+Let $\alpha$ be the number of distinguished occurrences per character, and put
+$\phi_1=1/4$ for a real $\chi_1$ and $\phi_1=1/3$ otherwise.
+There is a constant $c_{\mathrm{out}}$, depending only on the fixed choices of stages (S1)--(S3) of
+\cref{subsec:order} (in particular on $\theta$), such that for $q\ge q_0$ the following holds. Each
+first-family character $\chi$ with a zero in $R_P$ contributes at most
+\[
+  e^{-At_\chi}B_{\phi_1}(p)+\eps_1+\frac{\alpha\,c_{\mathrm{out}}}{H_0C_B^2}
+\]
+to $W$, and a first-family character without a zero in $R_P$ contributes nothing.
+\end{proposition}
+
+\begin{proof}
+Apply \cref{lem:anchored} at $\sigma=p\in\mathcal A$. For $\rho\in R_P$ we have $\lambda_\rho\ge t_\chi\ge p$ and
+$|H((1-\rho)\LL)|\le e^{-At_\chi}(\Phi^\theta_p(\rho)+3\theta)$. The non-distinguished zeros of the disc
+have $\Phi^\theta_p\ge0$, and so does a distinguished occurrence with $\lambda_\rho\ge p$. A distinguished
+occurrence $\rho$ in the disc with $\lambda_\rho<p$ has $\lambda_\rho-p\in[a-p,0)\subseteq[-C_P,0]$ and
+$|\mu_\rho|>C_B$. Since $f^\theta_p$ is smooth on $[0,T]$ and vanishes near $T$, two integrations
+by parts give, for $x\in[-C_P,0]$ and real $Y\ne0$,
+\[
+  \bigl|\Re F^\theta_p(x+iY)\bigr|=\Bigl|\Re\Bigl(\frac{f^\theta_p(0)}{x+iY}+\frac{(f^\theta_p)'(0)}{(x+iY)^2}
+  +\frac1{(x+iY)^2}\int_0^T(f^\theta_p)''(t)e^{-(x+iY)t}\,dt\Bigr)\Bigr|\le\frac{c_{\mathrm{out}}}{Y^2},
+\]
+where $c_{\mathrm{out}}=C_Pf^\theta_p(0)+|(f^\theta_p)'(0)|+e^{C_PT}\|(f^\theta_p)''\|_1$, maximized over the
+finitely many anchors $p$ in use; the first term is bounded by $f^\theta_p(0)|x|/Y^2$. So the
+distinguished terms subtracted in \cref{lem:anchored} total at least $-\alpha c_{\mathrm{out}}/C_B^2$,
+and summing as in \cref{prop:envelope}, with \eqref{eq:thetachoice}, gives the claim.
+\end{proof}
+
+In the leaf programs these contributions are the \emph{hidden columns}: at most one per
+first-family character, carrying the value $t_\chi$, the objective $e^{-At_\chi}B_{\phi_1}(p)$ and,
+because the zero realizing $t_\chi$ has $|\gamma|\le1$, the far weight $w(t_\chi)$
+(\cref{subsec:leafmodel}).
+
+\subsection{The objective and the error allowance}\label{subsec:allowance}
+In a leaf of the case tree (\cref{subsec:vocabulary}) the unknown characters are described as follows (\cref{subsec:leafmodel}): the
+first family, possibly a \emph{reserved} second family of $n_2\in\{1,2\}$ characters with
+height-one representatives in a given interval $[\lo_2,\hi_2]$, and the \emph{ordinary}
+characters, described by their $T^*$-representatives. By
+\cref{cor:ordinarycost,prop:firstinside,prop:firstoutside},
+\begin{equation}\label{eq:Wsplit}
+  W\le\mathcal J_1+\sum_{\chi\ \mathrm{reserved}}\mathcal G_{\phi_2}(\nu_\chi)
+  +\sum_{\chi\ \mathrm{ordinary}}\mathcal G(\lambda_\chi)+E,
+\end{equation}
+where $\phi_2=\frac14$ if the reserved family is a single real character and $\phi_2=\frac13$
+otherwise, $\nu_\chi$ is the parameter of the height-one representative of a reserved
+character. The first-family term $\mathcal J_1$ is $J_1$ for an inside leaf and
+$\sum_\chi e^{-At_\chi}B_{\phi_1}(p)$ for an outside leaf. In the latter case it is
+represented by hidden columns, rather than by the constant part of the leaf objective
+(\cref{subsec:leafmodel}).
+
+There are two sources of error in \eqref{eq:Wsplit}. The envelope errors total less
+than $19\eps_1$ for the ordinary characters, by \eqref{eq:Kfar}, and at most
+$4\eps_1$ for the first and reserved families. The outside first-family bound has the
+additional error $4c_{\mathrm{out}}/(H_0C_B^2)$. We choose
+\[
+  \eps_1=\frac\eta{23},\qquad
+  \frac{4c_{\mathrm{out}}}{H_0C_B^2}\le\eta,
+\]
+so $E\le2\eta$. The error $\eta$ in the prime-detection criterion is accounted for
+separately in \cref{prop:detect}.
+
+Every leaf objective includes an allowance of $5\eta$. Consequently its value bounds
+$W+3\eta$, and therefore also $W+2\eta$, as required by the positivity criterion.
+These choices are made uniformly over the finite collection of leaves in
+\cref{subsec:order}.

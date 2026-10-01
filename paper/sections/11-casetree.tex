@@ -1,0 +1,499 @@
+% !TEX root = ../linnik399.tex
+\section{The case tree}\label{sec:casetree}
+
+This section describes the finite case analysis of the middle range $0.1\le\lambda_1<1.5$ and
+proves that it covers every configuration of zeros (\cref{thm:cover}). The analytic facts it
+uses are the zero-location results of \cref{sec:location}, the costs of \cref{sec:costs}, the far
+budget of \cref{sec:far} and the near rows of \cref{sec:rows}. There are two tasks:
+showing that the cases cover every possible configuration, and showing that a
+configuration in a case gives a feasible point of its program. These are proved
+separately before being combined in \cref{thm:cover}. \Cref{tab:census}, after \cref{subsec:refinement}, lists the levels of the
+analysis, with their numbers and the places where they are defined and checked.
+
+\subsection{Configurations}\label{subsec:configurations}
+\begin{definition}[Zero configuration]\label{def:configuration}
+Fix a sufficiently large $q$. Its \emph{zero configuration} is the multiset $\mathcal Z$ of pairs $(\chi,\rho)$ with
+$\chi\ne\chi_0$ a character modulo $q$, $\rho\in R(l)$ and $L(\rho,\chi)=0$, each pair repeated
+according to the multiplicity of $\rho$.
+\end{definition}
+
+Minima over empty sets are $+\infty$. In the middle range the first zero exists.
+The quantities of \cref{sec:notation} are read off from $\mathcal Z$: the first zero $(\chi_1,\rho_1)$,
+the first family $\mathcal F_1$ with $n=|\mathcal F_1|$, the parameters $\lambda_2,\lambda_3$ and the family
+$\mathcal F_2$ (\cref{def:families}), and the distinguished occurrences, $\lambda'$ and an admissible
+$\rho'$ (\cref{def:additionalzero}); for type $\mathrm{rc}$, $\mu_1>0$. In addition we use the
+following.
+\begin{itemize}
+  \item The \emph{height-one parameter} of $\chi$ is $\nu(\chi)=\min\{\lambda_\rho:(\chi,\rho)\in\mathcal
+    Z,\ |\gamma_\rho|\le1\}$, and the \emph{$T^*$-parameter} is $\nu_{T^*}(\chi)$, defined in the same
+    way with $|\gamma_\rho|\le T^*$ (\cref{def:representative}). Since $L(\rho,\chi)=0$ if and only if
+    $L(\overline\rho,\bchi)=0$, both are functions of the family. We put
+    $\nu_*=\min\{\nu(\mathcal F):\mathcal F\ne\mathcal F_1\}$.
+  \item The configuration is \emph{inside} if $\rho_1\in R_B$ and \emph{outside} otherwise. Since
+    $\lambda_1<1.5<C_B$ in the middle range, outside means $|\mu_1|>C_B$. Type $\mathrm{rr}$ is
+    always inside.
+\end{itemize}
+The definitions give $\lambda_1\le\lambda'$, $\lambda_1\le\lambda_2\le\lambda_3$, and
+$\nu_{T^*}(\chi)\ge\nu(\chi)\ge\lambda_2$ for $\chi\notin \mathcal F_1$.
+
+\subsection{Specifications}\label{subsec:specifications}
+
+A specification records interval information about a configuration. It may describe
+no actual configuration; in that event the corresponding case can be excluded.
+Its two lower bounds $l_2$ and $r$ have different scopes: $l_2$ applies throughout
+$R(l)$, whereas $r$ applies only to the height-one representatives.
+
+\begin{definition}[Specification]\label{def:specification}
+A \emph{specification} is a tuple
+\[
+  \mathfrak s=(\mathfrak t,[a,b],p,\mathrm{gap},l_2,r,\mathrm{res},\mathrm{loc})
+\]
+with the following data:
+\begin{itemize}
+  \item a type $\mathfrak t\in\{\mathrm{rr},\mathrm{rc},\mathrm{complex}\}$ and a
+    first-zero cell $[a,b]$, where $a<b$;
+  \item a lower bound $p$ for $\lambda'$, and optionally an interval
+    $\mathrm{gap}=[\lo',\hi']$ with $p\le\lo'<\hi'\le\infty$, called a \emph{gap}
+    (used only for type $\mathrm{complex}$);
+  \item a global second-family lower bound $l_2$ and a height-one lower bound $r$,
+    with $l_2\le r\le3$;
+  \item either no reservation, or a pair $\mathrm{res}=(\hi_2,n_2)$ with
+    $r<\hi_2\le2$ and $n_2\in\{1,2\}$; in the latter case put $\lo_2=r$;
+  \item a height class $\mathrm{loc}\in\{\mathrm{inside},\mathrm{outside}\}$.
+\end{itemize}
+The \emph{configuration set} $C(\mathfrak s)$ consists of the configurations for which
+some admissible choices of the first zero and the minimizing families satisfy all of
+the following:
+\begin{enumerate}[(C1)]
+  \item the type is $\mathfrak t$ and $\lambda_1\in[a,b]$;
+  \item $\lambda'\ge p$, and $\lambda'\in[\lo',\hi']$ if a gap is present (with $\lambda'=\infty$ allowed
+    when $\hi'=\infty$);
+  \item $\lambda_2\ge l_2$;
+  \item if $\mathrm{res}$ is none, then $\nu(\mathcal F)\ge r$ for every family $\mathcal F\ne\mathcal F_1$; if
+    $\mathrm{res}=(\hi_2,n_2)$, then $\nu_*\in[r,\hi_2]$ and some family $\mathcal F_{\mathrm{res}}\ne\mathcal F_1$ with
+    $\nu(\mathcal F_{\mathrm{res}})=\nu_*$ has exactly $n_2$ characters (so it is a real character if $n_2=1$ and
+    a pair of conjugate nonreal characters if $n_2=2$);
+  \item the configuration is inside if $\mathrm{loc}=\mathrm{inside}$ and outside if $\mathrm{loc}=\mathrm{outside}$.
+\end{enumerate}
+In the reserved case, (C4) implies $\nu(\mathcal F)\ge r$ for every $\mathcal F\ne\mathcal F_1$. We call $\mathcal F_{\mathrm{res}}$ the
+\emph{reserved family} and its characters \emph{reserved}; the characters outside $\mathcal F_1$ and
+$\mathcal F_{\mathrm{res}}$ are \emph{ordinary}.
+\end{definition}
+
+In a formula containing $\lo'$, that argument is omitted if no gap is present.
+Likewise, reserved-family terms are absent when there is no reservation.
+
+The reserved family is a family with the least height-one parameter among the families other than
+the first; it is not assumed to be the family $\mathcal F_2$ that attains $\lambda_2$, which may have its
+nearest zero at a height above $1$. The following three facts are used in every leaf.
+
+\begin{lemma}[Consequences of reserving a family]\label{lem:familyfacts}
+Let $\mathfrak s$ be a specification and fix a configuration and admissible choices
+witnessing its membership in $C(\mathfrak s)$.
+\begin{enumerate}[(i)]
+  \item \emph{(Count.)} At most two characters $\chi\notin \mathcal F_1$ have $\nu_{T^*}(\chi)<\lambda_3$.
+  \item \emph{(Drop.)} If $\mathfrak s$ is reserved, then $\nu_{T^*}(\chi)\ge\nu(\chi)\ge\lambda_3$ for every
+    ordinary character $\chi$.
+  \item \emph{(Cap.)} If $\mathfrak s$ is reserved, then $\lambda_2\le\nu_*\le\hi_2$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Such a character has a zero in $R(l)$ with parameter below $\lambda_3$, so it lies in $\mathcal F_2$, and
+$|\mathcal F_2|\le2$. (ii) Let $\mathcal F$ be the family of an ordinary character. If $\mathcal F\ne\mathcal F_2$, every zero of $\mathcal F$
+in $R(l)$ has parameter at least $\lambda_3$. If $\mathcal F=\mathcal F_2$, then $\mathcal F_{\mathrm{res}}\notin\{\mathcal F_1,\mathcal F_2\}$, so
+$\nu(\mathcal F_{\mathrm{res}})\ge\lambda_3$, and $\nu(\mathcal F)\ge\nu_*=\nu(\mathcal F_{\mathrm{res}})$ by minimality. (iii) The
+height-one representative of $\mathcal F_{\mathrm{res}}$ is a zero in $R(l)$ of a character outside $\mathcal F_1$.
+\end{proof}
+
+\subsection{The source cover}\label{subsec:sourcecover}
+The roots of the case tree are $2768$ specifications, each used with the height class
+$\mathrm{inside}$, and the $1685$ of them whose type is not $\mathrm{rr}$ used also with the height
+class $\mathrm{outside}$: $4453$ roots in all. They are constructed from the zero-location results of
+\cref{sec:location} in four steps.
+\begin{enumerate}[(1)]
+  \item \emph{Parent rows.} There are $58$ \emph{parent rows} $(\mathfrak t,A_j,B_j,p_j,r_j)$: $33$ of type
+    $\mathrm{rr}$ tiling $[0.1,1.5]$, $13$ of type $\mathrm{rc}$ tiling $[0.628,1.5]$, and $12$ of type
+    $\mathrm{complex}$ tiling $[0.44,1.5]$. Each is the statement
+    \begin{equation}\tag{T2}\label{eq:T2}
+      \text{type }\mathfrak t,\ \lambda_1\in[A_j,B_j]\ \Longrightarrow\ \lambda'\ge p_j\ \text{and}\ \lambda_2\ge r_j,
+    \end{equation}
+    which is proved in \cref{prop:parentrows} from the tables of Heath-Brown and Xylouris.
+  \item \emph{Base cells.} Each parent interval is cut into cells of width $0.01$, giving $340$
+    \emph{base cells}.
+  \item \emph{Cells and gaps.} The base cells are tiled by $478$ first-zero cells in all. A cell
+    $[\lo,\hi]$ of the parent $j$ receives numbers $p\le\max(p_j,\lo)$ and $l_2\le\max(r_j,\lo)$; this is
+    valid since $\lambda',\lambda_2\ge\lambda_1\ge\lo$. A cell of type
+    $\mathrm{complex}$ may be \emph{partitioned} by gaps $[p,m_1],[m_1,m_2],\dots,[m_k,\infty]$ for
+    $\lambda'$. The cells that are not partitioned, and the gaps of those that are, are the $684$
+    \emph{gap cases}.
+  \item \emph{Records.} Each gap case is either \emph{unreserved}, with one specification with
+    $r=l_2$ and no reservation, or \emph{reserved} with a chain $l_2=u_0<u_1<\dots<u_m=e\le2$,
+    with specifications $(\mathrm{res}=(u_{j+1},n_2),\,r=u_j)$ for $n_2=1,2$ and $0\le j<m$,
+    followed by an unreserved \emph{tail} specification with $r=e$.
+\end{enumerate}
+By type there are $1083$ specifications of type $\mathrm{rr}$ ($195$ unreserved, $444$ reserved
+with $n_2=1$ and $444$ with $n_2=2$), $115$ of type $\mathrm{rc}$ (all unreserved and without gap)
+and $1570$ of type $\mathrm{complex}$.
+
+\begin{theorem}[Coverage by the root cases]\label{thm:sourcecover}
+Every configuration with $0.1\le\lambda_1<1.5$ lies in $C(\mathfrak s)$ for at least one of the $4453$
+root specifications $\mathfrak s$.
+\end{theorem}
+
+\begin{proof}
+Let $\mathfrak t$ be the type. By \cref{prop:firstlower}, $\lambda_1>0.628$ if $\mathfrak t=\mathrm{rc}$ and
+$\lambda_1>0.44$ if $\mathfrak t=\mathrm{complex}$, so $\lambda_1$ lies in some cell of type $\mathfrak t$ (the
+cells are closed, and a boundary value lies in two cells). By \eqref{eq:T2} for the parent of the
+cell, $\lambda'\ge p$ and $\lambda_2\ge l_2$. If the cell is partitioned, some gap contains $\lambda'$.
+In the corresponding gap case, if it is unreserved, every family $\mathcal F\ne\mathcal F_1$ has $\nu(\mathcal F)\ge\lambda_2\ge
+l_2=r$. If it is reserved with chain $u_0<\dots<u_m$, then $\nu_*\ge\lambda_2\ge u_0$; if $\nu_*<e$
+we choose $j$ with $\nu_*\in[u_j,u_{j+1}]$ and a minimizing family, which is a real character or a
+nonreal pair, and the configuration lies in the corresponding record; otherwise it lies in the
+tail record. Finally the height class is determined by $|\mu_1|$.
+\end{proof}
+
+\subsection{Refinement trees}\label{subsec:refinement}
+Each root is the root of a finite \emph{refinement tree}. Every internal node carries a
+specification (computed from the root, never read from the data) and is of one of the following
+kinds. In each case every configuration of the node lies in the configuration set of one of its
+children, or the node has no configuration at all.
+\begin{itemize}
+  \item \emph{First-zero split} at $a<m<b$: children with cells $[a,m]$ and $[m,b]$, all other data
+    kept. Exhaustive, since $\lambda_1\le m$ or $\lambda_1\ge m$.
+  \item \emph{Second-family split} at $r<m<\hi_2$ (reserved nodes): children $(\hi_2:=m)$ and
+    $(r:=m,\ \lo_2:=m)$. Exhaustive, since $\nu_*\le m$ or $\nu_*\ge m$, and in the second case every
+    family $\mathcal F\ne\mathcal F_1$ has $\nu(\mathcal F)\ge\nu_*\ge m$.
+  \item \emph{Gap split} at $\lo'<m<\hi'$ (type $\mathrm{complex}$): children with gaps $[\lo',m]$ and
+    $[m,\hi']$. Exhaustive.
+  \item \emph{Location update}: a lower bound $\lambda_2>h$ valid on the whole cell
+    (\cref{prop:realrows,prop:complexrows}; \cref{lem:updates}) replaces $l_2$ and $r$ by $\max(l_2,h)$ and
+    $\max(r,h)$, and excludes the node if it is reserved with $\hi_2\le h$. Sound, since every family
+    $\mathcal F\ne\mathcal F_1$ has $\nu(\mathcal F)\ge\lambda_2$.
+  \item \emph{Exclusion} of a reserved interval or a gap by a lower bound for $\lambda_2$ or
+    $\lambda'$ (\cref{prop:polyrows,prop:realfirstsecond}), or of a whole node by the positivity
+    argument of \cref{prop:positivity}.
+\end{itemize}
+Before a leaf model is built, all applicable location updates are applied once more to its
+specification; this only adds valid implications. None of these nodes depends on $L$. The terminal
+nodes are the \emph{leaves}. The inside trees have $3146$ leaves. Of these, $233$ (in $199$ roots) are
+stored in a separate file and are called \emph{supplementary leaves}; the reason is historical
+(\cref{rem:history}). Every leaf, supplementary or not, receives the same model. The
+outside trees have $1642$ leaves. In all there are $4788$ leaves; $343$ inside roots and $70$
+outside roots have none, because all their configurations are excluded.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{lrr}
+\toprule
+Node & Inside & Outside\\
+\midrule
+first-zero / second-family / gap splits & 1 / 408 / 593 & 0 / 27 / 0\\
+location updates, real (restrict / exclude) & 225 / 75 & --\\
+location updates, complex (restrict / exclude) & 11 / 0 & --\\
+exclusions by lower bounds for $\lambda_2$ or $\lambda'$ & 352 & 70\\
+exclusions by positivity & 197 & 0\\
+leaves & 3146 & 1642\\
+\bottomrule
+\end{tabular}
+\caption{Nodes of the refinement trees.}
+\label{tab:nodes}
+\end{table}
+
+\begin{table}[tp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{\dimexpr0.145\linewidth-6.4pt\relax}
+                >{\raggedleft\arraybackslash}p{\dimexpr0.115\linewidth-6.4pt\relax}
+                >{\raggedright\arraybackslash}p{\dimexpr0.37\linewidth-6.4pt\relax}
+                >{\raggedright\arraybackslash}p{\dimexpr0.165\linewidth-6.4pt\relax}
+                >{\raggedright\arraybackslash}p{\dimexpr0.205\linewidth-6.4pt\relax}@{}}
+\toprule
+Level & Number & What it partitions or represents & Where defined & How it is checked\\
+\midrule
+Parent rows & $58$ &
+  Published implications: type $\mathfrak t$ and $\lambda_1\in[A_j,B_j]$ give $\lambda'\ge p_j$,
+  $\lambda_2\ge r_j$ ($33$ $\mathrm{rr}$, $13$ $\mathrm{rc}$, $12$ $\mathrm{complex}$) &
+  \cref{prop:parentrows} &
+  Printed tables; Heath-Brown's Tables~4 and~7 recomputed\\
+Base cells & $340$ &
+  Parent intervals cut into cells of width $0.01$ ($145$, $89$, $106$) &
+  \cref{subsec:sourcecover} &
+  Validated in the replay\\
+First-zero cells & $478$ &
+  Tiling of the base cells ($195$, $115$, $168$), with bounds $p\le\lambda'$ and $l_2\le\lambda_2$ &
+  \cref{subsec:sourcecover} &
+  Validated in the replay\\
+Gap cases & $684$ &
+  $422$ cells without a gap; $262$ gaps for $\lambda'$ partitioning $56$ $\mathrm{complex}$ cells &
+  \cref{subsec:sourcecover} &
+  Validated in the replay\\
+Specifications & $2768$ &
+  Gap cases with a second-family record: $1083$ $\mathrm{rr}$ ($195$ unreserved, $444+444$
+  reserved), $115$ $\mathrm{rc}$, $1570$ $\mathrm{complex}$ &
+  \cref{def:specification} &
+  Validated in the replay\\
+Root cases & $4453$ &
+  $2768$ specifications inside, and the $1685$ not of type $\mathrm{rr}$ also outside &
+  \cref{thm:sourcecover} &
+  Hand proof; replay\\
+Refinement nodes & $1959$ &
+  $1029$ splits, $236$ restricting location updates, $694$ exclusions ($75$ by real location updates, $422$ by
+  lower bounds for $\lambda_2$ or $\lambda'$, $197$ by positivity); $4453+1029=4788+694$ &
+  \cref{subsec:refinement}, \cref{tab:nodes} &
+  Replay; some location rows by separate programs\\
+Leaves & $4788$ &
+  $3146$ inside ($233$ supplementary) and $1642$ outside; $343$ inside and $70$ outside roots have none &
+  \cref{subsec:refinement} &
+  Replay; Lean numeric checker\\
+Certificate trees & $5591$ &
+  One per leaf or subcase of a leaf: $3949$ inside ($349$ for supplementary leaves), $1642$ outside &
+  \cref{subsec:subdivision} &
+  Replay; independent checker; Lean checker\\
+Threshold boxes & $4{,}196{,}879$ &
+  Terminal boxes of the trees: $4{,}109{,}455$ inside ($1{,}042{,}363$ for supplementary leaves), $87{,}424$
+  outside &
+  \cref{def:certificate} &
+  As above\\
+Relaxation cases & $29{,}397{,}336$ &
+  $2^k$ in a box with $k$ tangent rows; $9430$ closed by an exclusion, the rest by integer duals &
+  \cref{def:certificate} &
+  As above, in exact arithmetic\\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Rows and exclusions}}\\
+\midrule
+Near rows & $16{,}842$ &
+  All family, shifted and graded rows ($13{,}528$ inside, $3314$ outside), with $11{,}135{,}323$
+  entries &
+  \cref{subsec:rowkinds} &
+  Interval arithmetic; Lean row checker\\
+Two-test rows & $37$ &
+  On $37$ inside roots: $31$ single, $2$ mixture, $4$ paired &
+  \cref{subsec:twotest} &
+  Replay; exact comparison\\
+Complex location rows & $94$ &
+  $25$ for $\lambda_2$ and $69$ for $\lambda'$ (\cref{prop:complexrows,prop:polyrows}) &
+  Appendix~\ref{app:rows} &
+  Interval arithmetic; separate program\\
+Degree-$5$ real rows & $22$ &
+  Cells covering $[0.700,0.755]$, used in $300$ location nodes &
+  \cref{prop:realrows}, \cref{tab:realrows} &
+  Interval arithmetic; replay\\
+Positivity exclusions & $197$ &
+  Reserved nodes of type $\mathrm{rr}$; least normalized margin $7.8\cdot10^{-5}$ &
+  \cref{prop:positivity} &
+  Interval arithmetic; replay\\
+\bottomrule
+\end{tabular}
+
+\medskip
+\begin{minipage}{\linewidth}
+\footnotesize
+Triples of numbers are counts for the types $\mathrm{rr}$, $\mathrm{rc}$, $\mathrm{complex}$;
+``supplementary'' refers to the supplementary leaves of \cref{subsec:refinement}. Each split adds one
+terminal node; hence the identity in the refinement row. The printed tables were compared with
+the pages of \cite{HeathBrown1992zero,Xylouris2011nullstellen}, and Heath-Brown's Tables~4 and~7
+were recomputed in floating point (\cref{subsec:locconventions}). The replay does not regenerate
+the $94$ complex rows or the conditions \cite[(4.29), (4.34)]{Xylouris2011nullstellen}; separate
+interval programs check them. The Lean row checker covers all near rows except the $37$
+two-test rows.
+\end{minipage}
+\caption{The finite analysis of the middle range $0.1\le\lambda_1<1.5$ at a glance. The case
+tree, from the parent rows to the leaves, partitions configurations of zeros; the boxes and
+relaxation cases partition the thresholds of the near rows. The checks are described in
+\cref{sec:verification}.}
+\label{tab:census}
+\end{table}
+
+\subsection{The leaf model}\label{subsec:leafmodel}
+This subsection gives the real coefficients before integer scaling. An interval
+$[\lo,\hi)$ is charged at its left endpoint in the objective, where the cost is
+largest, and at its right endpoint in density constraints, where the available
+weight is smallest. These choices enlarge the feasible set and give an upper bound
+for every actual distribution of characters in the interval.
+
+Let $\mathfrak s$ be the specification of a leaf, after the location updates. Let $s$ denote the
+\emph{shift} $\min(1.9,p^*,l_2)$, where $p^*=\lo'$ if $\mathfrak s$ has a gap and $p^*=p$ otherwise, and let
+$\lambda_3^{\lo}$ be the lower bound for $\lambda_3$ of \cref{prop:third}, computed from $[a,b]$, the
+type and, for a reserved $\mathfrak s$, the cap $\hi_2$. The leaf program (\cref{def:leafprogram}) has the
+columns of \cref{tab:leafmodel}. Every number is rounded in the safe direction at scale $S$: far weights,
+features and the hidden-tail count coefficient $1/w(\mathrm{end})$ down; objective coefficients,
+diagonals, correlation terms, the far budget and the constant $\mathrm{first}$ up. Let $O$ be the set
+of ordinary characters with a zero in $R_P$, and $\mathcal H$ the set of first-family characters with a
+zero in $R_P$.
+\begin{enumerate}[(a)]
+  \item \emph{Ordinary bins.} Let $R=\max(3,r)$ and let $r=\xi_0<\xi_1<\dots<\xi_N=R$ consist of $r$,
+    $R$ and the multiples of $1/\mathrm{den}$ between them, where $\mathrm{den}\in\{200,400,500,800,2000\}$
+    is fixed per leaf. The bins are the intervals $[\xi_i,\xi_{i+1})$, except that in a reserved leaf the
+    bins with $\xi_{i+1}\le\lambda_3^{\lo}$ are omitted. The ordinary characters beyond $R$ form the tail.
+  \item \emph{Reserved family.} Either (fixed terms) the family is charged $n_2\mathcal G_{\phi_2}(\lo_2)$ in
+    $\mathrm{first}$ and $n_2w(\hi_2)$ in the far budget, and it appears in the near rows as a family
+    term with its feature at $\hi_2$ (there are then no second-family columns, and the count $n_E$ of the
+    second-family equality of \cref{def:leafprogram} is $0$); or (columns) the interval $[\lo_2,\hi_2]$ is cut
+    at the multiples of $1/400$ into reserved columns $[\lo_{2,j},\hi_{2,j}]$, with values $z_j$ and
+    $\sum_jz_j=n_2=n_E$.
+  \item \emph{Hidden columns} (outside leaves only). Put $p^\circ=\max(a,p,\lo')$ and
+    $\mathrm{end}=\max(3,p^\circ)$. The hidden bins $[\lo_h,\hi_h)$ divide $[p^\circ,\mathrm{end}]$ on the grid
+    $1/\mathrm{den}$, and the hidden tail collects the values $t_\chi\ge\mathrm{end}$. The hidden count is at
+    most $n$.
+\end{enumerate}
+
+\begin{table}[ht]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.25cm}>{\raggedright\arraybackslash}p{3.3cm}cccccl@{}}
+\toprule
+Column & Value $x_c$ & $G_c$ & $W_c$ & $C_c$ & $N_c$ & $E_c$ & Near rows\\
+\midrule
+ordinary bin $[\xi_i,\xi_{i+1})$ & number of $\chi\in O$ with $\nu_{T^*}(\chi)$ in the bin & $\mathcal G(\xi_i)$ &
+  $w(\xi_{i+1})$ & $0$ or $1$\textsuperscript{a} & $0$ & $0$ & entry (a)\\
+tail & $\sum w(\nu_{T^*}(\chi))$ over $\chi\in O$ with $\nu_{T^*}(\chi)\ge R$ & $\mathcal G(R)/w(R)$ & $1$ & $0$ &
+  $0$ & $0$ & omitted\\
+reserved column\textsuperscript{b} $[\lo_{2,j},\hi_{2,j}]$ & $z_j=n_2$ if $\nu_*$ is in the column, else $0$ &
+  $\mathcal G_{\phi_2}(\lo_{2,j})$ & $w(\hi_{2,j})$ & $0$ & $0$ & $1$ & entry (f)\\
+hidden bin\textsuperscript{c} $[\lo_h,\hi_h)$ & number of $\chi\in\mathcal H$ with $t_\chi$ in the bin &
+  $e^{-A\lo_h}B_{\phi_1}(p^\circ)$ & $w(\hi_h)$ & $0$ & $1$ & $0$ & entry (g)\\
+hidden tail\textsuperscript{c} & $\sum w(t_\chi)$ over $\chi\in\mathcal H$ with $t_\chi\ge\mathrm{end}$ &
+  $\dfrac{e^{-A\,\mathrm{end}}B_{\phi_1}(p^\circ)}{w(\mathrm{end})}$ & $1$ & $0$ & $\dfrac1{w(\mathrm{end})}$ & $0$ &
+  omitted\\
+\bottomrule
+\end{tabular}
+\caption{The columns of a leaf program and their real coefficients before scaling by $S$:
+objective $G_c$, far weight $W_c$, count $C_c$, hidden count $N_c$ and second-family indicator
+$E_c$ (\cref{def:leafprogram}). The last column gives the entry of \cref{tab:entries} that supplies
+the feature and diagonal of the column in each near row. (a) $1$ if $\mathfrak s$ is unreserved
+and $\xi_{i+1}\le\lambda_3^{\lo}$, and $0$ otherwise. (b) Only if the reserved family is charged
+through columns. (c) Outside leaves only.}
+\label{tab:leafmodel}
+\end{table}
+Before scaling and rounding, the far budget is $(1+\eta)V-\1_{\mathrm{inside}}\,n\,w(b)$,
+with a further subtraction of $n_2w(\hi_2)$ for a fixed reserved-family term.
+The stored integer budget $F$ is formed by rounding the initial budget up and each
+subtraction down, as in \cref{sec:far}. The count budget is $2$, and the stored
+allowance satisfies $\mathrm{final}/S=5\eta$.
+For an inside leaf, $\mathrm{first}/S$ is rounded up from
+$J_1=\min(J_{\mathrm{old}},J_{\mathrm{new}})$ with anchor $p^*$, omitting
+$J_{\mathrm{new}}$ when $p^*<b$. For an outside leaf it starts at $0$.
+The fixed reserved-family charge, if used, is added with upward rounding.
+The near rows are those of \cref{sec:rows}.
+
+\subsection{Subdivision of a leaf}\label{subsec:subdivision}
+A leaf may be certified through finitely many subcases, each of which is certified with its own
+leaf model. Besides the second-family split above, three kinds are used. The first replaces the
+specification by three specifications. The other two restrict one further quantity $Q$ of the
+configuration to one of finitely many intervals $I$ whose union is the range of $Q$; the
+configuration set of the subcase $(\mathfrak s,I)$ is the set $C(\mathfrak s,I)$ of configurations for which, for
+some admissible choice of $(\chi_1,\rho_1)$, of the minimizers and of $\rho'$, (C1)--(C5) hold and
+$Q\in I$. Then $C(\mathfrak s)$ is the union of the sets $C(\mathfrak s,I)$, and all the results of
+\cref{sec:rows,sec:casetree} that are stated for $C(\mathfrak s)$ hold for $C(\mathfrak s,I)$ with the same proofs.
+
+\begin{lemma}[Reservation split]\label{lem:reservationsplit}
+Let $\mathfrak s$ be unreserved with ordinary lower bound $r$, and let $r<h\le2$. Let $\mathfrak s_1$ and
+$\mathfrak s_2$ be $\mathfrak s$ with the reservation $(h,1)$ and $(h,2)$ (so $\lo_2=r$ and $\hi_2=h$), and let $\mathfrak s_0$ be $\mathfrak s$ with
+$r$ replaced by $h$. Then $C(\mathfrak s)\subseteq C(\mathfrak s_0)\cup C(\mathfrak s_1)\cup C(\mathfrak s_2)$.
+\end{lemma}
+
+\begin{proof}
+If $\nu_*<h$, a family $\mathcal F\ne\mathcal F_1$ attaining $\nu_*$ exists, and it is a real character or a pair of
+conjugate nonreal characters; the configuration lies in $C(\mathfrak s_1)$ or $C(\mathfrak s_2)$, since
+$\nu_*\ge r$. Otherwise every family $\mathcal F\ne\mathcal F_1$ has $\nu(\mathcal F)\ge h$, and the configuration lies in
+$C(\mathfrak s_0)$.
+\end{proof}
+
+In a reserved child the model uses only the minimality of the reserved family
+(\cref{lem:familyfacts}(ii)) and the cap $\lambda_2\le h$ (\cref{lem:familyfacts}(iii)); it never uses
+that the reserved family is $\mathcal F_2$. The split of \cref{lem:reservationsplit} is used with $h=\min(\lambda_3^{\lo},2)$ on four inside
+roots and on five roots that contain supplementary leaves.
+
+\emph{Height split for type $\mathrm{rc}$.} An inside leaf of type $\mathrm{rc}$ is split by $Q=\mu_1$
+(recall that $\mu_1>0$ for this type) into $\mu_1\in[0,1]$ and $\mu_1\in[1,\infty)$, which changes only the
+family row (\cref{sec:rows}).
+
+\emph{Second-zero height split.} An inside leaf of type $\mathrm{complex}$ with a finite gap is
+split by $Q=|y|$, where $y=\mu_1-\mu_{\rho'}=(\gamma_1-\gamma')\LL$ is the normalized height difference between
+$\rho_1$ and the non-distinguished zero $\rho'$ of $\chi_1$ realizing $\lambda'$ (a zero of $\chi_1$, not of $\bchi_1$;
+\cref{sec:notation}), into six pieces, according as $|y|$ lies in $[0,1]$, $[1,\frac32]$, $[\frac32,2]$, $[2,3]$,
+$[3,5]$ or $[5,\infty)$. This changes only the family row. A piece may be certified by an exclusion (\cref{def:certificate}(i)) rather than by
+duals: the near row alone is then infeasible.
+
+\subsection{Realization and the cover theorem}\label{subsec:realization}
+
+\begin{proposition}[Realization]\label{prop:realization}
+Let $\mathfrak s$ specify a leaf or one of its subcases, with the program constructed
+in \cref{subsec:leafmodel}. For every sufficiently large $q$ whose configuration lies
+in $C(\mathfrak s)$, there is a feasible pair $(x,\tau)$ such that
+\[
+  W(q)+2\eta\le\mathcal V(x).
+\]
+The column values $x$ are obtained from the actual character counts and weighted tail
+masses. The threshold $q_0$ may be chosen uniformly over the finite set of leaves and
+subcases.
+\end{proposition}
+
+\begin{proof}
+Let $O$ and $\mathcal H$ be as in \cref{subsec:leafmodel} ($\mathcal H$ is used only if the
+configuration is outside). For
+$\chi\in O$ we have $\nu_{T^*}(\chi)\le C_P$ and $\nu_{T^*}(\chi)\ge\nu(\chi)\ge r$ by (C4). Put $x_i$
+equal to the number of $\chi\in O$ with $\nu_{T^*}(\chi)\in[\xi_i,\xi_{i+1})$, $x_{\mathrm{tail}}=\sum w(\nu_{T^*}(\chi))$
+over $\chi\in O$ with $\nu_{T^*}(\chi)\ge R$, $z_j$ equal to $n_2$ for the reserved column containing
+$\nu_*$ and $0$ otherwise, $x^{\mathrm h}_i$ equal to the number of $\chi\in\mathcal H$ whose value $t_\chi$
+(\cref{subsec:firstoutside}) lies in the hidden bin $i$, and $x^{\mathrm h}_{\mathrm{tail}}=\sum w(t_\chi)$ over the
+$\chi\in\mathcal H$ in the hidden tail. In a reserved leaf no $\chi\in O$ lies in an omitted bin, by \cref{lem:familyfacts}(ii) and
+$\lambda_3\ge\lambda_3^{\lo}$.
+
+\emph{Far.} The characters of $O$, the reserved characters, the first-family characters of $\mathcal
+H$ and, for an inside configuration, $\chi_1$ and $\bchi_1$ are distinct, and to each we assign one
+zero with $|\gamma|\le1$ and parameter at most $C_P$: the $T^*$-representative, the height-one
+representative, the zero realizing $t_\chi$, and $\rho_1$ or $\overline{\rho_1}$, which has
+$|\gamma_1|\le C_B/\LL\le1$. By \eqref{eq:farbudget}, and since $w$ is decreasing, the far
+constraint holds.
+
+\emph{Count.} By \cref{lem:familyfacts}(i), since a character in a counted bin has
+$\nu_{T^*}(\chi)<\xi_{i+1}\le\lambda_3^{\lo}\le\lambda_3$.
+
+\emph{Hidden count and second family.} We have $|\mathcal H|\le n$, a character in the hidden
+tail contributes $w(t_\chi)/w(\mathrm{end})\le1$ to the hidden count, and $\sum_jz_j=n_2=n_E$ when the reserved
+family is charged through columns (otherwise there are no second-family columns and $n_E=0$).
+
+\emph{Near rows.} By \cref{prop:rowsvalid}, each near row holds for some threshold, with features at
+least and diagonals at most those of the columns.
+
+\emph{Value.} We use \eqref{eq:Wsplit}. An ordinary character in a bin costs at most the
+objective $\mathcal G(\xi_i)$ at the left end of the bin, a reserved character in a column at most $\mathcal G_{\phi_2}$ at
+the left end (with fixed terms, at most $\mathcal G_{\phi_2}(\lo_2)$), and the tail characters at most $\mathcal G(R)/w(R)$ per unit of far mass, by the monotonicity
+of $\mathcal G$, $\mathcal G_{\phi_2}$ and $\mathcal G/w$ (\cref{lem:envelope}(v)). For an outside configuration we apply
+\cref{prop:firstoutside} with the anchor $p^\circ=\max(a,p,\lo')$, which is admissible because every
+non-distinguished occurrence of the first family has parameter at least $\lambda'\ge p^\circ$; then
+$t_\chi\ge p^\circ$, a character in a hidden bin $[\lo_h,\hi_h)$ costs at most the objective $e^{-A\lo_h}B_{\phi_1}(p^\circ)$
+since $e^{-A\lambda}$ is decreasing, and a character in the hidden tail costs at most
+$e^{-A\cdot\mathrm{end}}B_{\phi_1}(p^\circ)/w(\mathrm{end})$ per unit of far mass, since $e^{-A\lambda}/w(\lambda)$ is decreasing
+(\cref{lem:decay}). Including the directions of integer rounding, we obtain
+\[
+  W\le\mathcal V(x)-\frac{\mathrm{final}}S+E
+    \le\mathcal V(x)-5\eta+2\eta
+    \le\mathcal V(x)-2\eta.
+\]
+\end{proof}
+
+\begin{theorem}[The zero-sum bound in the middle range]\label{thm:cover}
+For the case tree and certificates described in this paper, there is a threshold
+$q_0$ such that every $q\ge q_0$ with $0.1\le\lambda_1<1.5$ satisfies
+\[
+  W(q)<1-2\eta.
+\]
+More precisely, its configuration belongs to a leaf or subcase whose program has a
+feasible pair $(x,\tau)$ with $W(q)+2\eta\le\mathcal V(x)<1$.
+\end{theorem}
+
+\begin{proof}
+By \cref{thm:sourcecover} the configuration lies in the configuration set of a root. Following the
+refinement tree and the subdivisions of \cref{subsec:subdivision}, each of which is exhaustive,
+we reach a leaf or subcase whose configuration set contains the configuration; it is not an
+excluded node, because excluded nodes have no configurations. \Cref{prop:realization} gives the
+feasible pair, and \cref{thm:certificate} and the certificates of \cref{sec:verification} give
+$\mathcal V(x)<1$.
+\end{proof}

@@ -1,0 +1,148 @@
+{
+ "date": "2026-09-29",
+ "L": "3.99",
+ "purpose": "Completeness of the leaf numeric metadata (graded_lean_export.py --numerics): every stored integer (per column G, W, C, NH, E; F; first; final) recomputed from the metadata alone by leaf_numerics_check.py (mpmath, 50 digits, formulas of research/notes/leaf-data-semantics-2026-09-29.md \u00a71, closed forms checked against quadrature), with the builders' floor/ceil rules.",
+ "check": "python3 computations/graded/leaf_numerics_check.py numerics_*.jsonl.gz --report <report>",
+ "sample": "random.Random(20260929).sample of 50 outside roots (outside corpus ids minus the named ones), then 50 inside roots (0..2767 minus the named ones)",
+ "runs": {
+  "outside_named": {
+   "kind": "outside",
+   "roots": "1193,1202,2455,1990",
+   "export": "python3 computations/graded/graded_lean_export.py --kind outside --roots <roots> --numerics --workers 2 --out numerics_outside_named.jsonl.gz",
+   "leaves": 4,
+   "integers": 13987,
+   "exact": 13987,
+   "leaf_types": {
+    "outside/inherited/complex": 3,
+    "outside/inherited/rc": 1
+   },
+   "status": "PASS"
+  },
+  "inside_named": {
+   "kind": "inside",
+   "roots": "2766,1155,888,1416,1220,10,35,1146",
+   "export": "python3 computations/graded/graded_lean_export.py --kind inside --roots <roots> --numerics --workers 2 --out numerics_inside_named.jsonl.gz",
+   "leaves": 15,
+   "integers": 29045,
+   "exact": 29045,
+   "leaf_types": {
+    "inside/inherited/complex": 7,
+    "inside/inherited/rc": 4,
+    "inside/inherited/rr": 3,
+    "inside/retuned/complex": 1
+   },
+   "status": "PASS"
+  },
+  "outside_sample": {
+   "kind": "outside",
+   "roots": "1101,1197,1224,1341,1352,1356,1382,1386,1465,1468,1569,1605,1680,1722,1730,1834,1847,1868,1950,1973,1978,1996,1997,2003,2020,2026,2034,2073,2080,2095,2111,2113,2115,2125,2146,2200,2280,2299,2314,2388,2449,2464,2510,2515,2528,2593,2677,2735,2757,2761",
+   "export": "python3 computations/graded/graded_lean_export.py --kind outside --roots <roots> --numerics --workers 2 --out numerics_outside_sample.jsonl.gz",
+   "leaves": 48,
+   "integers": 186839,
+   "exact": 186839,
+   "leaf_types": {
+    "outside/inherited/complex": 46,
+    "outside/inherited/rc": 2
+   },
+   "status": "PASS"
+  },
+  "inside_sample": {
+   "kind": "inside",
+   "roots": "60,89,182,246,302,374,496,541,558,621,664,666,685,745,756,776,802,825,833,937,1001,1036,1056,1212,1244,1250,1371,1393,1541,1686,1717,1779,1789,1807,1815,1995,2008,2123,2145,2187,2312,2363,2371,2499,2537,2543,2575,2595,2615,2736",
+   "export": "python3 computations/graded/graded_lean_export.py --kind inside --roots <roots> --numerics --workers 2 --out numerics_inside_sample.jsonl.gz",
+   "leaves": 71,
+   "integers": 223128,
+   "exact": 223128,
+   "leaf_types": {
+    "inside/inherited/complex": 10,
+    "inside/inherited/rr": 23,
+    "inside/retuned/complex": 31,
+    "inside/retuned/rr": 7
+   },
+   "status": "PASS"
+  },
+  "inside_extra": {
+   "kind": "inside",
+   "roots": "184,250,384,449,518,1090,1120,1170,1197",
+   "export": "python3 computations/graded/graded_lean_export.py --kind inside --roots <roots> --numerics --workers 2 --out numerics_inside_extra.jsonl.gz",
+   "leaves": 16,
+   "integers": 77943,
+   "exact": 77943,
+   "leaf_types": {
+    "inside/inherited/rc": 8,
+    "inside/inherited/rr": 4,
+    "inside/retuned/rr": 4
+   },
+   "status": "PASS"
+  }
+ },
+ "total": {
+  "roots": 117,
+  "leaves": 154,
+  "integers": 530942,
+  "exact": 530942,
+  "by_field": {
+   "C": {
+    "checked": 106096,
+    "exact": 106096
+   },
+   "E": {
+    "checked": 106096,
+    "exact": 106096
+   },
+   "F": {
+    "checked": 154,
+    "exact": 154
+   },
+   "G": {
+    "checked": 106096,
+    "exact": 106096
+   },
+   "NH": {
+    "checked": 106096,
+    "exact": 106096
+   },
+   "W": {
+    "checked": 106096,
+    "exact": 106096
+   },
+   "final": {
+    "checked": 154,
+    "exact": 154
+   },
+   "first": {
+    "checked": 154,
+    "exact": 154
+   },
+   "structure": {
+    "checked": 154,
+    "exact": 154
+   }
+  },
+  "leaf_types": {
+   "inside/inherited/complex": 17,
+   "inside/inherited/rc": 12,
+   "inside/inherited/rr": 30,
+   "inside/retuned/complex": 32,
+   "inside/retuned/rr": 11,
+   "outside/inherited/complex": 49,
+   "outside/inherited/rc": 3
+  },
+  "min_distance_to_integer": "4.95e-7",
+  "selftest": {
+   "ok": true,
+   "worst_relative": {
+    "B": 3.4438311059246704e-41,
+    "Psi": 2.2958874039497803e-41,
+    "C": 3.4438311059246704e-41,
+    "winv": 4.591774807899561e-41,
+    "V": 2.2958874039497803e-41
+   }
+  },
+  "dps": 50,
+  "status": "PASS"
+ },
+ "safe_off_by_one": [],
+ "mismatches": [],
+ "empty_roots": "outside 1352, 1382 and inside 558, 1393 have no LP leaf (their graded records hold 0 leaves)"
+}

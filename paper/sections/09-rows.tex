@@ -1,0 +1,532 @@
+% !TEX root = ../linnik399.tex
+\section{The near rows}\label{sec:rows}
+
+A \emph{near row} is a constraint obtained by applying the threshold inequality
+\eqref{eq:T} to selected characters and zeros. In a leaf program (\cref{subsec:vocabulary}),
+characters are grouped by parameter into bins, each with its own column. Known entries from the
+first or reserved family may instead be recorded separately as \emph{family terms}. There are
+four kinds of rows, the family, shifted, graded and two-test rows; \cref{tab:rowkinds} in
+\cref{subsec:rowkinds} lists their anchors, sieve weights and entries.
+
+We first specify the test functions and normalization. We then justify each permitted
+kind of entry and describe how to combine them into rows. Most rows follow from
+\cref{cor:zeroform}; the two-test row in \cref{subsec:twotest} has a separate proof.
+\Cref{prop:rowsvalid} is the conclusion needed later: every actual zero configuration
+in a leaf satisfies each of its near rows at some threshold.
+
+\subsection{The parabolic test function}
+All detectors and Gram tests are normalized parabolic autocorrelations. For $c>0$ put
+\[
+  P(u)=(1-u)^3(1+3u+u^2)=1-5u^2+5u^3-u^5,\qquad
+  \hat f_c(t)=\begin{cases}P(t/c),&0\le t\le c,\\0,&t\ge c.\end{cases}
+\]
+Thus $\hat f_{2\gamma}=f_\gamma/f_\gamma(0)$ with $f_\gamma$ as in \eqref{eq:ftest}. Write $\hat F_c$ for its
+transform.
+
+\begin{lemma}[Properties of the parabolic test functions]\label{lem:parabolic}
+Let $c>0$.
+\begin{enumerate}[(i)]
+  \item $\hat f_c\ge0$, $\hat f_c(0)=1$, $\hat f_c$ is decreasing on $[0,c]$, and $\hat f_c$ extended by
+    $0$ is twice continuously differentiable on $[0,\infty)$ with $|\hat f_c''|\le10/c^2$. So
+    Condition~1 holds.
+  \item $\Re\hat F_c(iy)=60c\,(cy\cos\frac{cy}2-2\sin\frac{cy}2)^2/(cy)^6\ge0$ for $y\ne0$, and
+    Condition~2 holds.
+  \item $x\mapsto\hat F_c(x)$ is positive and strictly decreasing on $\RR$.
+  \item For $z\ne0$, $\hat F_c(z)=c\,\Phi(cz)$, where
+    \[
+      \Phi(w)=\frac1w-\frac{10}{w^3}+\frac{30(1+e^{-w})}{w^4}
+        +\frac{120e^{-w}}{w^5}-\frac{120(1-e^{-w})}{w^6}\qquad(w\ne0).
+    \]
+    The singularity at $0$ is removable. Consequently, for $d\ge0$ and $|y|\ge U>0$,
+    \[
+      \Re\hat F_c(-d+iy)\le cR(cU,e^{cd}),\qquad-\Re\hat F_c(-d+iy)\le\frac d{U^2}+cR(cU,e^{cd}),
+    \]
+    where $R(u,E)=\frac{10}{u^3}+\frac{30}{u^4}+\frac{120}{u^6}+E\bigl(\frac{30}{u^4}+\frac{120}{u^5}+\frac{120}{u^6}\bigr)$.
+  \item For $d\ge0$ put $\mathcal C_c(d)=\sup_{\Re z\ge-d}\bigl(-\Re\hat F_c(z)\bigr)$. It is finite,
+    \[
+      \mathcal C_c(d)=\max\Bigl(0,\ \sup_{y\in\RR}\bigl(-\Re\hat F_c(-d+iy)\bigr)\Bigr),
+    \]
+    and $\mathcal C_c(0)=0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) is elementary: $P'(u)=-5u(2+u)(1-u)^2$, and $P(1)=P'(1)=P''(1)=0$. (ii) The function
+$\hat f_c$ is a positive multiple of the autocorrelation of $x\mapsto(\gamma^2-x^2)_+$ with $c=2\gamma$, so
+its transform on the imaginary axis is a positive multiple of $(\int_0^\infty(\gamma^2-x^2)_+\cos(xy)\,dx)^2$
+\cite[Lemma~3.6]{Xylouris2011nullstellen}, which gives the closed form. Condition~2 then follows from
+\cref{inp:comparison} with $F_2=0$, since $\hat F_c(z)\to0$ uniformly in $\Re z\ge0$. (iii)
+$\hat F_c'(x)=-\int t\hat f_c(t)e^{-xt}\,dt<0$. (iv) Five integrations by parts, using the values of
+$P$ and its derivatives at $0$ and $1$. For $z=-d+iy$ we have $c\Re\frac1{cz}=\frac{-d}{d^2+y^2}$, which is
+$\le0$ and $\ge-d/U^2$, and each other term is bounded by the corresponding term of $cR(c|z|,e^{cd})$,
+which decreases in $|z|\ge U$. (v) $-\Re\hat F_c(z-d)$ is harmonic in $\Re z>0$, continuous up to the
+boundary and tends to $0$ uniformly at infinity, so its supremum over $\Re z\ge0$ is attained on
+the boundary or is $0$; $\mathcal C_c(0)=0$ by Condition~2.
+\end{proof}
+
+\subsection{Row data}\label{subsec:rowdata}
+Every family, shifted and graded row fixes rational numbers $\gamma_f>0$ (detector), $\gamma_g>0$ (Gram test),
+$s_1\le s$ (safe and reference anchors), $t_0$ and $\mu_{\mathrm{row}}$, and uses the near datum of \cref{subsec:neardata} with
+$f=\hat f_{2\gamma_f}$, $g=\hat f_{2\gamma_g}$, $\eps'=\frac1{2000}$, and $2000$ equal cells
+$t_0<t_1<\dots<t_{2000}=2\gamma_f$, where $t_0>\frac13+2\eps'$. The heights $h_k\ge0$ are rational numbers.
+They are chosen by a heuristic that brings $\omega$ close to the Cauchy--Schwarz optimum
+$\omega\propto e^{st}f$: the height of cell $k$ is the positive part of
+$e^{sm_k}f(m_k)/\sqrt{\mu_{\mathrm{row}}\kappa_k}-g(m_k)e^{s_1m_k}$ at the midpoint $m_k$, where
+$\kappa_k=(t_{k+1}^2-t_k^2)/(2\vartheta_k(t_{k+1}-t_k))$ is the mean sieve cost per unit length of the cell,
+computed in binary64 arithmetic and converted to a rational number with denominator at most
+$10^{12}$. Any nonnegative heights are admissible, so this choice plays no role in the proofs. In
+every family and shifted row $\mu_{\mathrm{row}}=10^9$ and all the computed heights are $0$, so $\Xi\equiv0$. The
+offsets are the finitely many numbers $s-\sigma$ that occur for the anchors $\sigma$ of the entries. In
+every row the lower bound of $\omega$ on each cell of the support of $f$ is checked to be positive; in
+the rows with $\Xi\equiv0$ this holds because $\gamma_g>\gamma_f$.
+
+We use the normalization of \cref{cor:zeroform}: $I_u$ is an upper Riemann
+sum for $I_B$ over $4000$ cells, computed with outward interval arithmetic; $D_u\ge D(0)$; each entry
+$j$ receives the feature $v_j=r_j/\sqrt{I_uD_u}-\eta'$ (rounded down, and replaced by $0$ if negative)
+and the diagonal $(1+\eta')D_j^+/D_u$ (rounded up), where $D_j^+$ is an upper bound for
+$D(\delta_j)-d_1+e_j$; and the row has the correlation term $d=(1+\eta')(d_1/D_u+\eta')$ (rounded up). Here
+$\eta'=10^{-6}$. For an entry with offset $\delta$ the value $D(\lfloor\delta\rfloor_{1/200})\ge D(\delta)$ is used
+(here $\lfloor\delta\rfloor_{1/200}$ is $\delta$ rounded down to a multiple of $\frac1{200}$, and $D$ is decreasing), and an
+entry is omitted if its diagonal numerator does not meet the positivity margin used
+in the construction. An omitted entry has feature $0$ in the row and contributes
+nothing to \eqref{eq:T}. The rounding directions are justified by the last assertion of
+\cref{cor:zeroform}.
+
+\subsection{Facts available in a leaf}\label{subsec:leaffacts}
+A leaf specifies intervals and lower bounds for the first few zeros. The full definition
+of a specification $\mathfrak s$ and its configuration set $C(\mathfrak s)$ is in
+\cref{def:specification}; the information needed for this section is listed below.
+Write $\nu(\mathcal F)$ for the least parameter in a family among zeros of physical
+height at most $1$, and $\nu_{T^*}(\chi)$ for the corresponding minimum at height at
+most $T^*$. A reserved family minimizes $\nu$ outside the first family. It need not
+be the family attaining the global parameter $\lambda_2$.
+
+Fix a leaf with first-zero cell $[a,b]$ and a configuration in $C(\mathfrak s)$.
+For all sufficiently large $q$, the following facts are available.
+\begin{enumerate}[(Z1)]
+  \item $\lambda_1\in[a,b]$. The \emph{safe anchor} of the leaf is $s_1=\lfloor50a\rfloor/50\le\lambda_1$.
+  \item $\lambda'\ge p^*$, where $p^*=\lo'$ if there is a gap (an interval $[\lo',\hi']$ known to
+    contain $\lambda'$) and $p^*=p$ otherwise; if there is a finite gap, $\lambda'\le\hi'$.
+  \item Every zero in $R(l)$ of a character outside the first family has parameter at least
+    $\lambda_2\ge l_2$.
+  \item Every family $\mathcal F\ne \mathcal F_1$ has $\nu(\mathcal F)\ge r$, and ordinary characters have $\nu_{T^*}\ge\nu\ge r$.
+  \item If $\mathfrak s$ is reserved, the reserved family has $n_2$ characters with common height-one
+    parameter $\nu_*\in[\lo_2,\hi_2]$.
+  \item Inside: $|\mu_1|\le C_B$. Outside: $|\mu_1|>C_B$.
+\end{enumerate}
+
+\begin{lemma}[No zero to the right]\label{lem:noright}
+Let $\chi$ be nonprincipal, let $|\gamma|\le2l$ and $0<\delta\le1$, and fix a real anchor
+$\sigma$. For sufficiently large $q$, every zero $\rho$ of $L(s,\chi)$ in the disc
+$|1+i\gamma-\rho|\le\delta$ has $\lambda_\rho\ge\sigma$ in either of the following cases:
+\begin{enumerate}[(a)]
+  \item $\sigma\le\lambda_1$;
+  \item $\chi\notin\mathcal F_1$ and $\sigma\le l_2$, where $l_2\le\lambda_2$ is the leaf's
+    global second-family lower bound.
+\end{enumerate}
+Equivalently, this disc contains no zero to the right of the line
+$\Re s=1-\sigma/\LL$.
+\end{lemma}
+
+\begin{proof}
+Such a zero has $|\Im\rho|\le2l+\delta<10l$. By \cref{inp:rectangle} it lies in $R(l)$ or has
+$\lambda_\rho>\frac13\log\log\LL$, which exceeds every fixed $\sigma$. In $R(l)$ its parameter is at least
+$\lambda_1$, and at least $\lambda_2\ge l_2$ if $\chi\notin \mathcal F_1$ (Z3).
+\end{proof}
+
+\begin{lemma}[Separation of zeros beyond the representative strip]\label{lem:strip}
+Let $\chi$ be an ordinary character with $T^*$-representative $\rho_\chi$, of height $\gamma_\chi$ and
+parameter $\lambda_\chi$, and let $\sigma\le\min(\lambda_\chi,s_{\max})$. Then every zero $\rho$ of $L(s,\chi)$ with
+$|1+i\gamma_\chi-\rho|\le\delta_0$ and $\lambda_\rho<\sigma$ satisfies $|\gamma_\chi\LL-\mu_\rho|\ge M$, and there are at
+most $K_0$ such zeros, counted with multiplicity.
+\end{lemma}
+
+\begin{proof}
+Such a zero has $|\Im\rho|\le T^*+\delta_0<2\le10l$ and $\lambda_\rho<\sigma\le s_{\max}<\frac13\log\log\LL$, so it
+lies in $R(10l)$ and hence, by \cref{inp:rectangle}, in $R(l)$. As $\lambda_\rho<\sigma\le\lambda_\chi$, the minimality
+of the representative gives $|\Im\rho|>T^*$; so the zero is counted in $K_0$. By \cref{lem:Tstar},
+$|\Im\rho|\ge T^*+M/\LL$, so $\LL|\Im\rho-\gamma_\chi|\ge\LL(|\Im\rho|-T^*)\ge M$.
+\end{proof}
+
+\subsection{Entries}\label{subsec:entries}
+We now list the entries that occur in the rows, with their kept zeros. In each case the
+hypotheses of \cref{lem:response} hold with the stated kept set $\cS$ and anchor $\sigma$; we write
+$r$ for the resulting lower bound for the response, before normalization, so that the entry's
+feature is $r/\sqrt{I_uD_u}-\eta'$. \Cref{tab:entries} summarizes the entries. Recall that $F(x)$ is
+positive and decreasing on $\RR$, and that a kept zero with $\lambda_\rho\ge\sigma$ has
+$m_\rho\Re F(\cdot)\ge\Re F(\cdot)\ge0$.
+
+\begin{table}[ht]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.45cm}>{\centering\arraybackslash}p{1.35cm}
+  >{\centering\arraybackslash}p{1.75cm}>{\centering\arraybackslash}p{3.2cm}
+  >{\centering\arraybackslash}p{2.35cm}>{\raggedright\arraybackslash}p{1.65cm}@{}}
+\toprule
+Entry & Anchor $\sigma$ & Kept set $\cS$ & Response bound $r$ & Diagonal numerator & Rows\\
+\midrule
+(a) ordinary $\chi$, bin $[\lo,\hi)$, at its $T^*$-representative & $\min(\lo,s)$ & $\{\rho_\chi\}$ &
+  $F(\hi-\sigma)-\frac16f(0)$ & $D(s-\sigma)-d_1$ & all three\\
+(b) inside first family: $\chi_1$ at $\gamma_1$, and $\bchi_1$ at $-\gamma_1$ & $\min(a,s)$ &
+  $\{\rho_1\}$, resp.\ $\{\overline{\rho_1}\}$ & $F(b-\sigma)-\frac16f(0)$ & $D(s-\sigma)-d_1$ & family, graded\\
+(c) type $\mathrm{rc}$: $\chi_1$ at $\pm\gamma_1$ & $s_1$ & $\{\rho_1,\overline{\rho_1}\}$ &
+  $F(b-s_1)+R_{\lo}-\frac16f(0)$ & $D(0)-d_1+(c^{\hi}-d_1)_+$ & family\\
+(d) second zero, type $\mathrm{complex}$: $\chi_1$ at $\gamma_1,\gamma'$, $\bchi_1$ at $-\gamma_1,-\gamma'$ &
+  $s_1$ & $\{\rho_1,\rho'\}$ and conjugates & $F(b-s_1)+R_p-\frac16f(0)$ at $\gamma_1$;
+  $F(\hi'-s_1)+R_q-\frac16f(0)$ at $\gamma'$ & $D(0)-d_1+(c^{\hi}-d_1)_+$ & family\\
+(e) shifted first family: $\chi_1$ at $\gamma_1$, and $\bchi_1$ at $-\gamma_1$ & $s$ &
+  $\{\rho_1\}$; $\{\rho_1,\overline{\rho_1}\}$ for $\mathrm{rc}$ & $F(b-s)-\1_{\mathrm{rc}}C_Z-\frac16f(0)$ &
+  $D(0)-d_1$ & shifted\\
+(f) reserved family, at height-one representatives & $\sigma_2$ & the representative &
+  $F(\hi_2-\sigma_2)-\frac16f(0)$ & $D(s-\sigma_2)-d_1$ & all three\\
+(g) outside first family: $\chi_1$ at $\gamma_1$ (and $\bchi_1$), and one hidden entry per character &
+  $s_1$ & $\{\rho_1\}$; $\{\rho_h\}$ & $F(b-s_1)-\frac16f(0)$; $F(\hi_h-s_1)-\frac16f(0)$ & $D(0)-d_1$ &
+  family\\
+\bottomrule
+\end{tabular}
+\caption{The entries of the near rows, justified in the list below. The anchor $\sigma$ enters
+through the offset $s-\sigma$, where $s$ is the reference anchor of the row; $\sigma_2$ and the
+constants $R_{\lo}$, $R_p$, $R_q$, $c^{\hi}$ and $C_Z$ are defined in the list. ``All three'' means
+the family, shifted and graded rows of \cref{subsec:rowkinds}.}
+\label{tab:entries}
+\end{table}
+
+\begin{enumerate}[(a)]
+  \item \emph{Ordinary character in the bin $[\lo,\hi)$.} Entry $(\chi,\gamma_\chi,s-\sigma)$ at its
+    $T^*$-representative, with $\sigma=\min(\lo,s)$; $\cS=\{\rho_\chi\}$. If $\sigma\le l_2$ there is no
+    zero to the right (\cref{lem:noright}); otherwise \cref{lem:strip} gives the hypotheses. Then
+    $r=F(\hi-\sigma)-\frac16f(0)$, and the diagonal numerator is $D(s-\sigma)-d_1$.
+  \item \emph{Inside first family, one entry per character.} Entries $(\chi_1,\gamma_1,s-\sigma)$ and, for
+    type $\mathrm{complex}$, $(\bchi_1,-\gamma_1,s-\sigma)$, with $\sigma=\min(a,s)\le\lambda_1$; $\cS=\{\rho_1\}$
+    (resp.\ $\{\overline{\rho_1}\}$). No zero to the right. $r=F(b-\sigma)-\frac16f(0)$, and the diagonal
+    numerator is $D(s-\sigma)-d_1$.
+  \item \emph{Conjugate pair, type $\mathrm{rc}$} (rows with $s=s_1$ and $\Xi=0$). Entries
+    $(\chi_1,\pm\gamma_1,0)$, a pair of entries of the same character with height difference
+    $2\gamma_1$; $\cS=\{\rho_1,\overline{\rho_1}\}$ for both. No zero to the right, and
+    \[
+      r=F(b-s_1)+R_{\lo}-\tfrac16f(0),\qquad R_{\lo}\le\inf\Re F(x+2i\mu)
+    \]
+    over $x\in[a-s_1,b-s_1]$ and $\mu$ in the height range of the leaf ($[0,1]$ or $[1,\infty)$). Pair
+    excess $e\le(c^{\hi}-d_1)_+$ with $c^{\hi}\ge\sup\Re G(-s_1+2i\mu)$ over the range, so the diagonal numerator
+    is $D(0)-d_1+(c^{\hi}-d_1)_+$.
+  \item \emph{Second zero of the first family} (rows with $s=s_1$ and $\Xi=0$; type $\mathrm{complex}$
+    with a finite gap $[p^*,\hi']$). Let $\rho'$ be an admissible zero of $\chi_1$ realizing $\lambda'$
+    (\cref{sec:notation}), of height $\gamma'$, namely the one that witnesses the piece of the second-zero split
+    (\cref{subsec:subdivision}) in which the configuration lies, and $y=(\gamma_1-\gamma')\LL$, restricted to that
+    piece: $|y|\in[0,1],[1,\frac32],[\frac32,2],[2,3],[3,5]$ or $[5,\infty)$.
+    Entries $(\chi_1,\gamma_1,0)$, $(\chi_1,\gamma',0)$, $(\bchi_1,-\gamma_1,0)$, $(\bchi_1,-\gamma',0)$, with kept sets
+    $\{\rho_1,\rho'\}$, $\{\rho',\rho_1\}$ and their conjugates (a zero is kept only if it lies in the
+    disc of the entry). No zero to the right. Then
+    \[
+      r_{\gamma_1}=F(b-s_1)+R_p-\tfrac16f(0),\qquad r_{\gamma'}=F(\hi'-s_1)+R_q-\tfrac16f(0),
+    \]
+    where $R_p\le\inf\Re F(x+iy)$ over $x\in[p^*-s_1,\hi'-s_1]$ and $R_q\le\inf\Re F(x+iy)$ over
+    $x\in[a-s_1,b-s_1]$, with $|y|$ in the piece. Here $x\ge0$ (as $s_1\le a\le p^*$), so $\Re F(x+iy)\ge0$ by
+    Condition~2 and we take $R_p,R_q\ge0$; the multiplicities of the kept zeros can then only increase
+    the sums. On the last piece $R_p=R_q=0$, which also covers a zero outside the disc (its term is
+    then absent). Each same-character pair is a controlled pair with excess
+    $(c^{\hi}-d_1)_+$, $c^{\hi}\ge\sup\Re G(-s_1+iy)$, so every diagonal numerator is $D(0)-d_1+(c^{\hi}-d_1)_+$;
+    an entry of $\chi_1$ and an entry of $\bchi_1$ form a pair of distinct characters, with the nonprincipal
+    quotient $\chi_1^2$, and carry no mutual excess. If $\rho'=\rho_1$ is a double zero, the two
+    entries coincide and $r\ge m_{\rho_1}F(\lambda_1-s_1)-\frac16f(0)$ with $m_{\rho_1}\ge2$, which is at least
+    both $r_{\gamma_1}$ and $r_{\gamma'}$ (here $y=0$ and $\lambda'=\lambda_1$).
+  \item \emph{Shifted first family} (the shifted row, $s=\min(1.9,p^*,l_2)$, used only if $s>s_1$ and
+    $s\ge a$). Entries $(\chi_1,\gamma_1,0)$ and, for type $\mathrm{complex}$, $(\bchi_1,-\gamma_1,0)$, with
+    anchor $s$. The only zeros of $\chi_1$ with parameter below $s$ are $\rho_1$ and, for type
+    $\mathrm{rc}$, $\overline{\rho_1}$, since every other occurrence has parameter at least $\lambda'\ge p^*\ge s$.
+    With $\cS=\{\rho_1\}$ (and $\overline{\rho_1}$ for type $\mathrm{rc}$) nothing remains in the hypotheses of
+    \cref{lem:response}. As conjugate zeros of a real character have the same multiplicity $m$,
+    \[
+      \sum_{\rho\in\cS}m_\rho\Re F(\cdot)=m\bigl(F(\lambda_1-s)+\1_{\mathrm{rc}}\Re F(\lambda_1-s+2i\mu_1)\bigr)
+      \ge m\bigl(F(b-s)-\1_{\mathrm{rc}}C_Z\bigr),
+    \]
+    with $C_Z=\mathcal C_c(s-a)$ from \cref{lem:parabolic}(v) ($0$ if $s\le a$). If $F(b-s)-\1_{\mathrm{rc}}C_Z\ge0$
+    this is at least $F(b-s)-\1_{\mathrm{rc}}C_Z$, and we take $r=F(b-s)-\1_{\mathrm{rc}}C_Z-\frac16f(0)$.
+    Otherwise the proposed bound $F(b-s)-C_Z-\frac16f(0)$ is negative and the entry receives the feature
+    $0$; this is admissible whatever the true response bound $r_j$ is, by the last clause of
+    \cref{cor:zeroform} (with $v'_j=0$). The diagonal numerator is $D(0)-d_1$.
+  \item \emph{Reserved family.} Entries $(\chi,\gamma_\chi,s-\sigma_2)$ for its $n_2$ characters at their
+    height-one representatives, with $\sigma_2=\min(\max(a,\min(l_2,\lo_2)),s)$. Every zero of these
+    characters in $R(l)$ has parameter at least $\max(\lambda_1,\lambda_2)\ge\max(a,l_2)\ge\sigma_2$, so there is no
+    zero to the right, $r=F(\hi_2-\sigma_2)-\frac16f(0)$, and the diagonal numerator is $D(s-\sigma_2)-d_1$. With
+    second-family columns, the column $[\lo_{2,j},\hi_{2,j}]$ uses $\sigma=\min(\max(a,\min(l_2,\lo_{2,j})),s)$,
+    $r=F(\hi_{2,j}-\sigma)-\frac16f(0)$ and the diagonal numerator $D(s-\sigma)-d_1$.
+  \item \emph{Outside first family} (family row, $s=s_1$, $\Xi=0$). Global entries $(\chi_1,\gamma_1,0)$ with
+    $\cS=\{\rho_1\}$ and, for type $\mathrm{complex}$, $(\bchi_1,-\gamma_1,0)$ with $\cS=\{\overline{\rho_1}\}$ (for
+    type $\mathrm{rc}$ there is the single global entry $(\chi_1,\gamma_1,0)$); $r=F(b-s_1)-\frac16f(0)$. And a
+    hidden entry $(\chi,\gamma_h,0)$ for each first-family character $\chi$ with a zero in $R_P$, at its zero
+    $\rho_h$ of least parameter $t_\chi\in[\lo_h,\hi_h)$, with $\cS=\{\rho_h\}$ and $r=F(\hi_h-s_1)-\frac16f(0)$.
+    No zero to the right. Entries of the same character have normalized height differences at least
+    $C_B-C_P>M$, so their pair excess vanishes, and every diagonal numerator is $D(0)-d_1$.
+\end{enumerate}
+
+\subsection{The rows}\label{subsec:rowkinds}
+Each leaf program has one or more rows, of the kinds listed in \cref{tab:rowkinds}. In the family
+row of an inside leaf the first family is entered by (b), by (c) for type $\mathrm{rc}$ (with the
+height split of \cref{subsec:subdivision}), or by (d) in a piece of the second-zero split. In the
+shifted row every ordinary anchor is at most $s\le l_2$. In the graded rows all characters are
+distinct.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Row & Reference anchor $s$ & Sieve weights & Entries, inside & Entries, outside\\
+\midrule
+family & $s_1$ & none ($\Xi=0$) & (a), (f) and (b), (c) or (d) & (a), (f), (g)\\
+shifted & $\min(1.9,p^*,l_2)$ & none ($\Xi=0$) & (a), (e), (f) & not used\\
+graded & $1.5$, $1.6$, $1.9$, $2.1$ or $2.3$ & present & (a), (b), (f) & (a), (f)\\
+two-test & the shift of the leaf & two test functions & \cref{thm:twotest}, on $37$ roots & not used\\
+\bottomrule
+\end{tabular}
+\caption{The kinds of near rows. The shifted row is used only if $s>s_1$ and $s\ge a$.}
+\label{tab:rowkinds}
+\end{table}
+
+In every family, shifted and graded row the safe-anchor hypothesis holds by (Z1) and
+\cref{inp:rectangle}, as explained after \cref{def:safeanchor}, and the characters are pairwise distinct
+whenever $\Xi\not\equiv0$. All the
+entries have heights at most $l$. The first family is entered once per character in a row with
+sieve weights (for type $\mathrm{rc}$ only $\rho_1$ is kept); the pair and second-zero entries occur only
+in rows with $\Xi=0$.
+
+\subsection{The two-test row}\label{subsec:twotest}
+On $37$ inside roots the graded rows alone do not certify, and the leaf program contains in
+addition the following near row. It is not an instance of \cref{thm:graded}: its Gram form is at
+the shift $s$ of the leaf, which may exceed $\lambda_1$, and it pays explicit corrections for the
+quotient characters $\chi_1,\bchi_1$. Its proof follows Xylouris's proof of his Lemma~5.3
+\cite[(5.34)--(5.40), pp.~72--76]{Xylouris2011nullstellen}, with two test functions.
+
+Fix $\gamma_G>\gamma_Z>0$ and let $f=f_{\gamma_Z}$ and $g=f_{\gamma_G}$ as in \eqref{eq:ftest}, so that $g>0$ on the
+support of $f$. Let $s\le\min(p^*,l_2)$ be the shift of the leaf, and put
+\begin{align*}
+  R_G&=G(-s),\quad R_Z=\int_0^{2\gamma_Z}\frac{f(t)^2}{g(t)}e^{st}\,dt,\quad \mathcal N=\sqrt{R_GR_Z},\quad
+  d_0=\frac{g(0)}{6R_G},\\
+  C_G&=\sup_{\Re z\ge a-s}(-\Re G(z)),\quad C_F=\sup_{\Re z\ge a-s}(-\Re F(z)),\quad c_G=\frac{C_G}{R_G},\quad k_\eta=1+\eta .
+\end{align*}
+The function $f^2/g$, extended by $0$, satisfies Condition~1, since it vanishes to order $6$ at
+$2\gamma_Z$. Define the features
+\begin{gather*}
+  v(\lambda)=\frac{F(\lambda-s)-\frac16f(0)}{\mathcal N}-\eta,\qquad
+  v_2=\frac{F(\hi_2-s)-\frac{\phi_2}2f(0)}{\mathcal N}-\eta,\\
+  v_f=\frac{F(b-s)-\frac{\phi_1}2f(0)-\1_{\mathrm{rc}}C_F}{\mathcal N}-\eta,
+\end{gather*}
+with $\phi_1=\frac14$ for a real $\chi_1$ and $\phi_1=\frac13$ otherwise, $\phi_2=\frac14$ if $n_2=1$ and
+$\phi_2=\frac13$ otherwise, and $\1_{\mathrm{rc}}$ the indicator of type $\mathrm{rc}$; the correlation term $d=k_\eta(d_0+\eta)$; and the diagonals
+\[
+  \begin{array}{lll}
+    \text{type} & D_o/k_\eta & D_f/k_\eta\\
+    \mathrm{rr} & 1-d_0+c_G & 1-d_0\\
+    \mathrm{rc} & 1-d_0+2c_G & 1-d_0\\
+    \mathrm{complex} & 1-d_0+2c_G & 1-d_0+c_G
+  \end{array}
+\]
+
+\begin{theorem}[Two-test inequality]\label{thm:twotest}
+Use the two-test data defined above, with $\gamma_G>\gamma_Z>0$ and
+$s\le\min(p^*,l_2)$. For every sufficiently large $q$ and every configuration of an
+inside leaf, form the following entries:
+\begin{enumerate}[(i)]
+  \item any finite set of distinct ordinary characters, each at a zero
+    $\rho_\chi\in R(l)$ with $|\Im\rho_\chi|\le1$;
+  \item the first character at $\rho_1$, and also $\bchi_1$ at $\overline{\rho_1}$ when
+    $\chi_1$ is nonreal;
+  \item the $n_2$ characters of the reserved family at their height-one representatives,
+    if a family is reserved.
+\end{enumerate}
+For type $\mathrm{rc}$, the single first-family entry retains both $\rho_1$ and
+$\overline{\rho_1}$. Assign features $v(\lambda_{\rho_\chi})$, $v_f$, and $v_2$ to
+groups (i)--(iii), and diagonals $D_o$, $D_f$, and $D_o$, respectively. Then
+for every choice of real coefficients $a_j\ge0$,
+\[
+  \Bigl(\sum_ja_jv_j\Bigr)_+^2\le\sum_jD_ja_j^2+d\Bigl(\sum_ja_j\Bigr)^2 .
+\]
+\end{theorem}
+
+\begin{proof}
+Put $\sigma_s=1-s/\LL$ and, in the Hilbert space of sequences indexed by $n$,
+\[
+  A_j(n)=\sqrt{\Lambda(n)n^{-\sigma_s}g(t_n)}\,\chi_j(n)n^{-i\gamma_j},\qquad
+  B(n)=\chi_0(n)\sqrt{\Lambda(n)n^{-\sigma_s}}\,\frac{f(t_n)}{\sqrt{g(t_n)}} .
+\]
+Then $-\Re\langle A_j,B\rangle=\LL R_j$, where $R_j$ is the response of the entry at the anchor $s$, and
+$\LL\sum_ja_jR_j\le\|\sum_ja_jA_j\|\,\|B\|$.
+
+\emph{Responses.} We use \cref{lem:response} (or directly \cref{inp:X32}). For an ordinary or reserved
+character every zero in the disc has parameter at least $s$ (\cref{lem:noright}(b), as $s\le l_2$), so
+$R_j\ge F(\lambda_{\rho_\chi}-s)-\frac{\varphi}2f(0)-\eps$. For the first family, the zeros of $\chi_1$ with
+parameter below $s$ are $\rho_1$ and, for type $\mathrm{rc}$, $\overline{\rho_1}$ (the others have parameter at
+least $\lambda'\ge p^*\ge s$); keeping them gives $F(\lambda_1-s)\ge F(b-s)$ and, for type $\mathrm{rc}$,
+$\Re F(\lambda_1-s+2i\mu_1)\ge-C_F$ (\cref{lem:parabolic}(v)). Conjugate zeros of a real character have the
+same multiplicity $m\ge1$, so the kept terms total at least $m(F(b-s)-\1_{\mathrm{rc}}C_F)$, which is at least
+$F(b-s)-\1_{\mathrm{rc}}C_F$ when this is nonnegative (otherwise $v_f<0$, see below). Since
+$\varphi(\chi)=\frac14$ for real $\chi$ and $\varphi(\chi)\le\frac13$ always (\cref{inp:X32}), the terms $\frac{\varphi}2f(0)$ are at
+most $\frac16f(0)$, $\frac{\phi_1}2f(0)$ and $\frac{\phi_2}2f(0)$ respectively. Thus
+$R_j\ge \mathcal N(v_j+\eta)-\eps$ for entries with positive feature. Entries with nonpositive
+feature may be omitted in estimating the positive part on the left; we justify
+restoring their coefficients to the right-hand side below.
+
+\emph{Norms.} By \cref{inp:X31} applied to $f^2/g$, $\|B\|^2=\LL R_Z(1+o(1))$, and $\|A_j\|^2=\LL R_G(1+o(1))$.
+
+\emph{Off-diagonal terms.} For $j\ne k$ the characters are distinct and $\langle A_j,A_k\rangle$ is the
+$g$-weighted sum for the nonprincipal character $\chi_{jk}=\chi_j\bchi_k$ at $\sigma_s+i(\gamma_j-\gamma_k)$. By \cref{inp:X32}
+its real part is at most $\LL(d_0R_G+\eps)$ plus $\LL$ times the sum of $-\Re G(\cdot)$ over the zeros of $\chi_{jk}$ in
+the disc with parameter below $s$. If $\chi_{jk}\notin\{\chi_1,\bchi_1\}$ there are none, by \cref{lem:noright}(b),
+which applies because $|\gamma_j-\gamma_k|\le2\le2l$.
+If $\chi_{jk}=\chi_1$ (or $\bchi_1$), they are $\rho_1$ (resp.\ $\overline{\rho_1}$), and for type $\mathrm{rc}$ both, each
+contributing at most $C_G$; these zeros are simple, since a multiple $\rho_1$ would give $\lambda_1=\lambda'\ge s$. For a given $j$, the $k$ with $\chi_j\bchi_k\in\{\chi_1,\bchi_1\}$ are
+$\chi_k\in\{\chi_j\bchi_1,\chi_j\chi_1\}$: at most two, and at most one if $\chi_1$ is real; a first-family
+character has none if $\chi_1$ is real ($\chi_1\bchi_1=\chi_0$) and at most one ($\chi_1^2$) otherwise. With
+$2a_ja_k\le a_j^2+a_k^2$ for each such pair, these corrections give the diagonals of the table.
+
+\emph{Assembly.} For $a\ge0$,
+$\|\sum_ja_jA_j\|^2\le\LL R_G[\sum_ja_j^2(1-d_0+\mathrm{exc}_j)+(d_0+\eps)(\sum_ja_j)^2]$, and
+$\|B\|^2\le(1+\eps)\LL R_Z$. Dividing by $\LL^2\mathcal N^2$ and absorbing the errors in $\eta$ gives the claim
+for the positive-feature entries. To restore any omitted entries, expand the
+right-hand side as
+$\sum_j(D_j+d)a_j^2+2d\sum_{j<k}a_ja_k$. Its coefficients are nonnegative:
+the table gives $D_j+d\ge k_\eta(1+\eta)>0$ and $d>0$.
+Restoring nonnegative $a_j$ therefore increases this bound, while a nonpositive feature
+can only decrease the positive part on the left.
+\end{proof}
+
+\begin{proposition}[Detector mixture]\label{prop:mixture}
+\Cref{thm:twotest} remains true when $f$ is replaced by $f_\epsilon=f+\epsilon g$ with $\epsilon\ge0$, provided
+$F$, $f(0)$ and $C_F$ are replaced by $F+\epsilon G$, $f(0)+\epsilon g(0)$ and $C_F+\epsilon C_G$, and $\mathcal N$ by
+$\mathcal N_\epsilon=\sqrt{R_G(R_Z+2\epsilon F(-s)+\epsilon^2R_G)}$; the Gram quantities are unchanged.
+\end{proposition}
+
+\begin{proof}
+$f_\epsilon$ satisfies Conditions~1 and~2, and $f_\epsilon^2/g=f^2/g+2\epsilon f+\epsilon^2g$ is a sum of functions
+satisfying Condition~1, so $\|B_\epsilon\|^2=\LL(R_Z+2\epsilon F(-s)+\epsilon^2R_G)(1+o(1))$. The rest of the proof
+is unchanged, using $-\Re(F+\epsilon G)\le C_F+\epsilon C_G$ on $\Re z\ge a-s$.
+\end{proof}
+
+\begin{proposition}[Paired first family]\label{prop:paired}
+Use the data and inside-leaf hypotheses of \cref{thm:twotest}. Suppose $\chi_1$ is
+nonreal and the specification $\mathfrak s$ has a finite gap
+$\lambda'\in[p^*,h]$, where $h=\hi'$. Fix $\zeta>0$ and
+a number $\mathcal B$ with
+\begin{equation}\label{eq:pairB}
+  \frac{\Re G(-s+i\Delta)}{R_G}-\zeta\,\frac{\Re F(\lambda_1-s+i\Delta)+\Re F(\lambda'-s+i\Delta)}{2\mathcal N}\le\mathcal B
+\end{equation}
+for all real $\Delta$, $\lambda_1\in[a,b]$ and $\lambda'\in[p^*,h]$. Let $e\ge C_F/(2\mathcal N)$, and put
+\[
+  m=\frac{F(b-s)+F(h-s)}{2\mathcal N}-\frac{f(0)}{6\mathcal N}-\eta-e,\qquad
+  D_*=k_\eta\Bigl\{\frac{1+\mathcal B}2-d_0+c_G-\frac{\zeta e}2\Bigr\},\qquad\zeta_*=\frac{k_\eta\zeta}2 .
+\]
+Let $m'\le m$ and $D'\ge D_*$ with $D'>0$ and $2D'\ge\zeta_*\max(m',0)$. Then, for every configuration
+of the leaf, there is $\tau\in[0,\sqrt d]$ satisfying \eqref{eq:T} for the entries of \cref{thm:twotest},
+with the first-family feature $m'$ and diagonal $D'$ in place of $v_f$ and $D_f$.
+\end{proposition}
+
+\begin{proof}
+For $\chi_1$ use the averaged vector $A_f=\frac12(A_{\chi_1,\gamma_1}+A_{\chi_1,\gamma'})$, with an admissible $\rho'$ of height
+$\gamma'$ (\cref{sec:notation}; so $\rho'$ is a zero of $\chi_1$ and $|\gamma'|\le l$), and its conjugate for $\bchi_1$. Its
+response is the average of the two responses, which we bound by \eqref{eq:X34} at the points
+$1-s/\LL+i\gamma_1$ and $1-s/\LL+i\gamma'$; they lie in $R(9l)$, and \eqref{eq:X34} does not require the kept zeros
+to lie in a disc. The set $A_1$ of zeros of $\chi_1$ in $R(l)$ with parameter below $s$ is contained in
+$\{\rho_1\}$, since every occurrence in $R(l)$ other than the distinguished one has parameter at least
+$\lambda'\ge p^*\ge s$. We put $\rho'$ into $A_2$, and also $\rho_1$ if $\lambda_1\ge s$, with their multiplicities (if
+$\rho'=\rho_1$ this is $\rho_1$ with multiplicity at least $2$); by \cref{inp:logfree} their number is bounded
+independently of $q$. The multiplicities can only increase the response: the terms of $\rho'$ are
+$\ge0$ by Condition~2 because $\lambda'\ge s$, the term $F(\lambda_1-s)$ is positive, and if $\rho_1$ is a multiple
+zero then $\lambda_1=\lambda'\ge s$, so its terms are $\ge0$ as well. With $\Delta=\LL(\gamma_1-\gamma')$, $P=\Re G(-s+i\Delta)/R_G$ and $Q$ the second
+fraction in \eqref{eq:pairB}, the feature of $A_f$ is therefore at least
+$\frac{F(b-s)+F(h-s)}{2\mathcal N}-\frac{f(0)}{6\mathcal N}+Q-\eta$, and $\|A_f\|^2=\LL R_G\frac{1+P}2(1+o(1))$ by \cref{inp:X31}. Each
+off-diagonal term $\langle A_f,A_k\rangle$ is the average of two terms of the kind estimated in the proof of
+\cref{thm:twotest}, at the heights $\gamma_1-\gamma_k$ and $\gamma'-\gamma_k$, whose absolute values are at most
+$l+1\le2l$; the term between $A_f$ and its conjugate is an average of four terms, at heights
+$2\gamma_1$, $\gamma_1+\gamma'$ and $2\gamma'$, which are also at most $2l$ in absolute value. So \cref{lem:noright}
+applies to all of them, averaging creates no new quotient characters, and the off-diagonal estimates
+are unchanged (for a cubic $\chi_1$ the quotient $\chi_1^2=\bchi_1$ of the conjugate pair is paid by the $c_G$
+in $D_*$). Put $U=Q+e$; then $U\ge0$, since $\lambda'\ge s$ gives
+$Q\ge-C_F/(2\mathcal N)$.
+
+By \eqref{eq:pairB}, $P\le\mathcal B+\zeta Q$, so the actual first-family feature is at least $m+U$ and the
+actual diagonal $k_\eta\{\frac{1+P}2-d_0+c_G\}$ is at most $D_*+\zeta_*U$. Put $U'=U+(m-m')\ge U\ge0$. Then the actual
+feature is at least $m'+U'$, and the actual diagonal is at most $D'+\zeta_*U'$, which is positive.
+Replacing the first-family features and diagonals by these bounds preserves the quadratic
+inequality of \cref{thm:twotest}, and \cref{prop:threshold} gives $\tau\in[0,\sqrt d]$ satisfying \eqref{eq:T}
+with the first-family data $(m'+U',D'+\zeta_*U')$. Finally, for $\tau\ge0$ and $U'\ge0$,
+\[
+  \frac{(m'+U'-\tau)_+^2}{D'+\zeta_*U'}\ge\frac{(m'-\tau)_+^2}{D'} .
+\]
+Indeed the right side is $0$ if $m'\le\tau$. Otherwise put $z=m'-\tau\in(0,m']$. The derivative of
+$(z+u)^2/(D'+\zeta_*u)$ in $u\ge0$ is $(z+u)(2D'-\zeta_*z+\zeta_*u)/(D'+\zeta_*u)^2\ge0$, because
+$2D'\ge\zeta_*m'\ge\zeta_*z$. So \eqref{eq:T} holds at the same $\tau$ with $(m',D')$.
+\end{proof}
+
+In the leaf program the two-test row is the threshold form \eqref{eq:T} of \cref{thm:twotest} (or of one of
+its two variants, \cref{prop:mixture,prop:paired}):
+\[
+  \sum_ix_i\frac{(V_i-\tau)_+^2}{D_o}+n\frac{(v_f-\tau)_+^2}{D_f}+n_2\frac{(v_2-\tau)_+^2}{D_o}\le1-\frac{\tau^2}d,
+\]
+with $V_i=v(\hi_i)$ the feature of the right end of the ordinary bin $i$ (the tail and the
+reserved columns have feature $0$ in this row), and negative features replaced by $0$. The
+$T^*$-representatives are admissible entries, since \cref{thm:twotest} allows any zero of height at
+most $1$, and all of them have parameter at least $l_2\ge s$ (Z3). The reserved family appears as a
+fixed term with the feature $v_2$ at $\hi_2$, which bounds its feature over the whole reserved range,
+and with the diagonal $D_o$. The row is used on $37$ roots, once on each: with a single test on $31$
+of them, with a mixture on $2$, and in the paired form on $4$ (all with a nonreal $\chi_1$, as
+\cref{prop:paired} requires). In the paired form the certified pair $(m',D')$ consists of a lower
+bound for $m$ and an upper bound for $D_*$, and the condition $2D'\ge\zeta_*\max(m',0)$ is checked for
+this pair; the margins $2D'-\zeta_*m'$ are between $0.18$ and $0.30$. The condition \eqref{eq:pairB} is
+verified with interval arithmetic. Both of its terms are even in $\Delta$, so $\Delta\ge0$ suffices. On the grid
+$\Delta\in\frac1{200}\ZZ\cap[0,30]$ the left side is enclosed at the four corners of the parameter box
+$[a,b]\times[p^*,h]$. As the left side is a sum of a function of $\lambda_1$ and a function of $\lambda'$, its
+maximum over the box exceeds the maximum over the corners by at most
+$\frac\zeta{2\mathcal N}\bigl(\frac{(b-a)^2}8\int t^2f(t)e^{(s-a)_+t}\,dt+\frac{(h-p^*)^2}8\int t^2f(t)\,dt\bigr)$, the linear
+interpolation error in each variable, and this is added. Between grid points a
+second-derivative bound in $\Delta$ is used, and for $\Delta\ge30$ a closed-form bound from
+\cref{lem:parabolic}(iv). The value $\mathcal B$ used is at least $0$.
+
+\subsection{Validity of the rows}
+
+\begin{proposition}[Every configuration satisfies the near rows]\label{prop:rowsvalid}
+Let $\mathfrak s$ specify a leaf or one of its subcases. For sufficiently large $q$,
+take any configuration in $C(\mathfrak s)$ and assign its characters to columns as in
+\cref{prop:realization}, obtaining column values $x$. Then, for every near row $k$,
+there is a threshold $\tau_k$ such that
+\[
+  0\le\tau_k\le\sqrt{d_k/S},\qquad
+  \Phi_k(x,\tau_k)\le1-\frac{\tau_k^2}{d_k/S}.
+\]
+Here $d_k$ is the stored correlation term, $S=10^{16}$, and $\Phi_k$ is the row expression of
+\cref{def:leafprogram}. Each row may have its own threshold.
+\end{proposition}
+
+\begin{proof}
+For a graded, family or shifted row, take as entries the characters of the configuration that
+are placed in the columns and family terms of the row: the ordinary characters of $O$ at their
+$T^*$-representatives, the reserved characters, and the first family, with the entries of
+\cref{subsec:entries}. These form an admissible family of entries for \cref{thm:graded}, with the
+kept sets verified in \cref{subsec:entries}, so \cref{cor:zeroform} gives a threshold $\tau$ at
+which \eqref{eq:T} holds with the normalized features, diagonals and correlation term. Each column's feature is
+at most the feature of every character placed in it (features are taken at the right end of the
+column, and $F$ is decreasing), or is $0$; each column's diagonal is at least theirs, or the column
+has feature $0$ (an entry whose diagonal numerator is not safely positive is omitted, and its column
+is given feature $0$), in which case it contributes nothing for $\tau\ge0$; each family
+term $(n,v,D)$ receives $n$ entries with feature at least $v$ and diagonal at most $D$; and the
+characters in the tail column and in the hidden tail are simply omitted from the row. Since each term $(v-\tau)_+^2/D$
+increases with $v$ and decreases with $D$ for $\tau\ge0$, the row of the leaf holds at $\tau$. For the
+two-test row the same argument applies to \cref{thm:twotest} and its variants, through
+\cref{prop:threshold}.
+\end{proof}
+
+The numbers $I_u$, $D_u$, $D(\delta)$, the transforms and the special terms $R_{\lo}$, $c^{\hi}$, $R_p$, $R_q$,
+$C_Z$ and $C_F$ are computed from the rational parameters of each row with outward interval arithmetic. The
+transforms are enclosed with the closed form of \cref{lem:parabolic}(iv) or with its power series near
+$0$. The infima and suprema over heights in $R_{\lo}$, $c^{\hi}$, $R_p$ and $R_q$ are enclosed on grids of step
+at most $\frac1{50}$, with second-derivative bounds $\int t^2\hat f_c(t)e^{dt}\,dt$ between grid points and
+Lipschitz bounds in the real parts, and by the tail bounds of \cref{lem:parabolic}(iv) beyond the
+grid. The constants $C_Z$, $C_F$ and $C_G$ are enclosed on the line $\Re z=-d$ (by
+\cref{lem:parabolic}(v)), for heights in $[0,20]$ by adaptive linear interpolation, starting from
+$200$ cells of width $\frac1{10}$ and bisecting cells until the largest cell bound is within a small
+fixed tolerance of the best value found, with the same second-derivative bound, and beyond height
+$20$ by a closed-form tail bound. The features, diagonals and correlation terms of all rows other than the $37$ two-test rows have been
+recomputed from their rational parameters by an independent program whose soundness is formally
+verified (\cref{sec:verification}).

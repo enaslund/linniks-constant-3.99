@@ -1,0 +1,93 @@
+% !TEX root = ../linnik399.tex
+\section{Assembly of the proof}\label{sec:join}
+
+Each preceding argument holds once $q$ exceeds a threshold depending on fixed choices.
+We first verify that these choices can be made in a noncircular order. A single
+threshold then works for every leaf and every exterior case.
+
+\subsection{The order of the choices}\label{subsec:order}
+The constants of the argument are chosen in the following order. Each stage depends only on the
+earlier ones, and there are finitely many choices at each stage.
+\begin{enumerate}[(S1)]
+  \item The fixed data: the exponent $L=3.99$ and the kernel of \cref{sec:detection}; the two far
+    profiles of \cref{sec:far}; the test functions, anchors, sieve weights and grids of all near
+    rows (\cref{sec:rows}); the case tree, its leaf programs and their certificates
+    (\cref{sec:casetree,sec:lp}); the zero-location rows of \cref{sec:location}; the data of the
+    exterior regimes (\cref{sec:exteriors}); $\eta=\eta'=10^{-6}$, $\lambda_{11}=0.05$ and $s_{\max}=3$; and
+    $u_{\mathrm{exc}}=\min(1/\eta_{\mathrm{HB}}(\frac12),0.08)$, with $\eta_{\mathrm{HB}}(\delta)$ from \cref{inp:siegel}; and the envelope tolerance
+$\eps_1=\eta/23$ of \cref{subsec:allowance}.
+  \item The prime window: $C_P\ge\max(C_0(\eta H_0),3)$, with $C_0$ from \cref{inp:criterion}.
+  \item The zero count $N=N(C_P)$ of \cref{lem:zerocount}; the mesh $h_{\mathcal A}$ and the finite set
+    of anchors $\mathcal A$ of \cref{subsec:zerocount}; then the smoothing parameter $\theta$ of
+    \cref{subsec:smoothing}, chosen so that \eqref{eq:thetachoice} holds for $\eps_1=\eta/23$; then the
+    constant $c_{\mathrm{out}}$ of \cref{prop:firstoutside}.
+  \item The count $K_0$ of \cref{subsec:representatives}, a bound, uniform in $q$, for the number
+    of zeros of all nonprincipal $L$-functions modulo $q$ with $\lambda\le s_{\max}$ and $|\gamma|\le2$
+    (\cref{inp:logfree}). Then the separation $M$, so large that for $|Y|\ge M$ we have
+    $|\Re F(x+iY)|\le\eta''_{\min}/(2K_0+2)$ for every detector and $x\in[-s_{\max},0]$, where
+    $\eta''_{\min}>0$ is the least of the numbers $\eta''=\eta'\min(1,\sqrt{I_BD_u},D_u)$ of
+    \cref{cor:zeroform} over the finitely many rows, and
+    $|\Re G(-\sigma+iY)|\le d_1$ for every Gram test and every $\sigma=s_1-\delta-\delta'$ that occurs
+    (\cref{lem:decaytransform}). Then the buffer $C_B>\max(C_P+M,\,1.5)$ with
+    $4c_{\mathrm{out}}/(H_0C_B^2)\le\eta$.
+  \item The tolerances of the published results and of the lemmas proved here, each below the
+    finitely many positive margins it must fit: the tolerances of \cref{inp:X31,inp:X32} for the
+    finitely many test functions (those of \cref{sec:costs}, the functions $f^\theta_\sigma$ with tolerance
+    $H_0\eps_1/8$, and the detectors of the near rows with tolerance $\eta''_{\min}/2$), the disc radius $\delta_0\le\frac13$ of \cref{subsec:zerocount},
+    which is at most the radius that \cref{inp:X32} provides for each of these, and the tolerances
+    of \eqref{eq:X34} and \cref{lem:explicitphi}, of
+    \cref{inp:far} (with $\eps=\eta J^2$), of \cref{inp:burgess,inp:graham} and Mertens' estimate, of
+    \cref{inp:criterion} (with $\eps=\eta H_0$), of the zero tables, and of the small-branch
+    estimates of \cref{thm:small} (with $\mathcal E+\eps<0.03u_{\mathrm{exc}}$).
+  \item Finally $q_0$: the maximum of the finitely many thresholds of the previous stages, together
+    with those of \cref{inp:rectangle}, of the inclusions $R_P\subseteq R_B\subseteq$ the discs, and
+    $\LL>4M(K_0+1)$ for \cref{lem:Tstar}.
+\end{enumerate}
+The certificates of stage (S1) depend only on fixed data, not on $C_P$, $M$, $C_B$ or $q$. The
+count $K_0$ counts zeros up to height $2$, which exceeds $1+\delta_0$ for every admissible radius;
+so $M$, which depends on $K_0$, can be fixed before the radius $\delta_0$, and there is no circular
+dependence. The strip height $T^*=T^*(q)\in[\frac12,1]$ of \cref{lem:Tstar} is then determined by $q$.
+
+Envelope errors that are summed over unboundedly many characters are weighted by
+$e^{-A\lambda_\chi}$, and $\sum_\chi e^{-A\lambda_\chi}<19$ by \eqref{eq:Kfar}; errors in the near rows are
+uniform per entry or are multiples of $(\sum_ja_j)^2$ (\cref{thm:graded}). Thus the error
+allowances remain uniform as the number of characters grows with $q$.
+
+\subsection{The regimes}
+Let $q\ge q_0$. Exactly one of the following holds.
+\begin{enumerate}[(R1)]
+  \item No nonprincipal $L(s,\chi)$ has a zero in $R(l)$.
+  \item $\lambda_1<0.1$.
+  \item $0.1\le\lambda_1<1.5$.
+  \item $\lambda_1\ge1.5$.
+\end{enumerate}
+(The first zero $\lambda_1$ is defined when (R1) fails; since $R(l)$ is compact there are finitely
+many zeros in it.)
+
+\subsection{Proof of \texorpdfstring{\cref{thm:main}}{the main theorem}}
+Let $q\ge q_0$ and let $a$ be coprime to $q$.
+
+In case (R1), $W=0$ and \cref{prop:detect} gives a prime $p\equiv a\pmod q$ with $q^A<p<q^L$.
+
+In case (R2), if $\lambda_1<u_{\mathrm{exc}}$ then $P(a,q)\le q^{3.5}$ by \cref{prop:tiny}; if $u_{\mathrm{exc}}\le\lambda_1<0.1$ then
+\cref{thm:small} gives a prime $p\equiv a\pmod q$ with $q^{3.6258}<p<q^{3.99}$.
+
+In case (R3), \cref{thm:cover} gives a leaf of the case tree, or a subcase of a leaf, and a
+feasible point of its program with $W\le\mathcal V(x)-2\eta<1-2\eta$. In case (R4), \cref{thm:large}
+gives $W<1-2\eta$. In both cases \cref{prop:detect} gives a prime $p\equiv a\pmod q$ with
+$q^A<p<q^L$.
+
+Thus $P(a,q)<q^{3.99}$ for every $q\ge q_0$ and every $(a,q)=1$.
+There are only finitely many moduli $2\le q<q_0$, and finitely many reduced residue
+classes for each such modulus. Dirichlet's theorem supplies a least prime in each
+class. Taking the maximum of $1$ and the finitely many ratios $P(a,q)/q^{3.99}$ gives
+an absolute $C$ valid for all $q\ge2$. \qed
+
+\begin{remark}[Effectivity]
+Heath-Brown's theorem on Siegel zeros \cite[Corollary~1]{HeathBrown1990siegel}, used for
+the closest exceptional zeros, is effective. The other source estimates used here are
+also stated with effective constants. However, we have neither audited the effectivity
+of every step of the assembly nor computed a value of $q_0$ or $C$.
+\Cref{thm:main} asserts their existence and does not supply an explicit numerical bound
+for either constant.
+\end{remark}

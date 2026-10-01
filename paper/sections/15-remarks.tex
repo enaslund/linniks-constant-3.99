@@ -1,0 +1,40 @@
+% !TEX root = ../linnik399.tex
+\section{Concluding remarks}\label{sec:remarks}
+
+\emph{The difficult configurations.} The tightest certified cases have a nonreal first
+character with $\lambda_1\in[0.64,0.80]$ and a nearby second family. The numerical
+experiments of \cref{subsec:why} suggest that stronger location bounds in this range
+would be useful. One limitation of a single near row can be seen directly: if $N$
+entries have the same positive feature $v$ and diagonal $D$, then its quadratic
+inequality permits $N\le D/(v^2-d)$ when $v^2>d$ (\cref{ex:twolevels}). This is a restriction of that
+relaxation, not a lower bound on what other tests or arguments can achieve.
+
+Improved far-density constants may also help. Xylouris estimates
+\cite[p.~87]{Xylouris2011nullstellen} that halving the constant in his (5.19) would lower
+the exponent obtained by his method to about $4.6$. A corresponding gain for the
+present method would require new certificates for the complete cover.
+
+\emph{Possible improvements.} Heath-Brown's list of possible improvements
+\cite[\S16]{HeathBrown1992zero} contains several that we have not used: optimal test functions
+for the combined inequalities (his item~1), positivity beyond the support of the test functions via
+Brun--Titchmarsh bounds (item~3; see \cite{Titchmarsh1930divisor,MontgomeryVaughan1973large,
+Iwaniec1982brun,Maynard2013brun}), and modified sieve coefficients in the density argument (item~6;
+compare \cite{FriedlanderIwaniec2023selberg}). His item~7, a continuous weight in the density
+argument, is what Xylouris's far-density lemma implements, and we use it. For cube-free moduli Burgess's bounds hold for every $k$, and even the
+Weyl bound is known \cite{PetrowYoung2020weyl}; Heath-Brown already noted that all the arguments
+improve in that case. Recent large-value estimates for Dirichlet polynomials
+\cite{GuthMaynard2026new,ChenGuptaLi2025large,TaoTrudgianYang2026new} and new density theorems
+\cite{Pintz2019some} improve zero-density estimates away from $\sigma=1$; it is not clear
+whether they help in the range $\sigma=1-O(1/\log q)$ that matters here.
+
+\emph{Other approaches.} For moduli with bounded cubic part the exponent $4.5$ has been claimed
+\cite{Meng2010note}, and for moduli all of whose prime factors are small much better
+exponents are known \cite{Chang2014short}. A different recent approach, through the exceptional set of Goldbach's problem (compare
+\cite{Pintz2018new}), claims the exponent $5$ in a preprint \cite{Zhao2025exceptional}.
+
+\emph{The role of the computation.} The graded lemma gives quadratic constraints for
+different test functions and anchors. Their threshold forms can be combined with the
+far-density budget in linear programs, whose bounds are certified by exact duality.
+This separates the search for effective test parameters from the verification of the
+resulting bound. Any improvement of the global exponent must still include the
+zero-location arguments, a complete case cover, and the exterior regimes.

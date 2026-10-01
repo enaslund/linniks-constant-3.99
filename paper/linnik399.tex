@@ -1,0 +1,135 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage[shortlabels]{enumitem}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{ourcolumn}{gray}{0.93}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=green!35!black,urlcolor=blue!60!black]{hyperref}
+\usepackage{aliascnt}
+\usepackage[capitalise,nameinlink]{cleveref}
+\hypersetup{pdftitle={Linnik's constant is at most 3.99},pdfauthor={Eric Naslund}}
+
+\numberwithin{equation}{section}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newaliascnt{proposition}{theorem}\newtheorem{proposition}[proposition]{Proposition}\aliascntresetthe{proposition}
+\newaliascnt{lemma}{theorem}\newtheorem{lemma}[lemma]{Lemma}\aliascntresetthe{lemma}
+\newaliascnt{corollary}{theorem}\newtheorem{corollary}[corollary]{Corollary}\aliascntresetthe{corollary}
+\newaliascnt{inp}{theorem}\newtheorem{inp}[inp]{Input}\aliascntresetthe{inp}
+\theoremstyle{definition}
+\newaliascnt{definition}{theorem}\newtheorem{definition}[definition]{Definition}\aliascntresetthe{definition}
+\newaliascnt{assumption}{theorem}\newtheorem{assumption}[assumption]{Assumption}\aliascntresetthe{assumption}
+\theoremstyle{remark}
+\newaliascnt{remark}{theorem}\newtheorem{remark}[remark]{Remark}\aliascntresetthe{remark}
+\newaliascnt{example}{theorem}\newtheorem{example}[example]{Example}\aliascntresetthe{example}
+
+\crefname{theorem}{Theorem}{Theorems}
+\crefname{proposition}{Proposition}{Propositions}
+\crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{Corollary}{Corollaries}
+\crefname{inp}{Input}{Inputs}
+\crefname{definition}{Definition}{Definitions}
+\crefname{assumption}{Assumption}{Assumptions}
+\crefname{remark}{Remark}{Remarks}
+\crefname{example}{Example}{Examples}
+
+% ---------------------------------------------------------------- notation
+\newcommand{\LL}{\mathcal{L}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\lo}{\mathrm{lo}}
+\newcommand{\hi}{\mathrm{hi}}
+\newcommand{\1}{\mathbf{1}}
+\newcommand{\bchi}{\overline{\chi}}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\supp}{supp}
+
+\begin{document}
+
+\title{Linnik's constant is at most $3.99$}
+
+\author[Eric Naslund]{Eric Naslund\textsuperscript{$*$}}
+\email{naslund.math@gmail.com}
+
+\date{September 30, 2026}
+
+\subjclass[2020]{11N13 (primary); 11M20, 11M26, 11N35, 11Y35, 68V15, 90C05 (secondary)}
+\keywords{Least prime in an arithmetic progression, Linnik's theorem, zeros of Dirichlet
+$L$-functions, zero density, Selberg sieve, computer-assisted proof}
+
+\begin{abstract}
+Let $P(a,q)$ denote the least prime congruent to $a$ modulo $q$, where $(a,q)=1$.
+We give a computer-assisted proof that $P(a,q)\ll q^{3.99}$, improving the exponent $5$
+of Xylouris. More precisely, $P(a,q)<q^{3.99}$ for every sufficiently large $q$, uniformly
+in $a$.
+
+The main new ingredient is a graded near-density estimate for zeros of Dirichlet
+$L$-functions, a weighted form of Heath-Brown's Lemma~12.1 of the kind he asked for in 1992. We
+combine it with the zero-location estimates and far-density method of Heath-Brown and Xylouris.
+
+The second novelty is the scale of the case analysis. Heath-Brown and Xylouris closed their final
+case analyses with $14$ and $21$ main cases, each by a chain of inequalities evaluated in floating
+point. In this paper, with the help of advanced AI models, we can push this much further. The middle range of the first zero is divided into $4453$ root cases and $4788$
+terminal cases, each closed by its own linear program, and exact integer dual certificates on
+$4{,}196{,}879$ threshold boxes bound the normalized zero sum strictly below~$1$. Exceptional
+zeros and the remaining exterior range are treated separately. This case analysis is a kind of
+systematic brute force enabled by AI: an analysis of this size, with parameters tuned to each case,
+would be very laborious or nearly impossible to carry out by hand, and it lets the new estimate be
+applied separately in each case.
+
+The near-density lemma, certificate soundness, and a conditional passage from a certified
+case to a prime are formalized in Lean, assuming published analytic inputs and specified
+facts about zeros.
+\end{abstract}
+
+\maketitle
+
+\begin{quote}
+\small\noindent\textsuperscript{$*$} This paper was written by Claude Opus 5.5 and GPT Astra 6 under my prompting and supervision. The research was carried out by the same models under my prompting and supervision, with some of the formalization work also done by xAI's Grok. My recommendation is for the reader to explore this paper with AI as well, and use their favorite model to ask the paper questions. The certificates are checked by three separate programs, one of them formally verified, and
+\cref{sec:verification} states precisely which parts of the proof are formally verified in Lean and which have conventional proofs only.
+\end{quote}
+
+\clearpage
+\setcounter{tocdepth}{1}
+\begingroup
+\small
+\tableofcontents
+\endgroup
+
+\input{sections/01-introduction}
+\input{sections/02-notation}
+\input{sections/03-inputs}
+\input{sections/04-detection}
+\input{sections/05-costs}
+\input{sections/06-far}
+\input{sections/07-location}
+\input{sections/08-near}
+\input{sections/09-rows}
+\input{sections/10-lp}
+\input{sections/11-casetree}
+\input{sections/12-exteriors}
+\input{sections/13-join}
+\input{sections/14-verification}
+\input{sections/15-remarks}
+\input{sections/16-appendix}
+
+\bibliographystyle{amsplain}
+\bibliography{references}
+
+\end{document}

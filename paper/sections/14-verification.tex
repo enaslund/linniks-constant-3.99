@@ -1,0 +1,318 @@
+% !TEX root = ../linnik399.tex
+\section{The computations and their verification}\label{sec:verification}
+
+The finite computation has three logical components. The zero-location checks justify
+the case analysis; enclosures of analytic quantities supply the leaf coefficients;
+and integer certificates bound the resulting programs. The exterior ranges require
+separate computations. A check of one component does not by itself verify the others.
+This section records the evidence for each and the scope of the Lean formalization.
+
+Computer assistance is well established in explicit analytic number theory, for instance in the
+ternary Goldbach problem \cite{Helfgott2015ternary} and in verifications of the Riemann hypothesis
+\cite{Platt2016numerical,PlattTrudgian2021riemann}, and linear programs with rigorously checked
+bounds are central to the proof of the Kepler conjecture \cite{ObuaNipkow2009flyspeck,
+SolovyevHales2011efficient,Hales2017formal}. In our computations, the real coefficients and
+margins are enclosed by interval arithmetic \cite{Moore1966interval,MooreKearfottCloud2009introduction,
+Rump2010verification,Tucker2011validated}. It is implemented with the interval context of mpmath
+\cite{mpmath2023library}, at a working precision of at least $50$ digits, and with a vectorized
+binary64 interval module that widens the result of every operation outward by one unit in the
+last place and evaluates $\exp$, $\sin$ and $\cos$ by Taylor polynomials with explicit remainder
+bounds, not by the platform's library; the Lean checkers of \cref{subsec:lean} use their own
+verified rational interval arithmetic. Floating-point linear programming (with the HiGHS solver
+\cite{HuangfuHall2018parallelizing} in SciPy \cite{Virtanen2020scipy}) is used only to propose dual
+multipliers, and every certificate is checked in exact integer arithmetic. Independent
+numerical audits use multiple-precision arithmetic \cite{mpmath2023library}.
+The supplementary floating-point checks of certain published table entries are
+identified separately in \cref{subsec:locconventions}. \Cref{tab:status} summarizes, for each
+component of the proof, whether it is published or new, how it was obtained and how it was
+checked.
+
+\begin{table}[tp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{\dimexpr0.25\linewidth-6.4pt\relax}
+                >{\raggedright\arraybackslash}p{\dimexpr0.15\linewidth-6.4pt\relax}
+                >{\raggedright\arraybackslash}p{\dimexpr0.11\linewidth-6.4pt\relax}
+                >{\raggedright\arraybackslash}p{\dimexpr0.15\linewidth-6.4pt\relax}
+                >{\raggedright\arraybackslash}p{\dimexpr0.34\linewidth-6.4pt\relax}@{}}
+\toprule
+Component & Source & Kind & Method & Checked by\\
+\midrule
+Positivity criterion and detection (\cref{inp:criterion,prop:detect}) &
+  Published \cite{Xylouris2011nullstellen} & Analytic & -- &
+  Lean, with the criterion as a hypothesis\\
+Envelope and first-family bounds (\cref{sec:costs}) &
+  New, after \cite{Xylouris2011nullstellen} & Analytic & Interval arithmetic &
+  Hand proof; a hypothesis in Lean, which checks only the enclosures\\
+Far density (\cref{inp:far}) &
+  Published \cite{Xylouris2011nullstellen} & Analytic & -- &
+  Lean hypothesis; profile conditions proved in Lean\\
+Far constants $V$, $w$ (\cref{sec:far}) &
+  New profiles & Numerical & Interval arithmetic &
+  Multiple-precision audit; Lean numeric checker\\
+Printed zero-location tables (\cref{prop:parentrows}) &
+  Published \cite{HeathBrown1992zero,Xylouris2011nullstellen} & Analytic & As printed &
+  Compared with the pages; Heath-Brown's Tables~4 and~7 recomputed in floating point\\
+New location rows (\cref{sec:location}) &
+  New & Both & Interval arithmetic &
+  Replay; the $94$ complex rows by a separate program\\
+Conditions \cite[(4.29), (4.34)]{Xylouris2011nullstellen} &
+  Published; new check & Numerical & Interval arithmetic &
+  Separate programs\\
+Conductor refinement $\frac1{108}$ (\cref{subsec:conductor}) &
+  New & Analytic & -- & Hand proof\\
+Graded near lemma, response lemma, threshold form (\cref{sec:near}) &
+  New & Analytic & -- & Lean (Comparator, two kernels)\\
+Family, shifted and graded rows (\cref{sec:rows}) &
+  New & Numerical & Interval arithmetic &
+  Lean row checker ($16{,}842$ rows); multiple-precision audit\\
+Two-test rows (\cref{subsec:twotest}) &
+  New (\cref{rem:history}), after \cite{Xylouris2011nullstellen} & Both & Interval arithmetic &
+  Hand proof; replay; exact comparison with the earlier implementation on every certificate
+  interval (constants: earlier interval code only)\\
+Certificate soundness (\cref{thm:certificate}) &
+  New & Analytic & -- & Lean (Comparator, two kernels)\\
+Leaf certificates (\cref{def:certificate}) &
+  New & Numerical & Exact integer &
+  Replay; independent checker; Lean checker\\
+Leaf data (\cref{subsec:leafmodel}) &
+  New & Numerical & Interval arithmetic &
+  Multiple-precision audits; Lean numeric checker (count-type integers: audit only)\\
+Case tree and realization (\cref{sec:casetree}) &
+  New & Analytic & -- & Hand proof; replay\\
+Tiny exceptional zero (\cref{prop:tiny}); empty rectangle &
+  Published \cite{HeathBrown1990siegel}; $W=0$ & Analytic & -- & As printed\\
+Small exceptional zero (\cref{thm:small}) &
+  New, from lemmas of \cite{HeathBrown1992zero} & Both & Interval arithmetic &
+  Hand proof; exterior replay; margins recomputed independently\\
+Large first zero (\cref{thm:large}) &
+  New & Numerical & Exact integer &
+  Replay's exact checker; independent checker; Lean certificate (native and kernel), numeric and
+  row checkers\\
+Assembly (\cref{sec:join}) &
+  New & Analytic & -- & Hand proof\\
+\bottomrule
+\end{tabular}
+
+\medskip
+\begin{minipage}{\linewidth}
+\footnotesize
+The interval arithmetic is described at the beginning of this section. Floating point is used
+only to propose parameters, dual multipliers and sieve heights, which need no justification, and
+to recompute published tables.
+\end{minipage}
+\caption{Status of the components. Published inputs are used as printed, and those used in the
+Lean theorems enter them as hypotheses; ``Both'' means an analytic argument with numerical
+margins; ``hand proof'' means a conventional proof in this paper. The checks are described in
+\cref{sec:verification}.}
+\label{tab:status}
+\end{table}
+
+\subsection{The data}
+The certificates are stored in three compressed JSON record files. The inside and
+outside files are indexed by root case; the supplementary file records the $233$
+supplementary leaves of $199$ inside roots (\cref{subsec:refinement,rem:history}). Their sizes and SHA-256 hashes are:
+\begin{center}
+\small
+\begin{tabular}{lr}
+\toprule
+File & Bytes \\
+\midrule
+\texttt{inside.jsonl.gz} & $298{,}536{,}973$ \\
+\multicolumn{2}{l}{\scriptsize\texttt{539362a03e7b330dad03b33d6b5037871cfcbbf7b0973e7976fccf12509fe63c}}\\[2pt]
+\texttt{nodes.jsonl.gz} & $159{,}624{,}716$ \\
+\multicolumn{2}{l}{\scriptsize\texttt{b715ac735b6976da17a2671667ecfdf07c3f19b8ab74ae5f0533dbcf6b2a6cfc}}\\[2pt]
+\texttt{outside.jsonl.gz} & $8{,}626{,}435$ \\
+\multicolumn{2}{l}{\scriptsize\texttt{a53d4d5793f71c92647a7f22022110bdc8135cbda1f2575d1dc0c1f487f5ac1d}}\\
+\bottomrule
+\end{tabular}
+\end{center}
+The first holds the $2768$ inside roots with their $2913$ other leaves, the second the $233$
+supplementary leaves, and the third the $1685$
+outside roots with their $1642$ leaves. A leaf record contains the parameters of its near rows
+and its certificate tree; it does \emph{not} contain the leaf program itself, which the verifier
+regenerates from the case tree. Some leaves are split into subcases (\cref{subsec:subdivision}), each with
+its own certificate tree, so the $4788$ leaves carry $5591$ certificate trees in all: $3949$
+inside (including the supplementary leaves) and $1642$ outside.
+
+\begin{remark}[Origin of the case tree]\label{rem:history}
+The case tree, the two-test row of \cref{subsec:twotest} and far profile~I of \cref{sec:far} were
+constructed for an earlier computation at the exponent $4.30$, and the program of \cref{thm:large}
+for one at $4.33$. The subdivisions and zero-location arguments of the tree do not depend on the
+exponent, so we keep them, and every leaf is certified afresh at $3.99$ with the model of
+\cref{subsec:leafmodel}. In the computation at $4.30$, $2913$ of
+the inside leaves carried leaf programs, and the other $233$ were terminal nodes closed by a
+different argument; here they are leaves like all the others, and their certificates are stored in
+the supplementary file. Profile~II has re-optimized parameters. The two-test row is the only near
+row that is not an instance of \cref{thm:graded}, and it is not covered by the formal row checker.
+\end{remark}
+
+\subsection{Exact verification}
+All numbers entering a leaf program are enclosed with outward-rounded interval arithmetic and
+stored as integers scaled by $S=10^{16}$, rounded in the safe direction (\cref{sec:lp}). The
+verification of a certificate uses only integer arithmetic. The following checks have been run.
+\begin{enumerate}[(1)]
+  \item \emph{The replay.} A verifier traverses the case tree from its roots. It re-checks every
+    split, location node and exclusion (regenerating the location rows, except that the table
+    of complex polynomial rows and the side conditions \cite[(4.29), (4.34)]{Xylouris2011nullstellen} are
+    checked by separate programs).
+    At every leaf it regenerates the leaf program from the specification and the tree,
+    independently of the stored certificate, and checks the certificate exactly. It passes on all
+    $4453$ roots: $4788$ leaves, $4{,}196{,}879$ boxes, and largest certified value
+    $0.9999998223\ldots<1$ (inside) and $0.9999942478\ldots$ (outside).
+  \item \emph{An independent checker.} A second verifier was written from \cref{sec:lp} alone,
+    without reading or using the checking code of the first, and it uses only exact integer and
+    rational arithmetic. It takes the leaf data from the same generator as the replay (the leaf
+    data are checked separately, in (4) and in \cref{subsec:lean}). It accepts every certificate of
+    the corpus ($29{,}397{,}336$ relaxation cases in all) and that of \cref{thm:large}, and for every
+    certificate tree its value and number of boxes are exactly those of the first verifier. In a
+    negative test on ten leaves, including the tightest, it rejected all $308$ certificates made
+    invalid by deliberate forgeries, among them duals lowered, and coefficients raised, by the
+    smallest amount that breaks \eqref{eq:dualfeasible}; it accepted all $82$ controls perturbed by
+    one unit less. It replaces an earlier independent checker, whose code was not preserved and
+    which had also accepted every certificate of the corpus.
+  \item \emph{A mutation test.} On the $19$ leaves of three of the tightest inside roots, $133$
+    perturbations of the regenerated leaf data (far budget, objective, first-family charge,
+    correlation term, features), of certificate multipliers and of the allowance $5\eta$, each in the
+    unfavourable direction, were all rejected by the replay.
+  \item \emph{Audits of the constants.} For $38$ leaves of all kinds, the $19{,}616$ objective and
+    $19{,}616$ far coefficients, the tail, hidden and second-family columns, $F$, $\mathrm{first}$ and
+    all $120$ family, shifted and graded near rows were recomputed from their definitions in
+    multiple-precision arithmetic by a program sharing no code with the builders; all lie on the
+    safe side of their true values. (The program of this audit was not preserved; the numeric and
+    row checkers of \cref{subsec:lean} now check the same quantities for every leaf, except the
+    two-test rows.) Separately, for $117$ roots ($100$ of them chosen at random),
+    all $530{,}942$ column and budget integers of their $154$ leaves (objective, far, count,
+    hidden-count and second-family coefficients, $F$, $\mathrm{first}$ and $\mathrm{final}$) were
+    recomputed from their defining formulas in $50$-digit arithmetic and agree exactly with the
+    stored ones.
+  \item \emph{The two-test rows.} A separate program replays the $37$ roots whose leaves use the
+    row of \cref{subsec:twotest} ($31$ with a single test, $2$ with a mixture, $4$ paired). It
+    compares the row as the certificates use it with the earlier computation's implementation of
+    the same inequality (\cref{rem:history}): its builder, and its certificate checker. The
+    comparison runs on every threshold interval that the $37$ certificates use ($1079$ intervals,
+    from $23{,}341$ boxes) and on $11{,}211$ seeded random intervals, in the first-order relaxation
+    and in both tangent relaxations (for these, the tangent rule applied to the exact earlier
+    inequality). The exact costs and budgets are those of the earlier inequality divided by $D$,
+    and the integers used are rounded in the safe direction. The row's integers are regenerated by
+    the earlier computation's interval routines and agree with the leaves; every one-unit
+    perturbation of them is detected. These constants rest on those interval routines alone.
+\end{enumerate}
+
+\emph{The exterior regimes.} The margins of \cref{thm:small} were regenerated from their
+definitions and checked in interval arithmetic by a separate replay of the exterior components,
+and they have been recomputed independently in multiple-precision interval arithmetic. The
+program of \cref{thm:large} is a leaf program in the sense of \cref{def:leafprogram}. Its
+objective and far integers are regenerated and compared with the stored ones, and its near row is
+built with the normalization of \cref{subsec:rowdata}. The exact checking code of the replay (1)
+and the independent checker (2) accept its certificate, and so do the verified checkers of
+\cref{subsec:lean}, which also accept its numeric data and its near row. (The earlier
+computation had certified the same program with a near row normalized by a tighter enclosure of
+$I_B$, with the value $0.9946508\ldots$, and that certificate was checked only by the certificate
+checker of the earlier computation. The certificate of \cref{thm:large} replaces it, because the
+row checker of \cref{subsec:lean} recomputes the normalization of \cref{subsec:rowdata}.)
+
+\subsection{Formal verification}\label{subsec:lean}
+Several parts of the argument have been formalized in the Lean~4 proof assistant
+\cite{deMouraUllrich2021lean} with the Mathlib library \cite{mathlib2020lean}; see
+\cite{Avigad2024mathematics} for the role of such formalizations. Earlier formalizations in
+analytic number theory include the prime number theorem
+\cite{AvigadDonnellyGrayRaff2007formally,Harrison2009formalizing,KontorovichTao2024pnt} and
+Dirichlet's theorem \cite{Stoll2024dirichlet}. The formalization uses Lean \texttt{v4.35.0-rc3} with
+the corresponding Mathlib release, and contains about $24{,}000$ lines and about $800$ theorems and
+lemmas. The $18$ statements of the near lemma and the certificate checker were checked against
+their proofs with the Comparator tool \cite{LeanFRO2025comparator}, which replays the proofs in the
+Lean kernel and in the independent kernel nanoda \cite{Bailey2020nanoda}; the leaf-level and near-row
+theorems were checked by the Lean kernel. All proofs are complete and use only the
+three standard axioms (propositional extensionality, the axiom of choice, and the soundness of
+quotients). The published inputs of \cref{sec:inputs} enter as explicit hypotheses, each stated
+no more strongly than its printed source. The following results are formally verified.
+\begin{enumerate}[(a)]
+  \item The graded near-density lemma (\cref{thm:graded}), from the local explicit formulas,
+    Burgess's estimate and Graham's estimate as hypotheses. This includes the response lemma,
+    the threshold form, and the entry bounds of \cref{sec:rows}.
+  \item The soundness of the certificate checker of \cref{sec:lp}: an accepted certificate
+    proves that every feasible point of the leaf program has value below $1$.
+  \item The passage from a certified leaf with valid data to primes. From Xylouris's criterion
+    and his far-density lemma, stated as printed, and the localized envelope of
+    \cref{prop:envelope}, stated as a hypothesis, a leaf whose certificate and data pass the checks
+    yields a prime $q^{A}<p<q^{L}$ in every reduced class, for every modulus whose zeros satisfy
+    the leaf's zero-level hypotheses. The count, hidden-count and second-family integers and
+    $\mathrm{final}$ enter as they are (they were recomputed in the audit of (4) above).
+  \item Interval arithmetic with proved inclusion, including the exponential function, and
+    enclosures of the functions entering the objective and far data of the leaves. A numeric
+    checker is proved to imply that each leaf's objective and far coefficients, far budget and
+    first-family charge are valid.
+  \item Heath-Brown's Conditions~1 and~2 for the parabolic test functions of \cref{sec:rows}.
+  \item The near rows: each family, shifted and graded near row is a concrete instance of
+    \cref{thm:graded}. A row checker is proved sound, including the three family terms that keep a second zero and the constant
+    $C_Z$ of \cref{sec:rows}. A checked row is a valid row of the leaf program under
+    zero-level hypotheses only, and this is composed with (c). (The formal version of
+    \cref{cor:zeroform} assumes that the numerators $D(\delta_j)-d_1+e_j$ themselves are positive,
+    which is stronger than what the proof in \cref{sec:near} needs; the row checker verifies this
+    for every checked entry.)
+\end{enumerate}
+The certificate checker has a Mathlib-free copy that is proved to compute the same value; the
+numeric checker and the row checker are Mathlib-free themselves and are proved sound directly.
+Run as compiled programs, the certificate and numeric checkers accept every certificate tree and
+the objective, far and first-family data of every leaf in the corpus: $5591$ trees and
+$4{,}196{,}879$ boxes.
+The compiled row checker accepts every near row of the corpus except the $37$ two-test rows of
+\cref{subsec:twotest}, which it does not cover: $16{,}842$ rows with $11{,}135{,}323$ entries. The same
+three checkers accept the leaf program of \cref{thm:large}: its certificate ($36$ boxes), its
+objective and far data, and its near row ($150$ entries). So (c) and (f) apply to it as to the leaves of the
+case tree. In addition, seven certificates are checked by evaluation in the Lean kernel itself:
+six of the case tree ($122$ boxes) and that of \cref{thm:large} ($36$ boxes).
+
+The published inputs (\cref{sec:inputs,sec:location,sec:exteriors}) enter the formal
+statements as hypotheses. The following parts have conventional proofs in this paper
+but are \emph{not} formally verified. Their numerical checks are as described here and
+in the relevant sections; in particular, a multiple-precision audit is distinct from
+a formally verified enclosure.
+\begin{itemize}
+  \item the per-character costs of \cref{sec:costs}: the localized envelope, which enters as a
+    hypothesis, and the first-family bounds (the enclosures of $J_{\mathrm{old}}$ and $J_{\mathrm{new}}$
+    are verified, but not the inequalities they bound);
+  \item the conductor coefficient $\frac14$ for real characters and the refinement of
+    \cref{subsec:conductor};
+  \item the zero-location arguments and the case tree (\cref{sec:location,sec:casetree}), that is, the
+    statement that every configuration of zeros falls into a leaf whose zero-level hypotheses it
+    satisfies, including the count, hidden-count and second-family constraints;
+  \item the exterior regimes (\cref{sec:exteriors}): the range of \cref{prop:tiny,thm:small}, and,
+    for \cref{thm:large}, the statement that every configuration with $\lambda_1\ge1.5$ satisfies the
+    zero-level hypotheses of its program;
+  \item the two-test row of \cref{subsec:twotest}, which is checked by the replay and compared
+    exactly with the earlier implementation in (5), and whose constants were computed only by the
+    interval routines of the earlier computation;
+  \item the count-type integers of the leaf programs (checked in the audit of (4));
+  \item the assembly of \cref{sec:join}.
+\end{itemize}
+A compiled program is trusted to compute what it is proved to compute; its correctness then rests
+on the Lean compiler and runtime and on the unverified routines that read the data files. The Lean
+proofs were written by AI agents, like the rest of this work (see the note after the abstract).
+The Lean kernel checks the proofs, but whether each formal statement says what the corresponding
+statement of this paper says has so far been reviewed only by AI agents.
+
+\subsection{Data availability}
+The development repository contains the certificates, the programs that generate and
+check them, the verification reports, and the Lean formalization:
+\begin{center}\url{https://github.com/enaslund/linniks-constant}.\end{center}
+At the date of this revision the repository is private. A public, versioned archive
+of these materials is needed before submission so that readers can reproduce the
+computations and identify the precise data used in the proof. This paper and the Lean
+formalization are publicly available in the repository prepared for the Palomar registry of
+formalized mathematics:
+\begin{center}\url{https://github.com/enaslund/linniks-constant-3.99}.\end{center}
+
+The repository includes instructions for rerunning the replay, mutation tests,
+numerical audits, and formal checks. On the machine used,
+the replay took $1.7$ hours of wall-clock time with parallel workers, and the compiled Lean checks
+of all certificates, leaf data and near rows took about $5$ hours of wall-clock time. One caveat
+concerns exact reproducibility: the sieve heights of the graded rows (\cref{subsec:rowdata}) are
+regenerated in binary64 floating point and are not stored in the records. Any nonnegative heights
+are admissible, so this does not affect soundness, but on a platform whose elementary functions
+round differently the regenerated rows, and hence the certificates that use them, could differ and
+would have to be recomputed. Thus the reproducibility requirement concerns the
+particular stored certificates; admissibility of the analytic sieve weight alone does
+not guarantee that a different regenerated row will pass those certificates.

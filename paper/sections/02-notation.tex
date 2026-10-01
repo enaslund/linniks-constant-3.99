@@ -1,0 +1,228 @@
+% !TEX root = ../linnik399.tex
+\section{Notation and conventions}\label{sec:notation}
+
+We use standard notation for Dirichlet characters and their $L$-functions. For background on
+Dirichlet $L$-functions and their zeros we refer to
+\cite{Ingham1932distribution,Titchmarsh1986theory,Karatsuba1993basic,Montgomery1994ten,
+Davenport2000multiplicative,IwaniecKowalski2004analytic,MontgomeryVaughan2007multiplicative,
+Tenenbaum2015introduction}, and for the history of the subject to \cite{Narkiewicz2000development}. The distinctions between a zero and a zero occurrence, and between
+normalized and physical height, will be used throughout the proof.
+
+\subsection{Moduli, characters and zeros}
+Throughout, $q\ge2$ is an integer modulus and
+\[
+  \LL=\log q .
+\]
+Characters are Dirichlet characters modulo $q$; $\chi_0$ is the principal character. For a
+nonprincipal character $\chi$ we consider the zeros $\rho=\beta+i\gamma$ of $L(s,\chi)$ with
+$\beta>0$, counted with multiplicity, and we write
+\begin{equation}\label{eq:normalized}
+  \rho=1-\frac{\lambda}{\LL}+i\frac{\mu}{\LL},\qquad \lambda=(1-\beta)\LL,\quad \mu=\gamma\LL .
+\end{equation}
+We call $\lambda=\lambda_\rho$ the \emph{parameter} of $\rho$ and $\mu=\mu_\rho$ its
+\emph{normalized height}; $\gamma=\gamma_\rho$ is its \emph{physical height}. Thus a height
+bound always concerns $|\gamma|$ or $|\mu|$. Smaller $\lambda$ means a zero farther to the
+right. The multiplicity of $\rho$ as a zero of the specified $L(s,\chi)$ is $m_\rho$.
+A \emph{zero occurrence} is one copy of the pair $(\chi,\rho)$: a zero of multiplicity
+$m_\rho$ gives $m_\rho$ occurrences. Unless stated otherwise, sums over zeros count
+multiplicity. A zero of an imprimitive character is a zero of the
+$L$-function of the primitive character inducing it, with the same multiplicity, as long as
+$\beta>0$; all zeros considered below have $\beta>1/2$.
+
+\subsection{Regions}
+Following Xylouris \cite[(3.7)]{Xylouris2011nullstellen} we put, for $x>0$,
+\[
+  R(x)=\Bigl\{\sigma+it:\ 1-\frac{\log\log\LL}{3\LL}\le\sigma\le1,\ |t|\le x\Bigr\}.
+\]
+There is an integer $l=l(q)$ with $1\le l\le\LL/10$ such that no zero of any $L(s,\chi)$ lies in
+$R(10l)\setminus R(l)$ (\cref{inp:rectangle}). We fix one such choice, for example the least
+admissible integer. The distinguished zeros (\cref{def:additionalzero}) and the representatives
+(\cref{subsec:vocabulary}) are selected in $R(l)$.
+The local explicit formula also involves disc zeros, which need not all belong to this
+rectangle. Three further regions have separate roles:
+\begin{itemize}
+  \item the \emph{prime window} $R_P=\{0\le\lambda\le C_P,\ |\mu|\le C_P\}$, whose zeros are the only
+    ones that enter the zero sum;
+  \item the \emph{buffer} $R_B=\{0\le\lambda\le C_B,\ |\mu|\le C_B\}$, with $C_B>C_P+M$;
+  \item the \emph{height-one region} $|\gamma|\le1$, in which the far-density lemma operates.
+\end{itemize}
+The constants $C_P$, $M$ and $C_B$ are fixed independently of $q$, in the order described in
+\cref{sec:join}. For sufficiently large $q$, $R_P\subset R_B\subset R(l)$, and the buffer
+has physical height $C_B/\log q<1$. The word \emph{inside} means that the selected first
+zero belongs to $R_B$; \emph{outside} means that it does not. It does not refer to $R(l)$.
+
+\subsection{Families and the first zeros}
+\begin{definition}[Families and successive minima]\label{def:families}
+A \emph{family} is the set $\mathcal F(\chi)=\{\chi,\bchi\}$ for a nonprincipal character
+$\chi$. It has one member when $\chi$ is real and two otherwise.
+If there is a nonprincipal zero in $R(l)$, select a pair $(\chi_1,\rho_1)$ with least
+parameter and write $\lambda_1=\lambda_{\rho_1}$, $\mu_1=\mu_{\rho_1}$, and
+$\mathcal F_1=\mathcal F(\chi_1)$. Remove all occurrences belonging to $\mathcal F_1$ and
+repeat to define $(\chi_2,\rho_2)$, $\lambda_2$, and $\mathcal F_2$; continue in this way.
+Thus $\lambda_1\le\lambda_2\le\lambda_3\le\cdots$. We call $\mathcal F_1$ the \emph{first family},
+$\mathcal F_2$ the \emph{second family} and $\mathcal F_3$ the \emph{third family}, and $(\chi_1,\rho_1)$
+the \emph{first zero}.
+If a subsequent minimum is over an empty set, its value is $+\infty$.
+Ties may be resolved by any admissible choice; each result used below holds for all such
+choices. If the initial set is empty, we use the empty-region argument of
+\cref{sec:exteriors}.
+\end{definition}
+
+These are the selections of Xylouris \cite[\S3.1.2]{Xylouris2011nullstellen}.
+They order \emph{families}, not the individual zeros of one $L$-function.
+
+\begin{definition}[The additional first-family zero]\label{def:additionalzero}
+The \emph{distinguished occurrences} are one copy of $\rho_1$ as a zero of $\chi_1$, together with one
+copy of $\overline{\rho_1}$ as a zero of $\chi_1$ if $\chi_1$ is real and $\rho_1$ is not, or as a zero of
+$\bchi_1$ if $\chi_1$ is not real. We write $\lambda'$ for the least parameter of a zero occurrence of
+$\chi_1$ or $\bchi_1$ in $R(l)$ that is not distinguished; thus $\lambda'=\lambda_1$ when $\rho_1$ is a
+multiple zero. If no occurrence remains, put $\lambda'=+\infty$.
+\end{definition}
+
+When $\lambda'$ is finite, it can always be realized by a zero of $\chi_1$ itself.
+Indeed, zeros of $L(s,\bchi_1)$ are conjugates of zeros of $L(s,\chi_1)$, with the same
+multiplicities. Replace any minimizing occurrence of $\bchi_1$ by its conjugate
+occurrence of $\chi_1$. We call every resulting non-distinguished occurrence $\rho'$
+with parameter $\lambda'$ \emph{admissible} (a second copy of $\rho_1$ is admissible when
+$\rho_1$ is a multiple zero), and
+write $\gamma'$ for its height; as $\rho'\in R(l)$, $|\gamma'|\le l$. The arguments below hold for every admissible
+choice; in the second-zero split of \cref{subsec:subdivision} the choice is the one used there.
+
+The following table fixes the three types and the two counts used in the first-family
+bounds. Here $n=|\mathcal F_1|$, while $\alpha$ counts distinguished occurrences
+\emph{per character}.
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Type & First character and zero & $n$ & $\alpha$\\
+\midrule
+$\mathrm{rr}$ & $\chi_1$ real, $\rho_1$ real & $1$ & $1$\\
+$\mathrm{rc}$ & $\chi_1$ real, $\rho_1$ nonreal & $1$ & $2$\\
+$\mathrm{complex}$ & $\chi_1$ nonreal & $2$ & $1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+For type $\mathrm{rc}$ we choose the conjugate with $\mu_1>0$.
+
+\subsection{The vocabulary of the case analysis}\label{subsec:vocabulary}
+In the middle range $0.1\le\lambda_1<1.5$ the proof is a finite case analysis, defined
+precisely in \cref{sec:lp,sec:casetree}. Its terms are needed in the analytic sections that
+precede those, and we introduce them here.
+\begin{itemize}
+  \item \emph{Anchor.} The local explicit formulas of \cref{sec:inputs} are applied at points
+    $s=1-\sigma/\LL+i\gamma$; the real number $\sigma$ is the \emph{anchor}. An inequality anchored
+    at $\sigma$ is useful only if the zeros near $s$ with parameter below $\sigma$ are absent or are
+    retained explicitly, so anchors are chosen at or below known lower bounds for zero parameters.
+  \item \emph{Specification.} A \emph{specification} $\mathfrak s$ (\cref{def:specification})
+    records the type of the first family; an interval $[a,b]$ containing $\lambda_1$, the
+    \emph{first-zero cell}; a lower bound $p\le\lambda'$ and possibly an interval
+    $[\lo',\hi']$ containing $\lambda'$, called a \emph{gap}; a lower bound $l_2\le\lambda_2$; a
+    lower bound $r$ for the parameters of the zeros of height at most $1$ of the families other
+    than the first; possibly a reservation (next item); and whether $\rho_1$ lies inside or
+    outside the buffer. Its \emph{configuration set} $C(\mathfrak s)$ consists of the zero
+    configurations compatible with these data.
+  \item \emph{Reserved and ordinary characters.} A reservation concerns a family other than the
+    first whose least parameter among zeros of height at most $1$ is as small as possible. It
+    fixes the number $n_2\in\{1,2\}$ of its characters and an interval $[\lo_2,\hi_2]$ for that
+    parameter. This \emph{reserved family} need not be $\mathcal F_2$. The characters outside the
+    first and the reserved family are \emph{ordinary}.
+  \item \emph{Representatives.} The \emph{height-one representative} of a nonprincipal character
+    $\chi$ is a zero of $L(s,\chi)$ in $R(l)$ with $|\gamma|\le1$ and least parameter; its
+    \emph{$T^*$-representative} is defined in the same way with $|\gamma|\le T^*$, for a height
+    $T^*\in[\frac12,1]$ fixed in \cref{lem:Tstar} (\cref{def:representative}). The leaf programs
+    place a character by the parameter of one of its representatives.
+  \item \emph{The case tree.} The \emph{roots} are $4453$ specifications whose configuration sets
+    cover the middle range. Each root is refined by splitting intervals and by applying
+    zero-location results. This gives a finite tree of specifications, the root's
+    \emph{refinement tree}; its vertices are \emph{nodes}, and together these trees form the
+    \emph{case tree}. A node at which a zero-location result sharpens one of the bounds is a
+    \emph{location update}; a node whose configuration set is shown to be empty is
+    \emph{excluded}. The terminal nodes that are not excluded are the \emph{leaves}. Some leaves
+    are divided further into finitely many \emph{subcases}.
+  \item \emph{Leaf programs, bins and columns.} Each leaf or subcase has a \emph{leaf program}
+    (\cref{def:leafprogram}) whose value bounds $W$ for every configuration in it. The parameters of
+    the ordinary characters (and in some leaves those of the reserved characters) are divided into
+    finitely many intervals, the \emph{bins}. The \emph{column} of a bin is the variable of the
+    program that counts the characters whose representative zero (\cref{def:representative}) has
+    parameter in the bin. The ordinary characters beyond the last bin form the \emph{tail}, whose
+    column is a weighted mass rather than a count. In an outside leaf the first family is
+    represented by \emph{hidden columns}, which bin the least parameter $t_\chi$ of the zeros in $R_P$
+    of each first-family character (\cref{subsec:firstoutside}). The constant $\mathrm{first}$
+    bounds the cost of the first family in an inside leaf ($0$ in an outside leaf), plus any fixed
+    charge for the reserved family, and $\mathrm{final}$ is an allowance for the error terms.
+  \item \emph{Far budget.} The far-density lemma (\cref{inp:far}) bounds a sum over all characters
+    of a positive decreasing function $w$ of the parameter of a selected zero of height at most
+    $1$. We call $w(\lambda)$ the \emph{far weight} of such a zero, and the bound
+    \eqref{eq:farbudget} the \emph{far budget}; in a leaf program it is one linear constraint.
+  \item \emph{Near rows.} The other constraints of a leaf program are conditions on counts and the
+    \emph{near rows}. A near row is, with one exception (\cref{subsec:twotest}), an instance of the
+    graded lemma (\cref{thm:graded}) in the form of \cref{prop:threshold}. Its terms are
+    \emph{entries}, one for each character (occasionally each zero) that it includes. Each entry
+    has a \emph{feature}, a lower bound for how strongly its zero is detected, and a
+    \emph{diagonal}, what it costs on its own, and one \emph{correlation term} bounds the
+    interaction between distinct entries (\cref{prop:threshold}). The entries of a family whose
+    zeros are known are grouped into \emph{family terms}. A row is built from two test functions,
+    a \emph{detector} and a \emph{Gram test} (\cref{def:neardatum}); by the choice of its anchors and
+    sieve weight it is a \emph{family}, \emph{shifted}, \emph{graded} or \emph{two-test} row
+    (\cref{tab:rowkinds}). It is linear in the columns once an auxiliary number, its
+    \emph{threshold} $\tau$, is fixed.
+  \item \emph{Certificates.} A \emph{certificate} of a leaf or subcase is a binary tree, the
+    \emph{certificate tree}, whose nodes are \emph{boxes} of thresholds, starting from a box that
+    contains every admissible threshold; its leaves are the \emph{terminal boxes}. On a terminal
+    box each near row is replaced by a linear relaxation, and each choice among the alternatives
+    of these relaxations, a \emph{relaxation case}, is either shown to be infeasible (an
+    \emph{exclusion}) or bounded below $1$ by integer dual multipliers, in exact integer
+    arithmetic (\cref{sec:lp}).
+\end{itemize}
+
+\subsection{Elementary notation}
+For real $x$ we write $x_+=\max(x,0)$, and $\1_E$ denotes the indicator of a condition or
+set $E$. The symbol $\varphi(q)$ is Euler's totient; the separately defined
+$\varphi(\chi)$ is a conductor coefficient (\cref{sec:inputs}). A \emph{cost} means an
+upper bound for a contribution to the normalized zero sum $W$; a \emph{budget} is the
+right-hand side of a constraint on these contributions. All finite decimals used as
+parameters are exact rational numbers unless an approximation is explicitly indicated.
+
+\subsection{Asymptotic conventions}
+Statements about zeros below are understood for all sufficiently large $q$, unless a
+different range is stated. The threshold $q_0$ depends on finitely many fixed choices
+(the exponent, test functions, weights, constants and certificates, and the tolerances of the
+published results we use); the order in which these are chosen is spelled out in \cref{sec:join}.
+We write $o(1)$ for a quantity tending to $0$ as $q\to\infty$, uniformly in everything except
+the fixed choices. The number
+\[
+  \eta=10^{-6}
+\]
+is a fixed tolerance used throughout, and the exponent is
+\[
+  L=3.99 .
+\]
+Certificate coefficients use the scale $S=10^{16}$. Counts of characters are unscaled;
+the precise conversion between coefficients and real quantities is given in
+\cref{subsec:leafdata}.
+
+\subsection{Constants and the error budget}\label{subsec:budget}
+The fixed constants of the proof, with their values, their roles and the stage of
+\cref{subsec:order} at which each is chosen, are listed in \cref{tab:constants} in
+Appendix~\ref{app:constants}. The tolerance $\eta=10^{-6}$ is spent as follows; the allowance $5\eta$ in each leaf value covers
+the analytic errors with room to spare.
+\begin{enumerate}[(1)]
+  \item \emph{Detection.} With $\eps=\eta H_0$ in \cref{inp:criterion}, the weighted prime sum is at
+    least $\frac{\LL H_0}{\varphi(q)}(1-W-\eta)$; so $W\le1-2\eta$ suffices (\cref{prop:detect}).
+  \item \emph{Analytic error.} In \eqref{eq:Wsplit} the error $E$ has two parts
+    (\cref{subsec:allowance}). The envelope errors, which include the smoothing error by
+    \eqref{eq:thetachoice}, total less than $19\eps_1$ for the ordinary characters, since
+    $\sum_\chi e^{-A\lambda_\chi}\le K_{\mathrm{far}}<19$ by \eqref{eq:Kfar}, and at most $4\eps_1$ for
+    the at most two first-family and two reserved characters; together less than $23\eps_1=\eta$.
+    The outside first-family bound (\cref{prop:firstoutside}) adds at most
+    $4c_{\mathrm{out}}/(H_0C_B^2)\le\eta$, by the choice of $C_B$ in (S4). Hence $E\le2\eta$.
+  \item \emph{Allowance.} Every leaf value includes $\mathrm{final}/S=5\eta$
+    (\cref{subsec:leafmodel}); so does the program of \cref{thm:large}.
+  \item \emph{Conclusion.} By the proof of \cref{prop:realization},
+    $W\le\mathcal V(x)-\mathrm{final}/S+E\le\mathcal V(x)-3\eta$, that is, $W+3\eta\le\mathcal V(x)<1$
+    by \cref{thm:certificate}. Hence $W<1-3\eta$, and \cref{prop:detect} applies with a margin $\eta$.
+  \item \emph{Other tolerances.} They enter the constraints rather than $E$: $\eps=\eta J^2$ in
+    \cref{inp:far} gives the far budget $(1+\eta)V$ of \eqref{eq:farbudget}, the tolerance $\eta'$ is
+    built into every feature, diagonal and correlation term of a near row (\cref{cor:zeroform}), and every
+    stored number is rounded in the safe direction (\cref{subsec:leafmodel}).
+\end{enumerate}

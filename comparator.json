@@ -1,0 +1,31 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "GradedNear.graded_near_lemma",
+    "GradedNear.response_lemma",
+    "GradedNear.graded_near_threshold",
+    "GradedNear.keptBound_single",
+    "GradedNear.keptBound_pair",
+    "GradedNear.single_zero_threshold",
+    "GradedNear.keptBound_double",
+    "GradedNear.keptBound_pair_neg",
+    "GradedNear.zeroTerm_conj",
+    "GradedNear.builder_threshold",
+    "GradedNear.pairExcess_eq_zero",
+    "GradedNear.burgessBound_of_primitive",
+    "GradedNear.zmult_conj",
+    "GradedNear.keptBound_pair_neg_real",
+    "GradedNear.Cert.near_row_of_bins",
+    "GradedNear.Cert.checkLeaf_sound",
+    "GradedNear.Cert.checkLeaf_lt",
+    "GradedNear.Cert.certified"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

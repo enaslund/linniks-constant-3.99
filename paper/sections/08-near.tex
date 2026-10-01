@@ -1,0 +1,444 @@
+% !TEX root = ../linnik399.tex
+\section{The graded near-density lemma}\label{sec:near}
+
+The purpose of this section is to constrain many characters at once while retaining
+the location of each selected zero. We first bound a quadratic form in smoothed prime
+sums, called \emph{responses} (\cref{thm:graded}). We then bound each response from below
+using selected zeros (\cref{lem:response}). Finally, an elementary optimization argument
+introduces the single threshold used in a near row (\cref{prop:threshold}).
+The analytic inputs are stated in \cref{sec:inputs}; the scope of the formalization is described
+in \cref{subsec:lean}. \Cref{subsec:nearidea} explains the idea of the proof, and
+\cref{ex:twolevels} shows what the resulting constraint can do that separate counts cannot.
+
+\subsection{Data}\label{subsec:neardata}
+The detector determines the response to a zero. The Gram test and sieve weight control
+correlations between characters. The anchors may vary between entries, but all test
+functions and allowed offsets are fixed before $q$ tends to infinity.
+
+\begin{definition}[Near-density data]\label{def:neardatum}
+A \emph{near datum} consists of the following fixed objects; Conditions~1 and~2 are
+those of \cref{def:conditions}.
+\begin{itemize}
+  \item A \emph{detector} $f$ satisfying Condition~1, with transform $F$.
+  \item A \emph{Gram test} $g$ satisfying Conditions~1 and~2, with transform $G$.
+  \item Real numbers $s_1$ and $s$, called the \emph{safe anchor} and the
+    \emph{reference anchor}.
+  \item A \emph{sieve weight}: cells $t_0<t_1<\dots<t_m$ with $t_0>\frac13+2\eps'$ for a fixed
+    $\eps'>0$, and heights $h_0,\dots,h_{m-1}\ge0$. We put
+    \[
+      \Xi(t)=\sum_{k<m}h_k\1_{[t_k,t_{k+1})}(t),\qquad
+      \omega(t)=g(t)e^{s_1t}+\Xi(t),
+    \]
+    and require that $\omega$ be bounded below by a positive constant on the support of $f$.
+  \item A finite set $\Delta\subset[0,\infty)$ of \emph{offsets}.
+\end{itemize}
+We put $\vartheta_k=\frac12(t_k-\frac13)-\eps'$ (the \emph{sieve levels}), so $0<\vartheta_k<\frac12t_k$, and
+\[
+  I_B=\int_0^\infty\frac{e^{2st}f(t)^2}{\omega(t)}\,dt,\qquad
+  D(\delta)=\int_0^\infty g(t)e^{(s_1-2\delta)t}\,dt+\sum_{k<m}h_ke^{-2\delta t_k}
+    \frac{t_{k+1}^2-t_k^2}{2\vartheta_k},\qquad d_1=\frac{g(0)}6 .
+\]
+Here the integrand of $I_B$ is taken to be $0$ where $f=0$. We require $I_B>0$.
+\end{definition}
+
+The number $I_B$ is the first Cauchy--Schwarz factor, $D(\delta)$ bounds a diagonal
+entry at offset $\delta$, and $d_1$ bounds the correlation between distinct characters.
+Heath-Brown's
+Lemma~12.1 is the formal analogue of the case $g=f$, $s=s_1=\lambda_1$, $\Xi=0$ and all offsets $0$ (in that
+case $\omega=fe^{s_1t}$ is not bounded below on the support of $f$, and Heath-Brown writes $f=\sqrt
+f\cdot\sqrt f$ instead).
+
+\begin{definition}[Entries and responses]\label{def:entries}
+An \emph{entry} is a triple $(\chi_j,\gamma_j,\delta_j)$ of a nonprincipal character modulo $q$, a
+real height $\gamma_j$ and an offset $\delta_j\in\Delta$. Its \emph{response anchor} is
+$s_j=s-\delta_j$, and its \emph{response} is
+\[
+  R_j=-\frac1\LL\sum_{n\ge1}\Lambda(n)\,\Re\Bigl(\chi_j(n)\,n^{-(1-s_j/\LL+i\gamma_j)}\Bigr)
+  f\Bigl(\frac{\log n}\LL\Bigr).
+\]
+For a family of entries, the \emph{pair excess} of entry $j$ is
+\[
+  e_j=\sum_{\substack{k\ne j\\ \chi_k=\chi_j}}\Bigl(\Re G\bigl(-\sigma_{jk}+i(\gamma_j-\gamma_k)\LL\bigr)
+  -d_1\Bigr)_+,\qquad \sigma_{jk}=s_1-\delta_j-\delta_k .
+\]
+\end{definition}
+
+\begin{definition}[Safe anchor]\label{def:safeanchor}
+For $\Gamma'>0$, the \emph{safe-anchor hypothesis} $\mathrm{SA}(s_1,\Gamma')$ says that no nonprincipal
+$L(s,\chi)$ modulo $q$ has a zero $\rho$ with $|\Im\rho|\le\Gamma'$ and $\Re\rho>1-s_1/\LL$.
+\end{definition}
+
+The pair excess $e_j$ is needed only when two entries use the same character. It records
+the part of their correlation that exceeds the bound $d_1$ for distinct characters.
+The safe-anchor hypothesis ensures that discarded zero terms in the Gram estimate have
+the required sign.
+
+In the application $s_1\le\lambda_1$. Then $\mathrm{SA}(s_1,2l+1)$ holds for large $q$, by the
+definition of $\lambda_1$ and \cref{inp:rectangle}: a zero with $|\gamma|\le2l+1\le10l$ and
+$\Re\rho>1-s_1/\LL$ lies in $R(10l)$, hence in $R(l)$, so its parameter is at least
+$\lambda_1\ge s_1$.
+
+\subsection{Statement}
+
+\begin{theorem}[Graded near-density lemma]\label{thm:graded}
+Assume \cref{inp:X31,inp:X32,inp:burgess,inp:graham}, Mertens' estimate, and the divisor
+bound (the number of divisors of $q$ is $O_\eps(q^\eps)$). Fix a near datum as in \cref{def:neardatum} and a
+tolerance $\eta'>0$. There is a threshold $q_0$, depending only on this fixed data, with
+the following property.
+
+For $q\ge q_0$, let $J$ be a finite index set and let
+$(\chi_j,\gamma_j,\delta_j)_{j\in J}$ be entries satisfying
+\begin{enumerate}[(i)]
+  \item $|\gamma_j|\le\Gamma$ for some $0\le\Gamma\le\LL/3$;
+  \item $\mathrm{SA}(s_1,2\Gamma+1)$;
+  \item the characters $\chi_j$ are pairwise distinct whenever $\Xi\not\equiv0$.
+\end{enumerate}
+Then, for every choice of real coefficients $a_j\ge0$,
+\[
+  \Bigl(\sum_ja_jR_j\Bigr)_+^2\le(1+\eta')\,I_B\Bigl[\sum_j\bigl(D(\delta_j)-d_1+e_j\bigr)a_j^2
+  +(d_1+\eta')\Bigl(\sum_ja_j\Bigr)^2\Bigr].
+\]
+The responses $R_j$ and pair excesses $e_j$ are those of \cref{def:entries}.
+The threshold $q_0$ is uniform in the number of entries, their characters and heights,
+and the coefficients $a_j$.
+\end{theorem}
+
+Two special cases of the pair excess are used.
+\begin{enumerate}[(i)]
+  \item \emph{Separated heights.} If $\chi_k=\chi_j$ implies $|\gamma_j-\gamma_k|\LL\ge M$ for $k\ne j$,
+    and $M$ is so large that $\Re G(-\sigma+iY)\le d_1$ for $|Y|\ge M$ and $\sigma$ in the finite set
+    of values $\sigma_{jk}$, then $e_j=0$ (\cref{lem:decaytransform}; this holds once $g(0)>0$).
+  \item \emph{A controlled pair.} If entry $j$ shares its character with exactly one other entry
+    $k$, with $\delta_j=\delta_k=0$ and $|(\gamma_j-\gamma_k)\LL|$ in a range on which
+    $\Re G(-s_1+iy)\le c^{\hi}$, then $e_j\le(c^{\hi}-d_1)_+$.
+\end{enumerate}
+
+\subsection{The idea of the proof}\label{subsec:nearidea}
+Each response $R_j$ is a smoothed sum over primes, twisted by $\chi_j(n)n^{-i\gamma_j}$ and
+evaluated at the point $1-s_j/\LL+i\gamma_j$. By the explicit formula (\cref{lem:response} below),
+every zero $\rho$ of $L(s,\chi_j)$ near $1+i\gamma_j$ contributes about
+$\Re F\bigl((\lambda_\rho-s_j)+i(\gamma_j\LL-\mu_\rho)\bigr)$ to $R_j$, and this is large when $\lambda_\rho$ is small.
+So characters with zeros close to $1$ have large responses.
+
+On the other hand, all the responses are correlations of one vector, the weighted primes,
+with the twisted vectors $(\chi_j(n)n^{-i\gamma_j})_n$. By the Cauchy--Schwarz inequality a
+combination $\sum_ja_jR_j$ is at most the length of the prime vector, which gives the factor
+$I_B$, times the length of $\sum_ja_j\chi_j(n)n^{-i\gamma_j}$ measured with the weight $\omega$. The
+latter is a Gram form in the characters. Its diagonal entries are the numbers $D(\delta_j)$, and
+distinct characters are nearly orthogonal on the primes: their correlation is at most
+$d_1=g(0)/6$. Indeed, by the explicit formula the correlation is governed by the zeros of the
+quotient character $\chi_j\bchi_k$ to the right of the safe anchor, and the safe-anchor
+hypothesis says that there are none. Hence only a bounded number of characters can have large
+responses.
+
+Heath-Brown's Lemma~12.1 is the case in which all entries are tested at the same anchor. The
+grading gives each entry its own anchor $s_j=s-\delta_j$. An entry tested at a larger offset
+$\delta_j$ has a smaller diagonal $D(\delta_j)$, because of the factor $e^{-2\delta_jt}$, so characters
+whose zeros are further from $1$ are charged less. The sieve weight $\Xi$ adds Selberg-sieve
+majorants of the primes to $\omega$ on the ranges $[q^{t_k},q^{t_{k+1}})$. This makes $\omega$ larger and
+the first factor $I_B$ smaller. The price is a sieve contribution to the diagonal, computed with
+Graham's asymptotic, and off-diagonal sums of the quotient characters over long intervals. These
+are small by Burgess's estimate provided the quotient characters are nonprincipal, that is,
+provided the characters are distinct.
+
+\subsection{A Burgess bound for all nonprincipal characters}
+
+\begin{lemma}[Burgess bound for imprimitive characters and long intervals]\label{lem:burgessall}
+Assume \cref{inp:burgess}. For every $\eps>0$ there is $C$ such that for every nonprincipal
+character $\chi$ modulo $q$ and all real $N\ge0$ and $H\ge1$,
+\[
+  \Bigl|\sum_{N<n\le N+H}\chi(n)\Bigr|\le Cq^{1/9+\eps}\min(H,q)^{2/3}.
+\]
+\end{lemma}
+
+\begin{proof}
+Let $\chi$ be induced by the primitive character $\chi^*$ modulo $q^*>1$, and let $r$ be the product
+of the primes dividing $q$ but not $q^*$. Then $\chi(n)=\chi^*(n)\sum_{e\mid(n,r)}\mu(e)$, so the sum
+is $\sum_{e\mid r}\mu(e)\chi^*(e)\sum_{N/e<m\le(N+H)/e}\chi^*(m)$. The sum only depends on the integers
+in the range, so we may take the endpoints real. In each inner sum remove complete periods of
+$\chi^*$, over which $\chi^*$ sums to $0$ because $\chi^*$ is nonprincipal; what remains is a sum over at
+most $\min(H/e,q^*)$ consecutive integers, which by periodicity may be shifted to start at a point
+$\ge1$. \Cref{inp:burgess} bounds it by $Cq^{*1/9+\eps}\min(H/e,q^*)^{2/3}\le Cq^{1/9+\eps}\min(H,q)^{2/3}$
+(for an interval of length less than $1$ the bound is trivial). By the divisor bound, the number
+of $e$ is $O_\eps(q^\eps)$.
+\end{proof}
+
+\subsection{Proof of \texorpdfstring{\cref{thm:graded}}{the theorem}}
+Write $t_n=\log n/\LL$. For $(n,q)=1$ put
+\[
+  Y_n=\sum_ja_je^{-\delta_jt_n}\chi_j(n)n^{-i\gamma_j}.
+\]
+Since $n^{-(1-s_j/\LL+i\gamma_j)}=n^{-1}e^{st_n}e^{-\delta_jt_n}n^{-i\gamma_j}$, and $\chi_j(n)=0$
+for $(n,q)>1$,
+\[
+  \sum_ja_jR_j=-\Re\,\frac1\LL\sum_{(n,q)=1}\frac{\Lambda(n)}n\,e^{st_n}f(t_n)\,Y_n .
+\]
+\emph{Cauchy--Schwarz.} Since $\omega>0$ on the support of $f$ and $\omega\ge0$ everywhere,
+\begin{equation}\label{eq:CS}
+  \Bigl(\sum_ja_jR_j\Bigr)_+^2\le
+  \Bigl(\frac1\LL\sum_n\frac{\Lambda(n)}n\,\frac{e^{2st_n}f(t_n)^2}{\omega(t_n)}\Bigr)
+  \Bigl(\frac1\LL\sum_{(n,q)=1}\frac{\Lambda(n)}n\,\omega(t_n)\,|Y_n|^2\Bigr).
+\end{equation}
+
+\emph{The first factor.} The function $\varphi_B(t)=e^{2st}f(t)^2/\omega(t)$ is bounded, because
+$\omega$ is bounded below on the support of $f$; it vanishes outside the support of $f$ and is
+continuous except at finitely many points, so it is Riemann integrable. Given $\eps_B>0$ choose a
+partition $0=u_0<\dots<u_K$ of an interval containing the support of $f$ whose upper Riemann
+sum is at most $I_B+\eps_B/2$. By Mertens' estimate $\sum_{n\le x}\Lambda(n)/n=\log x+O(1)$ (see \cite{RosserSchoenfeld1962approximate}
+for explicit forms) we have
+$\LL^{-1}\sum_{q^{u_i}<n\le q^{u_{i+1}}}\Lambda(n)/n=u_{i+1}-u_i+O(1/\LL)$, so the first factor is at most
+$I_B+\eps_B$ for large $q$.
+
+\emph{The second factor.} Split it as $Q_1+Q_2$ according to $\omega=ge^{s_1t}+\Xi$. Expanding
+$|Y_n|^2$ and writing $\chi_{jk}=\chi_j\bchi_k$,
+\[
+  Q_1=\sum_{j,k}a_ja_k\,X_{jk},\qquad
+  X_{jk}=\Re\frac1\LL\sum_{(n,q)=1}\Lambda(n)\chi_{jk}(n)\,n^{-(1-\sigma_{jk}/\LL)-i(\gamma_j-\gamma_k)}\,
+  g(t_n).
+\]
+All the points $w_{jk}=1-\sigma_{jk}/\LL+i(\gamma_j-\gamma_k)$ involved satisfy $|\Re w_{jk}-1|\le C/\LL$ and
+$|\Im w_{jk}|\le2\Gamma\le\LL$, so \cref{inp:X31,inp:X32} apply uniformly. The error terms
+$o(1)$ below are uniform in the characters, heights and entries.
+\begin{itemize}
+  \item \emph{Diagonal, $j=k$.} Here $\chi_{jj}=\chi_0$ and the height is $0$. By \cref{inp:X31},
+    \[
+      X_{jj}=\int_0^\infty g(t)e^{(s_1-2\delta_j)t}\,dt+o(1).
+    \]
+  \item \emph{Distinct characters.} Here $\chi_{jk}$ is nonprincipal. By \cref{inp:X32},
+    \[
+      X_{jk}\le-\sum_{\rho}\Re G\bigl((w_{jk}-\rho)\LL\bigr)+\frac{\varphi(\chi_{jk})}2\,g(0)+o(1),
+    \]
+    the sum running over the zeros of $L(s,\chi_{jk})$ in a disc of radius $\delta<1$ about
+    $1+i(\gamma_j-\gamma_k)$. Such a zero has $|\Im\rho|\le2\Gamma+1$, so by $\mathrm{SA}(s_1,2\Gamma+1)$ it
+    has $\Re\rho\le1-s_1/\LL\le1-\sigma_{jk}/\LL=\Re w_{jk}$. Hence $\Re(w_{jk}-\rho)\LL\ge0$, and each term
+    $\Re G(\cdot)$ is $\ge0$ by Condition~2. Dropping them and using $\varphi\le\frac13$, $g(0)\ge0$,
+    we get $X_{jk}\le d_1+o(1)$. When $\sigma_{jk}<0$ the point $w_{jk}$ lies to the right of $1$, and
+    the same argument applies.
+  \item \emph{The same character, $j\ne k$.} Here $\chi_{jk}=\chi_0$ at the height
+    $\gamma_j-\gamma_k$. By \cref{inp:X31},
+    $X_{jk}=\Re G(-\sigma_{jk}+i(\gamma_j-\gamma_k)\LL)+o(1)$.
+\end{itemize}
+For $a\ge0$ the off-diagonal part is therefore at most
+\[
+  \sum_{j\ne k}a_ja_k\bigl(d_1+\epsilon_{jk}\bigr)+o(1)\Bigl(\sum_ja_j\Bigr)^2,\qquad
+  \epsilon_{jk}=\1_{\chi_j=\chi_k}\bigl(\Re G(-\sigma_{jk}+i(\gamma_j-\gamma_k)\LL)-d_1\bigr)_+ .
+\]
+Since $\epsilon_{jk}=\epsilon_{kj}$ ($\Re G$ is even in the imaginary part, $g$ being real) and
+$2a_ja_k\le a_j^2+a_k^2$, we have $\sum_{j\ne k}a_ja_k\epsilon_{jk}\le\sum_je_ja_j^2$. Also
+$\sum_{j\ne k}a_ja_k=(\sum_ja_j)^2-\sum_ja_j^2$. Hence
+\begin{equation}\label{eq:Q1}
+  Q_1\le\sum_j\Bigl(\int_0^\infty g(t)e^{(s_1-2\delta_j)t}\,dt-d_1+e_j\Bigr)a_j^2
+  +\bigl(d_1+o(1)\bigr)\Bigl(\sum_ja_j\Bigr)^2 .
+\end{equation}
+
+\emph{The sieve part $Q_2$.} It is present only when $\Xi\not\equiv0$, so the characters are distinct
+and all pair excesses vanish. Fix a cell $k$, let $z_k=q^{\vartheta_k}$ and let
+\[
+  \xi_d=\mu(d)\frac{\log(z_k/d)}{\log z_k}\quad(d\le z_k),\qquad
+  \nu_k(n)=\Bigl(\sum_{d\mid n,\ d\le z_k}\xi_d\Bigr)^2\ge0 .
+\]
+\begin{itemize}
+  \item \emph{Majorant.} If $p$ is prime with $t_p\ge t_k$ then $p\ge q^{t_k}>z_k$, so the only
+    divisor of $p$ up to $z_k$ is $1$ and $\nu_k(p)=\xi_1^2=1$. Hence
+    $\Lambda(p)=(\log p)\,\nu_k(p)$. For $n$ not a prime power, $\Lambda(n)=0\le(\log n)\nu_k(n)$.
+    Prime powers $p^e$ with $e\ge2$ and $t_{p^e}\ge t_k$ contribute
+    $\ll\LL q^{-t_k/2}(\sum_ja_j)^2=o(1)(\sum_ja_j)^2$. So the contribution of cell $k$ to $Q_2$ is
+    at most
+    \[
+      \frac{h_k}\LL\sum_{t_n\in[t_k,t_{k+1})}\frac{\log n}n\,\nu_k(n)\,|Y_n|^2+o(1)\Bigl(\sum_ja_j\Bigr)^2,
+    \]
+    where now $|Y_n|^2$ is expanded without the coprimality condition, with $\chi_j(n)=0$ for
+    $(n,q)>1$.
+  \item \emph{Diagonal.} The terms $j=k'$ of $|Y_n|^2$ are at most $a_j^2e^{-2\delta_jt_n}$ with
+    $\chi_j\bchi_j\le\1$. By \cref{inp:graham}, $\sum_{n\le x}\nu_k(n)=x/\log z_k+O(x/\log^2z_k)$
+    for $x\ge z_k$. Partial summation gives
+    \[
+      \frac1\LL\sum_{t_n\in[t_k,t_{k+1})}\frac{\log n}n\,\nu_k(n)e^{-2\delta_jt_n}
+      =\int_{t_k}^{t_{k+1}}\frac t{\vartheta_k}e^{-2\delta_jt}\,dt+O\Bigl(\frac1\LL\Bigr)
+      \le e^{-2\delta_jt_k}\frac{t_{k+1}^2-t_k^2}{2\vartheta_k}+O\Bigl(\frac1\LL\Bigr).
+    \]
+  \item \emph{Off-diagonal.} For $j\ne k'$ the character $\chi_{jk'}=\chi_j\bchi_{k'}$ is nonprincipal, since the
+    characters are distinct.
+    Put $W(n)=(\log n)n^{-1}e^{-(\delta_j+\delta_{k'})t_n}n^{-i(\gamma_j-\gamma_{k'})}$. Opening
+    $\nu_k$, the term is
+    \[
+      \frac1\LL\sum_{d,e\le z_k}\xi_d\xi_e\,\chi_{jk'}([d,e])\sum_{m}\chi_{jk'}(m)\,W([d,e]m),
+    \]
+    where $m$ runs over an interval $[M_0,M_1)$ with $M_0=q^{t_k}/[d,e]\ge q^{t_k-2\vartheta_k}=
+    q^{1/3+2\eps'}$. By \cref{lem:burgessall},
+    $|\sum_{M_0\le m\le u}\chi_{jk'}(m)|\ll u^{2/3}q^{1/9+\eps}$ for every real $u\ge M_0$. We also have
+    $|W(u[d,e])|\ll\LL(u[d,e])^{-1}$ and
+    $|\partial_uW(u[d,e])|\ll\LL(1+|\gamma_j-\gamma_{k'}|)u^{-2}[d,e]^{-1}\ll\LL^2u^{-2}[d,e]^{-1}$.
+    Abel summation, with the bound for the partial sums $\sum_{M_0\le m\le u}\chi_{jk'}(m)$ at every
+    $u$, therefore bounds the inner sum by
+    \[
+      \ll\LL^2[d,e]^{-1}q^{1/9+\eps}M_0^{-1/3}=\LL^2q^{1/9+\eps-t_k/3}[d,e]^{-2/3}.
+    \]
+    Since $\sum_{d,e\le z_k}[d,e]^{-2/3}\le\sum_{g\le z_k}g^{-2/3}\bigl(\sum_{d'\le z_k/g}d'^{-2/3}\bigr)^2\le
+    9\zeta(\frac43)z_k^{2/3}$ and $|\xi_d|\le1$, the term is
+    \[
+      \ll\LL\,q^{1/9+\eps-t_k/3+2\vartheta_k/3}=\LL\,q^{\eps-2\eps'/3},
+    \]
+    because $2\vartheta_k=t_k-\frac13-2\eps'$. With $\eps<\eps'/2$ this is $o(1)$ uniformly, and
+    the sum over $j,k'$ is $o(1)(\sum_ja_j)^2$. (A bound for the partial sums only at the end
+    point of the interval, combined with the total variation of $W$, would lose a factor
+    $(M_1/M_0)^{2/3}$, which is too large for the cells used.)
+\end{itemize}
+Summing over the cells,
+\begin{equation}\label{eq:Q2}
+  Q_2\le\sum_ja_j^2\sum_{k<m}h_ke^{-2\delta_jt_k}\frac{t_{k+1}^2-t_k^2}{2\vartheta_k}
+  +o(1)\Bigl(\sum_ja_j\Bigr)^2 .
+\end{equation}
+
+\emph{Conclusion.} By \eqref{eq:Q1} and \eqref{eq:Q2} the second factor is at most
+$B+o(1)(\sum_ja_j)^2$, where
+$B=\sum_j(D(\delta_j)-d_1+e_j)a_j^2+d_1(\sum_ja_j)^2\ge\sum_j(D(\delta_j)+e_j)a_j^2\ge0$. With the first
+factor $I_B+o(1)$ and $I_B>0$, the right side of \eqref{eq:CS} is at most
+$(1+\eta')I_B[B+\eta'(\sum_ja_j)^2]$ for $q$ large. \qed
+
+\subsection{Responses and the threshold form}
+
+\begin{lemma}[Uniform decay in the imaginary direction]\label{lem:decaytransform}
+If $f$ satisfies Condition~1, then $\Re F(x+iY)\to0$ as $|Y|\to\infty$, uniformly for $x$ in
+compact sets.
+\end{lemma}
+
+\begin{proof}
+Integrating by parts twice, $F(z)=f(0)/z+O_K(|z|^{-2})$ for $\Re z$ in a compact set $K$. Moreover
+$\Re(f(0)/z)=f(0)\Re z/|z|^2=O_K(|z|^{-2})$.
+\end{proof}
+
+\begin{lemma}[Response lemma]\label{lem:response}
+Assume \cref{inp:X32}. Let $f$ satisfy Conditions~1 and~2, and fix $\sigma_{\max}>0$, an integer $K_0\ge0$, and
+$\eta'>0$. There are $M>0$, $\delta\in(0,1)$ and $q_0$ such that the following holds for $q\ge q_0$,
+and it remains true when $\delta$ is replaced by any smaller radius (with a suitable $q_0$).
+Let $\chi$ be nonprincipal, $|\sigma|\le\sigma_{\max}$ and $|\gamma|\le\LL$. Let $\cS$ be a finite set
+of distinct zeros of $L(s,\chi)$ in the disc $|1+i\gamma-\rho|\le\delta$, each retained with its
+full multiplicity $m_\rho$. Suppose that every other zero of
+$L(s,\chi)$ in the disc with $\lambda_\rho<\sigma$ satisfies $|\gamma\LL-\mu_\rho|\ge M$, and that there
+are at most $K_0$ such zeros, counted with multiplicity. Then the response of $(\chi,\gamma,\sigma)$,
+that is $R=-\LL^{-1}\sum_n\Lambda(n)\Re(\chi(n)n^{-(1-\sigma/\LL+i\gamma)})f(t_n)$, satisfies
+\[
+  R\ge\sum_{\rho\in\cS}m_\rho\,\Re F\bigl((\lambda_\rho-\sigma)+i(\gamma\LL-\mu_\rho)\bigr)
+  -\frac{f(0)}6-\eta' .
+\]
+\end{lemma}
+
+\begin{proof}
+By \cref{lem:decaytransform} choose $M$ with $|\Re F(x+iY)|\le\eta'/(2K_0+2)$ for $|Y|\ge M$ and
+$x\in[-\sigma_{\max},0]$. Apply \cref{inp:X32} with $\eps=\eta'/2$ at the point
+$w=1-\sigma/\LL+i\gamma$, and let $\delta$ be its disc radius, or any smaller radius (see the remark after
+\cref{inp:X32}). We have $(w-\rho)\LL=
+(\lambda_\rho-\sigma)+i(\gamma\LL-\mu_\rho)$, so
+\[
+  R\ge\sum_{|1+i\gamma-\rho|\le\delta}\Re F\bigl((w-\rho)\LL\bigr)-\frac{\varphi(\chi)}2f(0)-\frac{\eta'}2 ,
+\]
+the sum counting multiplicity. Zeros in $\cS$ are kept. A zero outside $\cS$ with
+$\lambda_\rho\ge\sigma$ has $\Re(w-\rho)\LL\ge0$ and a term $\ge0$ (Condition~2), which we drop. The
+remaining zeros have $\lambda_\rho\in[0,\sigma)$ and $|\gamma\LL-\mu_\rho|\ge M$; there are at most $K_0$
+of them, and each term is at least $-\eta'/(2K_0+2)$. Finally $\varphi(\chi)\le\frac13$ and
+$f(0)\ge0$.
+\end{proof}
+
+\begin{proposition}[Threshold form]\label{prop:threshold}
+Let $J$ be a finite index set, let $D_j>0$ and $v_j\in\RR$ for $j\in J$, and let $d>0$.
+Suppose that
+\[
+  \Bigl(\sum_j a_jv_j\Bigr)_+^2\le\sum_jD_ja_j^2+d\Bigl(\sum_j a_j\Bigr)^2
+  \qquad\text{for every }(a_j)_{j\in J}\in[0,\infty)^J.
+\]
+Then there is
+$\tau\in[0,\sqrt d]$ with
+\begin{equation}\label{eq:T}\tag{T}
+  \sum_j\frac{(v_j-\tau)_+^2}{D_j}\le1-\frac{\tau^2}d .
+\end{equation}
+\end{proposition}
+
+We call the $v_j$ the \emph{features}, the $D_j$ the \emph{diagonals} and $d$ the \emph{correlation term}
+of the inequality, and $\tau$ its \emph{threshold}. A feature measures how strongly an entry is
+detected, a diagonal what the entry costs on its own, and $d$ bounds the correlation between
+distinct entries.
+
+\begin{example}[One level and two levels]\label{ex:twolevels}
+(i) Suppose that $N$ entries have the same feature $v$ and the same diagonal $D$, with $v^2>d$.
+Taking every $a_j=1$ in the hypothesis of \cref{prop:threshold} gives $(Nv)^2\le ND+dN^2$, that is,
+\[
+  N\le\frac{D}{v^2-d}.
+\]
+This is the kind of bound that Heath-Brown's Lemma~12.1 provides: a bound for the number
+$N(\lambda)$ of characters with a zero at distance at most $\lambda$, all counted alike.
+
+(ii) Now take $D=1$ and $d=\frac14$, one entry with feature $v_1=1$ (a zero close to $1$) and two
+entries with feature $v_2=\frac34$ (zeros further away). The count of (i), applied to each level
+separately, allows this: it permits up to $D/(v_1^2-d)=\frac43$ entries with feature at least $v_1$,
+and up to $D/(v_2^2-d)=\frac{16}5$ with feature at least $v_2$. But \eqref{eq:T} fails for every $\tau$:
+for $0\le\tau\le\frac12$ its left side minus its right side is
+\[
+  (1-\tau)^2+2\bigl(\tfrac34-\tau\bigr)^2-\bigl(1-4\tau^2\bigr)=7\tau^2-5\tau+\tfrac98,
+\]
+whose discriminant $25-\frac{63}2$ is negative. (Equivalently, taking all three $a_j=1$ violates the
+hypothesis: $(1+\frac32)^2=\frac{25}4>3+\frac94$.) So this configuration is excluded. A single
+threshold couples the near entry and the farther ones, which separate counts cannot do. In
+the leaf programs this coupling acts on all the bins of characters at once.
+\end{example}
+
+\begin{proof}
+The function $\mathcal J(\tau)=\tau^2/d+\sum_j(v_j-\tau)_+^2/D_j$ is convex and $C^1$ on $[0,\infty)$, and
+tends to $\infty$; let $\tau^*$ minimize it. If $\tau^*=0$ then $\mathcal J'(0)\ge0$, so all $v_j\le0$ and
+$\mathcal J(0)=0$. Otherwise $\mathcal J'(\tau^*)=0$, that is $\tau^*=d\sum_ja_j$ with $a_j=(v_j-\tau^*)_+/D_j\ge0$.
+Then $\sum_ja_jv_j=\sum_ja_j(v_j-\tau^*)+\tau^*\sum_ja_j=\sum_jD_ja_j^2+d(\sum_ja_j)^2=\mathcal J(\tau^*)$.
+The hypothesis gives $\mathcal J(\tau^*)^2\le\mathcal J(\tau^*)$, so $\mathcal J(\tau^*)\le1$. Finally \eqref{eq:T} forces
+$\tau^2\le d$.
+\end{proof}
+
+\begin{corollary}[Zero form]\label{cor:zeroform}
+Fix a near datum whose detector $f$ also satisfies Condition~2. Fix a common bound
+$K_0$ for the omitted zeros in \cref{lem:response}, and choose
+$\sigma_{\max}\ge\max_{\delta\in\Delta}|s-\delta|$ with $\sigma_{\max}>0$.
+Choose $\eta'>0$, $I_u\ge I_B$, and $D_u>0$, and put
+\[
+  \eta''=\eta'\min\{1,\sqrt{I_BD_u},D_u\}.
+\]
+For sufficiently large $q$, consider entries satisfying \cref{thm:graded} with tolerance
+$\eta''$. For each entry $j$, suppose the retained set $\cS_j$ satisfies
+\cref{lem:response} at anchor $s_j$, with the separation and disc radius chosen for
+tolerance $\eta''$. Define
+\[
+  r_j=\sum_{\rho\in\cS_j}m_\rho\,\Re F\bigl((\lambda_\rho-s_j)+i(\gamma_j\LL-\mu_\rho)\bigr)-\frac{f(0)}6 ,
+\]
+and choose $D_j^+>0$ with $D_j^+\ge D(\delta_j)-d_1+e_j$ for every $j$.
+Then there is $\tau\in[0,\sqrt d]$ satisfying \eqref{eq:T} with
+\[
+  v_j=\frac{r_j}{\sqrt{I_uD_u}}-\eta',\qquad D_j=\frac{(1+\eta')D_j^+}{D_u},\qquad
+  d=\frac{(1+\eta')(d_1+\eta'D_u)}{D_u}\ \bigl(=(1+\eta')(d_1/D_u+\eta')\bigr).
+\]
+The same threshold remains valid if features $v_j$ are decreased, diagonals $D_j$ or
+the correlation term $d$ are increased, or nonpositive features are replaced by $0$.
+An entry with nonpositive feature may also be omitted.
+\end{corollary}
+
+\begin{proof}
+Apply \cref{thm:graded,lem:response} with the tolerance $\eta''$ fixed in the statement.
+The response lemma gives $R_j\ge k_j:=r_j-\eta''$, so for $a\ge0$
+we have $(\sum_ja_jk_j)_+\le(\sum_ja_jR_j)_+$. Dividing the inequality of \cref{thm:graded} by
+$I_BD_u$, we get for all $a\ge0$
+\[
+  \Bigl(\sum_ja_j\frac{k_j}{\sqrt{I_BD_u}}\Bigr)_+^2\le
+  \sum_j\frac{(1+\eta'')D_j^+}{D_u}\,a_j^2+\frac{(1+\eta'')(d_1+\eta'')}{D_u}
+  \Bigl(\sum_ja_j\Bigr)^2 ,
+\]
+where we also replaced each coefficient $D(\delta_j)-d_1+e_j$ by the larger $D_j^+$.
+\Cref{prop:threshold} gives $\tau$ satisfying \eqref{eq:T} with these features, diagonals and
+correlation term; only the positivity of the $D_j^+$ is needed, not that of $D(\delta_j)-d_1+e_j$. We compare with the displayed quantities.
+\begin{itemize}
+  \item If $r_j>0$ then $v_j\le k_j/\sqrt{I_BD_u}$, because $I_u\ge I_B$ and
+    $\eta''/\sqrt{I_BD_u}\le\eta'$. If $r_j\le0$ then $v_j<0$.
+  \item $(1+\eta')\ge(1+\eta'')$, so the displayed diagonals are at least the ones above.
+  \item $(1+\eta')(d_1+\eta'D_u)\ge(1+\eta'')(d_1+\eta'')$, since $\eta''\le\eta'D_u$.
+\end{itemize}
+Finally, if \eqref{eq:T} holds at $\tau$ for features $v_j$, diagonals $D_j$ and correlation term $d$, it
+also holds at $\tau$ for features $v'_j\le\max(v_j,0)$ with $v'_j\le v_j$ or $v'_j\le0$, diagonals
+$D'_j\ge D_j$ and correlation term $d'\ge d$. Indeed each term $(v'_j-\tau)_+^2/D'_j$ is at most
+$(v_j-\tau)_+^2/D_j$ (the former is $0$ when $v'_j\le0\le\tau$), $1-\tau^2/d\le1-\tau^2/d'$, and
+$\tau\le\sqrt d\le\sqrt{d'}$.
+\end{proof}

@@ -1,0 +1,235 @@
+% !TEX root = ../linnik399.tex
+\section{Leaf programs and exact certificates}\label{sec:lp}
+
+For each case of the zero analysis, we construct a family of linear programs indexed by
+the thresholds in the near rows. Their common objective bounds the zero sum. We cover
+the threshold domain by finitely many boxes and give a linear relaxation on each box.
+An exact certificate then bounds every feasible point, without having to find an
+optimal one.
+
+The argument uses weak linear-programming duality
+\cite{Chvatal1983linear,Schrijver1986theory} with outward rounding of the data; compare
+\cite{Jansson2004rigorous,NeumaierShcherbina2004safe,ApplegateCookDashEspinoza2007exact}.
+This section is independent of the analytic number theory. Its conclusion is the
+certificate soundness theorem, \cref{thm:certificate}, which is formally verified
+(\cref{subsec:lean}).
+
+\subsection{Leaf data}\label{subsec:leafdata}
+The coefficients, budgets, and objective constants of a leaf are stored as integers
+at scale
+\[
+  S=10^{16}.
+\]
+Thus a stored coefficient $v$ represents $v/S$. Character counts such as $n$, $n_g$,
+and $n_E$ are ordinary unscaled integers. The variables $x_c$ and thresholds $\tau_k$
+are also unscaled real numbers.
+
+A leaf has a finite set of \emph{columns} $c$ and a finite list of \emph{near rows}
+$k=1,\dots,K$. A column $c$ carries
+\begin{itemize}
+  \item an objective coefficient $G_c$ and a far weight $W_c$;
+  \item a count coefficient $C_c$, a hidden-count coefficient $N_c$ and a second-family indicator
+    $E_c$ (stored at scale $S$: $C_c,E_c\in\{0,S\}$, and $N_c$ is $0$, $S$ or, for the hidden tail,
+    $\lfloor S/w(\mathrm{end})\rfloor$, with $\mathrm{end}$ as in \cref{subsec:leafmodel});
+  \item for each row $k$, a feature $v_{ck}$ and a diagonal $D_{ck}>0$.
+\end{itemize}
+A row $k$ carries a correlation term $d_k>0$ and finitely many \emph{family terms} $(n,v,D)$, where
+$n\ge0$ is a count, $v$ a feature and $D>0$ a diagonal. The leaf also has a far budget $F$, counts $n_g$ (the number $n$ of first-family characters, in
+outside leaves) and $n_E$ (the number of reserved characters carried by second-family columns: the
+size of the reserved family if it is charged through columns, and $0$ otherwise), and two
+constants: $\mathrm{first}$, which bounds the cost of the first family of an inside leaf ($0$ for an
+outside leaf) plus any fixed charge for the reserved family, and $\mathrm{final}$, the error
+allowance, with $\mathrm{final}/S=5\eta$ (\cref{subsec:leafmodel}).
+
+\begin{definition}[Leaf program]\label{def:leafprogram}
+For real column values $x=(x_c)$ and real thresholds $\tau=(\tau_k)$, put
+\[
+  \Phi_k(x,\tau_k)=\sum_c x_c\frac{(v_{ck}/S-\tau_k)_+^2}{D_{ck}/S}
+  +\sum_{(n,v,D)\in\mathrm{fam}(k)} n\,\frac{(v/S-\tau_k)_+^2}{D/S}.
+\]
+The pair $(x,\tau)$ is \emph{feasible} if all of the following hold:
+\begin{itemize}
+  \item $x_c\ge0$ for every $c$;
+  \item (far) $\sum_cW_cx_c\le F$;
+  \item (count) $\sum_cC_cx_c\le2S$;
+  \item (hidden count) $\sum_cN_cx_c\le n_gS$;
+  \item (second family) $\sum_cE_cx_c=n_ES$;
+  \item (near rows) for every $k$: $0\le\tau_k$, $\tau_k^2\le d_k/S$ and
+    $\Phi_k(x,\tau_k)\le1-\tau_k^2/(d_k/S)$.
+\end{itemize}
+The \emph{value} of $x$ is
+\[
+  \mathcal{V}(x)=\frac1S\Bigl(\mathrm{first}+\mathrm{final}+\sum_cG_cx_c\Bigr).
+\]
+\end{definition}
+
+For fixed $\tau$, these are linear constraints on $x$. Allowing $\tau$ to vary gives
+the family of programs to be certified. The variables $x_c$ are real and nonnegative:
+integer character counts are feasible values, but the relaxation also permits
+fractional counts and the weighted tail masses defined in \cref{subsec:leafmodel}.
+
+In \cref{sec:casetree} we show that for every configuration of zeros the actual characters give a
+feasible pair whose value bounds the zero sum $W$ of \cref{sec:detection}. It is therefore enough
+to show that every feasible pair has value below $1$.
+
+\subsection{Relaxations of a near row}
+Fix a row $k$ and write $d=d_k/S$. The near-row constraint says
+$Q_k(\tau)\le1$, where
+\[
+  Q_k(\tau)=\sum_jc_j(u_j-\tau)_+^2+\frac{\tau^2}{d}
+\]
+with $c_j\ge0$ collecting the coefficients $x_c/(D_{ck}/S)$ and $n/(D/S)$ and $u_j$ the features.
+The function $Q_k$ is convex and continuously differentiable, with
+$Q_k'(\tau)=-2\sum_jc_j(u_j-\tau)_++2\tau/d$. In the next two lemmas, $d>0$, all
+$c_j\ge0$, and $0\le a\le b$.
+
+\begin{lemma}[First-order relaxation]\label{lem:firstorder}
+If $a\le\tau\le b$ and $Q_k(\tau)\le1$, then
+\[
+  \sum_jc_j(u_j-b)_+^2\le1-\frac{a^2}{d}.
+\]
+\end{lemma}
+
+\begin{proof}
+Each $(u_j-\tau)_+^2\ge(u_j-b)_+^2$ since $\tau\le b$, and $\tau^2\ge a^2$ since $0\le a\le\tau$.
+\end{proof}
+
+\begin{lemma}[Tangent relaxation]\label{lem:tangent}
+Let $m=(a+b)/2$ and $h=(b-a)/2$. If $a\le\tau\le b$ and $Q_k(\tau)\le1$, then at least one of
+the following holds:
+\begin{align*}
+  \text{(case 0)}\quad&\sum_jc_j\Bigl(\bigl((u_j-m)_++h\bigr)^2-h^2\Bigr)\le
+    1-\frac{(m-h)^2-h^2}{d},\\
+  \text{(case 1)}\quad&\sum_jc_j\,\tilde\theta_j\le1-\frac{(m+h)^2-h^2}{d},\qquad
+    \tilde\theta_j=\begin{cases}\bigl((u_j-m)-h\bigr)^2-h^2,&u_j>m,\\0,&u_j\le m.\end{cases}
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+By convexity, $1\ge Q_k(\tau)\ge Q_k(m)+Q_k'(m)(\tau-m)\ge Q_k(m)-h|Q_k'(m)|$, so
+$Q_k(m)-hQ_k'(m)\le1$ or $Q_k(m)+hQ_k'(m)\le1$. Expanding with
+$(u-m)_+^2\pm2h(u-m)_+=((u-m)_+\pm h)^2-h^2$ and $m^2\mp2hm=(m\mp h)^2-h^2$ gives the two cases.
+In case~1 a term with $u_j\le m$ is $0$.
+\end{proof}
+
+The left-hand sides are linear in the $c_j$, hence in the column values $x$. In case~1 the
+coefficients $\tilde\theta_j$ can be negative.
+
+\subsection{Certificates}
+Thresholds are measured in ticks of $1/T_S$, where $T_S=10^6$, and dual multipliers are scaled
+by $D_S=10^{12}$. In this subsection $[a,b]$ denotes an interval of thresholds in ticks, not a
+first-zero cell, and $m$, $h$, $p$ and $\beta$ are local to the relaxation formulas.
+
+\begin{definition}[Root threshold box]\label{def:rootbox}
+For row $k$, put
+\[
+  e_k=\left\lceil\sqrt{\lfloor d_kT_S^2/S\rfloor+1}\,\right\rceil.
+\]
+The \emph{root box} is $\prod_k[0,e_k]$ in integer-tick coordinates. Its corresponding
+domain for real thresholds is $\prod_k[0,e_k/T_S]$.
+\end{definition}
+
+Since $e_k^2S\ge d_kT_S^2$, every threshold with $\tau_k^2\le d_k/S$ lies in
+$[0,e_k/T_S]$.
+
+\begin{definition}[Integer costs and budgets]\label{def:costs}
+Let $[a,b]$ be an interval of integer ticks with $0\le a<b$, and let $v$ and $D>0$
+be a stored feature and diagonal. The following costs are coefficients of column
+variables; the family terms are subtracted from the row budget.
+\begin{enumerate}[(a)]
+  \item (First order.) The cost is $\lfloor(v-bS/T_S)_+^2/D\rfloor$. The budget of row $k$ is
+    \[
+      S-\Bigl\lfloor\frac{S^2a^2}{T_S^2d_k}\Bigr\rfloor-\sum_{(n,v,D)}\Bigl\lfloor\frac{n\,(v-bS/T_S)_+^2}{D}\Bigr\rfloor .
+    \]
+  \item (Tangent, case $\iota\in\{0,1\}$.) Put $m=(a+b)/(2T_S)$, $h=(b-a)/(2T_S)$ and $\bar v=v-mS$
+    ($mS$ and $2hS$ are integers, since $2T_S$ divides $S$).
+    The cost is $\lfloor S\,\Theta/D\rfloor$, where $\Theta=0$ if $\bar v\le0$, and otherwise
+    $\Theta=\lfloor\bar v(\bar v+2hS)/S\rfloor$ for $\iota=0$ and $\Theta=\lfloor\bar v(\bar v-2hS)/S\rfloor$ for $\iota=1$. The
+    budget of row $k$ is $\lceil S\beta\rceil$, where $\beta$ is the exact rational number
+    \[
+      \beta=1-\frac{p^2-h^2}{d_k/S}-\sum_{(n,v,D)}n\,\frac{\Theta_\iota(v/S)}{D/S},
+    \]
+    with $p=a/T_S$ for $\iota=0$ and $p=b/T_S$ for $\iota=1$, and $\Theta_0(u)=((u-m)_++h)^2-h^2$,
+    $\Theta_1(u)=((u-m)-h)^2-h^2$ if $u>m$ and $0$ otherwise.
+\end{enumerate}
+\end{definition}
+
+The costs are the exact relaxation coefficients, multiplied by $S$ and rounded \emph{down}. The
+budgets are at least the exact right-hand sides multiplied by $S$: the tangent budget is rounded up,
+and in the first-order budget each subtracted term is rounded down.
+
+\begin{definition}[Certificate]\label{def:certificate}
+A certificate for a leaf is a finite binary tree starting from the root box of
+\cref{def:rootbox}. An internal node splits one coordinate $k$ of
+its box $[a,b]$ at an integer tick $a<\mathrm{mid}<b$, into $[a,\mathrm{mid}]$ and
+$[\mathrm{mid},b]$. At a terminal box, each row uses either the first-order relaxation
+or the two alternatives of the tangent relaxation. A \emph{relaxation case} chooses one
+alternative for each tangent row. All combinations must be certified, because the
+alternative supplied by \cref{lem:tangent} can depend on the feasible point.
+
+For consistency with the stored data, the mode is encoded by $o_k=2$ for a first-order
+row and $o_k=1$ for a tangent row. The case vector has $\iota_k=2$ when $o_k=2$, and
+$\iota_k\in\{0,1\}$ when $o_k=1$. In the stored trees the halves of a split are listed in the
+order $[a,\mathrm{mid}]$, $[\mathrm{mid},b]$, the rows are numbered from $0$, and the relaxation
+cases of a terminal box are listed in lexicographic order of $(\iota_1,\dots,\iota_K)$.
+For every relaxation case the node records either
+\begin{enumerate}[(i)]
+  \item an \emph{exclusion}: a row $k$ whose costs are all $\ge0$ and whose budget is $<0$; or
+  \item \emph{integer duals} $Y_F,Y_C,Y_N,Y_E^+,Y_E^-\ge0$ and $Z_1,\dots,Z_K\ge0$ such that for every
+    column $c$
+    \begin{equation}\label{eq:dualfeasible}
+      D_SG_c\le Y_FW_c+Y_CC_c+Y_NN_c+(Y_E^+-Y_E^-)E_c+\sum_kZ_k\,\mathrm{cost}_{ck}.
+    \end{equation}
+    The value of the relaxation case is then
+    \[
+      \Bigl\lceil\frac{Y_FF+2SY_C+n_gSY_N+(Y_E^+-Y_E^-)n_ES+\sum_kZ_k\,\mathrm{budget}_k}{D_S}\Bigr\rceil
+      +\mathrm{first}+\mathrm{final}.
+    \]
+\end{enumerate}
+The value of a terminal box is the maximum of $-1$ and the values of its relaxation cases that
+carry duals (so it is $-1$ if every relaxation case is excluded), and
+the certificate is \emph{accepted} if every terminal box has value $<S$. The data must be
+\emph{well formed}: all diagonals and correlation terms are positive, and all family counts are
+nonnegative.
+\end{definition}
+
+\begin{theorem}[Soundness of the integer certificates]\label{thm:certificate}
+Let a leaf have positive diagonals and correlation terms and nonnegative family counts. If it has
+an accepted certificate in the sense of \cref{def:certificate}, then every feasible
+pair $(x,\tau)$ of \cref{def:leafprogram} satisfies $\mathcal V(x)<1$.
+This conclusion holds for all real nonnegative column values, including fractional ones.
+\end{theorem}
+
+\begin{proof}
+Let $(x,\tau)$ be feasible and put $t_k=\tau_kT_S$. Since $\tau_k^2\le d_k/S$ we have $t_k\le e_k$,
+so $t$ lies in the root box. At every internal node $t$ lies in one of the two halves, so there is
+a terminal box $\prod_k[a_k,b_k]$ that contains $t$.
+
+For each row, \cref{lem:firstorder} (if $o_k=2$) or \cref{lem:tangent} (if $o_k=1$) gives a case
+$\iota_k$ in which the exact relaxed inequality holds at $x$. Take the relaxation case $\iota$ so
+obtained. Multiply the relaxed inequality of row $k$ by $S$. Each coefficient of $x_c$ is then at
+least $\mathrm{cost}_{ck}$ and the right side is at most $\mathrm{budget}_k$, by the rounding
+directions in \cref{def:costs} and since $x_c\ge0$ and $n\ge0$. Therefore
+\begin{equation}\label{eq:rowsatisfied}
+  \sum_cx_c\,\mathrm{cost}_{ck}\le\mathrm{budget}_k\qquad(1\le k\le K).
+\end{equation}
+Here we used $S\cdot(v/S-b/T_S)_+^2/(D/S)=(v-bS/T_S)_+^2/D$ and the corresponding identities for
+the tangent terms.
+
+If the relaxation case $\iota$ is excluded through row $k$, then the left side of \eqref{eq:rowsatisfied} is $\ge0$
+and the right side is $<0$, a contradiction. So $\iota$ carries duals. Multiply
+\eqref{eq:dualfeasible} by $x_c\ge0$ and sum over $c$. Then use the far, count and hidden-count
+constraints, with multipliers $Y_F,Y_C,Y_N\ge0$, the second-family equality, with the multiplier
+$Y_E^+-Y_E^-$ of either sign, and \eqref{eq:rowsatisfied}, with multipliers $Z_k\ge0$. This gives
+\[
+  D_S\sum_cG_cx_c\le Y_FF+2SY_C+n_gSY_N+(Y_E^+-Y_E^-)n_ES+\sum_kZ_k\,\mathrm{budget}_k .
+\]
+Hence $\mathrm{first}+\mathrm{final}+\sum_cG_cx_c$ is at most the value of $\iota$, which is at most
+the value of the terminal box, which is $<S$.
+\end{proof}
+
+\begin{remark}
+The formal proof of \cref{thm:certificate} brought out that the family counts $n$ must be
+nonnegative. With a negative count, the first-order relaxation can fail.
+The leaf builders already ensure $n\ge0$, and the checker requires it.
+\end{remark}

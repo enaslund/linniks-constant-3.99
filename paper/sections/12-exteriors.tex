@@ -1,0 +1,209 @@
+% !TEX root = ../linnik399.tex
+\section{The exterior regimes}\label{sec:exteriors}
+
+The case tree covers $0.1\le\lambda_1<1.5$. We now treat the remaining possibilities:
+an empty zero rectangle, a first zero with $\lambda_1<0.1$, and a first zero with
+$\lambda_1\ge1.5$. The small-parameter case is different from the others. Its first
+zero is real: it is an exceptional zero in the sense of Landau and Page
+\cite{Landau1918imaginar,Page1935number}. By the theorems of Siegel and Tatuzawa
+\cite{Siegel1935classenzahl,Tatuzawa1951theorem} (see also
+\cite{Pintz1977elementaryV,Pintz1977elementaryVIII}) it cannot be extremely close to $1$, but these
+bounds do not keep $\lambda_1$ away from $0$. Although such a zero has a large cost, the
+Deuring--Heilbronn phenomenon \cite{Deuring1933imaginare,Heilbronn1934class,Linnik1944deuring}
+repels the remaining zeros. We use Heath-Brown's quantitative estimates for this repulsion (see
+also \cite{BenliGoelTwissZaman2026explicit} for explicit versions) and, for a sufficiently close
+zero, his separate theorem on Siegel zeros \cite{HeathBrown1990siegel}, by which a very strong
+exceptional zero is even helpful.
+
+\subsection{No zero in \texorpdfstring{$R(l)$}{R(l)}}
+If no nonprincipal $L(s,\chi)$ vanishes in $R(l)$, then for large $q$ none vanishes in $R_P$, because
+$C_P\le\frac13\log\log\LL$ and $C_P/\LL\le l$. So $W=0$ and \cref{prop:detect} gives a prime $p\equiv
+a\pmod q$ with $q^A<p<q^L$. Xylouris notes this case himself \cite[p.~36]{Xylouris2011nullstellen}.
+
+\subsection{A tiny exceptional zero}
+Let $\eta_{\mathrm{HB}}(\delta)$ be the effectively computable constant of \cref{inp:siegel} and put
+\[
+  u_{\mathrm{exc}}=\min\Bigl(\frac1{\eta_{\mathrm{HB}}(1/2)},\,0.08\Bigr).
+\]
+
+\begin{proposition}[Primes in the presence of a very close real zero]\label{prop:tiny}
+Let $u_{\mathrm{exc}}$ be the positive cutoff defined above. For all sufficiently large
+$q$, if $\lambda_1<u_{\mathrm{exc}}$, then $P(a,q)\le q^{3.5}$ for every $(a,q)=1$.
+\end{proposition}
+
+\begin{proof}
+By \cref{prop:firstlower}, $\chi_1$ and $\rho_1$ are real, so $\beta_0=\rho_1=1-\lambda_1/\LL$ is a real zero of the
+real nonprincipal $L(s,\chi_1)$. Since $\lambda_1<u_{\mathrm{exc}}\le\frac13$ we have $\beta_0\ge1-1/(3\log q)$, and
+$((1-\beta_0)\log q)^{-1}=1/\lambda_1>1/u_{\mathrm{exc}}\ge\eta_{\mathrm{HB}}(\frac12)$. \Cref{inp:siegel} with $\delta=\frac12$ gives the claim.
+\end{proof}
+
+\subsection{A small exceptional zero}
+For $u_{\mathrm{exc}}\le\lambda_1\le0.1$ we use a different prime weight, a single triangle, and Heath-Brown's own
+estimates. The inputs are the following.
+
+\begin{inp}[Prime detection with a single triangle {\cite[Lemma~13.2]{HeathBrown1992zero}}]\label{inp:hb132}
+Let $L'>2K+3$, let $f=h_{L',K}$ and $F(z)=e^{-(L'-2K)z}F_2(z)$ with $F_2(z)=\bigl(\frac{1-e^{-Kz}}z\bigr)^2$. For
+every $\eps>0$ there is $R=R(\eps)$ such that for large $q$
+\[
+  \sum_{p\equiv a\,(q)}\frac{\log p}pf\Bigl(\frac{\log p}\LL\Bigr)\ge\frac\LL{\varphi(q)}\Bigl[K^2-\eps-\sum_{\chi\ne\chi_0}{\sum_\rho}'
+  \bigl|F\bigl((1-\rho)\LL\bigr)\bigr|\Bigr],
+\]
+where $\sum'$ runs over the zeros with $1-R/\LL\le\beta\le1$, $|\gamma|\le R/\LL$.
+\end{inp}
+
+\begin{inp}[Per-character bound for the triangular kernel {\cite[Lemma~13.3]{HeathBrown1992zero}}]\label{inp:hb133}
+Let $\chi\ne\chi_0$, $0<\lambda\le R$, and suppose that $L(s,\chi)$ has no zero with $1-\lambda/\LL<\beta\le1$ and
+$|\gamma|\le1$. Then for every $\eta_1>0$ and $q\ge q(\eta_1,\lambda)$
+\[
+  {\sum_\rho}'\bigl|F_2\bigl((1-\rho)\LL\bigr)\bigr|\le\mathcal B_{\varphi(\chi)}(\lambda)+\eta_1,\qquad
+  \mathcal B_\phi(\lambda)=\frac\phi2\,\frac{1-e^{-2K\lambda}}\lambda+\frac{2K\lambda-1+e^{-2K\lambda}}{2\lambda^2}.
+\]
+\end{inp}
+
+\begin{inp}[Heath-Brown's weighted density estimate]\label{inp:hb111}
+In the notation of \cite[Lemma~11.1]{HeathBrown1992zero} and
+\cite[(5.18), p.~66]{Xylouris2011nullstellen}, the following holds.
+Let $\eps,c_1,c_2>0$ and $\phi=\max_\chi\varphi(\chi)$. For $q\ge q(\eps,c_1,c_2)$ and any choice, for each
+nonprincipal $\chi$ with a zero in $\beta\ge1-\lambda_0/\LL$, $|\gamma|\le1$ ($\lambda_0=\frac13\log\log\LL$), of one such zero
+with parameter $\lambda(\chi)$,
+\[
+  \sum_\chi\frac{\lambda(\chi)}{e^{(4\phi+6c_1+2c_2)\lambda(\chi)}-e^{(2\phi+4c_1)\lambda(\chi)}}\le\frac{2\phi+2c_1+c_2}{4c_1c_2}+\eps .
+\]
+\end{inp}
+
+The left side decreases and the right side increases with $\phi$, so the inequality holds with
+$\phi=\frac13$. We also use \cref{inp:rrtables}(b),(d) and the following two rows of Heath-Brown's
+tables, which hold for all $\lambda_1\le0.10$ bounded below by a fixed positive constant
+\cite[\S8, Table~2 and Table~5]{HeathBrown1992zero} (see the remark after \cref{inp:rrtables}; we use them
+for $\lambda_1\ge0.08$): if $\chi_1$ and
+$\rho_1$ are real and $\lambda_1\le0.10$, then $\lambda'\ge4.96-\eps$ and $\lambda_2\ge2.83-\eps$ for $q\ge q(\eps)$. We have
+recomputed these rows from Heath-Brown's printed parameters, obtaining $4.96355$ and $2.84577$; we use
+them with $\eps=0.001$. (Table~5 is stated under $\lambda_2\le\lambda'$, which is redundant here since
+$\lambda'\ge4.959>2.83$.)
+
+\emph{Fixed data.} $L=3.99$, $K=0.1821$, $A_s=L-2K=3.6258$; $c_1=0.057$, $c_2=0.1554$, $\phi=\frac13$;
+\[
+  a_d=\tfrac43+6c_1+2c_2=\tfrac{3724}{1875},\quad b_d=\tfrac23+4c_1=\tfrac{671}{750},\quad
+  V_d=\frac{2/3+2c_1+c_2}{4c_1c_2}=\frac{184750}{6993};
+\]
+$\alpha=1.09<\frac{12}{11}$, $B_1=K^2+\frac K4$, $m^*=\alpha\log12.5=2.7530442\ldots$, $m_2=2.829$ and $m_2'=4.959$.
+Let $H_s(u)=e^{-A_su}F_2(u)$ and $\mathcal M(u)=(K^2-H_s(u))/u$, and
+\[
+  Q(m)=\frac{e^{-(A_s-a_d)m}-e^{-(A_s-b_d)m}}m=\int_{A_s-a_d}^{A_s-b_d}e^{-tm}\,dt .
+\]
+
+\begin{theorem}[The small exceptional-zero range]\label{thm:small}
+For all sufficiently large $q$ with $u_{\mathrm{exc}}\le\lambda_1\le0.1$, and every
+integer $a$ with $(a,q)=1$, there is a prime $p$ such that
+\[
+  p\equiv a\pmod q,\qquad q^{3.6258}<p<q^{3.99}.
+\]
+The threshold is uniform over the fixed interval $[u_{\mathrm{exc}},0.1]$.
+\end{theorem}
+
+\begin{proof}
+Write $u=\lambda_1$. By \cref{prop:firstlower}, $\chi_1$ and $\rho_1$ are real. The zero $\rho_1$ is simple, since a
+double zero would give $\lambda'=u$, whereas $\lambda'\ge(2-\eps)\log(1/u)>u$ (\cref{inp:rrtables}(b)) on
+$[u_{\mathrm{exc}},0.08]$ and $\lambda'\ge4.959>u$ on $[0.08,0.1]$.
+
+\emph{The criterion.} Apply \cref{inp:hb132} with $L'=L$, since $3.99>2K+3$; the zero $\rho_1$ contributes
+$H_s(u)$. Enlarging $R$ only adds nonnegative terms to $\sum'$, so the inequality of \cref{inp:hb132}
+remains true with $R$ replaced by $\max(R,3)$; we use it with $R\ge3$, so that \cref{inp:hb133} applies
+with the values $\lambda\le m_2<3$ below. It remains to bound the other terms. Put $m(u)=\alpha\log(1/u)$ on $\mathcal P_1=[u_{\mathrm{exc}},0.08]$ and
+$m(u)=m_2$ on $\mathcal P_2=[0.08,0.1]$, and $m_1(u)=m(u)$ on $\mathcal P_1$, $m_1(u)=m_2'$ on $\mathcal P_2$. By
+\cref{inp:rrtables}(b),(d) (with $\eps=\frac{12}{11}-\alpha$) and the two table rows, every zero $\rho\ne\rho_1$ of
+$L(s,\chi_1)$ in $R(l)$ has $\lambda_\rho\ge m_1(u)$, and every zero of every other nonprincipal $L(s,\chi)$ in
+$R(l)$ has $\lambda_\rho\ge m(u)$.
+
+\emph{The first character.} $L(s,\chi_1)$ has no zero with $\lambda<u_{\mathrm{exc}}/2$ and $|\gamma|\le1$, so
+\cref{inp:hb133} with $\lambda=u_{\mathrm{exc}}/2$ and $\varphi(\chi_1)=\frac14$ gives
+$\sum'_\rho|F_2((1-\rho)\LL)|\le\mathcal B_{1/4}(u_{\mathrm{exc}}/2)+\eta_1\le B_1+\eta_1$, as $\mathcal B_\phi$ is decreasing in $\lambda$, with limit $\phi K+K^2$ as $\lambda\to0$.
+Hence the zeros of $\chi_1$ other than $\rho_1$ contribute
+\[
+  T_1\le e^{-A_sm_1(u)}(B_1+\eta_1).
+\]
+
+\emph{The other characters.} For $\chi\ne\chi_0,\chi_1$ with a zero in the rectangle of \cref{inp:hb132},
+let $\lambda(\chi)$ be the parameter of its zero of least parameter with $|\gamma|\le1$; then $\lambda(\chi)\ge m(u)$.
+Apply \cref{inp:hb133} with the fixed value $\lambda=m^*$ on $\mathcal P_1$ (note $m^*\le m(u)$ there) and $\lambda=m_2$
+on $\mathcal P_2$, and with $\varphi(\chi)\le\frac13$. Since every zero in the rectangle has parameter at least
+$\lambda(\chi)$, the zeros of $\chi$ contribute at most $e^{-A_s\lambda(\chi)}(\mathcal B_{1/3}(\bar m)+\eta_1)$, with $\bar m=m^*$
+or $m_2$. Since $A_s>a_d$, the function $e^{-A_st}(e^{a_dt}-e^{b_dt})/t=Q(t)$ is decreasing, so
+$e^{-A_s\lambda(\chi)}\le Q(m(u))\,\lambda(\chi)/(e^{a_d\lambda(\chi)}-e^{b_d\lambda(\chi)})$. By \cref{inp:hb111}, the characters
+other than $\chi_1$ contribute
+\[
+  T_2\le(\mathcal B_{1/3}(\bar m)+\eta_1)(V_d+\eps_2)\,Q(m(u)).
+\]
+
+\emph{Monotonicity.} We have $K^2-H_s(u)=\int h_{L,K}(t)(1-e^{-ut})\,dt$, so
+$\mathcal M(u)=\int h_{L,K}(t)\,\frac{1-e^{-ut}}u\,dt$, which decreases in $u$ because $h_{L,K}\ge0$ and
+$(1-e^{-ut})/u$ decreases for each $t>0$. On $\mathcal P_1$ we have
+$u=e^{-m/\alpha}$, and
+\[
+  \frac{Q(m(u))}u=\int_{A_s-a_d-1/\alpha}^{A_s-b_d-1/\alpha}e^{-tm(u)}\,dt,\qquad\frac{e^{-A_sm(u)}}u=e^{-(A_s-1/\alpha)m(u)},
+\]
+with $A_s-a_d-1/\alpha=\frac{236171}{327000}>0$; both increase with $u$. On $\mathcal P_2$ the bounds for $T_1$ and
+$T_2$ do not depend on $u$, and $u\ge0.08$. Hence on $\mathcal P_i$
+\[
+  K^2-H_s(u)-T_1-T_2\ge\varpi_iu-\mathcal E,
+\]
+where
+\begin{align*}
+  \varpi_1&=\mathcal M(0.08)-V_d\,\mathcal B_{1/3}(m^*)\frac{Q(m^*)}{0.08}-B_1\frac{e^{-A_sm^*}}{0.08},\\
+  \varpi_2&=\mathcal M(0.1)-V_d\,\mathcal B_{1/3}(m_2)\frac{Q(m_2)}{0.08}-B_1\frac{e^{-A_sm_2'}}{0.08},
+\end{align*}
+and $\mathcal E=\eta_1(1+(V_d+\eps_2)(a_d-b_d))+\eps_2\mathcal B_{1/3}(0)(a_d-b_d)$, using $Q\le a_d-b_d$.
+
+\emph{Numerical margins.} The interval computations give the following values,
+displayed here to ten decimal places:
+\[
+  \begin{array}{lcccc}
+    & \mathcal M & \text{other characters} & \text{first character} & \varpi_i\\
+    \mathcal P_1 & 0.1088458429 & 0.0783116746 & 0.0000454655 & 0.0304887029\\
+    \mathcal P_2 & 0.1050056698 & 0.0668874692 & 0.0000000153 & 0.0381181853
+  \end{array}
+\]
+The certified lower bounds give $\varpi_i>0.0304$. Choose $\eta_1$, $\eps_2$ and the $\eps$ of \cref{inp:hb132}, after $u_{\mathrm{exc}}$, with
+$\mathcal E+\eps<0.03u_{\mathrm{exc}}$. Then the bracket in \cref{inp:hb132} is at least $(0.0304-0.03)u_{\mathrm{exc}}>0$, and there is a
+prime $p\equiv a\pmod q$ with $\log p/\LL\in(A_s,L)$.
+\end{proof}
+
+At $L=3.99$, the margins are approximately $28\%$ and $36\%$ of the main term.
+Exploratory evaluations with the same $K$, $c_1$, and $c_2$ remain positive at $L=3.90$;
+the certified exterior result used here is the one at $3.99$.
+
+\subsection{A large first zero}\label{subsec:large}
+
+\begin{theorem}[The large first-zero range]\label{thm:large}
+For all sufficiently large $q$ with a nonempty zero rectangle and $\lambda_1\ge1.5$,
+\[
+  W(q)\le0.9966814-2\eta.
+\]
+Consequently, every reduced residue class contains a prime $p$ with
+$q^{3.156342}<p<q^{3.99}$.
+\end{theorem}
+
+\begin{proof}
+Every nonprincipal character with a zero in $R_P$ is treated as ordinary, with its height-one
+representative, of parameter $\lambda_\chi\ge\lambda_1\ge1.5$; by \cref{cor:ordinarycost} it contributes at most
+$\mathcal G(\lambda_\chi)+\eps_1e^{-A\lambda_\chi}$. Consider the leaf program with the bins
+$[1.5+\frac j{100},1.5+\frac{j+1}{100})$, $0\le j<150$, and the tail $[3,\infty)$; the far budget
+$F=(1+\eta)V$ with profile~I (\cref{sec:far}); $\mathrm{first}=0$ and $\mathrm{final}=5\eta$; no count, hidden or second-family
+constraints; and one near row. The near row is \cref{cor:zeroform} with $\Xi\equiv0$, $s=s_1=\frac32$,
+detector $\hat f_2$ ($\gamma_f=1$), Gram test $\hat f_3$ ($\gamma_g=\frac32$) and no family entries, normalized as in
+\cref{subsec:rowdata} with $t_0=1$ (so $I_u$ is the upper Riemann sum over $2000$ cells of each of
+$[0,1)$ and $[1,2)$): every zero of every
+nonprincipal $L$-function in $R(l)$ has parameter at least $1.5=s_1$, so the safe-anchor hypothesis
+holds, and every entry has no zero to the right of its anchor $\min(\lo,s)=s$. The actual characters
+give a feasible point as in \cref{prop:realization}.
+
+The certificate consists of $36$ contiguous threshold intervals covering $[0,e]$; on each it uses the
+first-order relaxation and integer duals $Y_F,Z\ge0$ satisfying \eqref{eq:dualfeasible}; there are no
+exclusions and $5436$ column inequalities. The largest value is
+$0.9966813270344512$, on the threshold interval $[0.1625,0.165]$, where $Y_F=5145926349$ and
+$Z=1593393341176$. By \cref{thm:certificate}, $\mathcal V(x)<0.9966814$, and $W\le\mathcal V(x)-2\eta$ as in
+\cref{prop:realization}. \Cref{prop:detect} gives the prime.
+\end{proof}
+
+In this regime one near row, together with the far-density budget, suffices.
+All characters are treated by the same per-character bound.

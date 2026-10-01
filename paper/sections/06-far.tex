@@ -1,0 +1,171 @@
+% !TEX root = ../linnik399.tex
+\section{Far density and representatives}\label{sec:far}
+
+The per-character costs must be summed over many characters. A weighted density
+estimate supplies a common budget for that sum. Its zeros have physical height at most
+$1$, so we also specify how to choose representatives within this height range.
+
+\subsection{Xylouris's weighted density lemma}
+The following is Xylouris's improvement \cite[Lemma~5.1, (5.19), p.~66]{Xylouris2011nullstellen} of
+Heath-Brown's Lemma~11.1 \cite{HeathBrown1992zero}; the latter is the case $J=1$, $w_0\equiv1$.
+(Xylouris writes $M$ for our $J$; we reserve $M$ for a separation constant.)
+
+\begin{inp}[Far density]\label{inp:far}
+Let $\eps,c_1,c_2>0$, $J\in\NN$, and $\alpha_1,\dots,\alpha_J\ge0$ with $\sum_i\alpha_i=1$. Put
+\[
+  x=\tfrac23+3c_1+c_2,\qquad u_i=\tfrac13+2c_1+\frac{ic_2}{J}\quad(0\le i\le J),
+\]
+and let $w_0:[u_0,x]\to\RR$ be continuous and continuously differentiable except at finitely many
+points, with $1\ll w_0\ll1$ and $w_0'\ll1$. Choose for each nonprincipal character $\chi$ modulo
+$q$ at most one zero $\rho_\chi$ of $L(s,\chi)$ with $|\Im\rho_\chi|\le1$ and
+$\lambda_\chi\le\lambda_0=\frac13\log\log\LL$. Then for $q\ge q_0$, with $q_0$ depending on all
+the parameters,
+\[
+  \sum_\chi\Bigl(\int_{u_0}^xw_0(t)^2e^{2\lambda_\chi t}\,dt\Bigr)^{-1}\le
+  \frac{J^2+\eps}{c_1c_2^2}\sum_{i=1}^J\alpha_i^2\int_{u_{i-1}}^xw_0(t)^{-2}
+  \min\{t-u_{i-1},\,u_i-u_{i-1}\}\,dt .
+\]
+\end{inp}
+
+In \cite{Xylouris2011nullstellen} the statement is made for the zeros $\rho^{(k)}$ that are chosen
+for the characters counted by $N(\lambda_0)$, one zero per character \cite[\S3.2.2,
+pp.~25--26]{Xylouris2011nullstellen}, \cite[\S11]{HeathBrown1992zero}; any such choice is allowed, and
+the estimates in the proof \cite[pp.~67--72]{Xylouris2011nullstellen} are uniform over
+these choices. This uniformity is needed because the selected zeros, including the
+$T^*(q)$-representatives below, depend on $q$. A nonreal character and
+its conjugate are different characters, and each contributes its own term; the principal
+character is excluded, since $L(s,\chi_0)$ has no zero in the relevant region for large $q$
+\cite[p.~21]{Xylouris2011nullstellen}. The hypotheses on $w_0$ are satisfied by our profiles, which
+are those of Xylouris's own application \cite[(6.20)--(6.21), p.~80]{Xylouris2011nullstellen}.
+
+\subsection{The two weight profiles}
+We use two profiles of the shape \cite[(6.20)]{Xylouris2011nullstellen}, both with $J=10$ and
+$\eps_0=10^{-7}$:
+\[
+  w_0(t)^2=e^{-\theta_{\mathrm{far}}t}\sqrt{\min(t-u_0+\eps_0,\ c_2+\eps_0)}\qquad(u_0\le t\le x).
+\]
+\emph{Profile~I} has $c_1=0.09035$, $c_2=0.235968$ and $\theta_{\mathrm{far}}=1.28683$, and
+\emph{profile~II} has $c_1=0.0821922$, $c_2=0.2170903$ and $\theta_{\mathrm{far}}=1.4964274$. The weights
+$\alpha_i$ are the exact decimals of \cref{tab:alpha}; in each profile they sum to $1$. Both
+profiles satisfy the hypotheses of \cref{inp:far}: $w_0$ is continuous and positive on
+$[u_0,x]$, and it is smooth except at $t=u_0+c_2$.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{rll}
+\toprule
+$i$ & profile~I $\alpha_i$ & profile~II $\alpha_i$ \\
+\midrule
+1 & 0.0788827218 & 0.0806195583 \\
+2 & 0.0849386148 & 0.0862705300 \\
+3 & 0.0895629779 & 0.0905489307 \\
+4 & 0.0938231516 & 0.0944644867 \\
+5 & 0.0979710491 & 0.0982543287 \\
+6 & 0.1021284916 & 0.1020315591 \\
+7 & 0.1063732939 & 0.1058668825 \\
+8 & 0.1107651869 & 0.1098131140 \\
+9 & 0.1153565492 & 0.1139152197 \\
+10 & 0.1201979632 & 0.1182153903 \\
+\bottomrule
+\end{tabular}
+\caption{The weights $\alpha_i$ of the two far profiles.}
+\label{tab:alpha}
+\end{table}
+
+Put
+\[
+  w(\lambda)=\Bigl(\int_{u_0}^xw_0(t)^2e^{2\lambda t}\,dt\Bigr)^{-1},
+\]
+a positive decreasing function of $\lambda$. Let $V$ be the right-hand side of \cref{inp:far}
+with $\eps=0$. Rigorous enclosures give
+\[
+  V=175.26640331\ldots\ \text{(profile I)},\qquad V=243.32098105\ldots\ \text{(profile II)}.
+\]
+Taking $\eps=\eta J^2$ in \cref{inp:far}, we obtain for $q\ge q_0$ and every choice of zeros as in
+\cref{inp:far}:
+\begin{equation}\label{eq:farbudget}
+  \sum_\chi w(\lambda_\chi)\le(1+\eta)V .
+\end{equation}
+Each leaf of the case tree uses one of the two profiles, recorded in its data. Both
+are fixed finite choices within \cref{inp:far}.
+
+\begin{lemma}[Comparison of the prime weight and the far weight]\label{lem:decay}
+For both profiles, $x\le1.1737$. Hence $A>2x$ for $L=3.99$, and for every $\lambda\ge0$ the function
+$\lambda\mapsto e^{-A\lambda}/w(\lambda)$ is decreasing. In particular
+$e^{-A\lambda}\le w(\lambda)/w(0)$.
+\end{lemma}
+
+\begin{proof}
+The values are $x=1.1736846\ldots$ and $x=1.1303335\ldots$, so $2x<2.348<A=3.156342$. Now
+$e^{-A\lambda}/w(\lambda)=\int_{u_0}^xw_0(t)^2e^{(2t-A)\lambda}\,dt$, and $2t-A<0$ on
+$[u_0,x]$.
+\end{proof}
+
+With $w(0)=10.7054\ldots$ (profile~I) and $w(0)=13.1730\ldots$ (profile~II), \cref{lem:decay} and
+\eqref{eq:farbudget} give, for any selection satisfying \cref{inp:far},
+\begin{equation}\label{eq:Kfar}
+  \sum_\chi e^{-A\lambda_\chi}\le\frac{(1+\eta)V}{w(0)}=K_{\mathrm{far}},\qquad
+  K_{\mathrm{far}}<16.38\ \text{(profile I)},\quad K_{\mathrm{far}}<18.48\ \text{(profile II)}.
+\end{equation}
+This bound controls errors that are summed over unboundedly many characters.
+
+\subsection{Representatives}\label{subsec:representatives}
+The leaf programs describe an ordinary character through one parameter, the parameter of a
+\emph{representative} zero. For the near-density argument of \cref{sec:near} the representative
+must be separated in height from any zero with a smaller parameter, and we arrange this by
+choosing the height of the strip in which representatives are taken.
+
+Fix $s_{\max}=3$; every anchor used in the near rows is at most $2.3$ (\cref{sec:rows}), and every
+ordinary entry uses an anchor at most $s_{\max}$. Let $K_0$ be an upper bound for
+the number of zeros, of all nonprincipal characters modulo $q$ and counted with multiplicity,
+with $\lambda\le s_{\max}$ and $|\gamma|\le2$. By a log-free zero-density estimate
+(\cref{inp:logfree}), $K_0$ may be taken independent of $q$. Next fix $M$ as in \cref{sec:join};
+it depends on $K_0$.
+
+\begin{lemma}[A strip boundary separated from low-parameter zeros]\label{lem:Tstar}
+Let $K_0$ bound the number of zeros with $\lambda\le s_{\max}=3$ and $|\gamma|\le2$,
+as above, and fix $M>0$. If $\LL>4M(K_0+1)$, there is $T^*\in[1/2,1]$ such that no nonprincipal $L(s,\chi)$ has a zero with
+$\lambda\le s_{\max}$ and $\bigl||\mu|-T^*\LL\bigr|<M$. We take $T^*=T^*(q)$ to be the least such number.
+\end{lemma}
+
+\begin{proof}
+The at most $K_0$ zeros in question exclude at most $K_0$ open intervals of $T$ of length $2M/\LL$
+each. The interval $[1/2,1]$ has length $1/2>2MK_0/\LL$, so the remaining set is a nonempty
+finite union of closed intervals, and it has a least element.
+\end{proof}
+
+\begin{definition}[Representatives]\label{def:representative}
+For a nonprincipal character $\chi$, its \emph{$T^*$-representative} is a zero of $L(s,\chi)$ in
+$R(l)$ with $|\gamma|\le T^*$ and least parameter, if there is one; its parameter is $\lambda_\chi$.
+Representatives are used for the characters outside the first family; in \cref{thm:large} all
+characters use their height-one representatives. The \emph{height-one representative} is defined in the same way with the bound
+$|\gamma|\le1$. The reserved family of a leaf (\cref{subsec:vocabulary,def:specification}) and an inside first family use
+height-one representatives.
+\end{definition}
+
+Every representative has $|\gamma|\le1$, so the far bound \eqref{eq:farbudget} applies to any
+selection of representatives, one per character. Representatives for conjugate characters
+may be chosen as conjugate zeros, with the same parameter, because every selection
+region is symmetric in height.
+The $T^*$-representative of $\chi$ satisfies $\lambda_\chi\ge$ the parameter of its height-one
+representative. Shrinking the strip can only increase the minimum parameter; in terms
+of real parts, the selected zero can only move to the left.
+
+\subsection{The far constraint of a leaf}
+In a leaf program (\cref{subsec:vocabulary}), the characters other than the first family are placed
+in bins by the parameters of their representatives, and each bin has a column
+(\cref{sec:lp,sec:casetree}). The column of a bin $[\lo,\hi]$ has far weight
+$W_c=\lfloor Sw(\hi)\rfloor$; since $w$ is decreasing, each character in the bin contributes at least
+$w(\hi)$ to the left side of \eqref{eq:farbudget}. The
+\emph{tail column} collects the ordinary characters $\chi$ with a zero in $R_P$ and $\lambda_\chi\ge R$, where
+$R=\max(3,r)$ and $r$ is the leaf's lower bound for ordinary representatives. Its value is the mass
+$x_{\mathrm{tail}}=\sum w(\lambda_\chi)$ over these characters, with far weight $S$. The far budget of
+the leaf is
+\[
+  F=\bigl\lceil S(1+\eta)V\bigr\rceil-\1_{\mathrm{inside}}\,n\bigl\lfloor Sw(b)\bigr\rfloor .
+\]
+Here the last term is present for an inside leaf, that is when $\rho_1\in R_B$. Then
+$|\gamma_1|\le C_B/\LL\le1$, so $\rho_1$ and $\overline{\rho_1}$ are the height-one representatives of $\chi_1$ and
+$\bchi_1$, and they contribute $n\,w(\lambda_1)\ge n\,w(b)$ to \eqref{eq:farbudget}. A reserved second family is charged either through its own columns, which carry its far
+weight, or by subtracting the fixed amount $n_2\lfloor Sw(\hi_2)\rfloor$ from $F$ (\cref{subsec:leafmodel}).

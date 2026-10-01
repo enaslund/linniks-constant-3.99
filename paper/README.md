@@ -1,0 +1,44 @@
+# Linnik's constant is at most 3.99 — the paper
+
+* `linnik399.tex`, `sections/01-introduction.tex` … `sections/16-appendix.tex` and
+  `references.bib` are the source. `linnik399.pdf` is built from it.
+* `dist/linnik399.tex` is the same paper as one self-contained file, with the
+  bibliography inlined and no `\input`. It is the version to upload. Its PDF,
+  `dist/linnik399.pdf`, is built from that file alone.
+* `tools/flatten.py` produces `dist/linnik399.tex` from the source. It also scans
+  the result for constructs that execute code or write files (`\write18`,
+  `\directlua`, `filecontents`, `\special`, `minted`, `pythontex`, `\openout`,
+  embedded files and so on). There are none: the paper is typeset mathematics
+  only, and it compiles with `-no-shell-escape`.
+
+Build the source version:
+
+```
+pdflatex -no-shell-escape linnik399
+bibtex linnik399
+pdflatex -no-shell-escape linnik399
+pdflatex -no-shell-escape linnik399
+```
+
+Then produce and build the single-file version:
+
+```
+python3 tools/flatten.py . dist/linnik399.tex
+cd dist
+pdflatex -no-shell-escape linnik399
+pdflatex -no-shell-escape linnik399
+pdflatex -no-shell-escape linnik399
+```
+
+The flattened file uses only standard LaTeX classes and packages: `amsart`, `geometry`, the
+AMS packages, `mathtools`, `booktabs`, `longtable`, `array`, `enumitem`,
+`microtype`, `xcolor`, `colortbl`, `tikz` (for the proof map, drawn in the source),
+`hyperref`, `aliascnt` and `cleveref`.
+The bibliography style command is retained because `amsart` also uses it to format
+reference labels; the standalone build does not require BibTeX or a `.bib` file.
+
+The research record behind the paper, the reviews made while it was written, the
+certificates and the programs that generate and check them are in the research repository,
+<https://github.com/enaslund/linniks-constant> (private at the time of writing; see
+`research/notes/paper-2026-09-30.md` there). The Lean formalization of parts of the proof is
+at the root of this repository; see the [repository README](../README.md).

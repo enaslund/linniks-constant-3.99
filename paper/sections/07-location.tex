@@ -1,0 +1,652 @@
+% !TEX root = ../linnik399.tex
+\section{Zero location}\label{sec:location}
+
+This section collects the lower bounds for $\lambda_1$, $\lambda'$, $\lambda_2$ and $\lambda_3$ that the
+case tree uses. Most are printed results of Heath-Brown \cite{HeathBrown1992zero} and Xylouris
+\cite{Xylouris2011nullstellen}; we state each in the form used, with its scope. The others are new
+consequences of the same explicit formula, proved here by the positivity method; one of them uses
+a sharpened conductor coefficient, which we prove in \cref{subsec:conductor}. None of the results of
+this section depends on the exponent $L$.
+
+\subsection{Conventions}\label{subsec:locconventions}
+We fix once and for all an admissible height function $l(q)$ as in \cref{inp:rectangle}, for
+instance the least one. All the zero-location results we quote are proved for an arbitrary
+integer $l$ with $1\le l\le\LL/10$ for which $R(10l)\setminus R(l)$ contains no zero; their proofs use
+$l$ only through these two properties, and their thresholds depend only on fixed data. So they
+hold simultaneously for our $l(q)$.
+
+The zeros $\rho_1,\rho_2,\rho_3$ are selected as in \cite[(3.11)--(3.12), p.~21]{Xylouris2011nullstellen}
+(which follows \cite[\S6]{HeathBrown1992zero}). At step $k$, remove the characters in the
+families $\mathcal F_1,\ldots,\mathcal F_{k-1}$ and choose a zero of maximal real part
+in $R(l)$ among the remaining nonprincipal $L$-functions. Each real character is
+removed once. This is the successive-minimum convention of \cref{def:families}.
+The additional zero
+$\rho'$ of the first family is selected as in \cite[pp.~21--22]{Xylouris2011nullstellen}: $\rho'=\rho_1$ if
+$\rho_1$ is multiple, and otherwise $\rho'$ has maximal real part among the zeros of $L(s,\chi_1)$ in
+$R(l)$ other than $\rho_1$ (and other than $\overline{\rho_1}$ if $\chi_1$ is real). Its parameter is the
+$\lambda'$ of \cref{sec:notation} (Heath-Brown also writes $\lambda'$; Xylouris indexes this zero by $0$). When several zeros qualify
+(ties in the real part, or several characters attaining a minimum), any of them may be selected:
+the proofs of the quoted results use only the extremal property of the selection, so they hold for
+every such choice. This is why the configuration sets of \cref{def:specification} quantify over the
+admissible choices. All the results of this section concern zeros in $R(l)$ at any height up to
+$l$, so they apply whether $\rho_1$ is inside or outside the buffer.
+
+\emph{Printed tables.} Every printed bound is used as an exact implication for $q\ge q_0$. Each
+of them was obtained by showing that a certain inequality fails with a positive margin, which
+persists when the error term $\eps$ is small enough \cite[p.~43, p.~44 and footnote~2 on
+p.~45]{Xylouris2011nullstellen}; for Heath-Brown's Tables~2 and~3 the printed values lie a little below
+the computed roots \cite[\S8]{HeathBrown1992zero}. Heath-Brown states no convention for his
+Tables~4 and~7, and we have recomputed their roots from his printed parameters; every recomputed
+root exceeds the printed value, and each printed value is the root rounded down. The closest case
+in Table~4 is row $1.05$, with root $1.43904$ against $1.439$, and the closest in Table~7 are rows
+$0.20$ and $0.55$, with $2.01015$ against $2.01$ and $1.00036$ against $1.00$. The
+rows of Table~4 are derived under the side conditions \cite[(8.6), (8.8)]{HeathBrown1992zero}; we have
+checked from the printed parameters that these hold for every row from $0.35$ on (the tightest is
+(8.6), with slacks $3.8\cdot10^{-6}$, $3.8\cdot10^{-6}$ and $2.3\cdot10^{-6}$ for the rows $1.05$, $1.15$ and
+$1.294$). For the row $(0.3,2.293)$ they need not hold, but that row also follows from Heath-Brown's
+Table~3, which gives $\lambda'\ge2.43$ for $\lambda_1\le0.30$ \cite[\S8]{HeathBrown1992zero}. These checks, and the
+recomputation of the roots, were made in floating point, separately from the replay. A separate
+program compares every printed number that the proof uses, in the code and in this paper, with
+the text of the source pages and with the printed scope of its row; each agrees with the printed
+value or is weaker than it in the safe direction.
+Results stated in the form $c-\eps$ are used with an explicit reduction: $0.857<\frac67$ in
+\cref{inp:lambda3}, and $1.09<\frac{12}{11}$ and $\eps=0.001$ in \cref{sec:exteriors}.
+
+\subsection{Types and the first zero}
+
+\begin{proposition}[Lower bounds for a nonreal first zero]\label{prop:firstlower}
+For all sufficiently large $q$, the first family satisfies
+\[
+  \lambda_1>0.440\quad\text{if }\chi_1\text{ is nonreal},\qquad
+  \lambda_1>0.628\quad\text{if }\chi_1\text{ is real and }\rho_1\text{ is nonreal}.
+\]
+Thus $\lambda_1\le0.44$ forces both $\chi_1$ and $\rho_1$ to be real.
+These bounds are \cite[Lemma~4.5 and Table~11, pp.~60--61]{Xylouris2011nullstellen}.
+\end{proposition}
+
+Xylouris's lemma gives $\lambda_1>0.440$, $0.493$, $0.478$, $0.498$ and $0.628$ for characters of order
+$\ge6$, $=5$, $=4$, $=3$ and $=2$ respectively; the minimum over orders at least $3$ is $0.440$.
+
+\subsection{The test function}
+The location inequalities use one family of test functions. We define it here so that
+all parameters in the statements below are specified before they occur.
+For $\gamma>0$, put
+\begin{equation}\label{eq:ftest}
+  f_\gamma(t)=\begin{cases}\frac{16\gamma^5}{15}(1-u)^3(1+3u+u^2),&0\le t\le2\gamma,\ u=t/(2\gamma),\\
+  0,&t\ge2\gamma,\end{cases}
+\end{equation}
+The function $f_\gamma$ is the autocorrelation of $x\mapsto(\gamma^2-x^2)_+$, the test function of
+\cite[(3.14), (3.17)--(3.18)]{Xylouris2011nullstellen}; it satisfies Conditions~1 and~2
+(\cref{lem:parabolic}), and its transform $F$ is positive and decreasing on $\RR$.
+
+\subsection{Printed zero-location inputs}
+
+\begin{inp}[Real first zero]\label{inp:rrtables}
+Let $\chi_1$ and $\rho_1$ be real. For $q\ge q_0$:
+\begin{enumerate}[(a)]
+  \item \cite[Tables~3 and~4, Lemmas~8.2 and~8.3]{HeathBrown1992zero}. If $\lambda_1\le t$ then
+    $\lambda'\ge c$, for the $24$ pairs $(t,c)$ from $(0.3,\,2.293)$ to $(1.294,\,1.294)$ of the table.
+    For a real $\rho'$ this follows from $\lambda'\ge2.427$ (Lemma~8.2).
+  \item \cite[Lemma~8.4]{HeathBrown1992zero}. For every $\eps>0$: $\lambda'\ge(2-\eps)\log\lambda_1^{-1}$ if
+    $\lambda_1\le0.2$ and $q\ge q(\eps)$; and $\lambda'\ge\max\bigl(\frac32\log\lambda_1^{-1},1.294\bigr)$ for every $\lambda_1$.
+  \item \cite[Table~7 and Lemma~8.7]{HeathBrown1992zero}. If $\lambda_1\le t$ then $\lambda_2\ge c$, for
+    the $16$ pairs $(t,c)$ from $(0.12,\,2.56)$ to $(0.745,\,0.745)$ of the table; these hold whether or
+    not $\chi_2^4=\chi_0$ (the row $t=0.10$ is not used).
+  \item \cite[Lemma~8.8]{HeathBrown1992zero}. $\lambda_2\ge\max\bigl((\frac{12}{11}-\eps)\log\lambda_1^{-1},0.745\bigr)$
+    for $q\ge q(\eps)$.
+\end{enumerate}
+\end{inp}
+
+Heath-Brown remarks that the estimates of his \S8 have not been proved for extremely small values
+of $\lambda_1$ \cite[\S8]{HeathBrown1992zero}. We use (a)--(d) only for $\lambda_1$ bounded below by a
+fixed positive constant: $\lambda_1\ge0.1$ in the case tree, and, in \cref{thm:small}, $\lambda_1$ at
+least the fixed constant $u_{\mathrm{exc}}>0$ of \cref{sec:exteriors}.
+
+\begin{inp}[Nonreal first character or zero]\label{inp:complextables}
+Let $\chi_1$ or $\rho_1$ be nonreal. For $q\ge q_0$:
+\begin{enumerate}[(a)]
+  \item \cite[Table~2$'$, p.~62]{Xylouris2011nullstellen}. If $\lambda_1\le t$ then $\lambda'>c$, for the pairs
+    $(0.46,1.85),\dots,(0.827,0.827)$ of the table.
+  \item \cite[Table~3, p.~45]{Xylouris2011nullstellen}. If $\ord\chi_1\in\{2,3,4\}$ and $\lambda_1\le t$, then
+    $\lambda'>c$, for the pairs $(0.38,2.53),\dots,(1.099,1.099)$; in particular $\lambda_1\le0.86$ implies
+    $\lambda'>1.35$.
+  \item \cite[Tables~6 and~7, p.~53]{Xylouris2011nullstellen}. If $\lambda_1\le t$ then $\lambda_2>c$; Table~6
+    concerns a real $\chi_1$ (Fall~7), Table~7 all cases.
+  \item \cite[Lemma~9.4 and Table~10]{HeathBrown1992zero}. $\lambda_2\ge0.702$ always, and
+    $\lambda_1\le0.70$ implies $\lambda_2\ge0.704$.
+\end{enumerate}
+\end{inp}
+
+\begin{inp}[The third family]\label{inp:lambda3}
+For $q\ge q_0$:
+\begin{enumerate}[(a)]
+  \item \cite[Lemma~10.3]{HeathBrown1992zero}. $\lambda_3\ge\frac67-\eps$; we use $\lambda_3>0.857$.
+  \item \cite[Table~8, column ``alle F\"alle'', p.~55]{Xylouris2011nullstellen}. If $\chi_1$ or $\rho_1$ is
+    nonreal and $\lambda_1\le t$, then $\lambda_3>c$, for $(t,c)=(0.52,1.320)$, $(0.54,1.243)$,
+    $(0.56,1.160)$, $(0.58,1.079)$, $(0.60,1.001)$, $(0.62,0.933)$.
+  \item \cite[Lemma~4.4 and Table~10, p.~55]{Xylouris2011nullstellen}. If $\chi_1$ and $\rho_1$ are real, then
+    $\lambda_1\in[0.44,0.60]$, $[0.60,0.70]$, $[0.70,0.80]$ imply $\lambda_3>1.176$, $1.055$, $0.952$.
+  \item \cite[(4.28)--(4.29), pp.~56--57]{Xylouris2011nullstellen}. Let $\chi_1$ be nonreal and
+    $\lambda_1\in[0.44,0.85]$, and let $f$ be the test function \eqref{eq:ftest} with $\gamma=\frac54$. Then
+    \[
+      0\le F(-\lambda_1)-F(\lambda_3-\lambda_1)-F(\lambda_2-\lambda_1)-F(0)+\tfrac76f(0)+\eps,
+    \]
+    provided that $\sup_{y\in\RR}\Re\{F(-\lambda_1+iy)-2F(iy)\}\le\frac16f(0)$.
+  \item \cite[(4.31) and (4.34), pp.~58--59]{Xylouris2011nullstellen}. Let $\chi_1$ and $\rho_1$ be real,
+    $\lambda_1\in[0.44,0.80]$ and $\lambda_2\in[0.44,1.176]$, and let $f$ be \eqref{eq:ftest} with
+    $\gamma=1.04$. Then
+    \[
+      0\le F(-\lambda_2)-F(\lambda_3-\lambda_2)-F(0)-F(\lambda_1-\lambda_2)+\tfrac98f(0)+\eps,
+    \]
+    provided that $\sup_{t\in\RR}\Re\{F(-\lambda_2+it)-F(\lambda_1-\lambda_2+it)-F(it)\}\le\frac5{48}f(0)$ on this box.
+\end{enumerate}
+\end{inp}
+
+In (d), the side condition is \cite[(4.29)]{Xylouris2011nullstellen}, needed when a product character in his argument
+is principal; he verified it numerically, and we have verified it with interval arithmetic for
+all $\lambda_1\in[0.44,0.85]$: the supremum is at most $0.00335$, while $\frac16f(0)=0.5425\ldots$. In (e),
+Xylouris's argument \cite[(4.32)--(4.34), p.~59]{Xylouris2011nullstellen} needs
+\[
+  \sup_{t\in\RR}\Re\bigl\{F(-\lambda_2+it)-F(\lambda_1-\lambda_2+it)-F(it)\bigr\}\le\tfrac5{48}f(0)
+\]
+on the whole box, and he states that the supremum is below $0.10$, while $\frac5{48}f(0)=0.1351\ldots$. We have
+verified this with interval arithmetic as well: over $\lambda_1\in[0.44,0.80]$, $\lambda_2\in[0.44,1.18]$ and all real
+$t$ the supremum is at most $0.0031$. (Both checks enclose the transforms on a grid of heights with
+step $\frac1{100}$ up to $30$, with second-derivative interpolation errors in all variables, and use a
+closed-form bound beyond height $30$.) (Xylouris derives (4.28) from Heath-Brown's (10.2)--(10.6), whose derivation does not use
+the assumption $\lambda_3\le\frac67$ made in \cite[\S10]{HeathBrown1992zero}; he himself applies it to
+prove bounds above $\frac67$.)
+
+\begin{proposition}[Parent rows]\label{prop:parentrows}
+The $58$ \emph{parent rows} $(\mathfrak t,A_j,B_j,p_j,r_j)$ of \cref{tab:parents}, from which the roots of
+the case tree are built (\cref{subsec:sourcecover}), are valid implications: for $q\ge q_0$, every
+configuration of type $\mathfrak t$ with $\lambda_1\in[A_j,B_j]$ has $\lambda'\ge p_j$ and $\lambda_2\ge r_j$.
+\end{proposition}
+
+\begin{proof}
+Each entry is at most the largest of the following bounds, each valid on the whole interval $[A_j,B_j]$ for
+the type $\mathfrak t$: (i) the applicable rows $(t,c)$ of \cref{inp:rrtables,inp:complextables} with $t\ge B_j$; (ii) the
+bound $c$ of an applicable row $(t,c)$ with $c=t$ (for $\lambda_1\le t$ the row gives it, and for
+$\lambda_1>t$ the trivial bound gives $\lambda',\lambda_2\ge\lambda_1>t=c$), as for the rows
+$(0.827,0.827)$ of Table~$2'$ and $(1.099,1.099)$ of Table~3 of \cite{Xylouris2011nullstellen} and $(0.745,0.745)$
+of Table~7 of \cite{HeathBrown1992zero}; (iii) the bounds of \cref{inp:rrtables}(b),(d) and
+\cref{inp:complextables}(d), which hold for every $\lambda_1$; and (iv) the trivial bounds
+$\lambda',\lambda_2\ge\lambda_1\ge A_j$.
+\end{proof}
+
+\begin{table}[tp]
+\centering
+\small
+\begin{tabular}{@{}lccc@{\qquad\qquad}lccc@{}}
+\toprule
+Type & $[A_j,B_j]$ & $p_j$ & $r_j$ & Type & $[A_j,B_j]$ & $p_j$ & $r_j$\\
+\midrule
+$\mathrm{rr}$ & $[0.1,0.12]$ & $2.293$ & $2.56$ & $\mathrm{rc}$ & $[0.628,0.66]$ & $1.67$ & $0.93$ \\
+$\mathrm{rr}$ & $[0.12,0.14]$ & $2.293$ & $2.39$ & $\mathrm{rc}$ & $[0.66,0.7]$ & $1.59$ & $0.93$ \\
+$\mathrm{rr}$ & $[0.14,0.16]$ & $2.293$ & $2.25$ & $\mathrm{rc}$ & $[0.7,0.74]$ & $1.52$ & $0.93$ \\
+$\mathrm{rr}$ & $[0.16,0.18]$ & $2.293$ & $2.12$ & $\mathrm{rc}$ & $[0.74,0.78]$ & $1.46$ & $0.93$ \\
+$\mathrm{rr}$ & $[0.18,0.2]$ & $2.293$ & $2.01$ & $\mathrm{rc}$ & $[0.78,0.82]$ & $1.40$ & $0.82$ \\
+$\mathrm{rr}$ & $[0.2,0.25]$ & $2.293$ & $1.77$ & $\mathrm{rc}$ & $[0.82,0.86]$ & $1.35$ & $0.82$ \\
+$\mathrm{rr}$ & $[0.25,0.3]$ & $2.293$ & $1.58$ & $\mathrm{rc}$ & $[0.86,0.9]$ & $1.30$ & $0.82$ \\
+$\mathrm{rr}$ & $[0.3,0.348]$ & $2.195$ & $1.42$ & $\mathrm{rc}$ & $[0.9,0.94]$ & $1.25$ & $0.82$ \\
+$\mathrm{rr}$ & $[0.348,0.35]$ & $2.195$ & $1.42$ & $\mathrm{rc}$ & $[0.94,0.98]$ & $1.21$ & $0.82$ \\
+$\mathrm{rr}$ & $[0.35,0.4]$ & $2.108$ & $1.29$ & $\mathrm{rc}$ & $[0.98,1.02]$ & $1.17$ & $0.82$ \\
+$\mathrm{rr}$ & $[0.4,0.45]$ & $2.03$ & $1.18$ & $\mathrm{rc}$ & $[1.02,1.06]$ & $1.13$ & $0.82$ \\
+$\mathrm{rr}$ & $[0.45,0.5]$ & $1.958$ & $1.08$ & $\mathrm{rc}$ & $[1.06,1.099]$ & $1.099$ & $0.82$ \\
+$\mathrm{rr}$ & $[0.5,0.55]$ & $1.893$ & $1.0$ & $\mathrm{rc}$ & $[1.099,1.5]$ & $1.099$ & $0.82$ \\
+$\mathrm{rr}$ & $[0.55,0.6]$ & $1.832$ & $0.92$ & $\mathrm{complex}$ & $[0.44,0.58]$ & $1.36$ & $1.04$ \\
+$\mathrm{rr}$ & $[0.6,0.65]$ & $1.776$ & $0.85$ & $\mathrm{complex}$ & $[0.58,0.64]$ & $1.15$ & $0.85$ \\
+$\mathrm{rr}$ & $[0.65,0.7]$ & $1.724$ & $0.79$ & $\mathrm{complex}$ & $[0.64,0.66]$ & $1.08$ & $0.79$ \\
+$\mathrm{rr}$ & $[0.7,0.745]$ & $1.676$ & $0.745$ & $\mathrm{complex}$ & $[0.66,0.68]$ & $1.02$ & $0.74$ \\
+$\mathrm{rr}$ & $[0.745,0.75]$ & $1.676$ & $0.745$ & $\mathrm{complex}$ & $[0.68,0.70]$ & $0.96$ & $0.704$ \\
+$\mathrm{rr}$ & $[0.75,0.8]$ & $1.63$ & $0.745$ & $\mathrm{complex}$ & $[0.70,0.72]$ & $0.93$ & $0.702$ \\
+$\mathrm{rr}$ & $[0.8,0.85]$ & $1.587$ & $0.8$ & $\mathrm{complex}$ & $[0.72,0.74]$ & $0.91$ & $0.72$ \\
+$\mathrm{rr}$ & $[0.85,0.9]$ & $1.547$ & $0.8$ & $\mathrm{complex}$ & $[0.74,0.76]$ & $0.89$ & $0.74$ \\
+$\mathrm{rr}$ & $[0.9,0.95]$ & $1.509$ & $0.8$ & $\mathrm{complex}$ & $[0.76,0.78]$ & $0.86$ & $0.74$ \\
+$\mathrm{rr}$ & $[0.95,1]$ & $1.473$ & $0.8$ & $\mathrm{complex}$ & $[0.78,0.80]$ & $0.84$ & $0.78$ \\
+$\mathrm{rr}$ & $[1,1.05]$ & $1.439$ & $0.8$ & $\mathrm{complex}$ & $[0.80,0.82]$ & $0.83$ & $0.78$ \\
+$\mathrm{rr}$ & $[1.05,1.1]$ & $1.406$ & $0.8$ & $\mathrm{complex}$ & $[0.82,1.5]$ & $0.827$ & $0.82$ \\
+$\mathrm{rr}$ & $[1.1,1.15]$ & $1.375$ & $0.8$ &  & & &  \\
+$\mathrm{rr}$ & $[1.15,1.175]$ & $1.36$ & $0.8$ &  & & &  \\
+$\mathrm{rr}$ & $[1.175,1.2]$ & $1.346$ & $0.8$ &  & & &  \\
+$\mathrm{rr}$ & $[1.2,1.225]$ & $1.331$ & $0.8$ &  & & &  \\
+$\mathrm{rr}$ & $[1.225,1.25]$ & $1.318$ & $0.8$ &  & & &  \\
+$\mathrm{rr}$ & $[1.25,1.275]$ & $1.304$ & $0.8$ &  & & &  \\
+$\mathrm{rr}$ & $[1.275,1.294]$ & $1.294$ & $0.8$ &  & & &  \\
+$\mathrm{rr}$ & $[1.294,1.5]$ & $1.294$ & $0.8$ &  & & &  \\
+\bottomrule
+\end{tabular}
+\caption{Parent implications: for the stated type and $\lambda_1\in[A_j,B_j]$,
+$\lambda'\ge p_j$ and $\lambda_2\ge r_j$. Each panel is read downwards, and each row is
+valid on the whole closed interval. The left panel gives the $33$ real-first-zero rows;
+the right gives the $13$ real-character/nonreal-zero rows and $12$ nonreal-character rows.}
+\label{tab:parents}
+\end{table}
+
+\subsection{The positivity method}
+The use of nonnegative trigonometric polynomials to locate zeros goes back to de la Vall\'ee
+Poussin \cite{delaValleePoussin1899fonction}; it underlies all zero-free regions for Dirichlet
+$L$-functions \cite{Gronwall1913series,Landau1918imaginar,Page1935number,McCurley1984explicit,
+Kadiri2018explicit} and for $\zeta$ \cite{Kadiri2005region,MossinghoffTrudgian2015nonnegative}, and,
+combined with smoothed explicit formulas, the tables of Heath-Brown and Xylouris and their
+refinements \cite{LiuWang1998numerical}. All the new zero-location results come from the following
+consequence of
+\cite[Lemmas~3.1 and~3.4]{Xylouris2011nullstellen}. Lemma~3.4 there is a ``working version'' of
+\cref{inp:X32}: if $f$ satisfies Conditions~1 and~2, $\chi\ne\chi_0$ and $s\in R(9l)$, and $A_1$ is the
+set of zeros $\rho\in R(l)$ of $L(s,\chi)$ with $\Re\rho>\Re s$ (with multiplicity, at most $N$ of them)
+and $A_2$ is any set of at most $N$ zeros $\rho\in R(l)$ with $\Re\rho\le\Re s$, then for every $\eps>0$
+and $q\ge q_0(f,\eps,N)$
+\begin{equation}\label{eq:X34}
+  \sum_n\Lambda(n)\Re\frac{\chi(n)}{n^s}f\Bigl(\frac{\log n}\LL\Bigr)\le
+  -\LL\sum_{\rho\in A_1\cup A_2}\Re F\bigl((s-\rho)\LL\bigr)+\frac{\varphi(\chi)}2f(0)\LL+\eps\LL .
+\end{equation}
+
+\begin{lemma}[Positivity method]\label{lem:positivity}
+Let $f$ satisfy Conditions~1 and~2, with Laplace transform $F$. Fix a nonnegative
+anchor $a$, and suppose $a\le\lambda_1$. Let finitely many triples
+$(c_j,\chi^{(j)},t_j)$ be given, with $c_j>0$, $\chi^{(j)}$ a character modulo $q$ and $|t_j|\le9l$, such
+that
+\[
+  \sum_jc_j\Re\bigl(\chi^{(j)}(n)n^{-it_j}\bigr)\ge0\qquad\text{for all $n$ coprime to $q$.}
+\]
+For each nonprincipal $\chi^{(j)}$ let $A_2(j)$ be a set of at most $N$ zeros of $L(s,\chi^{(j)})$ in $R(l)$,
+with multiplicity. Then for every $\eps>0$ and $q\ge q_0$,
+\[
+  \sum_{\chi^{(j)}=\chi_0}c_j\Re F(-a+it_j\LL)-\sum_{\chi^{(j)}\ne\chi_0}c_j\sum_{\rho\in A_2(j)}\Re
+  F\bigl((1+it_j-\rho)\LL-a\bigr)+\frac{f(0)}2\sum_{\chi^{(j)}\ne\chi_0}c_j\varphi(\chi^{(j)})+\eps\ge0 .
+\]
+\end{lemma}
+
+\begin{proof}
+Multiply the hypothesis by $\Lambda(n)n^{-(1-a/\LL)}f(\log n/\LL)\ge0$ and sum over $n$ (for $(n,q)>1$
+every term vanishes, the principal ones included). For principal $\chi^{(j)}$ use \cref{inp:X31} at
+$1-a/\LL+it_j$. For the others use \eqref{eq:X34} at $s_j=1-a/\LL+it_j$, which lies in $R(9l)$;
+there $A_1=\emptyset$, because every zero in $R(l)$ of a nonprincipal $L$-function has parameter at
+least $\lambda_1\ge a$. Divide by $\LL$.
+\end{proof}
+
+In every application the retained zeros satisfy $\lambda_\rho\ge a$, the transform $F$ is decreasing on
+$\RR$, and the terms that we cannot evaluate are bounded over all real heights with interval
+arithmetic. A necessary inequality between the parameters of the retained zeros results, and a
+case is excluded when that inequality fails with a positive margin. Since there are finitely many
+such inequalities, each with a fixed positive margin, one $q_0$ serves all of them.
+
+\subsection{A sharper conductor coefficient}\label{subsec:conductor}
+Heath-Brown remarks \cite[\S16, item~4]{HeathBrown1992zero} that his estimate for $\lambda_2$ in the
+case of a real first character can be improved by replacing the conductor coefficient $\frac{11}{24}$
+by $\frac{97}{216}$; he describes the ingredients but gives no proof. We need a weighted form of this
+refinement, and we prove it here. For a modulus $q$ put
+\[
+  v=\prod_{p^e\parallel q,\ e\ge3}p^e,\qquad \theta_q=\frac{\log v}{\log q}\in[0,1] .
+\]
+We also write $\operatorname{rad}q=\prod_{p\mid q}p$.
+
+\begin{lemma}[Growth bounds with conductor dependence]\label{lem:Lbounds}
+Let $k\ge3$ and $\eps>0$. For every nonprincipal character $\chi$ modulo $q$,
+\[
+  |L(\sigma+it,\chi)|\ll_{\eps,k}q^{\phi_q(\chi)(1-\sigma)(1+k^{-1})+\eps}(1+|t|)\qquad
+  \Bigl(1-\frac1k\le\sigma\le1+\frac{\log\LL}\LL\Bigr),
+\]
+where $\phi_q(\chi)=\frac14\frac{\log(4\operatorname{rad}q)}{\log q}$ if $\chi$ is real and
+$\phi_q(\chi)=\min\bigl(\frac13,\frac14+\frac34\theta_q\bigr)$ otherwise.
+\end{lemma}
+
+\begin{proof}
+Let $\chi$ be induced by the primitive character $\chi^*$ modulo $q^*$; then $q^*\mid q$ and
+$|L(s,\chi)|\ll q^\eps|L(s,\chi^*)|$ for $\sigma\ge\frac12$ \cite[p.~10]{HeathBrown1992zero}. Heath-Brown
+proves (\cite[pp.~9--10]{HeathBrown1992zero}, (2.2)--(2.4)) that a bound
+$\sum_{N<n\le N+H}\chi^*(n)\ll_{\eps,k}Q^{(k+1)/(4k^2)}q^{*\eps}H^{1-1/k}$ for $1\le H\le q^*$ gives, by partial
+summation with the cut $q_1=Q^{(k+1)/(4k)}$ and the P\'olya--Vinogradov inequality beyond $q^*$,
+$L(s,\chi^*)\ll Q^{(1-\sigma)(1+k^{-1})/4}q^{*\eps}(1+|t|)$ in the stated range (if $q_1>q^*$ the trivial
+bound up to $q^*$ is already stronger). For $\sigma\le1$ a bound of this form with a smaller $Q$ is
+stronger; for $1<\sigma\le1+\log\LL/\LL$ every factor $Q^{(1-\sigma)c}$ with $1\le Q\le q^4$ and
+$0\le c\le1$ lies between $\LL^{-4}$ and $1$, so all such bounds agree up to a factor $q^{\eps}$.
+
+If $\chi$ is real, then $\chi^*$ is a real primitive character, so $q^*$ is the absolute value of a
+fundamental discriminant and $q^*\le4\operatorname{rad}(q^*)\le4\operatorname{rad}(q)$. Its order is $2$, so by \cite[Lemma~2.4]{HeathBrown1992zero}, which bounds the
+sums with the factor $l^{3/(2k)}$ for a character of order $l$, the character-sum bound holds with
+$Q=q^*$ for every $k$. This gives the real case.
+
+In general, \cite[Lemma~2.3]{HeathBrown1992zero} gives the bound with
+$Q^{(k+1)/(4k^2)}=v^{*(3k-1)/(4k^2)}q^{*(k+1)/(4k^2)}\le(v^{*3}q^*)^{(k+1)/(4k^2)}$, where $v^*$ is the
+cube-full part of $q^*$; since $q^*\mid q$ we have $v^*\mid v$ and $v^{*3}q^*\le v^3q$. This gives the
+exponent $\frac14(1+\frac{3\log v}{\log q})=\frac14+\frac34\theta_q$. The exponent $\frac13$ is
+\cite[Lemma~2.5]{HeathBrown1992zero}. Taking the smaller bound gives the general case. (Bounds that are uniform in $q$ and $t$
+together are studied in \cite{HeathBrown1978hybrid}; here the factor $1+|t|$ is harmless, since
+$|t|\le\LL+1$.)
+\end{proof}
+
+\begin{lemma}[The refined coefficient in the explicit formula]\label{lem:explicitphi}
+For every $\eps>0$, \cref{inp:X32} and \eqref{eq:X34} remain true, with a suitable $q_0$, when $\varphi(\chi)$ is replaced by
+$\phi_q(\chi)+\eps$, with the radius $\delta$ that the proof of \cref{inp:X32} provides for $\varphi=\frac13$ (which
+serves all characters).
+\end{lemma}
+
+\begin{proof}
+Both are deduced from Heath-Brown's Lemma~3.1 \cite[pp.~12--14, 23--24]{HeathBrown1992zero}
+\cite[pp.~19--21]{Xylouris2011nullstellen}, whose proof uses the bound (2.5) of his Lemma~2.5 only through
+the inequality
+\[
+  \log|L(s_0+Re^{i\vartheta},\chi)|\le\bigl\{\phi(1+k^{-1})(1-\sigma_0-R\cos\vartheta)+2\eps\bigr\}\LL
+\]
+for $\frac\pi2\le\vartheta\le\frac{3\pi}2$, $R\le1/k$ and large $q$. By \cref{lem:Lbounds} this holds with
+$\phi=\phi_q(\chi)$, with an implied constant independent of $q$ and $\chi$. The remaining choices in
+that proof ($k=3+[3\phi/(2\eps_0)]$, $R=1/k$, and the radius) may be made with the upper bound
+$\phi\le\frac13$ in place of $\phi$, so they do not depend on $q$. The deduction of Lemma~5.2 of
+\cite{HeathBrown1992zero} (\cref{inp:X32}) and of \eqref{eq:X34} from Lemma~3.1 is unchanged.
+\end{proof}
+
+\begin{proposition}[A coupled saving in the conductor term]\label{prop:conductor}
+Let $\chi_1$ be a real nonprincipal character and let $\chi_2$ be a character with $\chi_2^k\ne\chi_0$ and $\chi_1\chi_2^k\ne\chi_0$
+for $k\in K$, a finite set of positive integers. Let $c_k>0$ ($k\in K$) with $\Sigma=\sum_kc_k\ge\frac19$.
+Suppose the polynomial $1+\sum_{k\in K}c_k\cos(k\vartheta)$ is nonnegative for every real
+$\vartheta$. In an application of \cref{lem:positivity} to
+$(1+\chi_1(n))\bigl(1+\sum_{k\in K}c_k\Re\bigl((\chi_2(n)n^{-i\gamma_2})^k\bigr)\bigr)$,
+the conductor term may, for every fixed $\eps>0$ and sufficiently large $q$, be taken to be
+\[
+  \Bigl(\frac18+\frac\Sigma3-\frac1{108}\Bigr)f(0)+\eps .
+\]
+\end{proposition}
+
+\begin{proof}
+The nonprincipal characters are $\chi_1$ with coefficient $1$, and $\chi_2^k$ and $\chi_1\chi_2^k$, each with
+coefficient $c_k$. By \cref{lem:explicitphi} the conductor term is at most
+$\frac{f(0)}2\bigl(\phi_q(\chi_1)+2\Sigma\max_\chi\phi_q(\chi)\bigr)+\eps$, the maximum being over the
+characters $\chi_2^k$ and $\chi_1\chi_2^k$. Since $p\le(p^e)^{1/3}$ when $e\ge3$,
+$\operatorname{rad}q\le qv^{-2/3}$, so $\phi_q(\chi_1)\le\frac14-\frac{\theta_q}6+o(1)$, and
+$\phi_q(\chi)\le\min(\frac13,\frac14+\frac34\theta_q)+o(1)$ for every nonprincipal $\chi$ (for a real $\chi$
+because $\frac14-\frac{\theta_q}6\le\frac14$).
+The conductor term is therefore at most $\mathcal K(\theta_q)f(0)+2\eps$ for large $q$, with
+\[
+  \mathcal K(x)=\frac18-\frac x{12}+\Sigma\min\Bigl(\frac13,\frac14+\frac{3x}4\Bigr)\qquad(0\le x\le1).
+\]
+On $[0,\frac19]$ the slope of $\mathcal K$ is $\frac34\Sigma-\frac1{12}\ge0$, and on $[\frac19,1]$ it is
+$-\frac1{12}$. Hence $\mathcal K(\theta_q)\le\mathcal K(\frac19)=\frac18+\frac\Sigma3-\frac1{108}$.
+\end{proof}
+
+For $\Sigma=1$ this is Heath-Brown's $\frac{97}{216}=\frac{11}{24}-\frac1{108}$.
+
+\subsection{Lower bounds for \texorpdfstring{$\lambda_2$}{lambda2} when the first zero is real}
+
+\begin{proposition}[Second-family bounds for a real first zero]\label{prop:realrows}
+Let $\chi_1,\rho_1$ be real with $\lambda_1\in[a,b]$, where $0\le a\le b$, and let $h\ge b$. Let
+$P(x)=1+c_1x+c_2(2x^2-1)+c_5(16x^5-20x^3+5x)$, that is
+$P(\cos\vartheta)=1+c_1\cos\vartheta+c_2\cos2\vartheta+c_5\cos5\vartheta$, with
+\[
+  (c_1,c_2,c_5)=\frac{(1.41866466,\ 0.43287503,\ 0.01421037)}{1.000001},
+\]
+so that $P\ge0$ on $[-1,1]$ and $\Sigma=c_1+c_2+c_5\ge\frac19$.
+Choose $f=f_\gamma$ from \eqref{eq:ftest}, with transform $F$ and fixed $\gamma>0$.
+If $\lambda_2\le h$, then for every $\eps>0$ and all sufficiently large $q$, the inequality
+corresponding to the character relation below must hold. The generic case means that
+$\chi_2$ is nonreal and none of the relations in (ii)--(iii) holds.
+\begin{enumerate}[(i)]
+  \item (generic) $F(b-a)+c_1F(h-a)\le F(-a)+(\frac18+\frac\Sigma3-\frac1{108})f(0)+\eps$;
+  \item ($\chi_2^2=\chi_1$) $F(b-a)+c_1F(h-a)\le F(-a)+(\frac{1+c_2}8+\frac{c_1+c_5}3)f(0)+\sup_\Delta R(\Delta)+\eps$,
+    where $R(\Delta)=c_2\{\Re F(-a+i\Delta)-\Re F(\lambda_1-a+i\Delta)\}-c_1\Re F(\lambda_2-a+i\Delta)$, the supremum
+    over $\Delta\in\RR$, $\lambda_1\in[a,b]$ and $\lambda_2\in[a,h]$;
+  \item ($\chi_2^5\in\{\chi_0,\chi_1\}$) $F(b-a)+c_1F(h-a)\le(1+c_5)F(-a)+(\frac{1+c_5}8+\frac{c_1+c_2}4)f(0)+\eps$;
+  \item ($\chi_2$ real) $F(b-a)+F(h-a)\le F(-a)+\frac38f(0)+\eps$, with a second test function
+    \eqref{eq:ftest}.
+\end{enumerate}
+Here $\chi_2$ is a character of the second family. The test parameter in (iv) may be
+chosen independently of the one in (i)--(iii). If all four possible cases are excluded
+with a positive margin at $\eps=0$, then $\lambda_2>h$ for all sufficiently large $q$.
+\end{proposition}
+
+\begin{proof}
+Put $z_n=\chi_2(n)n^{-i\gamma_2}$ and apply \cref{lem:positivity} with anchor $a$ to
+$(1+\chi_1(n))P(\Re z_n)\ge0$ (with $\Re z_n^k=T_k(\Re z_n)$ for $|z_n|=1$), retaining $\rho_1$ in the term of $\chi_1$
+and $\rho_2$ in the term $c_1\Re z_n$. The heights are at most $5l\le9l$. The nonzero frequencies are
+$1$, $2$ and $5$, and $\chi_2\ne\chi_1$. A product character is principal only if $\chi_2$ is real, or
+$\chi_2^2=\chi_1$ (order $4$), or $\chi_2^5\in\{\chi_0,\chi_1\}$ (order $5$ or $10$); the last two cannot
+occur together, since together they would give $\chi_2^2=\chi_0$. Generic case: there is no principal
+product, and \cref{prop:conductor} gives (i), using that $F$ is decreasing, $\lambda_1\le b$ and $\lambda_2\le h$.
+Case $\chi_2^2=\chi_1$: then $\chi_1\chi_2^2=\chi_0$ at height $2\gamma_2$, $\chi_2^2=\chi_1$ at height $2\gamma_2$
+retains $\rho_1$, and $\chi_1\chi_2=\bchi_2$ retains $\overline{\rho_2}$; with $\Delta=2\mu_2$ these give $R(\Delta)$,
+while the characters of frequencies $1$ and $5$ are nonprincipal and are charged $\frac13$ (conservatively,
+since some of them have order $4$). Case
+$\chi_2^5\in\{\chi_0,\chi_1\}$: exactly one term is principal, bounded by $c_5F(-a)$ since $f\ge0$, and
+every other character has order at most $10\le\LL$, so $\varphi=\frac14$. Real $\chi_2$: apply the
+method to $(1+\chi_1(n))(1+\Re z_n)\ge0$, whose three nonprincipal characters are real.
+\end{proof}
+
+The rows used are given in \cref{tab:realrows}: $22$ cells of width $0.0025$ covering $[0.700,0.755]$.
+For each cell $[a,b]$ we give $h$ and the test parameter $\gamma$ of the generic case; each of the four
+inequalities fails by the margin shown (normalized by $f(0)$), so that $\lambda_2>h$ throughout the
+cell. The margins were computed with interval arithmetic: the correlation term $R(\Delta)$ is enclosed
+on a grid in $\Delta\in[0,30]$ with second-derivative interpolation errors in all variables, and by a
+closed-form bound for $|\Delta|\ge30$. The nonnegativity of $P$ was verified at the points
+$x=j/2000$ with a second-derivative bound, and independently by exact Bernstein expansion. In
+addition, on cells inside $[0.700,0.7025]$ we use the degree-$2$ row
+$P(\cos\vartheta)=(\frac78+\cos\vartheta)^2/\frac{81}{64}$ without the conductor refinement, which gives
+$\lambda_2>0.762$ (\cref{prop:realfirstsecond}).
+
+\begin{proposition}[A second-family bound near $0.70$]\label{prop:realfirstsecond}
+If $\chi_1,\rho_1$ are real and $0.700\le\lambda_1\le0.7025$, then $\lambda_2>0.762$ for $q\ge q_0$.
+\end{proposition}
+
+\begin{proof}
+As in \cref{prop:realrows} with $c_1=\frac{112}{81}$, $c_2=\frac{32}{81}$, $c_5=0$, the printed conductor
+coefficients and $\gamma=1.09$ (and $\gamma=0.82$ for a real $\chi_2$); the normalized margins of the
+generic, order-$4$ and real cases are at least $3.6\cdot10^{-4}$, $0.082$ and $0.033$.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}cccccccc@{}}
+\toprule
+cell $[a,b]$ & $h$ & $\gamma$ & generic & order $4$ & order $5,10$ & real & \\
+\midrule
+$[.7000,.7025]$ & $.7793$ & $1.09624$ & $1.02\cdot10^{-4}$ & $.0804$ & $.1280$ & $.0289$\\
+$[.7025,.7050]$ & $.7783$ & $1.09522$ & $5.86\cdot10^{-5}$ & $.0803$ & $.1279$ & $.0287$\\
+$[.7050,.7075]$ & $.7772$ & $1.09419$ & $8.66\cdot10^{-5}$ & $.0804$ & $.1280$ & $.0285$\\
+$[.7075,.7100]$ & $.7762$ & $1.09317$ & $4.92\cdot10^{-5}$ & $.0803$ & $.1279$ & $.0284$\\
+$[.7100,.7125]$ & $.7751$ & $1.09216$ & $8.35\cdot10^{-5}$ & $.0804$ & $.1280$ & $.0282$\\
+$[.7125,.7150]$ & $.7741$ & $1.09115$ & $5.21\cdot10^{-5}$ & $.0803$ & $.1279$ & $.0280$\\
+$[.7150,.7175]$ & $.7730$ & $1.09014$ & $9.25\cdot10^{-5}$ & $.0804$ & $.1279$ & $.0278$\\
+$[.7175,.7200]$ & $.7720$ & $1.08914$ & $6.71\cdot10^{-5}$ & $.0804$ & $.1279$ & $.0276$\\
+$[.7200,.7225]$ & $.7710$ & $1.08814$ & $4.46\cdot10^{-5}$ & $.0803$ & $.1279$ & $.0275$\\
+$[.7225,.7250]$ & $.7699$ & $1.08715$ & $9.41\cdot10^{-5}$ & $.0804$ & $.1279$ & $.0273$\\
+$[.7250,.7275]$ & $.7689$ & $1.08615$ & $7.75\cdot10^{-5}$ & $.0804$ & $.1279$ & $.0271$\\
+$[.7275,.7300]$ & $.7679$ & $1.08517$ & $6.39\cdot10^{-5}$ & $.0804$ & $.1279$ & $.0269$\\
+$[.7300,.7325]$ & $.7669$ & $1.08418$ & $5.31\cdot10^{-5}$ & $.0804$ & $.1279$ & $.0267$\\
+$[.7325,.7350]$ & $.7659$ & $1.08321$ & $4.53\cdot10^{-5}$ & $.0804$ & $.1279$ & $.0265$\\
+$[.7350,.7375]$ & $.7649$ & $1.08223$ & $4.03\cdot10^{-5}$ & $.0804$ & $.1278$ & $.0263$\\
+$[.7375,.7400]$ & $.7639$ & $1.08126$ & $3.83\cdot10^{-5}$ & $.0804$ & $.1278$ & $.0261$\\
+$[.7400,.7425]$ & $.7629$ & $1.08029$ & $3.91\cdot10^{-5}$ & $.0804$ & $.1278$ & $.0260$\\
+$[.7425,.7450]$ & $.7619$ & $1.07933$ & $4.28\cdot10^{-5}$ & $.0804$ & $.1278$ & $.0258$\\
+$[.7450,.7475]$ & $.7609$ & $1.07837$ & $4.93\cdot10^{-5}$ & $.0804$ & $.1278$ & $.0256$\\
+$[.7475,.7500]$ & $.7599$ & $1.07741$ & $5.87\cdot10^{-5}$ & $.0804$ & $.1278$ & $.0254$\\
+$[.7500,.7525]$ & $.7589$ & $1.07645$ & $7.09\cdot10^{-5}$ & $.0804$ & $.1278$ & $.0252$\\
+$[.7525,.7550]$ & $.7579$ & $1.07550$ & $8.60\cdot10^{-5}$ & $.0804$ & $.1278$ & $.0250$\\
+\bottomrule
+\end{tabular}
+\caption{The degree-$5$ rows of \cref{prop:realrows}: on each cell, $\lambda_2>h$. The values of $\gamma$
+are rounded to five decimals (the exact rational values are in the data). The margins are
+normalized by $f(0)$. The real case uses $\gamma=0.82$.}
+\label{tab:realrows}
+\end{table}
+
+\subsection{Lower bounds for \texorpdfstring{$\lambda_2$}{lambda2} and \texorpdfstring{$\lambda'$}{lambda'} when the first character is nonreal}
+For $t>0$ put
+\[
+  P_t(e^{i\vartheta})=\frac{(t+\cos\vartheta)^2}{t^2+\frac12}=1+c_1\cos\vartheta+c_2\cos2\vartheta,\qquad
+  c_1=\frac{2t}{t^2+\frac12},\quad c_2=\frac{1/2}{t^2+\frac12},
+\]
+so that $c_1/c_2=4t$.
+
+\begin{proposition}[Second-family bounds for a nonreal first character]\label{prop:complexrows}
+Let $\chi_1$ be nonreal, let $\lambda_1\in[a,b]$ with $0\le a\le b$, and let $h\ge b$.
+Fix $t>0$, let $c_1,c_2$ be the coefficients of $P_t$ above, and let
+$f=f_\gamma$ with $\gamma>0$ and transform $F$.
+Suppose $\lambda_2\le h$. For every $\eps>0$ and sufficiently large $q$, the following
+necessary inequalities hold:
+\begin{enumerate}[(i)]
+  \item if $\chi_2$ is nonreal and
+    \begin{equation}\label{eq:alias}
+      \sup_{\lambda\in[a,h],\,y\in\RR}\Re\{F(-a+iy)-4tF(\lambda-a+iy)\}\le\tfrac16f(0),
+    \end{equation}
+    then $c_1\{F(b-a)+F(h-a)\}\le F(-a)+\frac{(1+c_1+c_2)^2-1}6f(0)+\eps$;
+  \item if $\chi_2$ is real, choose $t'>0$ and let $c_1',c_2'$ be the coefficients of $P_{t'}$.
+    If \eqref{eq:alias} holds with $t'$ in place of $t$ and $[a,b]$ in place of
+    $[a,h]$, then $c_1'F(b-a)+F(h-a)\le F(-a)+(\frac18+\frac{c_1'+c_2'}3)f(0)+\eps$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Apply \cref{lem:positivity} to $P_t(\chi_1(n)n^{-i\gamma_1})P_t(\chi_2(n)n^{-i\gamma_2})\ge0$, expanded as
+\[
+  \sum_{w\in\{-2,\dots,2\}^2}a_{|w_1|}a_{|w_2|}\,\chi^w(n)\,n^{-iw\cdot\gamma},\qquad
+  a_0=1,\ a_1=\tfrac{c_1}2,\ a_2=\tfrac{c_2}2,\ \chi^w=\chi_1^{w_1}\chi_2^{w_2}.
+\] The indices $(\pm1,0)$ retain $\rho_1$ (or $\overline{\rho_1}$) and $(0,\pm1)$ retain $\rho_2$
+(or $\overline{\rho_2}$). If no nonzero index is principal, the conductor term is at most
+$\frac16((1+c_1+c_2)^2-1)f(0)$. A nonzero principal index $w$ is not on an axis, since $\chi_1$ and $\chi_2$
+are nonreal, and does not have $|w_1|,|w_2|\le1$, since $\chi_2\notin\{\chi_1,\bchi_1\}$. So some $|w_i|=2$;
+choose such $i$, with $i=1$ in case of a tie, and put $T(w)=w-\operatorname{sgn}(w_i)e_i$. Then
+$\chi^{T(w)}=\chi_i^{-\operatorname{sgn}w_i}$ is nonprincipal and not an axis index of length one, its
+coefficient is $4t$ times that of $w$, and the zero of $\chi_i^{-\operatorname{sgn}w_i}$ selected at the axis
+index sits at relative height $w\cdot\mu$. The map $T$ is injective: a collision could only come from
+$(2s,\sigma)$ and $(s,2\sigma)$ with $s,\sigma=\pm1$, and if both were principal then $\chi_1^s=\chi_2^\sigma$,
+which is excluded. Retaining at $T(w)$ the zero of $\chi_i^{-\operatorname{sgn}w_i}$, the principal term at $w$
+and the extra retained term together change the inequality by at most
+$a_w\{\Re F(-a+iy)-\frac16f(0)-4t\Re F(\lambda_i-a+iy)\}\le0$, by \eqref{eq:alias}. (ii) Use
+$P_{t'}(\chi_1(n)n^{-i\gamma_1})\bigl(1+\Re\chi_2(n)n^{-i\gamma_2}\bigr)\ge0$. Now $\chi_2$ is real, with coefficient
+$1$ and $\varphi=\frac14$; the only possible principal indices are $(\pm2,\pm1)$, which are matched to
+$(\pm1,\pm1)$ with target $\overline{\rho_1}$ or $\rho_1$, as before.
+\end{proof}
+
+\begin{proposition}[Additional-zero bounds for a nonreal first character]\label{prop:polyrows}
+Let $\chi_1$ be nonreal of order at least $5$, let $\lambda_1\in[a,b]$ with $0\le a\le b$, and suppose
+$\lambda'\le h$. Fix $t,\gamma>0$, let $c_1,c_2$ be the coefficients of $P_t$, and let
+$F$ be the transform of $f=f_\gamma$. Choose an admissible $\rho'$ of $\chi_1$ with
+parameter $\lambda'$ and height $\gamma'$. Put
+$x=\lambda_1-a$, $y=\lambda'-a$ and $\Delta=\LL(\gamma_1-\gamma')$, and
+\[
+  M_t=(1+c_1+c_2)^2-1-\tfrac12(c_1^2+c_2^2),\quad p_1=\tfrac12c_1^2,\quad p_2=\tfrac12c_2^2,\quad
+  q_1=c_1(1+\tfrac12c_2),\quad q_2=\tfrac12c_1c_2 .
+\]
+Then for every $\eps>0$ and all sufficiently large $q$,
+\[
+  c_1[F(x)+F(y)]\le F(-a)+\tfrac{M_t}6f(0)+R(\Delta)+\eps,
+\]
+where
+\begin{align*}
+ R(\Delta)={}&p_1\Re F(-a+i\Delta)+p_2\Re F(-a+2i\Delta)\\
+ &-q_1\Re\{F(x+i\Delta)+F(y+i\Delta)\}\\
+ &-q_2\Re\{F(x+2i\Delta)+F(y+2i\Delta)\}.
+\end{align*}
+\end{proposition}
+
+\begin{proof}
+Apply \cref{lem:positivity} to $P_t(\chi_1(n)n^{-i\gamma_1})P_t(\chi_1(n)n^{-i\gamma'})\ge0$, whose terms are
+$\chi_1^{k+l}$ at heights $k\gamma_1+l\gamma'$, $|k|,|l|\le2$. Since the order of $\chi_1$ is at least $5$ and
+$|k+l|\le4$, the principal terms are exactly those with $k+l=0$; they have total mass $p_1$ at height
+$\pm\Delta$ and $p_2$ at $\pm2\Delta$. In every term with $k+l=\pm1$ retain both $\rho_1$ and $\rho'$ (or their
+conjugates); a multiple zero is retained with its multiplicity. The terms $(1,0),(0,1)$ and their
+conjugates give $-c_1[F(x)+F(y)]-c_1\Re[F(x+i\Delta)+F(y+i\Delta)]$, and the terms $(2,-1),(-1,2)$ and their
+conjugates give $-\frac12c_1c_2\Re[F(x+i\Delta)+F(y+i\Delta)+F(x+2i\Delta)+F(y+2i\Delta)]$.
+\end{proof}
+
+For $\chi_1$ of order $3$ or $4$, \cref{inp:complextables}(b) gives $\lambda'>1.35$ whenever
+$\lambda_1\le0.86$, which is stronger than every bound in \cref{prop:polyrows} that we use.
+
+The rows used are the following, each on a cell of width $0.0025$ and each with a positive
+normalized margin. There are $25$ rows of \cref{prop:complexrows}, on cells covering
+$[0.66,0.7225]$, with conclusions from $\lambda_2>0.763$ (on $[0.66,0.6625]$) to $\lambda_2>0.725$ (on
+$[0.72,0.7225]$), parameters $\gamma\in\{1.25,1.3\}$, $t\in\{0.9,0.95\}$ and, for a real $\chi_2$,
+test parameter $\gamma_{\mathrm r}\in\{1.1,1.15\}$ and $t'=0.85$; their generic margins are at least $8.2\cdot10^{-4}$, and the margins
+in \eqref{eq:alias} at least $0.163$. There are $69$ rows of \cref{prop:polyrows}, on $69$ of the $70$ cells of width $0.0025$ in
+$[0.68,0.855]$ (all except $[0.6975,0.70]$), with conclusions from $\lambda'>0.975$ (on $[0.68,0.6825]$) to $\lambda'>0.855$ (on
+$[0.8525,0.855]$), parameters $\gamma\in\{1.05,1.1,1.15\}$ and $t\in\{0.9,0.95\}$, and margins at least
+$1.5\cdot10^{-3}$. For these rows, if $\lambda'\le h$, the left side of \cref{prop:polyrows} is at least
+$c_1[F(b-a)+F(h-a)]$, since $F$ is decreasing, and $R(\Delta)$ is replaced by its supremum over all real
+$\Delta$, $x\in[0,b-a]$ and $y\in[p-a,h-a]$, where $p=\max(p_j,a)\le\lambda'$ comes from the bound $p_j$ of the
+parent row of the cell (\cref{prop:parentrows}; it comes from \cite[Table~$2'$]{Xylouris2011nullstellen}) and the
+trivial bound $\lambda'\ge\lambda_1\ge a$: $p=0.96$, $0.93$, $0.91$, $0.89$, $0.86$, $0.84$, $0.83$ on the cells in $[0.68,0.70]$,
+$[0.70,0.72]$, \dots, $[0.80,0.82]$, $p=0.827$ on $[0.82,0.8275]$, and $p=a$ on the cells beyond. So each row proves
+that $\lambda_1\in[a,b]$ and $\lambda'\ge p$ imply $\lambda'>h$, and since $\lambda'\ge p$ holds for every configuration
+with $\lambda_1\in[a,b]$, $\lambda_1\in[a,b]$ implies $\lambda'>h$. The complete list is in Appendix~\ref{app:rows}. On $11$ further cells the inequalities of
+\cref{prop:complexrows} are evaluated on the actual cell of the case tree.
+
+\subsection{A positivity exclusion}
+
+\begin{proposition}[Excluding a nearby real second character]\label{prop:positivity}
+Let $\chi_1,\rho_1$ be real with $\lambda_1\in[a,b]$, and let $\chi_2\ne\chi_1$ be a real nonprincipal
+character with a zero of height at most $1$ and parameter $\nu\le h$. If
+\[
+  F(b-a)+F(h-a)-F(-a)-\tfrac38f(0)>0
+\]
+for a test function \eqref{eq:ftest}, then this situation does not occur for $q\ge q_0$.
+\end{proposition}
+
+\begin{proof}
+Apply \cref{lem:positivity} to $(1+\chi_1(n))(1+\Re\chi_2(n)n^{-i\gamma_2})\ge0$. Its three nonprincipal
+characters $\chi_1$, $\chi_2$, $\chi_1\chi_2$ are real, so $\varphi=\frac14$; retain $\rho_1$ and the given zero of
+$\chi_2$, which lies in $R(l)$. This gives $F(\lambda_1-a)+F(\nu-a)\le F(-a)+\frac38f(0)+\eps$.
+\end{proof}
+
+It excludes $197$ nodes of the case tree (\cref{subsec:vocabulary}), all of type $\mathrm{rr}$ with
+a reserved real family; the smallest normalized margin is $7.8\cdot10^{-5}$.
+
+\subsection{Applying the rows}
+
+\begin{lemma}[Preservation of configurations under location updates]\label{lem:updates}
+In the notation of \cref{def:specification}, suppose that a result of this section proves $\lambda_2>h$ for every configuration of type $\mathfrak t$ with
+$\lambda_1\in[a',b']$, and let $\mathfrak s$ be a specification of type $\mathfrak t$ with cell $[a,b]\subseteq[a',b']$.
+Then replacing $l_2$ and $r$ by $\max(l_2,h)$ and $\max(r,h)$ (and $\lo_2$ by the new $r$) does not
+change $C(\mathfrak s)$, and $C(\mathfrak s)=\emptyset$ if $\mathfrak s$ is reserved with $\hi_2\le h$. Similarly a proof of
+$\lambda'>h$ allows $p$ and $\lo'$ to be replaced by $\max(\cdot,h)$, and makes $C(\mathfrak s)$ empty if
+$\hi'\le h$.
+\end{lemma}
+
+\begin{proof}
+Every family other than the first has all its zeros in $R(l)$ at parameter at least $\lambda_2>h$; in
+particular $\nu(\mathcal F)>h$.
+\end{proof}
+
+\subsection{The third family}
+
+\begin{proposition}[Lower bounds for the third family]\label{prop:third}
+Consider a configuration satisfying a specification of type $\mathfrak t$ with
+$\lambda_1\in[a,b]$. Put $h=\hi_2$ if a family is reserved and $h=\infty$ otherwise;
+then $\lambda_2\le h$ by \cref{lem:familyfacts}.
+Each applicable rule below gives a strict lower bound for $\lambda_3$, for all
+sufficiently large $q$. Let $\lambda_3^{\lo}$ be the maximum of the finitely many bounds
+selected for the leaf. Then $\lambda_3>\lambda_3^{\lo}$.
+\begin{enumerate}[(1)]
+  \item $0.857$ (\cref{inp:lambda3}(a));
+  \item for $\mathfrak t=\mathrm{rr}$ and $[a,b]$ inside $[0.44,0.60]$, $[0.60,0.70]$ or $[0.70,0.80]$: $1.176$,
+    $1.055$, $0.952$ (\cref{inp:lambda3}(c));
+  \item for $\mathfrak t\ne\mathrm{rr}$ and $b\le t$: the value $c$ of the smallest applicable row of
+    \cref{inp:lambda3}(b);
+  \item for $\mathfrak t=\mathrm{complex}$ and $0.44\le a\le b\le0.85$: any $t$ with
+    \[
+      F(t-b)+F(\min(t,h)-a)-F(-b)+F(0)-\tfrac76f(0)>10^{-5}f(0)\qquad(\gamma=\tfrac54);
+    \]
+  \item for $\mathfrak t=\mathrm{rr}$, $0.44\le a\le b\le0.80$ and $t\in[0.952,1.176]$: any $t$ such that
+    $[a,\min(t,h)]$ is covered by intervals $[c,c']$ with
+    \[
+      F(-c')-F(t-c')-F(0)-F(b-c)+\tfrac98f(0)<-10^{-5}f(0)\qquad(\gamma=\tfrac{26}{25}).
+    \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1)--(3) are printed. For (4), suppose $\lambda_3\le t$; then $\lambda_2\le\min(t,h)$. The function
+$\lambda\mapsto F(-\lambda)-F(t-\lambda)=\int f(u)e^{\lambda u}(1-e^{-tu})\,du$ is increasing, so
+$F(-\lambda_1)-F(\lambda_3-\lambda_1)\le F(-\lambda_1)-F(t-\lambda_1)\le F(-b)-F(t-b)$, and
+$F(\lambda_2-\lambda_1)\ge F(\min(t,h)-a)$. So the right side of \cref{inp:lambda3}(d) is below
+$-10^{-5}f(0)+\eps<0$, a contradiction; the side condition \cite[(4.29)]{Xylouris2011nullstellen} holds by our verification. For (5),
+suppose $\lambda_3\le t\le1.176$. Then $\lambda_2\in[a,\min(t,h)]\subseteq[0.44,1.176]$ and
+$\lambda_1\in[0.44,0.80]$, so \cref{inp:lambda3}(e) applies. If $\lambda_2\in[c,c']$, the same monotonicity gives
+$F(-\lambda_2)-F(\lambda_3-\lambda_2)\le F(-c')-F(t-c')$ and $F(\lambda_1-\lambda_2)\ge F(b-c)$, and the right side of
+(e) is negative for small $\eps$, a contradiction; the side condition \cite[(4.34)]{Xylouris2011nullstellen} holds
+by our verification.
+\end{proof}
+
+For example, on the $\mathrm{rr}$ cell $[0.7025,0.705]$ rule (5) gives $\lambda_3>1.0502$ without a
+reservation, and $\lambda_3>1.0888$ with a reserved family below $0.85$; Table~10 gives $0.952$.
+Rules (4) and (5) are evaluated with interval arithmetic, and a value $t$ is accepted only with a
+normalized margin exceeding $10^{-5}$.

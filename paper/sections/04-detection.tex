@@ -1,0 +1,161 @@
+% !TEX root = ../linnik399.tex
+\section{Prime detection}\label{sec:detection}
+
+Our goal is to make a nonnegative weighted sum over primes in a reduced residue class
+strictly positive. The explicit formula expresses this as a comparison between a main
+term and a sum over zeros. We first fix the weight, then state the precise zero-sum
+bound that will suffice.
+
+\subsection{The kernel}\label{subsec:kernel}
+Fix
+\[
+  T=0.416829,\qquad \kappa=T/16,
+\]
+and the sixteen step heights $b_0,\dots,b_{15}$ of \cref{tab:beta}. Put
+\[
+  \psi(t)=\sum_{i=0}^{15}b_i\,\1_{[i\kappa,(i+1)\kappa)}(t),\qquad
+  \Psi(z)=\int_0^T\psi(t)e^{-zt}\,dt .
+\]
+For the target exponent $L$ put $A=L-2T$; at $L=3.99$ we have $A=3.156342$. The \emph{prime
+weight} is
+\[
+  h(t)=(\psi*\psi)(t-A),
+\]
+which is supported in $[A,L]$. Its Laplace transform is
+\begin{equation}\label{eq:Hkernel}
+  H(z)=\int h(t)e^{-zt}\,dt=e^{-Az}\,\Psi(z)^2,\qquad H_0=H(0)=\Psi(0)^2 .
+\end{equation}
+Numerically $\Psi(0)=\kappa\sum_ib_i=0.193642\ldots$ and $H_0=0.037497\ldots$.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{rl@{\qquad}rl@{\qquad}rl@{\qquad}rl}
+\toprule
+$i$ & $b_i$ & $i$ & $b_i$ & $i$ & $b_i$ & $i$ & $b_i$ \\
+\midrule
+0 & 0.02318741 & 4 & 0.23237155 & 8 & 0.47877833 & 12 & 0.75172165 \\
+1 & 0.07159337 & 5 & 0.29081583 & 9 & 0.54505502 & 13 & 0.82236428 \\
+2 & 0.12265085 & 6 & 0.35147264 & 10 & 0.61279917 & 14 & 0.89340300 \\
+3 & 0.17627704 & 7 & 0.41418551 & 11 & 0.68177389 & 15 & 0.96451862 \\
+\bottomrule
+\end{tabular}
+\caption{The step heights of the kernel $\psi$. They are exact decimal numbers.}
+\label{tab:beta}
+\end{table}
+
+Xylouris \cite[(3.51)]{Xylouris2011nullstellen}, following Heath-Brown \cite[\S13]{HeathBrown1992zero},
+uses the triangular weights
+\[
+  h_{L',K}(t)=\begin{cases}
+    t-(L'-2K), & L'-2K\le t\le L'-K,\\
+    L'-t, & L'-K\le t\le L',\\
+    0, & \text{otherwise},
+  \end{cases}
+\]
+for $L'>2K>0$; the transform of $h_{L',K}$ is $e^{-(L'-2K)z}\bigl((1-e^{-Kz})/z\bigr)^2$.
+
+\begin{lemma}[Decomposition into positive triangular weights]\label{lem:triangles}
+For the step function $\psi$ and shifted convolution $h$ defined above,
+\[
+  h=\sum_{k=0}^{30}c_k\,h_{A+(k+2)\kappa,\,\kappa},\qquad
+  c_k=\sum_{\substack{0\le i,j\le15\\ i+j=k}}b_ib_j>0 .
+\]
+Every triangle in this sum has left endpoint $A+k\kappa\ge A$.
+\end{lemma}
+
+\begin{proof}
+For $i,j\ge0$ the convolution $\1_{[i\kappa,(i+1)\kappa)}*\1_{[j\kappa,(j+1)\kappa)}$ is the tent
+function of height $\kappa$ supported on $[(i+j)\kappa,(i+j+2)\kappa]$, which is
+$h_{(i+j+2)\kappa,\kappa}$. Expanding $\psi*\psi$ and shifting by $A$ gives the formula. Each
+$c_k$ is a sum of products of positive numbers, and the sum over $i+j=k$ is nonempty for
+$0\le k\le30$.
+\end{proof}
+
+\subsection{The positivity criterion}
+The following is Xylouris's form of the explicit formula for a finite combination of triangles
+\cite[(3.56)--(3.58) and the lines between (3.56) and (3.57), pp.~34--35]{Xylouris2011nullstellen}; it
+refines Heath-Brown's Lemmas~13.1 and~13.2 \cite{HeathBrown1992zero}.
+
+\begin{inp}[Xylouris's criterion]\label{inp:criterion}
+Let $h=\sum_i\alpha_ih_{L_i,K_i}$ be a finite real combination of triangles with
+$L_i>2K_i+3$ for every $i$, and let $H$ be its Laplace transform. For every $\eps>0$ there are
+$C_0=C_0(\eps)$ and $q_0=q_0(\eps)$ such that for every $q\ge q_0$ and every $a$ coprime to $q$,
+\[
+  \sum_{p\equiv a\,(q)}\frac{\log p}{p}\,h\Bigl(\frac{\log p}{\LL}\Bigr)\ \ge\
+  \frac{\LL}{\varphi(q)}\Bigl[H(0)-\sum_{\chi\ne\chi_0}\ {\sum_\rho}'\ \bigl|H\bigl((1-\rho)\LL\bigr)\bigr|
+  -\eps\Bigr],
+\]
+where $\sum'_\rho$ runs over the zeros $\rho=\beta+i\gamma$ of $L(s,\chi)$, with multiplicity, in the
+square $1-C_0/\LL\le\beta\le1$, $|\gamma|\le C_0/\LL$.
+\end{inp}
+
+Xylouris states the extension to combinations without a separate proof, and it follows from
+Heath-Brown's proof of his Lemma~13.2 \cite[\S13]{HeathBrown1992zero}. That proof starts from the explicit
+formula \cite[Lemma~13.1]{HeathBrown1992zero}, which is linear in the weight, and bounds the zeros
+outside the square by summing over rectangles $1-\frac{m+1}\LL\le\beta\le1-\frac m\LL$,
+$\frac n{2\LL}\le|\gamma|\le\frac n\LL$ with $\max(m,n)\ge R$, using a zero-density bound $\ll e^{3m}(1+n/\LL)^{3/2}$
+for each rectangle and $|F((1-\rho)\LL)|\ll e^{-(L'-2K)m}n^{-2}$ for each zero. For a combination with positive
+coefficients $c_k$ one has $|H|\le\sum_kc_k|H_k|$, so the same estimate holds with $L'-2K$ replaced by the
+smallest left endpoint, which exceeds $3$; and the zeros in the square contribute at most
+$\sum|H((1-\rho)\LL)|$.
+
+In the normalized coordinates \eqref{eq:normalized} the square is
+$\{0\le\lambda\le C_0,\ |\mu|\le C_0\}$. Enlarging it only adds nonnegative terms to the zero
+sum, so the conclusion holds for every square $\{\lambda\le C_P,\,|\mu|\le C_P\}$ with $C_P\ge
+C_0$. We fix
+\begin{equation}\label{eq:CP}
+  C_P\ge\max\bigl(C_0(\eta H_0),3\bigr),
+\end{equation}
+which fixes the prime window $R_P=\{0\le\lambda\le C_P,\ |\mu|\le C_P\}$ of \cref{sec:notation}. Since $C_P$ is fixed and
+$\log\log\LL\to\infty$, for large $q$ every zero in $R_P$ lies in the rectangle $R(l)$ of
+\cref{sec:notation}.
+
+\begin{definition}[Normalized zero sum]\label{def:zerosum}
+For the kernel $H$ in \eqref{eq:Hkernel} and the prime window fixed by \eqref{eq:CP}, put
+\[
+  W=W(q)=\frac1{H_0}\sum_{\chi\ne\chi_0}\ \sum_{\rho\in R_P}\bigl|H\bigl((1-\rho)\LL\bigr)\bigr| ,
+\]
+where each zero is counted with its multiplicity.
+\end{definition}
+
+\begin{proposition}[A zero-sum bound that guarantees a prime]\label{prop:detect}
+Let $L>3+2T$. There is $q_0$ such that for every $q\ge q_0$ with $W(q)\le1-2\eta$ and every $a$ coprime
+to $q$ there is a prime $p$ with
+\[
+  p\equiv a\pmod q,\qquad q^{A}<p<q^{L},\qquad A=L-2T.
+\]
+Here $W(q)$ is formed from the kernel and prime window for this fixed $L$; the threshold
+$q_0$ is independent of $a$ and of the zero configuration of $q$.
+\end{proposition}
+
+\begin{proof}
+By \cref{lem:triangles}, $h$ is a finite positive combination of triangles $h_{L_i,\kappa}$ with
+$L_i-2\kappa=A+k\kappa\ge A>3$. So \cref{inp:criterion} applies with $\eps=\eta H_0$; it
+gives a $q_0$ such that for every $q\ge q_0$ with $W(q)\le1-2\eta$,
+\[
+  \sum_{p\equiv a\,(q)}\frac{\log p}{p}\,h\Bigl(\frac{\log p}{\LL}\Bigr)\ge
+  \frac{\LL H_0}{\varphi(q)}\bigl(1-W-\eta\bigr)\ge\frac{\LL H_0\,\eta}{\varphi(q)}>0 .
+\]
+The sum is therefore nonempty. Since $h$ vanishes outside $(A,L)$, some prime $p\equiv a\pmod q$
+satisfies $A<\log p/\LL<L$.
+\end{proof}
+
+At $L=3.99$ the condition $L>3+2T=3.833658$ holds. Two features of \cref{inp:criterion} matter
+below.
+\begin{enumerate}[(i)]
+  \item \emph{Occurrence form.} The zero sum charges each zero occurrence separately, through the
+    absolute value of its own term. Every bound in \cref{sec:costs} is a bound for a sum of such
+    individual terms. In particular we never need the cancellation between zeros that a grouped
+    form of the explicit formula would record.
+  \item \emph{Size of a term.} Since $|\Psi(\lambda-i\mu)|\le\Psi(\lambda)$ for $\lambda\ge0$,
+    \begin{equation}\label{eq:termbound}
+      \bigl|H\bigl((1-\rho)\LL\bigr)\bigr|=e^{-A\lambda}\,|\Psi(\lambda-i\mu)|^2\le
+      e^{-A\lambda}\,\Psi(\lambda)^2\le H_0e^{-A\lambda}.
+    \end{equation}
+    A zero at distance $\lambda$ from $\sigma=1$ costs at most $e^{-A\lambda}$ times $H_0$. The
+    difficulty is entirely with the number of zeros close to $\sigma=1$.
+\end{enumerate}
+
+If no nonprincipal $L(s,\chi)$ has a zero in $R(l)$, then for large $q$ it has none in $R_P$, and
+$W=0$. This is the first exterior regime (\cref{sec:exteriors}).
