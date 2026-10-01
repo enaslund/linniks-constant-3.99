@@ -19,7 +19,7 @@ jobs:
       repository: ${{ github.repository }}
       commit: ${{ github.sha }}
       pipeline_commit: 65f0154ed776cd26c224254aa57b379137f28b0d
-      request_id: preflight-${{ github.run_id }}
+      request_id: preflight001   # Palomar requires 12 lowercase letters or digits
       mode: full
       execution_profile: palomar-standard-v1
       options: '{"comparator_config_path":"comparator.json","authorization_relationship":"I am a responsible author or maintainer"}'
