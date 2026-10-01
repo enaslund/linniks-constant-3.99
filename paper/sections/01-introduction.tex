@@ -237,7 +237,11 @@ essential to the coverage argument.
 
 Each leaf, or each subcase of a leaf, has its own certificate, a binary tree of threshold
 boxes. The $4788$ leaves give $5591$ such certificate trees, because some leaves are
-subdivided further, and these trees contain $4{,}196{,}879$ threshold boxes. The largest certified value is
+subdivided further, and these trees contain $4{,}196{,}879$ threshold boxes. On each box the near
+rows are replaced by linear relaxations, some with two alternative forms, and every choice of
+alternatives, a relaxation case, is certified separately: the boxes carry $29{,}397{,}336$
+relaxation cases, of which $9430$ are shown to be infeasible and the others are bounded by their
+own integer dual multipliers. The largest certified value is
 $0.9999998223\ldots<1$; it bounds the zero sum together with the required error allowance.
 All certificate inequalities are checked in integer arithmetic. The subdivisions and
 zero-location arguments of the tree do not depend on the target exponent; only the leaf
