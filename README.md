@@ -8,7 +8,8 @@ its proof. It is the repository submitted to the [Palomar registry](https://subm
 **What is formally verified, and what is not.** The paper proves that for every sufficiently
 large modulus `q`, every reduced residue class modulo `q` contains a prime below `q^3.99`. That
 bound is **not** formally verified here. The Palomar submission (`comparator.json`) consists of
-18 theorems: the paper's graded near-density lemma (Theorem 8.4) with its zero form, and the
+18 theorems: the paper's graded near-density lemma (Theorem 8.4), a weighted version of
+Heath-Brown's near-density estimate (his Lemma 12.1 of 1992), with its zero form; and the
 soundness of the exact checker for the certificates of the leaf programs (paper §10). Their
 analytic part is conditional on four published estimates, stated as hypotheses no stronger than
 their printed sources. The repository proves more than it submits (items 3–6 below). The

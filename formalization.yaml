@@ -3,7 +3,7 @@
 version: "v0.4"
 
 project:
-  name: "Linnik's constant is at most 3.99: the formalized components, namely the graded near-density lemma and the verified checker of the leaf certificates, assuming published estimates"
+  name: "Linnik's constant is at most 3.99: A formalization of a weighted version of Heath-Brown's near-density estimate, and of the proof's certificate checker"
   description: >
     Two components of the proof, in the paper "Linnik's constant is at most
     3.99" (paper/linnik399.pdf in this repository), that every reduced residue
