@@ -101,10 +101,14 @@ facts about zeros.
 
 \maketitle
 
-\begin{quote}
-\small\noindent\textsuperscript{$*$} This paper was written by Claude Opus 5.5 and GPT Astra 6 under my prompting and supervision. The research was carried out by the same models under my prompting and supervision, with some of the formalization work also done by xAI's Grok. My recommendation is for the reader to explore this paper with AI as well, and use their favorite model to ask the paper questions. The certificates are checked by three separate programs, one of them formally verified, and
-\cref{sec:verification} states precisely which parts of the proof are formally verified in Lean and which have conventional proofs only.
-\end{quote}
+\begin{center}
+\fcolorbox{gray!60}{ourcolumn}{%
+\begin{minipage}{\dimexpr0.9\linewidth-2\fboxsep-2\fboxrule\relax}
+\small\setlength{\parindent}{0pt}\vspace{2pt}%
+\textsuperscript{$*$}\textbf{AI Methodology:} This paper was written by Claude Opus 5.5 and GPT Astra 6 under my prompting and supervision. The research was carried out by the same models under my prompting and supervision, with some of the formalization work also done by xAI's Grok. My recommendation is for the reader to explore this paper with AI as well, and use their favorite model to ask the paper questions. The certificates are checked by three separate programs, one of them formally verified, and
+\cref{sec:verification} states precisely which parts of the proof are formally verified in Lean and which have conventional proofs only.\vspace{2pt}
+\end{minipage}}
+\end{center}
 
 \clearpage
 \setcounter{tocdepth}{1}
