@@ -42,3 +42,19 @@ certificates and the programs that generate and check them are in the research r
 <https://github.com/enaslund/linniks-constant> (private at the time of writing; see
 `research/notes/paper-2026-09-30.md` there). The Lean formalization of parts of the proof is
 at the root of this repository; see the [repository README](../README.md).
+
+## Adversarial reviews
+
+* [First review, October 1–2, 2026](reviews/adversarial-review-2026-10-01.md):
+  section-by-section review, full certificate replay, source-table checks, and
+  the missing positivity assumption in Example 8.9(i).
+* [Second review, October 2, 2026](reviews/adversarial-review-2026-10-02.md):
+  further examination of the analytic arguments, independent numerical checks
+  of all 37 fallback rows, and an exact check of the root cover against the paper.
+
+Example 8.9(i) now explicitly assumes `v > 0` in both LaTeX versions and their
+PDFs. The first report records the example before this correction. Neither
+review identified an error invalidating the global bound; neither constitutes
+a complete independent proof of it. The reports link to the audit code and
+raw results archived in the research repository; reproduction commands refer
+to that repository and require access to it.

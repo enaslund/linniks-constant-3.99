@@ -5,6 +5,10 @@ This repository contains the paper *Linnik's constant is at most 3.99*
 [`paper/`](paper/README.md)) and a Lean 4 / Mathlib (`v4.35.0-rc3`) formalization of parts of
 its proof. It is the repository submitted to the [Palomar registry](https://submit.palomar-registry.org).
 
+The [adversarial review reports from October 1–2, 2026](paper/README.md#adversarial-reviews)
+record the objections examined, the correction to Example 8.9(i), and the scope and
+limitations of the additional checks.
+
 **What is formally verified, and what is not.** The paper proves that for every sufficiently
 large modulus `q`, every reduced residue class modulo `q` contains a prime below `q^3.99`. That
 bound is **not** formally verified here. The Palomar submission (`comparator.json`) consists of
