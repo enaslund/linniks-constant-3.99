@@ -3,7 +3,17 @@
 This repository contains the paper *Linnik's constant is at most 3.99*
 ([`paper/linnik399.pdf`](paper/linnik399.pdf); its source and a single-file version are in
 [`paper/`](paper/README.md)) and a Lean 4 / Mathlib (`v4.35.0-rc3`) formalization of parts of
-its proof. It is the repository submitted to the [Palomar registry](https://submit.palomar-registry.org).
+its proof.
+
+**Palomar registration.** The formalized components are registered in the
+[Palomar registry](https://palomar-registry.org) as
+[PALOMAR-2026-10-01-000020](https://palomar-registry.org/entry.html?id=PALOMAR-2026-10-01-000020&version=1)
+(version 1, registered 2026-10-01, from commit
+[`ecdbe3e`](https://github.com/enaslund/linniks-constant-3.99/tree/ecdbe3e3e08ad499d2c749ff417cc461f57334c5)).
+Palomar re-verified the 18 compared theorems and preserves that commit. The registration covers
+the formalized components described below, not the bound `L ≤ 3.99` itself. Later commits change
+only the paper and the documentation; the Lean files, `comparator.json` and `formalization.yaml`
+are those of the registered commit.
 
 The [adversarial review reports from October 1–2, 2026](paper/README.md#adversarial-reviews)
 record the objections examined, the correction to Example 8.9(i), and the scope and

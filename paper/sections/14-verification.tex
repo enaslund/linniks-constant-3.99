@@ -288,6 +288,13 @@ computations and identify the precise data used in the proof. This paper and the
 formalization are publicly available in the repository prepared for the Palomar registry of
 formalized mathematics:
 \begin{center}\url{https://github.com/enaslund/linniks-constant-3.99}.\end{center}
+The formalized components described in \cref{subsec:lean}, namely the graded near-density lemma
+with its zero form and the soundness of the certificate checker, are registered in Palomar as entry
+PALOMAR-2026-10-01-000020:
+\begin{center}\url{https://palomar-registry.org/entry.html?id=PALOMAR-2026-10-01-000020&version=1}.\end{center}
+Palomar re-verified the formalization (commit \texttt{ecdbe3e} of the repository above) and
+preserves that source. The registration does not cover the bound $L\le3.99$ itself, whose
+remaining steps are not formalized.
 
 The repository includes instructions for rerunning the replay, mutation tests,
 numerical audits, and formal checks. On the machine used,
