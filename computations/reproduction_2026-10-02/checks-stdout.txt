@@ -1,0 +1,84 @@
+=== indep_inside: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/graded/graded_lean_export.py --kind inside --roots all --L 3.99 --jsonl --workers 12 --checker /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python /home/naslund_eric/src/enaslund/clean-399-test/computations/audit/independent_cert_check.py --stats /home/naslund_eric/src/enaslund/clean-399-out/indep-inside-stats.jsonl --out /home/naslund_eric/src/enaslund/clean-399-out/indep-inside.json
+    exit 0 in 1771s
+    | inside 2700 2768 id 2699 leaves 3881 boxes 4099746 bad 0 sec 1771
+    | {"kind": "inside", "L": "3.99", "roots": 2768, "leaves": 3949, "boxes": 4109455, "maximum_numerator": 9999998223456687, "seconds": 1771, "checker": "/home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python /home/naslund_eric/src/enaslund/clean-399-test/computations/audit/independent_cert_check.py --stats /home/naslund_eric/src/enaslund/clean-399-out/indep-inside-stats.jsonl", "status": "PAS
+=== indep_outside: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/graded/graded_lean_export.py --kind outside --roots all --L 3.99 --jsonl --workers 12 --checker /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python /home/naslund_eric/src/enaslund/clean-399-test/computations/audit/independent_cert_check.py --stats /home/naslund_eric/src/enaslund/clean-399-out/indep-outside-stats.jsonl --out /home/naslund_eric/src/enaslund/clean-399-out/indep-outside.json
+    exit 0 in 140s
+    | outside 1600 1685 id 2682 leaves 1557 boxes 84984 bad 0 sec 130
+    | {"kind": "outside", "L": "3.99", "roots": 1685, "leaves": 1642, "boxes": 87424, "maximum_numerator": 9999942478462508, "seconds": 139, "checker": "/home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python /home/naslund_eric/src/enaslund/clean-399-test/computations/audit/independent_cert_check.py --stats /home/naslund_eric/src/enaslund/clean-399-out/indep-outside-stats.jsonl", "status": "PASS
+=== lean_full_outside: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/graded/graded_lean_export.py --kind outside --roots all --L 3.99 --full --workers 12 --out /home/naslund_eric/src/enaslund/clean-399-out/lean-full-outside.json
+    exit 0 in 190s
+    | outside 1600 1685 id 2682 leaves 1557 boxes 84984 bad 0 numeric_failures 0 sec 180
+    | {"kind": "outside", "L": "3.99", "mode": "full", "roots": 1685, "leaves": 1642, "boxes": 87424, "maximum_numerator": 9999942478462508, "numeric_failures": 0, "passed": 1642, "seconds": 191, "checker": ".lake/build/bin/leafcheck", "timing_ms": {"wall": {"total": 667783, "mean": 406.7, "median": 392, "max": 1796}, "cert": null, "num": null, "replay_per_root": {"total": 1597604, "mean": 948.1, "media
+=== lean_rows_outside: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/graded/graded_lean_export.py --kind outside --roots all --L 3.99 --rows --workers 12 --out /home/naslund_eric/src/enaslund/clean-399-out/lean-rows-outside.json
+    exit 0 in 283s
+    | outside 1600 1685 id 2682 leaves 1557 failures 0 sec 268
+    | {"kind": "outside", "L": "3.99", "mode": "rows", "roots": 1685, "leaves": 1642, "passed": 1642, "rows": 3314, "rows_checked": 3314, "items": 2021521, "special": 0, "ms": 1660774, "seconds": 282, "checker": ".lake/build/bin/rowcheck", "status": "PASS"} failures 0
+=== lean_full_inside_sample: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/graded/graded_lean_export.py --kind inside --roots 10,212,600,1100,1155,1218,1320,1416,1671,2000,2432,2603,2766 --L 3.99 --full --workers 12 --out /home/naslund_eric/src/enaslund/clean-399-out/lean-full-inside-sample.json
+    exit 0 in 766s
+    | inside 13 13 id 2766 leaves 52 boxes 176014 bad 0 numeric_failures 0 sec 766
+    | {"kind": "inside", "L": "3.99", "mode": "full", "roots": 13, "leaves": 52, "boxes": 176014, "maximum_numerator": 9999998223456687, "numeric_failures": 0, "passed": 52, "seconds": 766, "checker": ".lake/build/bin/leafcheck", "timing_ms": {"wall": {"total": 1286352, "mean": 24737.5, "median": 8179, "max": 165671}, "cert": null, "num": null, "replay_per_root": {"total": 475766, "mean": 36597.4, "medi
+=== lean_rows_inside_sample: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/graded/graded_lean_export.py --kind inside --roots 10,212,600,1100,1155,1218,1320,1416,1671,2000,2432,2603,2766 --L 3.99 --rows --workers 12 --out /home/naslund_eric/src/enaslund/clean-399-out/lean-rows-inside-sample.json
+    exit 0 in 150s
+    | inside 13 13 id 2766 leaves 52 failures 0 sec 150
+    | {"kind": "inside", "L": "3.99", "mode": "rows", "roots": 13, "leaves": 52, "passed": 52, "rows": 190, "rows_checked": 187, "items": 108334, "special": 18, "ms": 84125, "seconds": 150, "checker": ".lake/build/bin/rowcheck", "status": "PASS"} failures 0
+=== mutation: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/graded/graded_mutation_test.py 1671,1320,1416
+    exit 0 in 176s
+    | {"root": 1320, "leaf": 15, "maximum": 0.9997739288778702, "results": {"base": "pass 0.9997739", "far+": "caught AssertionError()", "G+": "caught AssertionError(('column', 1))", "first+": "caught AssertionError()", "d+": "caught AssertionError(('column', 1))", "v-": "caught AssertionError(('column', 1))", "dualY-": "caught AssertionError(('column', 1))", "final0": "caught AssertionError()"}, "secon
+    | {"root": 1416, "leaf": 0, "maximum": 0.9999998132810008, "results": {"base": "pass 0.9999998", "far+": "caught AssertionError()", "G+": "caught AssertionError(('column', 75))", "first+": "caught AssertionError()", "d+": "caught AssertionError(('column', 75))", "v-": "caught AssertionError(('column', 75))", "dualY-": "caught AssertionError(('column', 75))", "final0": "caught AssertionError()"}, "se
+=== large: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/graded/graded_large.py --lean
+    exit 0 in 2s
+    | graded_cert: maximum 9966813270344512 0.9966813270344512 boxes 36 binding (162500, 165000) seconds 1
+    | {"L": "3.99", "leaf": "large_3_99", "certrun": ["large_3_99", "9966813270344512", "36"], "leafcheck": ["large_3_99", "9966813270344512", "36", "ok", "2", "59"], "rowcheck": ["large_3_99", "ok", "1", "1", "150", "124", "0"], "graded_cert": [9966813270344512, 36], "status": "PASS", "checkers": {"certrun": "b9bcc2b0c9dddd7f167de5f6751ff4d00ca43a46755580abb2a1a3f69b3d715e", "leafcheck": "be3e720779694
+=== two_test: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/graded/two_test_compare.py --workers 12 --out /home/naslund_eric/src/enaslund/clean-399-out/two-test.json
+    exit 0 in 122s
+    | }
+    | report /home/naslund_eric/src/enaslund/clean-399-out/two-test.json
+=== exteriors: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/frontier/verify_existing_components.py --workers 4
+    exit 0 in 98s
+    | {"component": "outside", "done": 1685, "total": 1685, "maximum_numerator": 9999741175938028, "seconds": 97.7}
+    | {"status": "PASS fresh complementary-component numerical replay; analytic premises remain unformalized", "seconds": 98.08660173416138, "outside_checks": 65148582, "outside_maximum_numerator": 9999741175938028, "exterior_large_checks": 5436, "committed_files": 74}
+=== small_exc: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/core/code/small_exception_399.py
+    exit 0 in 0s
+    |   "scope": "For a real exceptional zero with u0<=lambda1<=.1, fixed u0>0. For lambda1<=u0 use the published effective exponent 3+epsilon with epsilon=.5. This is a restricted branch, NOT a general Linnik exponent of 3.99. No cube-free assumption, no far block, no new near-density inequality."
+    | }
+=== small_exc_tables: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/core/code/small_exception_tables.py
+    exit 0 in 0s
+    |   "scope": "Real simple exceptional zero with u0 <= lambda1 <= .1, fixed u0 > 0, q large. For lambda1 <= u0 use Heath-Brown's effective exponent 3+eps (eps=1/2), H p.6. Replaces the single alpha-rule check of small_exception_399.py near .1; not a general Linnik exponent."
+    | }
+=== small_tables: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/core/code/independent_small_tables_check.py
+    exit 0 in 0s
+    |  "scope": "Elementary bounds of Theorem 12.5 only; the analytic inputs and the monotonicity argument are in the paper."
+    | }
+=== complexloc: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python -c import sys; sys.path.insert(0,'computations/core/code'); import poly_rows, alias_check, x434_check, independent_polynomial_checks as ipc; print(poly_rows.verify_polynomial_table()); print(alias_check.check()); print(x434_check.check()); print(ipc.aliases()); print(ipc.refs())
+    exit 0 in 49s
+    | {'character_pairs_checked': 50032, 'pairs_with_principal_aliases': 7504, 'status': 'PASS: exact finite-group matching diagnostics'}
+    | [{'row_id': 0, 'type': 'second', 'reference_margin': '0.00146138039883479832184388559767744265655296294'}, {'row_id': 7, 'type': 'second', 'reference_margin': '0.00106694807412572107589698065629987472269177968'}, {'row_id': 14, 'type': 'second', 'reference_margin': '0.00164903636157128960422664612191615889857645754'}, {'row_id': 21, 'type': 'additional', 'reference_margin': '0.00220123984668063635
+=== source_signs: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/audit/adversarial_source_checks.py --out /home/naslund_eric/src/enaslund/clean-399-out/source-signs.json
+    exit 0 in 0s
+    | PASS: local counterexample and source-table sign checks
+    | Table 4: 24 rows; Table 7: 17 rows.
+=== root_cover: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/audit/paper_root_cover_check.py --out /home/naslund_eric/src/enaslund/clean-399-out/root-cover.json
+    exit 0 in 0s
+    | {"parents": 58, "base_cells": 340, "first_zero_cells": 478, "gap_cases": 684, "specifications": 2768, "type_rr": 1083, "inside_roots": 2768, "outside_roots": 1685, "type_rc": 115, "type_complex": 1570, "status": "PASS", "scope": "Root cover only; parent implications are analytic premises.", "inputs": {"paper/sections/07-location.tex": "f8790272b08335f6508887bc6d793f65ed9c6101eff9d70683cba52d5f3c42
+=== fallback: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/audit/fallback_integral_attack.py --out /home/naslund_eric/src/enaslund/clean-399-out/fallback.json
+    exit 0 in 35s
+    | 2633 PASS
+    | {"scope": "Independent high-precision numerical falsification; supremum searches are not interval proofs.", "parameter_source": "computations/audit/adversarial_20261001/two-test.json", "parameter_source_sha256": "d415a9c16f8ed54f68f5abadf773f50748889328601b54848776457f74e9aa5e", "reference_selfcheck": {"comparisons": 36, "maximum_scaled_difference": "4.624756016227321138658289634559221588380940347
+=== numerics: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/graded/graded_lean_export.py --kind inside --roots 600,1416,2603 --L 3.99 --numerics --workers 3 --out /home/naslund_eric/src/enaslund/clean-399-out/numerics.jsonl
+    exit 0 in 24s
+    | inside 3 3 id 2603 leaves 8 sec 25
+    | {"kind": "inside", "L": "3.99", "roots": 3, "leaves": 8, "out": "/home/naslund_eric/src/enaslund/clean-399-out/numerics.jsonl", "seconds": 25}
+=== numerics_check: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/graded/leaf_numerics_check.py /home/naslund_eric/src/enaslund/clean-399-out/numerics.jsonl --report /home/naslund_eric/src/enaslund/clean-399-out/numerics-report.json
+    exit 0 in 9s
+    | {"files": ["/home/naslund_eric/src/enaslund/clean-399-out/numerics.jsonl"], "roots": 3, "leaves": 8, "integers": 17999, "exact": 17999, "by_field": {"C": {"checked": 3595, "exact": 3595}, "E": {"checked": 3595, "exact": 3595}, "F": {"checked": 8, "exact": 8}, "G": {"checked": 3595, "exact": 3595}, "NH": {"checked": 3595, "exact": 3595}, "W": {"checked": 3595, "exact": 3595}, "final": {"checked": 8
+    | safe off-by-one 0 near-integer exact 0 mismatches 0
+=== printed: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/audit/printed_tables_check.py --out /home/naslund_eric/src/enaslund/clean-399-out/printed.json
+    exit 0 in 1s
+    |   mismatches: 0
+    |   report: /home/naslund_eric/src/enaslund/clean-399-out/printed.json
+=== hb_tables: /home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python computations/audit/hb_tables_recompute.py
+    exit 0 in 62s
+    | 
+    | wrote computations/audit/hb_tables_recompute.json
+ALL-DONE

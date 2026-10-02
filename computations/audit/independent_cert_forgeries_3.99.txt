@@ -1,0 +1,1010 @@
+== large_3_99: accepted, value 9966813270344512, 36 terminal boxes, 36 dual and 0 excluded cases (0.0 s)
+   survey: 36 dual cases; largest value in box ([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0], 0)
+   rounding audit on 31 boxes, all rows, all 3 relaxations: 14043 costs <= S*coefficient, 93 budgets >= S*right side: all hold; largest gaps 0.999384 and 0.974324 of their allowances (each < 1 exactly)
+   [reject] split mid = a                    REJECTED    0.0s  root split (row 0, [0,167560]): mid 5000 -> 0 = a
+                                             -> root: split at 0 not strictly inside [0, 167560] of row 0
+   [reject] split mid = b                    REJECTED    0.0s  root split (row 0, [0,167560]): mid 5000 -> 167560 = b
+                                             -> root: split at 167560 not strictly inside [0, 167560] of row 0
+   [reject] split mid > b                    REJECTED    0.0s  root split (row 0, [0,167560]): mid 5000 -> 167561 > b
+                                             -> root: split at 167561 not strictly inside [0, 167560] of row 0
+   [reject] split mid not an integer         REJECTED    0.0s  root split: mid 5000 -> 5000.5 (not an integer)
+                                             -> root: mid: expected an integer, got float 5000.5
+   [reject] split row = K                    REJECTED    0.0s  root split: row 0 -> 1 (no such row)
+                                             -> root: split row 1 out of range 0..0
+   [reject] split row = -1                   REJECTED    0.0s  root split: row 0 -> -1
+                                             -> root: split row -1 out of range 0..0
+   [reject] split with one child             REJECTED    0.0s  root split: right child removed
+                                             -> root: children: expected length 2, got 1
+   [reject] order 2 -> 1, same cases         REJECTED    0.0s  box [0]: order of row 0 2 -> 1, cases left as they are (1)
+                                             -> root.0: 1 cases, expected 2
+   [reject] order 3                          REJECTED    0.0s  box [0]: order of row 0 -> 3
+                                             -> root.0: order o_0 = 3 is not 1 or 2
+   [reject] orders too short                 REJECTED    0.0s  box [0]: last order removed
+                                             -> root.0: orders: expected length 1, got 0
+   [reject] relaxation case dropped          REJECTED    0.0s  box [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]: last relaxation case removed
+                                             -> root.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.0: 0 cases, expected 1
+   [reject] relaxation case duplicated       REJECTED    0.0s  box [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]: first relaxation case duplicated
+                                             -> root.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.0: 2 cases, expected 1
+   [reject] unjustified exclusion            REJECTED    0.0s  box [0] case 0: duals replaced by "excluded" (no row has costs >= 0, budget < 0)
+                                             -> root.0 case 0 (2,): exclusion not justified by any row
+   [reject] misspelled exclusion             REJECTED    0.0s  box [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0] case 0: record -> "exclude"
+                                             -> root.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.0 case 0 (2,): unknown case record 'exclude'
+   [reject] Y lowered (breaking)             REJECTED    0.0s  box [0] case 0: Y 895615449 -> 895615446 (decrease 3, breaking; binding column 150)
+                                             -> root.0 case 0 (2,): dual feasibility fails at column 150 (short by 9293000000000000)
+   [reject] Z lowered (breaking)             REJECTED    0.0s  box [0] case 0: Z_0 156001563851 -> 156001563662 (decrease 189, breaking; binding column 0)
+                                             -> root.0 case 0 (2,): dual feasibility fails at column 0 (short by 251825756749552)
+   [reject] negative dual M = -1             REJECTED    0.0s  box [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0] case 0: M = -1 (P - M grows by 1)
+                                             -> root.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.0 case 0 (2,): dual M = -1 is negative
+   [reject] Z too short                      REJECTED    0.0s  box [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0] case 0: Z has 0 entries
+                                             -> root.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.0 case 0 (2,): Z: expected length 1, got 0
+   [reject] Y as a float                     REJECTED    0.0s  box [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0] case 0: Y given as the float 5145926349.0
+                                             -> root.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.0 case 0 (2,): Y: expected an integer, got float 5145926349.0
+   [reject] G raised (breaking)              REJECTED    0.0s  column 132: G raised by 1300 (breaking eq:dualfeasible in the tightest case)
+                                             -> root.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.0 case 0 (2,): dual feasibility fails at column 132 (short by 699107396479)
+   [reject] F raised (breaking)              REJECTED    0.0s  F raised by 6449126436086018 (value reaches S in box [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0] case 0)
+                                             -> terminal box root.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.0 has value 10000000000000000 >= S
+   [reject] final raised to S                REJECTED    0.0s  final raised by 33186729655488: largest value becomes 10000000000000000
+                                             -> terminal box root.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.0 has value 10000000000000000 >= S
+   [reject] needed column feature zeroed     REJECTED    0.0s  column 0: feature v_0 2252475747717812 -> 0 (all its costs in row 0 become 0; needed in box [0] case 0)
+                                             -> root.0 case 0 (2,): dual feasibility fails at column 0 (short by 77860655827889406351784260)
+   [reject] column diagonal 0                REJECTED    0.0s  column 0: diagonal D_0 -> 0
+                                             -> column 0: diagonal D_0 = 0 is not positive
+   [reject] correlation term 0               REJECTED    0.0s  row 0: correlation term d -> 0
+                                             -> row 0: correlation term d = 0 is not positive
+   [reject] column missing a feature         REJECTED    0.0s  column 0: 0 features
+                                             -> column 0: features: expected length 1, got 0
+   [accept] Y lowered (one short)            accepted    0.0s  box [0] case 0: Y 895615449 -> 895615447 (decrease 2, one short of breaking; binding column 150)
+                                             -> value 9966813270344512
+   [accept] Z lowered (one short)            accepted    0.0s  box [0] case 0: Z_0 156001563851 -> 156001563663 (decrease 188, one short of breaking; binding column 0)
+                                             -> value 9966813270344512
+   [accept] G raised (one short)             accepted    0.0s  column 132: G raised by 1299 (one short of breaking eq:dualfeasible in the tightest case)
+                                             -> value 9966813270344512
+   [accept] F raised (one short)             accepted    0.0s  F raised by 6449126436086017 (value S - 1 at most in box [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0] case 0)
+                                             -> value 9999999999999999
+   [accept] final raised to S - 1            accepted    0.0s  final raised by 33186729655487: largest value becomes 9999999999999999
+                                             -> value 9999999999999999
+   [accept] stored value forged              accepted    0.0s  box [0]: stored "value" -> 0 (the key is ignored)
+                                             -> value 9966813270344512
+   [accept] explicit default dual            accepted    0.0s  box [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0] case 0: explicit "V": 0 (the default)
+                                             -> value 9966813270344512
+   [either] split mid + 1                    REJECTED    0.0s  parent of the largest box (row 0, [162500,167560]): mid 165000 -> 165001
+                                             -> root.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.0 case 0 (2,): dual feasibility fails at column 39 (short by 374893664116321772205)
+   [either] split mid - 1                    accepted    0.0s  parent of the largest box (row 0, [162500,167560]): mid 165000 -> 164999
+                                             -> value 9966813270344512
+   [either] children swapped                 REJECTED    0.0s  parent [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] of the largest box: children swapped
+                                             -> root.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1 case 0 (2,): dual feasibility fails at column 25 (short by 79734728835778854613341)
+   [either] subtree pruned                   REJECTED    0.0s  parent [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] of the largest box replaced by its left child
+                                             -> root.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1 case 0 (2,): dual feasibility fails at column 25 (short by 79734728835778854613341)
+   [either] correlation term + 1             accepted    0.0s  row 0: correlation term d raised by 1
+                                             -> value 9966813270344566
+   [reject] order 1 -> 2, same cases         n/a (not applicable to this certificate)
+   [reject] exclusion via a negative cost    n/a (not applicable to this certificate)
+   [reject] P lowered (breaking)             n/a (not applicable to this certificate)
+   [reject] M raised (breaking)              n/a (not applicable to this certificate)
+   [reject] V lowered (breaking)             n/a (not applicable to this certificate)
+   [reject] U lowered (breaking)             n/a (not applicable to this certificate)
+   [reject] family count -1                  n/a (not applicable to this certificate)
+   [reject] family diagonal 0                n/a (not applicable to this certificate)
+   [accept] P lowered (one short)            n/a (not applicable to this certificate)
+   [accept] M raised (one short)             n/a (not applicable to this certificate)
+   [either] tangent alternatives swapped     n/a (not applicable to this certificate)
+   [either] tangent row -> first order       n/a (not applicable to this certificate)
+   [either] family term removed              n/a (not applicable to this certificate)
+== 1193_0: accepted, value 9849925574564499, 9 terminal boxes, 18 dual and 0 excluded cases (0.0 s)
+   survey: 18 dual cases; largest value in box ([1, 1, 1, 1, 1, 0], 0)
+   rounding audit on 10 boxes, all rows, all 3 relaxations: 37200 costs <= S*coefficient, 60 budgets >= S*right side: all hold; largest gaps 0.999740 and 0.955789 of their allowances (each < 1 exactly)
+   [reject] split mid = a                    REJECTED    0.0s  root split (row 0, [0,308646]): mid 154323 -> 0 = a
+                                             -> root: split at 0 not strictly inside [0, 308646] of row 0
+   [reject] split mid = b                    REJECTED    0.0s  root split (row 0, [0,308646]): mid 154323 -> 308646 = b
+                                             -> root: split at 308646 not strictly inside [0, 308646] of row 0
+   [reject] split mid > b                    REJECTED    0.0s  root split (row 0, [0,308646]): mid 154323 -> 308647 > b
+                                             -> root: split at 308647 not strictly inside [0, 308646] of row 0
+   [reject] split mid not an integer         REJECTED    0.0s  root split: mid 154323 -> 154323.5 (not an integer)
+                                             -> root: mid: expected an integer, got float 154323.5
+   [reject] split row = K                    REJECTED    0.0s  root split: row 0 -> 2 (no such row)
+                                             -> root: split row 2 out of range 0..1
+   [reject] split row = -1                   REJECTED    0.0s  root split: row 0 -> -1
+                                             -> root: split row -1 out of range 0..1
+   [reject] split with one child             REJECTED    0.0s  root split: right child removed
+                                             -> root: children: expected length 2, got 1
+   [reject] order 2 -> 1, same cases         REJECTED    0.0s  box [0]: order of row 0 2 -> 1, cases left as they are (1)
+                                             -> root.0: 1 cases, expected 2
+   [reject] order 1 -> 2, same cases         REJECTED    0.0s  box [1, 1, 1, 0, 1]: order of row 0 1 -> 2, cases left as they are (4)
+                                             -> root.1.1.1.0.1: 4 cases, expected 2
+   [reject] order 3                          REJECTED    0.0s  box [0]: order of row 0 -> 3
+                                             -> root.0: order o_0 = 3 is not 1 or 2
+   [reject] orders too short                 REJECTED    0.0s  box [0]: last order removed
+                                             -> root.0: orders: expected length 2, got 1
+   [reject] relaxation case dropped          REJECTED    0.0s  box [1, 1, 1, 1, 1, 0]: last relaxation case removed
+                                             -> root.1.1.1.1.1.0: 0 cases, expected 1
+   [reject] relaxation case duplicated       REJECTED    0.0s  box [1, 1, 1, 1, 1, 0]: first relaxation case duplicated
+                                             -> root.1.1.1.1.1.0: 2 cases, expected 1
+   [reject] unjustified exclusion            REJECTED    0.0s  box [0] case 0: duals replaced by "excluded" (no row has costs >= 0, budget < 0)
+                                             -> root.0 case 0 (2, 2): exclusion not justified by any row
+   [reject] exclusion via a negative cost    REJECTED    0.0s  box [1, 1, 1, 1, 1, 1] case 2: "excluded"; row 0 (tangent 1) has budget < 0 but a negative cost, no other row qualifies
+                                             -> root.1.1.1.1.1.1 case 2 (1, 0): exclusion not justified by any row
+   [reject] misspelled exclusion             REJECTED    0.0s  box [1, 1, 1, 1, 1, 0] case 0: record -> "exclude"
+                                             -> root.1.1.1.1.1.0 case 0 (2, 2): unknown case record 'exclude'
+   [reject] Y lowered (breaking)             REJECTED    0.0s  box [0] case 0: Y 988978562 -> 988978559 (decrease 3, breaking; binding column 295)
+                                             -> root.0 case 0 (2, 2): dual feasibility fails at column 295 (short by 339858853397370)
+   [reject] Z lowered (breaking)             REJECTED    0.0s  box [0] case 0: Z_0 210730300801 -> 210730300546 (decrease 255, breaking; binding column 1)
+                                             -> root.0 case 0 (2, 2): dual feasibility fails at column 1 (short by 162976694455570)
+   [reject] U lowered (breaking)             REJECTED    0.0s  box [0] case 0: U 37573231 -> 37573229 (decrease 2, breaking; binding column 598)
+                                             -> root.0 case 0 (2, 2): dual feasibility fails at column 598 (short by 1421179108868877)
+   [reject] negative dual M = -1             REJECTED    0.0s  box [1, 1, 1, 1, 1, 0] case 0: M = -1 (P - M grows by 1)
+                                             -> root.1.1.1.1.1.0 case 0 (2, 2): dual M = -1 is negative
+   [reject] Z too short                      REJECTED    0.0s  box [1, 1, 1, 1, 1, 0] case 0: Z has 1 entries
+                                             -> root.1.1.1.1.1.0 case 0 (2, 2): Z: expected length 2, got 1
+   [reject] Y as a float                     REJECTED    0.0s  box [1, 1, 1, 1, 1, 0] case 0: Y given as the float 895615449.0
+                                             -> root.1.1.1.1.1.0 case 0 (2, 2): Y: expected an integer, got float 895615449.0
+   [reject] G raised (breaking)              REJECTED    0.0s  column 295: G raised by 1070 (breaking eq:dualfeasible in the tightest case)
+                                             -> root.0 case 0 (2, 2): dual feasibility fails at column 295 (short by 718350883913)
+   [reject] F raised (breaking)              REJECTED    0.0s  F raised by 128487890667123348 (value reaches S in box [1, 0] case 0)
+                                             -> terminal box root.1.0 has value 10000000000000000 >= S
+   [reject] final raised to S                REJECTED    0.0s  final raised by 150074425435501: largest value becomes 10000000000000000
+                                             -> terminal box root.1.1.1.1.1.0 has value 10000000000000000 >= S
+   [reject] needed column feature zeroed     REJECTED    0.0s  column 0: feature v_0 3517168988627083 -> 0 (all its costs in row 0 become 0; needed in box [0] case 0)
+                                             -> root.0 case 0 (2, 2): dual feasibility fails at column 0 (short by 90111900866357667282929806)
+   [reject] column diagonal 0                REJECTED    0.0s  column 0: diagonal D_0 -> 0
+                                             -> column 0: diagonal D_0 = 0 is not positive
+   [reject] family count -1                  REJECTED    0.0s  row 0 family term 0: count 1 -> -1
+                                             -> row 0 family term 0: count n = -1 is negative
+   [reject] family diagonal 0                REJECTED    0.0s  row 0 family term 0: diagonal -> 0
+                                             -> row 0 family term 0: diagonal D = 0 is not positive
+   [reject] correlation term 0               REJECTED    0.0s  row 0: correlation term d -> 0
+                                             -> row 0: correlation term d = 0 is not positive
+   [reject] column missing a feature         REJECTED    0.0s  column 0: 1 features
+                                             -> column 0: features: expected length 2, got 1
+   [accept] Y lowered (one short)            accepted    0.0s  box [0] case 0: Y 988978562 -> 988978560 (decrease 2, one short of breaking; binding column 295)
+                                             -> value 9849925574564499
+   [accept] Z lowered (one short)            accepted    0.0s  box [0] case 0: Z_0 210730300801 -> 210730300547 (decrease 254, one short of breaking; binding column 1)
+                                             -> value 9849925574564499
+   [accept] G raised (one short)             accepted    0.0s  column 295: G raised by 1069 (one short of breaking eq:dualfeasible in the tightest case)
+                                             -> value 9849925574564499
+   [accept] F raised (one short)             accepted    0.0s  F raised by 128487890667123347 (value S - 1 at most in box [1, 0] case 0)
+                                             -> value 9999999999999999
+   [accept] final raised to S - 1            accepted    0.0s  final raised by 150074425435500: largest value becomes 9999999999999999
+                                             -> value 9999999999999999
+   [accept] stored value forged              accepted    0.0s  box [0]: stored "value" -> 0 (the key is ignored)
+                                             -> value 9849925574564499
+   [accept] explicit default dual            accepted    0.0s  box [1, 1, 1, 1, 1, 0] case 0: explicit "V": 0 (the default)
+                                             -> value 9849925574564499
+   [either] split mid + 1                    REJECTED    0.0s  parent of the largest box (row 1, [44074,88149]): mid 66111 -> 66112
+                                             -> root.1.1.1.1.1.0 case 0 (2, 2): dual feasibility fails at column 12 (short by 1917595997761337742322)
+   [either] split mid - 1                    REJECTED    0.0s  parent of the largest box (row 1, [44074,88149]): mid 66111 -> 66110
+                                             -> root.1.1.1.1.1.1 case 1 (0, 1): dual feasibility fails at column 23 (short by 227359731771946103887)
+   [either] children swapped                 REJECTED    0.0s  parent [1, 1, 1, 1, 1] of the largest box: children swapped
+                                             -> root.1.1.1.1.1.0 case 1 (0, 1): dual feasibility fails at column 290 (short by 920120491973170095973)
+   [either] subtree pruned                   REJECTED    0.0s  parent [1, 1, 1, 1, 1] of the largest box replaced by its left child
+                                             -> root.1.1.1.1.1 case 0 (2, 2): dual feasibility fails at column 0 (short by 35309310891565821707414632)
+   [either] family term removed              accepted    0.0s  row 0 family term 0: count 1 -> 0 (Z_0 > 0 in the largest case)
+                                             -> value 9877390539827002
+   [either] correlation term + 1             accepted    0.0s  row 0: correlation term d raised by 1
+                                             -> value 9849925574564512
+   [reject] P lowered (breaking)             n/a (not applicable to this certificate)
+   [reject] M raised (breaking)              n/a (not applicable to this certificate)
+   [reject] V lowered (breaking)             n/a (not applicable to this certificate)
+   [accept] P lowered (one short)            n/a (not applicable to this certificate)
+   [accept] M raised (one short)             n/a (not applicable to this certificate)
+   [either] tangent alternatives swapped     n/a (not applicable to this certificate)
+   [either] tangent row -> first order       n/a (not applicable to this certificate)
+== 1202_0: accepted, value 9841254357025086, 34 terminal boxes, 100 dual and 6 excluded cases (0.0 s)
+   survey: 100 dual cases; largest value in box ([1, 0, 0], 0); the certificate's own exclusions are justified by rows [0]
+   rounding audit on 31 boxes, all rows, all 3 relaxations: 134292 costs <= S*coefficient, 186 budgets >= S*right side: all hold; largest gaps 0.999024 and 0.979716 of their allowances (each < 1 exactly)
+   [reject] split mid = a                    REJECTED    0.0s  root split (row 0, [0,314507]): mid 157253 -> 0 = a
+                                             -> root: split at 0 not strictly inside [0, 314507] of row 0
+   [reject] split mid = b                    REJECTED    0.0s  root split (row 0, [0,314507]): mid 157253 -> 314507 = b
+                                             -> root: split at 314507 not strictly inside [0, 314507] of row 0
+   [reject] split mid > b                    REJECTED    0.0s  root split (row 0, [0,314507]): mid 157253 -> 314508 > b
+                                             -> root: split at 314508 not strictly inside [0, 314507] of row 0
+   [reject] split mid not an integer         REJECTED    0.0s  root split: mid 157253 -> 157253.5 (not an integer)
+                                             -> root: mid: expected an integer, got float 157253.5
+   [reject] split row = K                    REJECTED    0.0s  root split: row 0 -> 2 (no such row)
+                                             -> root: split row 2 out of range 0..1
+   [reject] split row = -1                   REJECTED    0.0s  root split: row 0 -> -1
+                                             -> root: split row -1 out of range 0..1
+   [reject] split with one child             REJECTED    0.0s  root split: right child removed
+                                             -> root: children: expected length 2, got 1
+   [reject] order 2 -> 1, same cases         REJECTED    0.0s  box [0]: order of row 0 2 -> 1, cases left as they are (1)
+                                             -> root.0: 1 cases, expected 2
+   [reject] order 1 -> 2, same cases         REJECTED    0.0s  box [1, 0, 1, 0]: order of row 0 1 -> 2, cases left as they are (4)
+                                             -> root.1.0.1.0: 4 cases, expected 2
+   [reject] order 3                          REJECTED    0.0s  box [0]: order of row 0 -> 3
+                                             -> root.0: order o_0 = 3 is not 1 or 2
+   [reject] orders too short                 REJECTED    0.0s  box [0]: last order removed
+                                             -> root.0: orders: expected length 2, got 1
+   [reject] relaxation case dropped          REJECTED    0.0s  box [1, 0, 0]: last relaxation case removed
+                                             -> root.1.0.0: 0 cases, expected 1
+   [reject] relaxation case duplicated       REJECTED    0.0s  box [1, 0, 0]: first relaxation case duplicated
+                                             -> root.1.0.0: 2 cases, expected 1
+   [reject] unjustified exclusion            REJECTED    0.0s  box [0] case 0: duals replaced by "excluded" (no row has costs >= 0, budget < 0)
+                                             -> root.0 case 0 (2, 2): exclusion not justified by any row
+   [reject] exclusion via a negative cost    REJECTED    0.0s  box [1, 1, 0, 1, 1, 0] case 2: "excluded"; row 0 (tangent 1) has budget < 0 but a negative cost, no other row qualifies
+                                             -> root.1.1.0.1.1.0 case 2 (1, 0): exclusion not justified by any row
+   [reject] misspelled exclusion             REJECTED    0.0s  box [1, 0, 0] case 0: record -> "exclude"
+                                             -> root.1.0.0 case 0 (2, 2): unknown case record 'exclude'
+   [reject] Y lowered (breaking)             REJECTED    0.0s  box [1, 1, 1, 0, 0, 0, 1] case 1: Y 1249363603 -> 1249363601 (decrease 2, breaking; binding column 391)
+                                             -> root.1.1.1.0.0.0.1 case 1 (0, 1): dual feasibility fails at column 391 (short by 30691697888930)
+   [reject] Z lowered (breaking)             REJECTED    0.0s  box [1, 0, 1, 0] case 0: Z_1 122776963981 -> 122776963789 (decrease 192, breaking; binding column 189)
+                                             -> root.1.0.1.0 case 0 (0, 0): dual feasibility fails at column 189 (short by 72343714917841)
+   [reject] V lowered (breaking)             REJECTED    0.0s  box [1, 0, 1, 0] case 0: V 11292460440 -> 11292460391 (decrease 49, breaking; binding column 0)
+                                             -> root.1.0.1.0 case 0 (0, 0): dual feasibility fails at column 0 (short by 2576778607203031)
+   [reject] U lowered (breaking)             REJECTED    0.0s  box [0] case 0: U 186667925 -> 186667922 (decrease 3, breaking; binding column 602)
+                                             -> root.0 case 0 (2, 2): dual feasibility fails at column 602 (short by 5422965086806860)
+   [reject] negative dual M = -1             REJECTED    0.0s  box [1, 0, 0] case 0: M = -1 (P - M grows by 1)
+                                             -> root.1.0.0 case 0 (2, 2): dual M = -1 is negative
+   [reject] Z too short                      REJECTED    0.0s  box [1, 0, 0] case 0: Z has 1 entries
+                                             -> root.1.0.0 case 0 (2, 2): Z: expected length 2, got 1
+   [reject] Y as a float                     REJECTED    0.0s  box [1, 0, 0] case 0: Y given as the float 3940244354.0
+                                             -> root.1.0.0 case 0 (2, 2): Y: expected an integer, got float 3940244354.0
+   [reject] G raised (breaking)              REJECTED    0.0s  column 391: G raised by 795 (breaking eq:dualfeasible in the tightest case)
+                                             -> root.1.1.1.0.0.0.1 case 1 (0, 1): dual feasibility fails at column 391 (short by 902597916862)
+   [reject] F raised (breaking)              REJECTED    0.0s  F raised by 40288273699005720 (value reaches S in box [1, 0, 0] case 0)
+                                             -> terminal box root.1.0.0 has value 10000000000000000 >= S
+   [reject] final raised to S                REJECTED    0.0s  final raised by 158745642974914: largest value becomes 10000000000000000
+                                             -> terminal box root.1.0.0 has value 10000000000000000 >= S
+   [reject] needed column feature zeroed     REJECTED    0.0s  column 0: feature v_0 3935971477661207 -> 0 (all its costs in row 0 become 0; needed in box [0] case 0)
+                                             -> root.0 case 0 (2, 2): dual feasibility fails at column 0 (short by 274177995341093514094107088)
+   [reject] column diagonal 0                REJECTED    0.0s  column 0: diagonal D_0 -> 0
+                                             -> column 0: diagonal D_0 = 0 is not positive
+   [reject] family count -1                  REJECTED    0.0s  row 0 family term 0: count 2 -> -1
+                                             -> row 0 family term 0: count n = -1 is negative
+   [reject] family diagonal 0                REJECTED    0.0s  row 0 family term 0: diagonal -> 0
+                                             -> row 0 family term 0: diagonal D = 0 is not positive
+   [reject] correlation term 0               REJECTED    0.0s  row 0: correlation term d -> 0
+                                             -> row 0: correlation term d = 0 is not positive
+   [reject] column missing a feature         REJECTED    0.0s  column 0: 1 features
+                                             -> column 0: features: expected length 2, got 1
+   [accept] Y lowered (one short)            accepted    0.0s  box [1, 1, 1, 0, 0, 0, 1] case 1: Y 1249363603 -> 1249363602 (decrease 1, one short of breaking; binding column 391)
+                                             -> value 9841254357025086
+   [accept] Z lowered (one short)            accepted    0.0s  box [1, 0, 1, 0] case 0: Z_1 122776963981 -> 122776963790 (decrease 191, one short of breaking; binding column 189)
+                                             -> value 9841254357025086
+   [accept] G raised (one short)             accepted    0.0s  column 391: G raised by 794 (one short of breaking eq:dualfeasible in the tightest case)
+                                             -> value 9841254357025086
+   [accept] F raised (one short)             accepted    0.0s  F raised by 40288273699005719 (value S - 1 at most in box [1, 0, 0] case 0)
+                                             -> value 9999999999999999
+   [accept] final raised to S - 1            accepted    0.0s  final raised by 158745642974913: largest value becomes 9999999999999999
+                                             -> value 9999999999999999
+   [accept] stored value forged              accepted    0.0s  box [0]: stored "value" -> 0 (the key is ignored)
+                                             -> value 9841254357025086
+   [accept] explicit default dual            accepted    0.0s  box [1, 0, 0] case 0: explicit "P": 0 (the default)
+                                             -> value 9841254357025086
+   [either] split mid + 1                    REJECTED    0.0s  parent of the largest box (row 0, [157253,235880]): mid 196566 -> 196567
+                                             -> root.1.0.0 case 0 (2, 2): dual feasibility fails at column 0 (short by 2810282917005442260736)
+   [either] split mid - 1                    REJECTED    0.0s  parent of the largest box (row 0, [157253,235880]): mid 196566 -> 196565
+                                             -> root.1.0.1.0 case 2 (1, 0): dual feasibility fails at column 0 (short by 224449542243385706813)
+   [either] children swapped                 REJECTED    0.0s  parent [1, 0] of the largest box: children swapped
+                                             -> root.1.0.0.1: split at 216223 not strictly inside [157253, 196566] of row 0
+   [either] subtree pruned                   REJECTED    0.0s  parent [1, 0] of the largest box replaced by its left child
+                                             -> root.1.0 case 0 (2, 2): dual feasibility fails at column 0 (short by 99478927972517941388503600)
+   [either] family term removed              REJECTED    0.0s  row 0 family term 0: count 2 -> 0 (Z_0 > 0 in the largest case)
+                                             -> root.1.1.0.1.0.1 case 0 (2, 2): exclusion not justified by any row
+   [either] correlation term + 1             accepted    0.0s  row 0: correlation term d raised by 1
+                                             -> value 9841254357025087
+   [reject] P lowered (breaking)             n/a (not applicable to this certificate)
+   [reject] M raised (breaking)              n/a (not applicable to this certificate)
+   [accept] P lowered (one short)            n/a (not applicable to this certificate)
+   [accept] M raised (one short)             n/a (not applicable to this certificate)
+   [either] tangent alternatives swapped     n/a (not applicable to this certificate)
+   [either] tangent row -> first order       n/a (not applicable to this certificate)
+== 1990_0: accepted, value 9999942478462508, 41 terminal boxes, 138 dual and 0 excluded cases (0.0 s)
+   survey: 138 dual cases; largest value in box ([1, 1, 0, 1, 0, 0, 1, 0], 0)
+   rounding audit on 31 boxes, all rows, all 3 relaxations: 140244 costs <= S*coefficient, 186 budgets >= S*right side: all hold; largest gaps 0.999872 and 0.992949 of their allowances (each < 1 exactly)
+   [reject] split mid = a                    REJECTED    0.0s  root split (row 0, [0,325453]): mid 162726 -> 0 = a
+                                             -> root: split at 0 not strictly inside [0, 325453] of row 0
+   [reject] split mid = b                    REJECTED    0.0s  root split (row 0, [0,325453]): mid 162726 -> 325453 = b
+                                             -> root: split at 325453 not strictly inside [0, 325453] of row 0
+   [reject] split mid > b                    REJECTED    0.0s  root split (row 0, [0,325453]): mid 162726 -> 325454 > b
+                                             -> root: split at 325454 not strictly inside [0, 325453] of row 0
+   [reject] split mid not an integer         REJECTED    0.0s  root split: mid 162726 -> 162726.5 (not an integer)
+                                             -> root: mid: expected an integer, got float 162726.5
+   [reject] split row = K                    REJECTED    0.0s  root split: row 0 -> 2 (no such row)
+                                             -> root: split row 2 out of range 0..1
+   [reject] split row = -1                   REJECTED    0.0s  root split: row 0 -> -1
+                                             -> root: split row -1 out of range 0..1
+   [reject] split with one child             REJECTED    0.0s  root split: right child removed
+                                             -> root: children: expected length 2, got 1
+   [reject] order 2 -> 1, same cases         REJECTED    0.0s  box [0]: order of row 0 2 -> 1, cases left as they are (1)
+                                             -> root.0: 1 cases, expected 2
+   [reject] order 1 -> 2, same cases         REJECTED    0.0s  box [1, 0, 1, 0]: order of row 0 1 -> 2, cases left as they are (4)
+                                             -> root.1.0.1.0: 4 cases, expected 2
+   [reject] order 3                          REJECTED    0.0s  box [0]: order of row 0 -> 3
+                                             -> root.0: order o_0 = 3 is not 1 or 2
+   [reject] orders too short                 REJECTED    0.0s  box [0]: last order removed
+                                             -> root.0: orders: expected length 2, got 1
+   [reject] relaxation case dropped          REJECTED    0.0s  box [1, 1, 0, 1, 0, 0, 1, 0]: last relaxation case removed
+                                             -> root.1.1.0.1.0.0.1.0: 0 cases, expected 1
+   [reject] relaxation case duplicated       REJECTED    0.0s  box [1, 1, 0, 1, 0, 0, 1, 0]: first relaxation case duplicated
+                                             -> root.1.1.0.1.0.0.1.0: 2 cases, expected 1
+   [reject] unjustified exclusion            REJECTED    0.0s  box [0] case 0: duals replaced by "excluded" (no row has costs >= 0, budget < 0)
+                                             -> root.0 case 0 (2, 2): exclusion not justified by any row
+   [reject] exclusion via a negative cost    REJECTED    0.0s  box [1, 1, 1, 0, 1] case 2: "excluded"; row 0 (tangent 1) has budget < 0 but a negative cost, no other row qualifies
+                                             -> root.1.1.1.0.1 case 2 (1, 0): exclusion not justified by any row
+   [reject] misspelled exclusion             REJECTED    0.0s  box [1, 1, 0, 1, 0, 0, 1, 0] case 0: record -> "exclude"
+                                             -> root.1.1.0.1.0.0.1.0 case 0 (2, 2): unknown case record 'exclude'
+   [reject] Y lowered (breaking)             REJECTED    0.0s  box [1, 0, 0, 0] case 0: Y 895615449 -> 895615446 (decrease 3, breaking; binding column 413)
+                                             -> root.1.0.0.0 case 0 (2, 2): dual feasibility fails at column 413 (short by 9293000000000000)
+   [reject] Z lowered (breaking)             REJECTED    0.0s  box [1, 0, 1, 0] case 0: Z_1 87451598903 -> 87451598757 (decrease 146, breaking; binding column 228)
+                                             -> root.1.0.1.0 case 0 (0, 0): dual feasibility fails at column 228 (short by 3883793801148)
+   [reject] P lowered (breaking)             REJECTED    0.0s  box [1, 1, 0, 1, 0, 0, 0] case 1: P 3742975283 -> 3742975175 (decrease 108, breaking; binding column 737)
+                                             -> root.1.1.0.1.0.0.0 case 1 (0, 1): dual feasibility fails at column 737 (short by 554305333089965)
+   [reject] M raised (breaking)              REJECTED    0.0s  box [1, 1, 0, 1, 0, 0, 0] case 1: M 0 -> 108 (breaking; binding column 737)
+                                             -> root.1.1.0.1.0.0.0 case 1 (0, 1): dual feasibility fails at column 737 (short by 554305333089965)
+   [reject] U lowered (breaking)             REJECTED    0.0s  box [0] case 0: U 120605820 -> 120605817 (decrease 3, breaking; binding column 654)
+                                             -> root.0 case 0 (2, 2): dual feasibility fails at column 654 (short by 8489063201917384)
+   [reject] negative dual M = -1             REJECTED    0.0s  box [1, 1, 0, 1, 0, 0, 1, 0] case 0: M = -1 (P - M grows by 1)
+                                             -> root.1.1.0.1.0.0.1.0 case 0 (2, 2): dual M = -1 is negative
+   [reject] Z too short                      REJECTED    0.0s  box [1, 1, 0, 1, 0, 0, 1, 0] case 0: Z has 1 entries
+                                             -> root.1.1.0.1.0.0.1.0 case 0 (2, 2): Z: expected length 2, got 1
+   [reject] Y as a float                     REJECTED    0.0s  box [1, 1, 0, 1, 0, 0, 1, 0] case 0: Y given as the float 895615449.0
+                                             -> root.1.1.0.1.0.0.1.0 case 0 (2, 2): Y: expected an integer, got float 895615449.0
+   [reject] G raised (breaking)              REJECTED    0.0s  column 412: G raised by 832 (breaking eq:dualfeasible in the tightest case)
+                                             -> root.1.1.0.1.0.0.0 case 1 (0, 1): dual feasibility fails at column 412 (short by 446946058118)
+   [reject] F raised (breaking)              REJECTED    0.0s  F raised by 64225709321601 (value reaches S in box [1, 1, 0, 1, 0, 0, 1, 0] case 0)
+                                             -> terminal box root.1.1.0.1.0.0.1.0 has value 10000000000000000 >= S
+   [reject] final raised to S                REJECTED    0.0s  final raised by 57521537492: largest value becomes 10000000000000000
+                                             -> terminal box root.1.1.0.1.0.0.1.0 has value 10000000000000000 >= S
+   [reject] needed column feature zeroed     REJECTED    0.0s  column 0: feature v_0 4473437875809666 -> 0 (all its costs in row 0 become 0; needed in box [0] case 0)
+                                             -> root.0 case 0 (2, 2): dual feasibility fails at column 0 (short by 634999814174013761456875988)
+   [reject] column diagonal 0                REJECTED    0.0s  column 0: diagonal D_0 -> 0
+                                             -> column 0: diagonal D_0 = 0 is not positive
+   [reject] family count -1                  REJECTED    0.0s  row 0 family term 0: count 2 -> -1
+                                             -> row 0 family term 0: count n = -1 is negative
+   [reject] family diagonal 0                REJECTED    0.0s  row 0 family term 0: diagonal -> 0
+                                             -> row 0 family term 0: diagonal D = 0 is not positive
+   [reject] correlation term 0               REJECTED    0.0s  row 0: correlation term d -> 0
+                                             -> row 0: correlation term d = 0 is not positive
+   [reject] column missing a feature         REJECTED    0.0s  column 0: 1 features
+                                             -> column 0: features: expected length 2, got 1
+   [accept] Y lowered (one short)            accepted    0.0s  box [1, 0, 0, 0] case 0: Y 895615449 -> 895615447 (decrease 2, one short of breaking; binding column 413)
+                                             -> value 9999942478462508
+   [accept] Z lowered (one short)            accepted    0.0s  box [1, 0, 1, 0] case 0: Z_1 87451598903 -> 87451598758 (decrease 145, one short of breaking; binding column 228)
+                                             -> value 9999942478462508
+   [accept] P lowered (one short)            accepted    0.0s  box [1, 1, 0, 1, 0, 0, 0] case 1: P 3742975283 -> 3742975176 (decrease 107, one short of breaking; binding column 737)
+                                             -> value 9999942478462508
+   [accept] M raised (one short)             accepted    0.0s  box [1, 1, 0, 1, 0, 0, 0] case 1: M 0 -> 107 (one short of breaking; binding column 737)
+                                             -> value 9999942478462508
+   [accept] G raised (one short)             accepted    0.0s  column 412: G raised by 831 (one short of breaking eq:dualfeasible in the tightest case)
+                                             -> value 9999942478462508
+   [accept] F raised (one short)             accepted    0.0s  F raised by 64225709321600 (value S - 1 at most in box [1, 1, 0, 1, 0, 0, 1, 0] case 0)
+                                             -> value 9999999999999999
+   [accept] final raised to S - 1            accepted    0.0s  final raised by 57521537491: largest value becomes 9999999999999999
+                                             -> value 9999999999999999
+   [accept] stored value forged              accepted    0.0s  box [0]: stored "value" -> 0 (the key is ignored)
+                                             -> value 9999942478462508
+   [accept] explicit default dual            accepted    0.0s  box [1, 1, 0, 1, 0, 0, 1, 0] case 0: explicit "V": 0 (the default)
+                                             -> value 9999942478462508
+   [either] split mid + 1                    REJECTED    0.0s  parent of the largest box (row 1, [37175,55762]): mid 46468 -> 46469
+                                             -> root.1.1.0.1.0.0.1.0 case 0 (2, 2): dual feasibility fails at column 0 (short by 3143041089845279087072)
+   [either] split mid - 1                    REJECTED    0.0s  parent of the largest box (row 1, [37175,55762]): mid 46468 -> 46467
+                                             -> root.1.1.0.1.0.0.1.1 case 1 (0, 1): dual feasibility fails at column 0 (short by 132252950851027136449)
+   [either] children swapped                 REJECTED    0.0s  parent [1, 1, 0, 1, 0, 0, 1] of the largest box: children swapped
+                                             -> root.1.1.0.1.0.0.1.1 case 0 (2, 2): dual feasibility fails at column 0 (short by 27036045989854674791059376)
+   [either] subtree pruned                   REJECTED    0.0s  parent [1, 1, 0, 1, 0, 0, 1] of the largest box replaced by its left child
+                                             -> root.1.1.0.1.0.0.1 case 0 (2, 2): dual feasibility fails at column 0 (short by 27036045989854674791059376)
+   [either] family term removed              REJECTED    0.0s  row 0 family term 0: count 2 -> 0 (Z_0 > 0 in the largest case)
+                                             -> terminal box root.1.1.1.0.0 has value 3639015457319220711 >= S
+   [either] correlation term + 1             accepted    0.0s  row 0: correlation term d raised by 1
+                                             -> value 9999942478462517
+   [reject] V lowered (breaking)             n/a (not applicable to this certificate)
+   [either] tangent alternatives swapped     n/a (not applicable to this certificate)
+   [either] tangent row -> first order       n/a (not applicable to this certificate)
+== 1416_1: accepted, value -1, 2 terminal boxes, 1 dual and 1 excluded cases (0.0 s)
+   survey: 1 dual cases; largest value in box ([1], 0); the certificate's own exclusions are justified by rows [0]
+   rounding audit on 3 boxes, all rows, all 3 relaxations: 10638 costs <= S*coefficient, 27 budgets >= S*right side: all hold; largest gaps 0.998845 and 0.713082 of their allowances (each < 1 exactly)
+   [reject] split mid = a                    REJECTED    0.0s  root split (row 0, [0,326311]): mid 163155 -> 0 = a
+                                             -> root: split at 0 not strictly inside [0, 326311] of row 0
+   [reject] split mid = b                    REJECTED    0.0s  root split (row 0, [0,326311]): mid 163155 -> 326311 = b
+                                             -> root: split at 326311 not strictly inside [0, 326311] of row 0
+   [reject] split mid > b                    REJECTED    0.0s  root split (row 0, [0,326311]): mid 163155 -> 326312 > b
+                                             -> root: split at 326312 not strictly inside [0, 326311] of row 0
+   [reject] split mid not an integer         REJECTED    0.0s  root split: mid 163155 -> 163155.5 (not an integer)
+                                             -> root: mid: expected an integer, got float 163155.5
+   [reject] split row = K                    REJECTED    0.0s  root split: row 0 -> 3 (no such row)
+                                             -> root: split row 3 out of range 0..2
+   [reject] split row = -1                   REJECTED    0.0s  root split: row 0 -> -1
+                                             -> root: split row -1 out of range 0..2
+   [reject] split with one child             REJECTED    0.0s  root split: right child removed
+                                             -> root: children: expected length 2, got 1
+   [reject] order 2 -> 1, same cases         REJECTED    0.0s  box [0]: order of row 0 2 -> 1, cases left as they are (1)
+                                             -> root.0: 1 cases, expected 2
+   [reject] order 3                          REJECTED    0.0s  box [0]: order of row 0 -> 3
+                                             -> root.0: order o_0 = 3 is not 1 or 2
+   [reject] orders too short                 REJECTED    0.0s  box [0]: last order removed
+                                             -> root.0: orders: expected length 3, got 2
+   [reject] relaxation case dropped          REJECTED    0.0s  box [1]: last relaxation case removed
+                                             -> root.1: 0 cases, expected 1
+   [reject] relaxation case duplicated       REJECTED    0.0s  box [1]: first relaxation case duplicated
+                                             -> root.1: 2 cases, expected 1
+   [reject] unjustified exclusion            REJECTED    0.0s  box [1] case 0: duals replaced by "excluded" (no row has costs >= 0, budget < 0)
+                                             -> root.1 case 0 (2, 2, 2): exclusion not justified by any row
+   [reject] misspelled exclusion             REJECTED    0.0s  box [1] case 0: record -> "exclude"
+                                             -> root.1 case 0 (2, 2, 2): unknown case record 'exclude'
+   [reject] Y lowered (breaking)             REJECTED    0.0s  box [1] case 0: Y 12908513174 -> 12908513159 (decrease 15, breaking; binding column 75)
+                                             -> root.1 case 0 (2, 2, 2): dual feasibility fails at column 75 (short by 7744945800166042)
+   [reject] Z lowered (breaking)             REJECTED    0.0s  box [1] case 0: Z_0 244157343482590 -> 244157342995775 (decrease 486815, breaking; binding column 393)
+                                             -> root.1 case 0 (2, 2, 2): dual feasibility fails at column 393 (short by 339867730034576)
+   [reject] M raised (breaking)              REJECTED    0.0s  box [1] case 0: M 8983587053428 -> 8983587071540 (breaking; binding column 393)
+                                             -> root.1 case 0 (2, 2, 2): dual feasibility fails at column 393 (short by 9683613464397096)
+   [reject] negative dual M = -1             REJECTED    0.0s  box [1] case 0: M = -1 (P - M grows by 1)
+                                             -> root.1 case 0 (2, 2, 2): dual M = -1 is negative
+   [reject] Z too short                      REJECTED    0.0s  box [1] case 0: Z has 2 entries
+                                             -> root.1 case 0 (2, 2, 2): Z: expected length 3, got 2
+   [reject] Y as a float                     REJECTED    0.0s  box [1] case 0: Y given as the float 12908513174.0
+                                             -> root.1 case 0 (2, 2, 2): Y: expected an integer, got float 12908513174.0
+   [reject] G raised (breaking)              REJECTED    0.0s  column 75: G raised by 120754 (breaking eq:dualfeasible in the tightest case)
+                                             -> root.1 case 0 (2, 2, 2): dual feasibility fails at column 75 (short by 369322219862)
+   [reject] F raised (breaking)              REJECTED    0.0s  F raised by 1386585823589787037 (value reaches S in box [1] case 0)
+                                             -> terminal box root.1 has value 10000000000000000 >= S
+   [reject] final raised to S                REJECTED    0.0s  final raised by 17898761370690406: largest value becomes 10000000000000000
+                                             -> terminal box root.1 has value 10000000000000000 >= S
+   [reject] needed column feature zeroed     REJECTED    0.0s  column 0: feature v_0 4133177199852424 -> 0 (all its costs in row 0 become 0; needed in box [1] case 0)
+                                             -> root.1 case 0 (2, 2, 2): dual feasibility fails at column 0 (short by 219338504031496401654089540)
+   [reject] column diagonal 0                REJECTED    0.0s  column 0: diagonal D_0 -> 0
+                                             -> column 0: diagonal D_0 = 0 is not positive
+   [reject] family count -1                  REJECTED    0.0s  row 0 family term 0: count 2 -> -1
+                                             -> row 0 family term 0: count n = -1 is negative
+   [reject] family diagonal 0                REJECTED    0.0s  row 0 family term 0: diagonal -> 0
+                                             -> row 0 family term 0: diagonal D = 0 is not positive
+   [reject] correlation term 0               REJECTED    0.0s  row 0: correlation term d -> 0
+                                             -> row 0: correlation term d = 0 is not positive
+   [reject] column missing a feature         REJECTED    0.0s  column 0: 2 features
+                                             -> column 0: features: expected length 3, got 2
+   [accept] Y lowered (one short)            accepted    0.0s  box [1] case 0: Y 12908513174 -> 12908513160 (decrease 14, one short of breaking; binding column 75)
+                                             -> value -1
+   [accept] Z lowered (one short)            accepted    0.0s  box [1] case 0: Z_0 244157343482590 -> 244157342995776 (decrease 486814, one short of breaking; binding column 393)
+                                             -> value -1
+   [accept] M raised (one short)             accepted    0.0s  box [1] case 0: M 8983587053428 -> 8983587071539 (one short of breaking; binding column 393)
+                                             -> value -1
+   [accept] G raised (one short)             accepted    0.0s  column 75: G raised by 120753 (one short of breaking eq:dualfeasible in the tightest case)
+                                             -> value -1
+   [accept] F raised (one short)             accepted    0.0s  F raised by 1386585823589787036 (value S - 1 at most in box [1] case 0)
+                                             -> value 9999999999999999
+   [accept] final raised to S - 1            accepted    0.0s  final raised by 17898761370690405: largest value becomes 9999999999999999
+                                             -> value 9999999999999999
+   [accept] stored value forged              accepted    0.0s  box [0]: stored "value" -> 0 (the key is ignored)
+                                             -> value -1
+   [accept] explicit default dual            accepted    0.0s  box [1] case 0: explicit "V": 0 (the default)
+                                             -> value -1
+   [either] split mid + 1                    accepted    0.0s  parent of the largest box (row 0, [0,326311]): mid 163155 -> 163156
+                                             -> value -1
+   [either] split mid - 1                    accepted    0.0s  parent of the largest box (row 0, [0,326311]): mid 163155 -> 163154
+                                             -> value -1
+   [either] children swapped                 REJECTED    0.0s  parent [] of the largest box: children swapped
+                                             -> root.1 case 0 (2, 2, 2): exclusion not justified by any row
+   [either] subtree pruned                   REJECTED    0.0s  parent [] of the largest box replaced by its left child
+                                             -> root case 0 (2, 2, 2): exclusion not justified by any row
+   [either] family term removed              REJECTED    0.0s  row 0 family term 0: count 2 -> 0 (Z_0 > 0 in the largest case)
+                                             -> root.0 case 0 (2, 2, 2): exclusion not justified by any row
+   [either] correlation term + 1             accepted    0.0s  row 0: correlation term d raised by 1
+                                             -> value -1
+   [reject] order 1 -> 2, same cases         n/a (not applicable to this certificate)
+   [reject] exclusion via a negative cost    n/a (not applicable to this certificate)
+   [reject] P lowered (breaking)             n/a (not applicable to this certificate)
+   [reject] V lowered (breaking)             n/a (not applicable to this certificate)
+   [reject] U lowered (breaking)             n/a (not applicable to this certificate)
+   [accept] P lowered (one short)            n/a (not applicable to this certificate)
+   [either] tangent alternatives swapped     n/a (not applicable to this certificate)
+   [either] tangent row -> first order       n/a (not applicable to this certificate)
+== 1416_2: accepted, value -1, 3 terminal boxes, 1 dual and 2 excluded cases (0.0 s)
+   survey: 1 dual cases; largest value in box ([1, 0], 0); the certificate's own exclusions are justified by rows [0]
+   rounding audit on 4 boxes, all rows, all 3 relaxations: 14184 costs <= S*coefficient, 36 budgets >= S*right side: all hold; largest gaps 0.999274 and 0.798103 of their allowances (each < 1 exactly)
+   [reject] split mid = a                    REJECTED    0.0s  root split (row 0, [0,326311]): mid 163155 -> 0 = a
+                                             -> root: split at 0 not strictly inside [0, 326311] of row 0
+   [reject] split mid = b                    REJECTED    0.0s  root split (row 0, [0,326311]): mid 163155 -> 326311 = b
+                                             -> root: split at 326311 not strictly inside [0, 326311] of row 0
+   [reject] split mid > b                    REJECTED    0.0s  root split (row 0, [0,326311]): mid 163155 -> 326312 > b
+                                             -> root: split at 326312 not strictly inside [0, 326311] of row 0
+   [reject] split mid not an integer         REJECTED    0.0s  root split: mid 163155 -> 163155.5 (not an integer)
+                                             -> root: mid: expected an integer, got float 163155.5
+   [reject] split row = K                    REJECTED    0.0s  root split: row 0 -> 3 (no such row)
+                                             -> root: split row 3 out of range 0..2
+   [reject] split row = -1                   REJECTED    0.0s  root split: row 0 -> -1
+                                             -> root: split row -1 out of range 0..2
+   [reject] split with one child             REJECTED    0.0s  root split: right child removed
+                                             -> root: children: expected length 2, got 1
+   [reject] order 2 -> 1, same cases         REJECTED    0.0s  box [0]: order of row 0 2 -> 1, cases left as they are (1)
+                                             -> root.0: 1 cases, expected 2
+   [reject] order 3                          REJECTED    0.0s  box [0]: order of row 0 -> 3
+                                             -> root.0: order o_0 = 3 is not 1 or 2
+   [reject] orders too short                 REJECTED    0.0s  box [0]: last order removed
+                                             -> root.0: orders: expected length 3, got 2
+   [reject] relaxation case dropped          REJECTED    0.0s  box [1, 0]: last relaxation case removed
+                                             -> root.1.0: 0 cases, expected 1
+   [reject] relaxation case duplicated       REJECTED    0.0s  box [1, 0]: first relaxation case duplicated
+                                             -> root.1.0: 2 cases, expected 1
+   [reject] unjustified exclusion            REJECTED    0.0s  box [1, 0] case 0: duals replaced by "excluded" (no row has costs >= 0, budget < 0)
+                                             -> root.1.0 case 0 (2, 2, 2): exclusion not justified by any row
+   [reject] misspelled exclusion             REJECTED    0.0s  box [1, 0] case 0: record -> "exclude"
+                                             -> root.1.0 case 0 (2, 2, 2): unknown case record 'exclude'
+   [reject] Y lowered (breaking)             REJECTED    0.0s  box [1, 0] case 0: Y 5542912765 -> 5542912757 (decrease 8, breaking; binding column 171)
+                                             -> root.1.0 case 0 (2, 2, 2): dual feasibility fails at column 171 (short by 2324710401201703)
+   [reject] Z lowered (breaking)             REJECTED    0.0s  box [1, 0] case 0: Z_0 14502907016499 -> 14502906988754 (decrease 27745, breaking; binding column 393)
+                                             -> root.1.0 case 0 (2, 2, 2): dual feasibility fails at column 393 (short by 619381169024338)
+   [reject] M raised (breaking)              REJECTED    0.0s  box [1, 0] case 0: M 1008503103583 -> 1008503105746 (breaking; binding column 393)
+                                             -> root.1.0 case 0 (2, 2, 2): dual feasibility fails at column 393 (short by 5278896077709553)
+   [reject] negative dual M = -1             REJECTED    0.0s  box [1, 0] case 0: M = -1 (P - M grows by 1)
+                                             -> root.1.0 case 0 (2, 2, 2): dual M = -1 is negative
+   [reject] Z too short                      REJECTED    0.0s  box [1, 0] case 0: Z has 2 entries
+                                             -> root.1.0 case 0 (2, 2, 2): Z: expected length 3, got 2
+   [reject] Y as a float                     REJECTED    0.0s  box [1, 0] case 0: Y given as the float 5542912765.0
+                                             -> root.1.0 case 0 (2, 2, 2): Y: expected an integer, got float 5542912765.0
+   [reject] G raised (breaking)              REJECTED    0.0s  column 171: G raised by 25505 (breaking eq:dualfeasible in the tightest case)
+                                             -> root.1.0 case 0 (2, 2, 2): dual feasibility fails at column 171 (short by 720051059599)
+   [reject] F raised (breaking)              REJECTED    0.0s  F raised by 3229125632575984322 (value reaches S in box [1, 0] case 0)
+                                             -> terminal box root.1.0 has value 10000000000000000 >= S
+   [reject] final raised to S                REJECTED    0.0s  final raised by 17898761688594124: largest value becomes 10000000000000000
+                                             -> terminal box root.1.0 has value 10000000000000000 >= S
+   [reject] needed column feature zeroed     REJECTED    0.0s  column 0: feature v_0 4133177199852424 -> 0 (all its costs in row 0 become 0; needed in box [1, 0] case 0)
+                                             -> root.1.0 case 0 (2, 2, 2): dual feasibility fails at column 0 (short by 344636600019389429098523150)
+   [reject] column diagonal 0                REJECTED    0.0s  column 0: diagonal D_0 -> 0
+                                             -> column 0: diagonal D_0 = 0 is not positive
+   [reject] family count -1                  REJECTED    0.0s  row 0 family term 0: count 2 -> -1
+                                             -> row 0 family term 0: count n = -1 is negative
+   [reject] family diagonal 0                REJECTED    0.0s  row 0 family term 0: diagonal -> 0
+                                             -> row 0 family term 0: diagonal D = 0 is not positive
+   [reject] correlation term 0               REJECTED    0.0s  row 0: correlation term d -> 0
+                                             -> row 0: correlation term d = 0 is not positive
+   [reject] column missing a feature         REJECTED    0.0s  column 0: 2 features
+                                             -> column 0: features: expected length 3, got 2
+   [accept] Y lowered (one short)            accepted    0.0s  box [1, 0] case 0: Y 5542912765 -> 5542912758 (decrease 7, one short of breaking; binding column 171)
+                                             -> value -1
+   [accept] Z lowered (one short)            accepted    0.0s  box [1, 0] case 0: Z_0 14502907016499 -> 14502906988755 (decrease 27744, one short of breaking; binding column 393)
+                                             -> value -1
+   [accept] M raised (one short)             accepted    0.0s  box [1, 0] case 0: M 1008503103583 -> 1008503105745 (one short of breaking; binding column 393)
+                                             -> value -1
+   [accept] G raised (one short)             accepted    0.0s  column 171: G raised by 25504 (one short of breaking eq:dualfeasible in the tightest case)
+                                             -> value -1
+   [accept] F raised (one short)             accepted    0.0s  F raised by 3229125632575984321 (value S - 1 at most in box [1, 0] case 0)
+                                             -> value 9999999999999999
+   [accept] final raised to S - 1            accepted    0.0s  final raised by 17898761688594123: largest value becomes 9999999999999999
+                                             -> value 9999999999999999
+   [accept] stored value forged              accepted    0.0s  box [0]: stored "value" -> 0 (the key is ignored)
+                                             -> value -1
+   [accept] explicit default dual            accepted    0.0s  box [1, 0] case 0: explicit "V": 0 (the default)
+                                             -> value -1
+   [either] split mid + 1                    REJECTED    0.0s  parent of the largest box (row 0, [163155,326311]): mid 244733 -> 244734
+                                             -> root.1.0 case 0 (2, 2, 2): dual feasibility fails at column 171 (short by 125382873040559892479)
+   [either] split mid - 1                    accepted    0.0s  parent of the largest box (row 0, [163155,326311]): mid 244733 -> 244732
+                                             -> value -1
+   [either] children swapped                 REJECTED    0.0s  parent [1] of the largest box: children swapped
+                                             -> root.1.0 case 0 (2, 2, 2): exclusion not justified by any row
+   [either] subtree pruned                   REJECTED    0.0s  parent [1] of the largest box replaced by its left child
+                                             -> root.1 case 0 (2, 2, 2): dual feasibility fails at column 50 (short by 473361218673926631115202)
+   [either] family term removed              REJECTED    0.0s  row 0 family term 0: count 2 -> 0 (Z_0 > 0 in the largest case)
+                                             -> root.0 case 0 (2, 2, 2): exclusion not justified by any row
+   [either] correlation term + 1             accepted    0.0s  row 0: correlation term d raised by 1
+                                             -> value -1
+   [reject] order 1 -> 2, same cases         n/a (not applicable to this certificate)
+   [reject] exclusion via a negative cost    n/a (not applicable to this certificate)
+   [reject] P lowered (breaking)             n/a (not applicable to this certificate)
+   [reject] V lowered (breaking)             n/a (not applicable to this certificate)
+   [reject] U lowered (breaking)             n/a (not applicable to this certificate)
+   [accept] P lowered (one short)            n/a (not applicable to this certificate)
+   [either] tangent alternatives swapped     n/a (not applicable to this certificate)
+   [either] tangent row -> first order       n/a (not applicable to this certificate)
+== 1416_3: accepted, value 9929185907863582, 29 terminal boxes, 36 dual and 0 excluded cases (0.0 s)
+   survey: 36 dual cases; largest value in box ([1, 0, 0, 1], 0)
+   rounding audit on 30 boxes, all rows, all 3 relaxations: 106380 costs <= S*coefficient, 270 budgets >= S*right side: all hold; largest gaps 0.999274 and 0.992578 of their allowances (each < 1 exactly)
+   [reject] split mid = a                    REJECTED    0.0s  root split (row 0, [0,326311]): mid 163155 -> 0 = a
+                                             -> root: split at 0 not strictly inside [0, 326311] of row 0
+   [reject] split mid = b                    REJECTED    0.0s  root split (row 0, [0,326311]): mid 163155 -> 326311 = b
+                                             -> root: split at 326311 not strictly inside [0, 326311] of row 0
+   [reject] split mid > b                    REJECTED    0.0s  root split (row 0, [0,326311]): mid 163155 -> 326312 > b
+                                             -> root: split at 326312 not strictly inside [0, 326311] of row 0
+   [reject] split mid not an integer         REJECTED    0.0s  root split: mid 163155 -> 163155.5 (not an integer)
+                                             -> root: mid: expected an integer, got float 163155.5
+   [reject] split row = K                    REJECTED    0.0s  root split: row 0 -> 3 (no such row)
+                                             -> root: split row 3 out of range 0..2
+   [reject] split row = -1                   REJECTED    0.0s  root split: row 0 -> -1
+                                             -> root: split row -1 out of range 0..2
+   [reject] split with one child             REJECTED    0.0s  root split: right child removed
+                                             -> root: children: expected length 2, got 1
+   [reject] order 2 -> 1, same cases         REJECTED    0.0s  box [0]: order of row 0 2 -> 1, cases left as they are (1)
+                                             -> root.0: 1 cases, expected 2
+   [reject] order 1 -> 2, same cases         REJECTED    0.0s  box [1, 0, 1, 0, 1, 0]: order of row 0 1 -> 2, cases left as they are (4)
+                                             -> root.1.0.1.0.1.0: 4 cases, expected 2
+   [reject] order 3                          REJECTED    0.0s  box [0]: order of row 0 -> 3
+                                             -> root.0: order o_0 = 3 is not 1 or 2
+   [reject] orders too short                 REJECTED    0.0s  box [0]: last order removed
+                                             -> root.0: orders: expected length 3, got 2
+   [reject] relaxation case dropped          REJECTED    0.0s  box [1, 0, 0, 1]: last relaxation case removed
+                                             -> root.1.0.0.1: 0 cases, expected 1
+   [reject] relaxation case duplicated       REJECTED    0.0s  box [1, 0, 0, 1]: first relaxation case duplicated
+                                             -> root.1.0.0.1: 2 cases, expected 1
+   [reject] unjustified exclusion            REJECTED    0.0s  box [0] case 0: duals replaced by "excluded" (no row has costs >= 0, budget < 0)
+                                             -> root.0 case 0 (2, 2, 2): exclusion not justified by any row
+   [reject] exclusion via a negative cost    REJECTED    0.0s  box [1, 1, 1, 0] case 1: "excluded"; row 0 (tangent 1) has budget < 0 but a negative cost, no other row qualifies
+                                             -> root.1.1.1.0 case 1 (1, 2, 2): exclusion not justified by any row
+   [reject] misspelled exclusion             REJECTED    0.0s  box [1, 0, 0, 1] case 0: record -> "exclude"
+                                             -> root.1.0.0.1 case 0 (2, 2, 2): unknown case record 'exclude'
+   [reject] Y lowered (breaking)             REJECTED    0.0s  box [1, 0, 0, 0] case 0: Y 895615449 -> 895615446 (decrease 3, breaking; binding column 390)
+                                             -> root.1.0.0.0 case 0 (2, 2, 2): dual feasibility fails at column 390 (short by 9293000000000000)
+   [reject] Z lowered (breaking)             REJECTED    0.0s  box [1, 0, 1, 0, 1, 0] case 0: Z_2 93257365599 -> 93257365447 (decrease 152, breaking; binding column 202)
+                                             -> root.1.0.1.0.1.0 case 0 (0, 2, 0): dual feasibility fails at column 202 (short by 5603140140995)
+   [reject] P lowered (breaking)             REJECTED    0.0s  box [1, 0, 0, 1] case 0: P 57052202922 -> 57052202776 (decrease 146, breaking; binding column 391)
+                                             -> root.1.0.0.1 case 0 (2, 2, 2): dual feasibility fails at column 391 (short by 991450963637128)
+   [reject] M raised (breaking)              REJECTED    0.0s  box [1, 0, 0, 1] case 0: M 0 -> 146 (breaking; binding column 391)
+                                             -> root.1.0.0.1 case 0 (2, 2, 2): dual feasibility fails at column 391 (short by 991450963637128)
+   [reject] negative dual M = -1             REJECTED    0.0s  box [1, 0, 0, 1] case 0: M = -1 (P - M grows by 1)
+                                             -> root.1.0.0.1 case 0 (2, 2, 2): dual M = -1 is negative
+   [reject] Z too short                      REJECTED    0.0s  box [1, 0, 0, 1] case 0: Z has 2 entries
+                                             -> root.1.0.0.1 case 0 (2, 2, 2): Z: expected length 3, got 2
+   [reject] Y as a float                     REJECTED    0.0s  box [1, 0, 0, 1] case 0: Y given as the float 1712576156.0
+                                             -> root.1.0.0.1 case 0 (2, 2, 2): Y: expected an integer, got float 1712576156.0
+   [reject] G raised (breaking)              REJECTED    0.0s  column 308: G raised by 2559 (breaking eq:dualfeasible in the tightest case)
+                                             -> root.1.0.0.1 case 0 (2, 2, 2): dual feasibility fails at column 308 (short by 847758650108)
+   [reject] F raised (breaking)              REJECTED    0.0s  F raised by 41349455840734757 (value reaches S in box [1, 0, 0, 1] case 0)
+                                             -> terminal box root.1.0.0.1 has value 10000000000000000 >= S
+   [reject] final raised to S                REJECTED    0.0s  final raised by 70814092136418: largest value becomes 10000000000000000
+                                             -> terminal box root.1.0.0.1 has value 10000000000000000 >= S
+   [reject] needed column feature zeroed     REJECTED    0.0s  column 0: feature v_0 4133177199852424 -> 0 (all its costs in row 0 become 0; needed in box [0] case 0)
+                                             -> root.0 case 0 (2, 2, 2): dual feasibility fails at column 0 (short by 409597055225849264879000960)
+   [reject] column diagonal 0                REJECTED    0.0s  column 0: diagonal D_0 -> 0
+                                             -> column 0: diagonal D_0 = 0 is not positive
+   [reject] family count -1                  REJECTED    0.0s  row 0 family term 0: count 2 -> -1
+                                             -> row 0 family term 0: count n = -1 is negative
+   [reject] family diagonal 0                REJECTED    0.0s  row 0 family term 0: diagonal -> 0
+                                             -> row 0 family term 0: diagonal D = 0 is not positive
+   [reject] correlation term 0               REJECTED    0.0s  row 0: correlation term d -> 0
+                                             -> row 0: correlation term d = 0 is not positive
+   [reject] column missing a feature         REJECTED    0.0s  column 0: 2 features
+                                             -> column 0: features: expected length 3, got 2
+   [accept] Y lowered (one short)            accepted    0.0s  box [1, 0, 0, 0] case 0: Y 895615449 -> 895615447 (decrease 2, one short of breaking; binding column 390)
+                                             -> value 9929185907863582
+   [accept] Z lowered (one short)            accepted    0.0s  box [1, 0, 1, 0, 1, 0] case 0: Z_2 93257365599 -> 93257365448 (decrease 151, one short of breaking; binding column 202)
+                                             -> value 9929185907863582
+   [accept] P lowered (one short)            accepted    0.0s  box [1, 0, 0, 1] case 0: P 57052202922 -> 57052202777 (decrease 145, one short of breaking; binding column 391)
+                                             -> value 9929185907863582
+   [accept] M raised (one short)             accepted    0.0s  box [1, 0, 0, 1] case 0: M 0 -> 145 (one short of breaking; binding column 391)
+                                             -> value 9929185907863582
+   [accept] G raised (one short)             accepted    0.0s  column 308: G raised by 2558 (one short of breaking eq:dualfeasible in the tightest case)
+                                             -> value 9929185907863582
+   [accept] F raised (one short)             accepted    0.0s  F raised by 41349455840734756 (value S - 1 at most in box [1, 0, 0, 1] case 0)
+                                             -> value 9999999999999999
+   [accept] final raised to S - 1            accepted    0.0s  final raised by 70814092136417: largest value becomes 9999999999999999
+                                             -> value 9999999999999999
+   [accept] stored value forged              accepted    0.0s  box [0]: stored "value" -> 0 (the key is ignored)
+                                             -> value 9929185907863582
+   [accept] explicit default dual            accepted    0.0s  box [1, 0, 0, 1] case 0: explicit "V": 0 (the default)
+                                             -> value 9929185907863582
+   [either] split mid + 1                    REJECTED    0.0s  parent of the largest box (row 1, [0,163683]): mid 81841 -> 81842
+                                             -> root.1.0.0.0 case 0 (2, 2, 2): dual feasibility fails at column 0 (short by 2545427228367001395822)
+   [either] split mid - 1                    accepted    0.0s  parent of the largest box (row 1, [0,163683]): mid 81841 -> 81840
+                                             -> value 9929194777704042
+   [either] children swapped                 REJECTED    0.0s  parent [1, 0, 0] of the largest box: children swapped
+                                             -> root.1.0.0.1 case 0 (2, 2, 2): dual feasibility fails at column 0 (short by 182744316288710897810504683)
+   [either] subtree pruned                   REJECTED    0.0s  parent [1, 0, 0] of the largest box replaced by its left child
+                                             -> root.1.0.0 case 0 (2, 2, 2): dual feasibility fails at column 0 (short by 182744316288710897810504683)
+   [either] family term removed              REJECTED    0.0s  row 1 family term 0: count 2 -> 0 (Z_1 > 0 in the largest case)
+                                             -> terminal box root.1.0.0.1 has value 11580374055870245 >= S
+   [either] correlation term + 1             accepted    0.0s  row 0: correlation term d raised by 1
+                                             -> value 9929185907863582
+   [reject] V lowered (breaking)             n/a (not applicable to this certificate)
+   [reject] U lowered (breaking)             n/a (not applicable to this certificate)
+   [either] tangent alternatives swapped     n/a (not applicable to this certificate)
+   [either] tangent row -> first order       n/a (not applicable to this certificate)
+== 1416_4: accepted, value 9999998132810008, 1108 terminal boxes, 4585 dual and 0 excluded cases (0.5 s)
+   survey: 4585 dual cases; largest value in box ([1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0], 1)
+   rounding audit on 31 boxes, all rows, all 3 relaxations: 109926 costs <= S*coefficient, 279 budgets >= S*right side: all hold; largest gaps 0.999925 and 0.997326 of their allowances (each < 1 exactly)
+   [reject] split mid = a                    REJECTED    0.0s  root split (row 1, [0,327366]): mid 163683 -> 0 = a
+                                             -> root: split at 0 not strictly inside [0, 327366] of row 1
+   [reject] split mid = b                    REJECTED    0.0s  root split (row 1, [0,327366]): mid 163683 -> 327366 = b
+                                             -> root: split at 327366 not strictly inside [0, 327366] of row 1
+   [reject] split mid > b                    REJECTED    0.0s  root split (row 1, [0,327366]): mid 163683 -> 327367 > b
+                                             -> root: split at 327367 not strictly inside [0, 327366] of row 1
+   [reject] split mid not an integer         REJECTED    0.0s  root split: mid 163683 -> 163683.5 (not an integer)
+                                             -> root: mid: expected an integer, got float 163683.5
+   [reject] split row = K                    REJECTED    0.0s  root split: row 1 -> 3 (no such row)
+                                             -> root: split row 3 out of range 0..2
+   [reject] split row = -1                   REJECTED    0.0s  root split: row 1 -> -1
+                                             -> root: split row -1 out of range 0..2
+   [reject] split with one child             REJECTED    0.0s  root split: right child removed
+                                             -> root: children: expected length 2, got 1
+   [reject] order 2 -> 1, same cases         REJECTED    0.0s  box [0, 0]: order of row 0 2 -> 1, cases left as they are (1)
+                                             -> root.0.0: 1 cases, expected 2
+   [reject] order 1 -> 2, same cases         REJECTED    0.0s  box [1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0]: order of row 0 1 -> 2, cases left as they are (8)
+                                             -> root.1.0.1.0.0.0.1.1.0.1.1.0.0: 8 cases, expected 4
+   [reject] order 3                          REJECTED    0.0s  box [0, 0]: order of row 0 -> 3
+                                             -> root.0.0: order o_0 = 3 is not 1 or 2
+   [reject] orders too short                 REJECTED    0.0s  box [0, 0]: last order removed
+                                             -> root.0.0: orders: expected length 3, got 2
+   [reject] relaxation case dropped          REJECTED    0.0s  box [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0]: last relaxation case removed
+                                             -> root.1.0.1.0.1.1.0.0.1.1.1.0.0.1.0: 3 cases, expected 4
+   [reject] relaxation case duplicated       REJECTED    0.0s  box [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0]: first relaxation case duplicated
+                                             -> root.1.0.1.0.1.1.0.0.1.1.1.0.0.1.0: 5 cases, expected 4
+   [reject] unjustified exclusion            REJECTED    0.0s  box [0, 0] case 0: duals replaced by "excluded" (no row has costs >= 0, budget < 0)
+                                             -> root.0.0 case 0 (2, 2, 2): exclusion not justified by any row
+   [reject] exclusion via a negative cost    REJECTED    0.0s  box [1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1] case 1: "excluded"; row 2 (tangent 1) has budget < 0 but a negative cost, no other row qualifies
+                                             -> root.1.0.1.0.0.0.1.1.1.1.1.1.1 case 1 (0, 2, 1): exclusion not justified by any row
+   [reject] misspelled exclusion             REJECTED    0.0s  box [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0] case 1: record -> "exclude"
+                                             -> root.1.0.1.0.1.1.0.0.1.1.1.0.0.1.0 case 1 (0, 1, 2): unknown case record 'exclude'
+   [reject] Y lowered (breaking)             REJECTED    0.0s  box [1, 0, 1, 0, 0, 0, 1, 1, 1, 0] case 3: Y 1649130628 -> 1649130626 (decrease 2, breaking; binding column 389)
+                                             -> root.1.0.1.0.0.0.1.1.1.0 case 3 (1, 2, 1): dual feasibility fails at column 389 (short by 11231267502104)
+   [reject] Z lowered (breaking)             REJECTED    0.1s  box [1, 0, 1, 1, 1, 0, 0, 0] case 0: Z_2 74037232382 -> 74037232251 (decrease 131, breaking; binding column 218)
+                                             -> root.1.0.1.1.1.0.0.0 case 0 (2, 0, 0): dual feasibility fails at column 218 (short by 62767274692438)
+   [reject] P lowered (breaking)             REJECTED    0.5s  box [1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1] case 1: P 6204115595 -> 6204115450 (decrease 145, breaking; binding column 392)
+                                             -> root.1.1.1.1.0.1.1.1.1.0.1 case 1 (0, 0, 1): dual feasibility fails at column 392 (short by 544812002016217)
+   [reject] M raised (breaking)              REJECTED    0.5s  box [1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1] case 1: M 0 -> 145 (breaking; binding column 392)
+                                             -> root.1.1.1.1.0.1.1.1.1.0.1 case 1 (0, 0, 1): dual feasibility fails at column 392 (short by 544812002016217)
+   [reject] negative dual M = -1             REJECTED    0.0s  box [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0] case 1: M = -1 (P - M grows by 1)
+                                             -> root.1.0.1.0.1.1.0.0.1.1.1.0.0.1.0 case 1 (0, 1, 2): dual M = -1 is negative
+   [reject] Z too short                      REJECTED    0.0s  box [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0] case 1: Z has 2 entries
+                                             -> root.1.0.1.0.1.1.0.0.1.1.1.0.0.1.0 case 1 (0, 1, 2): Z: expected length 3, got 2
+   [reject] Y as a float                     REJECTED    0.0s  box [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0] case 1: Y given as the float 1695810750.0
+                                             -> root.1.0.1.0.1.1.0.0.1.1.1.0.0.1.0 case 1 (0, 1, 2): Y: expected an integer, got float 1695810750.0
+   [reject] G raised (breaking)              REJECTED    0.0s  column 389: G raised by 792 (breaking eq:dualfeasible in the tightest case)
+                                             -> root.1.0.1.0.1.1.0.1.1.0 case 3 (0, 1, 1): dual feasibility fails at column 389 (short by 123918639362)
+   [reject] F raised (breaking)              REJECTED    0.5s  F raised by 1101060358282 (value reaches S in box [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0] case 1)
+                                             -> terminal box root.1.0.1.0.1.1.0.0.1.1.1.0.0.1.0 has value 10000000000000000 >= S
+   [reject] final raised to S                REJECTED    0.5s  final raised by 1867189992: largest value becomes 10000000000000000
+                                             -> terminal box root.1.0.1.0.1.1.0.0.1.1.1.0.0.1.0 has value 10000000000000000 >= S
+   [reject] needed column feature zeroed     REJECTED    0.0s  column 0: feature v_0 4133177199852424 -> 0 (all its costs in row 0 become 0; needed in box [0, 0] case 0)
+                                             -> root.0.0 case 0 (2, 2, 2): dual feasibility fails at column 0 (short by 409597055225849264879000960)
+   [reject] column diagonal 0                REJECTED    0.0s  column 0: diagonal D_0 -> 0
+                                             -> column 0: diagonal D_0 = 0 is not positive
+   [reject] family count -1                  REJECTED    0.0s  row 0 family term 0: count 2 -> -1
+                                             -> row 0 family term 0: count n = -1 is negative
+   [reject] family diagonal 0                REJECTED    0.0s  row 0 family term 0: diagonal -> 0
+                                             -> row 0 family term 0: diagonal D = 0 is not positive
+   [reject] correlation term 0               REJECTED    0.0s  row 0: correlation term d -> 0
+                                             -> row 0: correlation term d = 0 is not positive
+   [reject] column missing a feature         REJECTED    0.0s  column 0: 2 features
+                                             -> column 0: features: expected length 3, got 2
+   [accept] Y lowered (one short)            accepted    0.5s  box [1, 0, 1, 0, 0, 0, 1, 1, 1, 0] case 3: Y 1649130628 -> 1649130627 (decrease 1, one short of breaking; binding column 389)
+                                             -> value 9999998132810008
+   [accept] Z lowered (one short)            accepted    0.5s  box [1, 0, 1, 1, 1, 0, 0, 0] case 0: Z_2 74037232382 -> 74037232252 (decrease 130, one short of breaking; binding column 218)
+                                             -> value 9999998132810008
+   [accept] P lowered (one short)            accepted    0.5s  box [1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1] case 1: P 6204115595 -> 6204115451 (decrease 144, one short of breaking; binding column 392)
+                                             -> value 9999998132810008
+   [accept] M raised (one short)             accepted    0.5s  box [1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1] case 1: M 0 -> 144 (one short of breaking; binding column 392)
+                                             -> value 9999998132810008
+   [accept] G raised (one short)             accepted    0.5s  column 389: G raised by 791 (one short of breaking eq:dualfeasible in the tightest case)
+                                             -> value 9999998132810008
+   [accept] F raised (one short)             accepted    0.5s  F raised by 1101060358281 (value S - 1 at most in box [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0] case 1)
+                                             -> value 9999999999999999
+   [accept] final raised to S - 1            accepted    0.5s  final raised by 1867189991: largest value becomes 9999999999999999
+                                             -> value 9999999999999999
+   [accept] stored value forged              accepted    0.5s  box [0, 0]: stored "value" -> 0 (the key is ignored)
+                                             -> value 9999998132810008
+   [accept] explicit default dual            accepted    0.5s  box [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0] case 1: explicit "V": 0 (the default)
+                                             -> value 9999998132810008
+   [either] split mid + 1                    REJECTED    0.0s  parent of the largest box (row 0, [224338,234535]): mid 229436 -> 229437
+                                             -> root.1.0.1.0.1.1.0.0.1.1.1.0.0.1.0 case 0 (0, 0, 2): dual feasibility fails at column 0 (short by 6897940961547779716)
+   [either] split mid - 1                    REJECTED    0.0s  parent of the largest box (row 0, [224338,234535]): mid 229436 -> 229435
+                                             -> root.1.0.1.0.1.1.0.0.1.1.1.0.0.1.1 case 2 (1, 0, 2): dual feasibility fails at column 0 (short by 7764289430973890722)
+   [either] children swapped                 REJECTED    0.0s  parent [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1] of the largest box: children swapped
+                                             -> root.1.0.1.0.1.1.0.0.1.1.1.0.0.1.1 case 0 (0, 0, 2): dual feasibility fails at column 0 (short by 5492189884012547719502071)
+   [either] subtree pruned                   REJECTED    0.0s  parent [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1] of the largest box replaced by its left child
+                                             -> root.1.0.1.0.1.1.0.0.1.1.1.0.0.1 case 0 (0, 0, 2): dual feasibility fails at column 0 (short by 56333740803431429828062)
+   [either] tangent alternatives swapped     REJECTED    0.0s  largest box [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0]: tangent alternatives of row 0 swapped
+                                             -> root.1.0.1.0.1.1.0.0.1.1.1.0.0.1.0 case 2 (1, 0, 2): dual feasibility fails at column 0 (short by 5492182518378747328298734)
+   [either] tangent row -> first order       REJECTED    0.0s  largest box [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0]: row 0 first order, keeping the tangent-0 duals
+                                             -> root.1.0.1.0.1.1.0.0.1.1.1.0.0.1.0 case 0 (2, 0, 2): dual feasibility fails at column 0 (short by 5473409359061480571200038)
+   [either] family term removed              REJECTED    0.5s  row 0 family term 0: count 2 -> 0 (Z_0 > 0 in the largest case)
+                                             -> terminal box root.1.1.1.1.1.0.1.0.1.0.0.1.0.0.0 has value 4582264301573055986 >= S
+   [either] correlation term + 1             accepted    0.5s  row 0: correlation term d raised by 1
+                                             -> value 9999998132810011
+   [reject] V lowered (breaking)             n/a (not applicable to this certificate)
+   [reject] U lowered (breaking)             n/a (not applicable to this certificate)
+== 1671_1: accepted, value 9999997145405504, 441 terminal boxes, 2527 dual and 0 excluded cases (0.6 s)
+   survey: 2527 dual cases; largest value in box ([1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0], 1)
+   rounding audit on 31 boxes, all rows, all 3 relaxations: 301320 costs <= S*coefficient, 372 budgets >= S*right side: all hold; largest gaps 0.999993 and 0.996037 of their allowances (each < 1 exactly)
+   [reject] split mid = a                    REJECTED    0.0s  root split (row 0, [0,326376]): mid 163188 -> 0 = a
+                                             -> root: split at 0 not strictly inside [0, 326376] of row 0
+   [reject] split mid = b                    REJECTED    0.0s  root split (row 0, [0,326376]): mid 163188 -> 326376 = b
+                                             -> root: split at 326376 not strictly inside [0, 326376] of row 0
+   [reject] split mid > b                    REJECTED    0.0s  root split (row 0, [0,326376]): mid 163188 -> 326377 > b
+                                             -> root: split at 326377 not strictly inside [0, 326376] of row 0
+   [reject] split mid not an integer         REJECTED    0.0s  root split: mid 163188 -> 163188.5 (not an integer)
+                                             -> root: mid: expected an integer, got float 163188.5
+   [reject] split row = K                    REJECTED    0.0s  root split: row 0 -> 4 (no such row)
+                                             -> root: split row 4 out of range 0..3
+   [reject] split row = -1                   REJECTED    0.0s  root split: row 0 -> -1
+                                             -> root: split row -1 out of range 0..3
+   [reject] split with one child             REJECTED    0.0s  root split: right child removed
+                                             -> root: children: expected length 2, got 1
+   [reject] order 2 -> 1, same cases         REJECTED    0.0s  box [0]: order of row 0 2 -> 1, cases left as they are (1)
+                                             -> root.0: 1 cases, expected 2
+   [reject] order 1 -> 2, same cases         REJECTED    0.0s  box [1, 0, 0, 1, 0, 0, 1]: order of row 0 1 -> 2, cases left as they are (4)
+                                             -> root.1.0.0.1.0.0.1: 4 cases, expected 2
+   [reject] order 3                          REJECTED    0.0s  box [0]: order of row 0 -> 3
+                                             -> root.0: order o_0 = 3 is not 1 or 2
+   [reject] orders too short                 REJECTED    0.0s  box [0]: last order removed
+                                             -> root.0: orders: expected length 4, got 3
+   [reject] relaxation case dropped          REJECTED    0.4s  box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0]: last relaxation case removed
+                                             -> root.1.1.0.1.1.1.1.0.1.1.1.1.1.0.0: 3 cases, expected 4
+   [reject] relaxation case duplicated       REJECTED    0.4s  box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0]: first relaxation case duplicated
+                                             -> root.1.1.0.1.1.1.1.0.1.1.1.1.1.0.0: 5 cases, expected 4
+   [reject] unjustified exclusion            REJECTED    0.0s  box [0] case 0: duals replaced by "excluded" (no row has costs >= 0, budget < 0)
+                                             -> root.0 case 0 (2, 2, 2, 2): exclusion not justified by any row
+   [reject] exclusion via a negative cost    REJECTED    0.0s  box [1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1] case 1: "excluded"; row 2 (tangent 1) has budget < 0 but a negative cost, no other row qualifies
+                                             -> root.1.0.1.0.1.1.1.1.1.0.1.1.1 case 1 (0, 2, 1, 2): exclusion not justified by any row
+   [reject] misspelled exclusion             REJECTED    0.4s  box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0] case 1: record -> "exclude"
+                                             -> root.1.1.0.1.1.1.1.0.1.1.1.1.1.0.0 case 1 (0, 1, 2, 2): unknown case record 'exclude'
+   [reject] Y lowered (breaking)             REJECTED    0.0s  box [1, 0, 1, 0, 1, 0, 1, 1, 0] case 1: Y 928901612 -> 928901610 (decrease 2, breaking; binding column 799)
+                                             -> root.1.0.1.0.1.0.1.1.0 case 1 (0, 2, 1, 2): dual feasibility fails at column 799 (short by 197762616430795)
+   [reject] Z lowered (breaking)             REJECTED    0.5s  box [1, 1, 1, 1, 0, 0, 0, 0] case 4: Z_2 774760421 -> 774760365 (decrease 56, breaking; binding column 787)
+                                             -> root.1.1.1.1.0.0.0.0 case 4 (1, 0, 0, 2): dual feasibility fails at column 787 (short by 29026721967272)
+   [reject] P lowered (breaking)             REJECTED    0.1s  box [1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1] case 5: P 37984013125 -> 37984012987 (decrease 138, breaking; binding column 802)
+                                             -> root.1.0.1.1.1.1.0.0.1.1.1.0.1.1.1 case 5 (1, 0, 2, 1): dual feasibility fails at column 802 (short by 4074699361697093)
+   [reject] M raised (breaking)              REJECTED    0.1s  box [1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1] case 5: M 0 -> 138 (breaking; binding column 802)
+                                             -> root.1.0.1.1.1.1.0.0.1.1.1.0.1.1.1 case 5 (1, 0, 2, 1): dual feasibility fails at column 802 (short by 4074699361697093)
+   [reject] negative dual M = -1             REJECTED    0.4s  box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0] case 1: M = -1 (P - M grows by 1)
+                                             -> root.1.1.0.1.1.1.1.0.1.1.1.1.1.0.0 case 1 (0, 1, 2, 2): dual M = -1 is negative
+   [reject] Z too short                      REJECTED    0.4s  box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0] case 1: Z has 3 entries
+                                             -> root.1.1.0.1.1.1.1.0.1.1.1.1.1.0.0 case 1 (0, 1, 2, 2): Z: expected length 4, got 3
+   [reject] Y as a float                     REJECTED    0.4s  box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0] case 1: Y given as the float 1195336364.0
+                                             -> root.1.1.0.1.1.1.1.0.1.1.1.1.1.0.0 case 1 (0, 1, 2, 2): Y: expected an integer, got float 1195336364.0
+   [reject] G raised (breaking)              REJECTED    0.5s  column 799: G raised by 1023 (breaking eq:dualfeasible in the tightest case)
+                                             -> root.1.1.0.1.1.1.1.1.0.0.1.0.1 case 1 (0, 0, 1, 2): dual feasibility fails at column 799 (short by 839294661697)
+   [reject] F raised (breaking)              REJECTED    0.6s  F raised by 2388109808847 (value reaches S in box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0] case 1)
+                                             -> terminal box root.1.1.0.1.1.1.1.0.1.1.1.1.1.0.0 has value 10000000000000000 >= S
+   [reject] final raised to S                REJECTED    0.6s  final raised by 2854594496: largest value becomes 10000000000000000
+                                             -> terminal box root.1.1.0.1.1.1.1.0.1.1.1.1.1.0.0 has value 10000000000000000 >= S
+   [reject] needed column feature zeroed     REJECTED    0.0s  column 0: feature v_0 4291141593100962 -> 0 (all its costs in row 0 become 0; needed in box [0] case 0)
+                                             -> root.0 case 0 (2, 2, 2, 2): dual feasibility fails at column 0 (short by 500078547992703497968723214)
+   [reject] column diagonal 0                REJECTED    0.0s  column 0: diagonal D_0 -> 0
+                                             -> column 0: diagonal D_0 = 0 is not positive
+   [reject] family count -1                  REJECTED    0.0s  row 0 family term 0: count 2 -> -1
+                                             -> row 0 family term 0: count n = -1 is negative
+   [reject] family diagonal 0                REJECTED    0.0s  row 0 family term 0: diagonal -> 0
+                                             -> row 0 family term 0: diagonal D = 0 is not positive
+   [reject] correlation term 0               REJECTED    0.0s  row 0: correlation term d -> 0
+                                             -> row 0: correlation term d = 0 is not positive
+   [reject] column missing a feature         REJECTED    0.0s  column 0: 3 features
+                                             -> column 0: features: expected length 4, got 3
+   [accept] Y lowered (one short)            accepted    0.6s  box [1, 0, 1, 0, 1, 0, 1, 1, 0] case 1: Y 928901612 -> 928901611 (decrease 1, one short of breaking; binding column 799)
+                                             -> value 9999997145405504
+   [accept] Z lowered (one short)            accepted    0.6s  box [1, 1, 1, 1, 0, 0, 0, 0] case 4: Z_2 774760421 -> 774760366 (decrease 55, one short of breaking; binding column 787)
+                                             -> value 9999997145405504
+   [accept] P lowered (one short)            accepted    0.6s  box [1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1] case 5: P 37984013125 -> 37984012988 (decrease 137, one short of breaking; binding column 802)
+                                             -> value 9999997145405504
+   [accept] M raised (one short)             accepted    0.6s  box [1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1] case 5: M 0 -> 137 (one short of breaking; binding column 802)
+                                             -> value 9999997145405504
+   [accept] G raised (one short)             accepted    0.6s  column 799: G raised by 1022 (one short of breaking eq:dualfeasible in the tightest case)
+                                             -> value 9999997145405504
+   [accept] F raised (one short)             accepted    0.6s  F raised by 2388109808846 (value S - 1 at most in box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0] case 1)
+                                             -> value 9999999999999999
+   [accept] final raised to S - 1            accepted    0.6s  final raised by 2854594495: largest value becomes 9999999999999999
+                                             -> value 9999999999999999
+   [accept] stored value forged              accepted    0.6s  box [0]: stored "value" -> 0 (the key is ignored)
+                                             -> value 9999997145405504
+   [accept] explicit default dual            accepted    0.6s  box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0] case 1: explicit "V": 0 (the default)
+                                             -> value 9999997145405504
+   [either] split mid + 1                    REJECTED    0.4s  parent of the largest box (row 0, [275379,285579]): mid 280479 -> 280480
+                                             -> root.1.1.0.1.1.1.1.0.1.1.1.1.1.0.0 case 0 (0, 0, 2, 2): dual feasibility fails at column 0 (short by 40375011212388761815)
+   [either] split mid - 1                    REJECTED    0.4s  parent of the largest box (row 0, [275379,285579]): mid 280479 -> 280478
+                                             -> root.1.1.0.1.1.1.1.0.1.1.1.1.1.0.1 case 2 (1, 0, 2, 2): dual feasibility fails at column 232 (short by 47189705988272953839)
+   [either] children swapped                 REJECTED    0.4s  parent [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0] of the largest box: children swapped
+                                             -> root.1.1.0.1.1.1.1.0.1.1.1.1.1.0.1 case 0 (0, 0, 2, 2): dual feasibility fails at column 0 (short by 24750172321455626104935180)
+   [either] subtree pruned                   REJECTED    0.4s  parent [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0] of the largest box replaced by its left child
+                                             -> root.1.1.0.1.1.1.1.0.1.1.1.1.1.0 case 0 (0, 0, 2, 2): dual feasibility fails at column 0 (short by 313090397209785164424690)
+   [either] tangent alternatives swapped     REJECTED    0.4s  largest box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0]: tangent alternatives of row 0 swapped
+                                             -> root.1.1.0.1.1.1.1.0.1.1.1.1.1.0.0 case 2 (1, 0, 2, 2): dual feasibility fails at column 0 (short by 24750172321455626104935180)
+   [either] tangent row -> first order       REJECTED    0.4s  largest box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0]: row 0 first order, keeping the tangent-0 duals
+                                             -> root.1.1.0.1.1.1.1.0.1.1.1.1.1.0.0 case 0 (2, 0, 2, 2): dual feasibility fails at column 0 (short by 24645808670410057859280515)
+   [either] family term removed              REJECTED    0.6s  row 0 family term 0: count 2 -> 0 (Z_0 > 0 in the largest case)
+                                             -> terminal box root.1.1.1.1.0.1.1.0.0.1.0.1.0 has value 4766103512468047308 >= S
+   [either] correlation term + 1             accepted    0.6s  row 0: correlation term d raised by 1
+                                             -> value 9999997145405514
+   [reject] V lowered (breaking)             n/a (not applicable to this certificate)
+   [reject] U lowered (breaking)             n/a (not applicable to this certificate)
+== 2432_1: accepted, value 9999998223456687, 9105 terminal boxes, 90227 dual and 0 excluded cases (11.5 s)
+   survey: 90227 dual cases; largest value in box ([1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1], 1)
+   rounding audit on 31 boxes, all rows, all 3 relaxations: 156612 costs <= S*coefficient, 372 budgets >= S*right side: all hold; largest gaps 0.999933 and 0.998497 of their allowances (each < 1 exactly)
+   [reject] split mid = a                    REJECTED    0.0s  root split (row 0, [0,326863]): mid 163431 -> 0 = a
+                                             -> root: split at 0 not strictly inside [0, 326863] of row 0
+   [reject] split mid = b                    REJECTED    0.0s  root split (row 0, [0,326863]): mid 163431 -> 326863 = b
+                                             -> root: split at 326863 not strictly inside [0, 326863] of row 0
+   [reject] split mid > b                    REJECTED    0.0s  root split (row 0, [0,326863]): mid 163431 -> 326864 > b
+                                             -> root: split at 326864 not strictly inside [0, 326863] of row 0
+   [reject] split mid not an integer         REJECTED    0.0s  root split: mid 163431 -> 163431.5 (not an integer)
+                                             -> root: mid: expected an integer, got float 163431.5
+   [reject] split row = K                    REJECTED    0.0s  root split: row 0 -> 4 (no such row)
+                                             -> root: split row 4 out of range 0..3
+   [reject] split row = -1                   REJECTED    0.0s  root split: row 0 -> -1
+                                             -> root: split row -1 out of range 0..3
+   [reject] split with one child             REJECTED    0.0s  root split: right child removed
+                                             -> root: children: expected length 2, got 1
+   [reject] order 2 -> 1, same cases         REJECTED    0.0s  box [0, 0]: order of row 0 2 -> 1, cases left as they are (1)
+                                             -> root.0.0: 1 cases, expected 2
+   [reject] order 1 -> 2, same cases         REJECTED    0.0s  box [1, 0, 0, 0, 0, 0, 1]: order of row 0 1 -> 2, cases left as they are (4)
+                                             -> root.1.0.0.0.0.0.1: 4 cases, expected 2
+   [reject] order 3                          REJECTED    0.0s  box [0, 0]: order of row 0 -> 3
+                                             -> root.0.0: order o_0 = 3 is not 1 or 2
+   [reject] orders too short                 REJECTED    0.0s  box [0, 0]: last order removed
+                                             -> root.0.0: orders: expected length 4, got 3
+   [reject] relaxation case dropped          REJECTED    9.7s  box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1]: last relaxation case removed
+                                             -> root.1.1.0.1.1.1.1.0.1.1.0.1.0.0.1.0.0.1.1: 3 cases, expected 4
+   [reject] relaxation case duplicated       REJECTED    9.8s  box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1]: first relaxation case duplicated
+                                             -> root.1.1.0.1.1.1.1.0.1.1.0.1.0.0.1.0.0.1.1: 5 cases, expected 4
+   [reject] unjustified exclusion            REJECTED    0.0s  box [0, 0] case 0: duals replaced by "excluded" (no row has costs >= 0, budget < 0)
+                                             -> root.0.0 case 0 (2, 2, 2, 2): exclusion not justified by any row
+   [reject] exclusion via a negative cost    REJECTED    0.1s  box [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1] case 2: "excluded"; row 2 (tangent 1) has budget < 0 but a negative cost, no other row qualifies
+                                             -> root.1.0.1.1.1.0.1.0.1.1.1.1.1 case 2 (0, 2, 1, 0): exclusion not justified by any row
+   [reject] misspelled exclusion             REJECTED    9.7s  box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1] case 1: record -> "exclude"
+                                             -> root.1.1.0.1.1.1.1.0.1.1.0.1.0.0.1.0.0.1.1 case 1 (0, 1, 2, 2): unknown case record 'exclude'
+   [reject] Y lowered (breaking)             REJECTED    0.3s  box [1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0] case 5: Y 961163386 -> 961163384 (decrease 2, breaking; binding column 415)
+                                             -> root.1.0.1.1.1.1.1.0.1.1.0.1.0.1.0.1.1.0.1.0 case 5 (1, 0, 2, 1): dual feasibility fails at column 415 (short by 4402905752120)
+   [reject] Z lowered (breaking)             REJECTED    0.7s  box [1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0] case 6: Z_3 17163676091 -> 17163676045 (decrease 46, breaking; binding column 407)
+                                             -> root.1.1.0.1.0.0.1.0.1.0.1.0 case 6 (1, 1, 2, 0): dual feasibility fails at column 407 (short by 20779284756793)
+   [reject] P lowered (breaking)             REJECTED    0.0s  box [1, 0, 0, 1, 0, 0, 0, 1] case 0: P 11314565924 -> 11314565820 (decrease 104, breaking; binding column 419)
+                                             -> root.1.0.0.1.0.0.0.1 case 0 (2, 2, 2, 2): dual feasibility fails at column 419 (short by 3780003296618035)
+   [reject] M raised (breaking)              REJECTED    0.0s  box [1, 0, 0, 1, 0, 0, 0, 1] case 0: M 0 -> 104 (breaking; binding column 419)
+                                             -> root.1.0.0.1.0.0.0.1 case 0 (2, 2, 2, 2): dual feasibility fails at column 419 (short by 3780003296618035)
+   [reject] negative dual M = -1             REJECTED    9.8s  box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1] case 1: M = -1 (P - M grows by 1)
+                                             -> root.1.1.0.1.1.1.1.0.1.1.0.1.0.0.1.0.0.1.1 case 1 (0, 1, 2, 2): dual M = -1 is negative
+   [reject] Z too short                      REJECTED    9.7s  box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1] case 1: Z has 3 entries
+                                             -> root.1.1.0.1.1.1.1.0.1.1.0.1.0.0.1.0.0.1.1 case 1 (0, 1, 2, 2): Z: expected length 4, got 3
+   [reject] Y as a float                     REJECTED    9.8s  box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1] case 1: Y given as the float 1351291915.0
+                                             -> root.1.1.0.1.1.1.1.0.1.1.0.1.0.0.1.0.0.1.1 case 1 (0, 1, 2, 2): Y: expected an integer, got float 1351291915.0
+   [reject] G raised (breaking)              REJECTED    5.4s  column 416: G raised by 790 (breaking eq:dualfeasible in the tightest case)
+                                             -> root.1.1.0.1.1.1.0.1.0.1.0.1.1.0.1.1 case 5 (1, 0, 1, 2): dual feasibility fails at column 416 (short by 829575568090)
+   [reject] F raised (breaking)              REJECTED   11.5s  F raised by 1314699875694 (value reaches S in box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1] case 1)
+                                             -> terminal box root.1.1.0.1.1.1.1.0.1.1.0.1.0.0.1.0.0.1.1 has value 10000000000000000 >= S
+   [reject] final raised to S                REJECTED   11.4s  final raised by 1776543313: largest value becomes 10000000000000000
+                                             -> terminal box root.1.1.0.1.1.1.1.0.1.1.0.1.0.0.1.0.0.1.1 has value 10000000000000000 >= S
+   [reject] needed column feature zeroed     REJECTED    0.0s  column 0: feature v_0 4544000973429973 -> 0 (all its costs in row 0 become 0; needed in box [0, 0] case 0)
+                                             -> root.0.0 case 0 (2, 2, 2, 2): dual feasibility fails at column 0 (short by 701317792651302246072736068)
+   [reject] column diagonal 0                REJECTED    0.0s  column 0: diagonal D_0 -> 0
+                                             -> column 0: diagonal D_0 = 0 is not positive
+   [reject] family count -1                  REJECTED    0.0s  row 0 family term 0: count 2 -> -1
+                                             -> row 0 family term 0: count n = -1 is negative
+   [reject] family diagonal 0                REJECTED    0.0s  row 0 family term 0: diagonal -> 0
+                                             -> row 0 family term 0: diagonal D = 0 is not positive
+   [reject] correlation term 0               REJECTED    0.0s  row 0: correlation term d -> 0
+                                             -> row 0: correlation term d = 0 is not positive
+   [reject] column missing a feature         REJECTED    0.0s  column 0: 3 features
+                                             -> column 0: features: expected length 4, got 3
+   [accept] Y lowered (one short)            accepted   11.5s  box [1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0] case 5: Y 961163386 -> 961163385 (decrease 1, one short of breaking; binding column 415)
+                                             -> value 9999998223456687
+   [accept] Z lowered (one short)            accepted   11.5s  box [1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0] case 6: Z_3 17163676091 -> 17163676046 (decrease 45, one short of breaking; binding column 407)
+                                             -> value 9999998223456687
+   [accept] P lowered (one short)            accepted   11.5s  box [1, 0, 0, 1, 0, 0, 0, 1] case 0: P 11314565924 -> 11314565821 (decrease 103, one short of breaking; binding column 419)
+                                             -> value 9999998223456687
+   [accept] M raised (one short)             accepted   11.3s  box [1, 0, 0, 1, 0, 0, 0, 1] case 0: M 0 -> 103 (one short of breaking; binding column 419)
+                                             -> value 9999998223456687
+   [accept] G raised (one short)             accepted   11.6s  column 416: G raised by 789 (one short of breaking eq:dualfeasible in the tightest case)
+                                             -> value 9999998223456687
+   [accept] F raised (one short)             accepted   11.3s  F raised by 1314699875693 (value S - 1 at most in box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1] case 1)
+                                             -> value 9999999999999999
+   [accept] final raised to S - 1            accepted   11.3s  final raised by 1776543312: largest value becomes 9999999999999999
+                                             -> value 9999999999999999
+   [accept] stored value forged              accepted   11.1s  box [0, 0]: stored "value" -> 0 (the key is ignored)
+                                             -> value 9999998223456687
+   [accept] explicit default dual            accepted   11.3s  box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1] case 1: explicit "V": 0 (the default)
+                                             -> value 9999998223456687
+   [either] split mid + 1                    REJECTED    9.5s  parent of the largest box (row 1, [76679,84347]): mid 80513 -> 80514
+                                             -> root.1.1.0.1.1.1.1.0.1.1.0.1.0.0.1.0.0.1.0 case 0 (0, 0, 2, 2): dual feasibility fails at column 0 (short by 24669291092235199085)
+   [either] split mid - 1                    REJECTED    9.5s  parent of the largest box (row 1, [76679,84347]): mid 80513 -> 80512
+                                             -> root.1.1.0.1.1.1.1.0.1.1.0.1.0.0.1.0.0.1.1 case 1 (0, 1, 2, 2): dual feasibility fails at column 0 (short by 28622220433915314075)
+   [either] children swapped                 REJECTED    9.4s  parent [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1] of the largest box: children swapped
+                                             -> root.1.1.0.1.1.1.1.0.1.1.0.1.0.0.1.0.0.1.1 case 0 (0, 0, 2, 2): dual feasibility fails at column 0 (short by 10146642314683181307055535)
+   [either] subtree pruned                   REJECTED    9.5s  parent [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1] of the largest box replaced by its left child
+                                             -> root.1.1.0.1.1.1.1.0.1.1.0.1.0.0.1.0.0.1 case 0 (0, 0, 2, 2): dual feasibility fails at column 0 (short by 146189176910042756442560)
+   [either] tangent alternatives swapped     REJECTED    9.4s  largest box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1]: tangent alternatives of row 0 swapped
+                                             -> root.1.1.0.1.1.1.1.0.1.1.0.1.0.0.1.0.0.1.1 case 2 (1, 0, 2, 2): dual feasibility fails at column 0 (short by 15644083582160633568543955)
+   [either] tangent row -> first order       REJECTED    9.5s  largest box [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1]: row 0 first order, keeping the tangent-0 duals
+                                             -> root.1.1.0.1.1.1.1.0.1.1.0.1.0.0.1.0.0.1.1 case 0 (2, 0, 2, 2): dual feasibility fails at column 0 (short by 15616319645789602208742116)
+   [either] family term removed              REJECTED   11.1s  row 0 family term 0: count 2 -> 0 (Z_0 > 0 in the largest case)
+                                             -> terminal box root.1.1.1.1.1.1 has value 668764000905194133 >= S
+   [either] correlation term + 1             accepted   11.2s  row 0: correlation term d raised by 1
+                                             -> value 9999998223456697
+   [reject] V lowered (breaking)             n/a (not applicable to this certificate)
+   [reject] U lowered (breaking)             n/a (not applicable to this certificate)
+
+== summary
+   reject: 34 kinds, 308 forged certificates, 308 rejected, 0 accepted
+   accept: 9 kinds, 82 forged certificates, 0 rejected, 82 accepted
+   either: 8 kinds, 65 forged certificates, 49 rejected, 16 accepted
+      split mid + 1                    rejected 9 of 10
+      split mid - 1                    rejected 6 of 10
+      children swapped                 rejected 10 of 10
+      subtree pruned                   rejected 10 of 10
+      correlation term + 1             rejected 0 of 10
+      family term removed              rejected 8 of 9
+      tangent alternatives swapped     rejected 3 of 3
+      tangent row -> first order       rejected 3 of 3
+   leaves: 10; unexpected outcomes (or failed audits): 0
+exit=0

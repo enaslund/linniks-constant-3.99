@@ -1,0 +1,3 @@
+# Numerical acceptance path. Optional exploration also uses scipy and numba.
+numpy>=2.2
+mpmath>=1.3

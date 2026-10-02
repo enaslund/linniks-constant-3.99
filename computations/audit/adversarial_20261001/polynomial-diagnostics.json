@@ -1,0 +1,80 @@
+{
+  "group": {
+    "character_pairs_checked": 50032,
+    "pairs_with_principal_aliases": 7504,
+    "status": "PASS: exact finite-group matching diagnostics"
+  },
+  "quadrature": [
+    {
+      "row_id": 0,
+      "type": "second",
+      "reference_margin": "0.00146138039883479832184388559767744265655296294"
+    },
+    {
+      "row_id": 7,
+      "type": "second",
+      "reference_margin": "0.00106694807412572107589698065629987472269177968"
+    },
+    {
+      "row_id": 14,
+      "type": "second",
+      "reference_margin": "0.00164903636157128960422664612191615889857645754"
+    },
+    {
+      "row_id": 21,
+      "type": "additional",
+      "reference_margin": "0.0022012398466806363589586431971100048581783278"
+    },
+    {
+      "row_id": 28,
+      "type": "additional",
+      "reference_margin": "0.00214112198688462872122663499934911663422718515"
+    },
+    {
+      "row_id": 35,
+      "type": "second",
+      "reference_margin": "0.00146989987453271764788636565789795292736055958"
+    },
+    {
+      "row_id": 42,
+      "type": "additional",
+      "reference_margin": "0.00205110917322728805534942314637150010890871481"
+    },
+    {
+      "row_id": 49,
+      "type": "additional",
+      "reference_margin": "0.00177925124451563693807191337152226025852925832"
+    },
+    {
+      "row_id": 56,
+      "type": "additional",
+      "reference_margin": "0.00163161813762741788895921246546522032646552719"
+    },
+    {
+      "row_id": 63,
+      "type": "additional",
+      "reference_margin": "0.00161514527851052599545230805947327637724360811"
+    },
+    {
+      "row_id": 70,
+      "type": "additional",
+      "reference_margin": "0.00173708900779744970669972095939056256757184974"
+    },
+    {
+      "row_id": 77,
+      "type": "additional",
+      "reference_margin": "0.00212744946294440809853261300585574199256311583"
+    },
+    {
+      "row_id": 84,
+      "type": "additional",
+      "reference_margin": "0.00214150392412544199159584285986075053727099808"
+    },
+    {
+      "row_id": 91,
+      "type": "additional",
+      "reference_margin": "0.00158399787756524133300905159987354467238055784"
+    }
+  ],
+  "precision": 65
+}

@@ -1,0 +1,36 @@
+{
+ "L": "3.99",
+ "leaf": "large_3_99",
+ "certrun": [
+  "large_3_99",
+  "9966813270344512",
+  "36"
+ ],
+ "leafcheck": [
+  "large_3_99",
+  "9966813270344512",
+  "36",
+  "ok",
+  "3",
+  "92"
+ ],
+ "rowcheck": [
+  "large_3_99",
+  "ok",
+  "1",
+  "1",
+  "150",
+  "177",
+  "0"
+ ],
+ "graded_cert": [
+  9966813270344512,
+  36
+ ],
+ "status": "PASS",
+ "checkers": {
+  "certrun": "b9bcc2b0c9dddd7f167de5f6751ff4d00ca43a46755580abb2a1a3f69b3d715e",
+  "leafcheck": "be3e72077969415b1f8e6f32ebabf65eabfe65ff6917eedb8c37fba1ac14e2e1",
+  "rowcheck": "ec25625a44304d3784ccabf98479b33cf5ba0f483be1bad498564f15f76e2d3d"
+ }
+}

@@ -1,0 +1,287 @@
+{
+  "L": "4.33",
+  "status": "PASS: exact numerical implication from stated analytic/source premises; NOT a formally verified theorem",
+  "regenerated_every_input": true,
+  "roots": 340,
+  "first_zero_cells": 478,
+  "source_gap_cases": 684,
+  "source_density_cases": 2768,
+  "leaves": 5443,
+  "branches": 391315,
+  "excluded": 22303,
+  "checks": 328977889,
+  "count_dual_active": 1056,
+  "maximum_numerator": 9999944585543433,
+  "scale": 10000000000000000,
+  "margin_numerator": 55414456567,
+  "maxima_by_kind": {
+    "rr": 9999460421153127,
+    "rc": 9996945925976986,
+    "complex": 9999944585543433
+  },
+  "maxima_by_height": {
+    "inside": 9999944585543433,
+    "outside": 9999478955660753
+  },
+  "variants": {
+    "single": 3386,
+    "positivity": 197,
+    "new_second_exclusion": 422,
+    "mixture": 868,
+    "pair": 570
+  },
+  "binding": {
+    "case": {
+      "parent": 53,
+      "kind": "complex",
+      "lo": "37/50",
+      "hi": "297/400",
+      "lp": "116/125",
+      "source_l2": "37/50"
+    },
+    "height": "inside",
+    "L": "4.33",
+    "ordinary_lower": "57/50",
+    "second": {
+      "lo": "57/50",
+      "hi": "77/50",
+      "n": 2,
+      "v": 2280552884873787,
+      "contribution": 428227804694718
+    },
+    "gap": {
+      "lo": "77/50",
+      "hi": "313/200"
+    },
+    "extension": {
+      "variant": "single",
+      "gG": "37/20",
+      "gZ": "61/50",
+      "mix": "0",
+      "zeta": "3"
+    },
+    "third_lower": "548/625",
+    "third_certificate": [
+      {
+        "kind": "published_universal",
+        "lower": "857/1000"
+      },
+      {
+        "kind": "X_4_28",
+        "gamma": "5/4",
+        "a": "37/50",
+        "b": "297/400",
+        "local_second_upper": "77/50",
+        "lower": "548/625",
+        "normalized_margin_lower": 956007792705,
+        "scale": 10000000000000000
+      }
+    ],
+    "first": 1465129510866844,
+    "first_bounds": {
+      "inside": 1036901706172126
+    },
+    "shifted_first_proof": {
+      "rule": "shifted_autocorrelation_coupled_height",
+      "anchor": "77/50",
+      "a": "37/50",
+      "alpha": 1,
+      "cross_lower": 4683834147609186,
+      "cross_upper": 4683834147609187,
+      "old_first": 1062965694735457
+    },
+    "far_budget": 1679197018196443287,
+    "final": 50000000000,
+    "location_update": [
+      {
+        "rule": "complex_positive_polynomial",
+        "row_id": 48,
+        "type": "additional"
+      }
+    ],
+    "near_budget": 464093714500392,
+    "branch": {
+      "a": 200756,
+      "b": 200757,
+      "Y": 4543284533,
+      "Z": 1951535230379,
+      "U": 0,
+      "upper": 9999944585543433
+    },
+    "path": "",
+    "spec_id": 2063
+  },
+  "large_case": {
+    "maximum": 5488725113487719,
+    "branches": 34,
+    "excluded": 0,
+    "checks": 5134,
+    "binding": {
+      "case": null,
+      "height": "all",
+      "second": null,
+      "ordinary_lower": "3/2",
+      "gamma_gram": "3/2",
+      "gamma_zero": "1",
+      "shift": "3/2",
+      "branch": {
+        "a": 160000,
+        "b": 165000,
+        "Y": 2677841873,
+        "Z": 927847681648,
+        "upper": 5488725113487719
+      },
+      "first": 0,
+      "first_bounds": {},
+      "far_budget": 1752665785811216087,
+      "near_budget": 857159314614438,
+      "final": 50000000000,
+      "norm_certificate": [
+        2043548113372930796760,
+        2043550777335856605266,
+        10000000000000000000000
+      ],
+      "spec_id": null
+    }
+  },
+  "small_exception": {
+    "L": "433/100",
+    "L_decimal": "4.33",
+    "A": "383/100",
+    "alpha": "109/100",
+    "p": "45671/30000",
+    "scale": 10000000000000000,
+    "ordinary_B_upper": 1096672148373608,
+    "min_gap_lower": 25098177513635097,
+    "tail_coefficient_upper": 4913675417647643,
+    "power_at_point1_upper": 3003539399998152,
+    "main_linear_coefficient": "619311/3200000",
+    "tail_linear_coefficient_upper": 1477741384799091,
+    "remaining_linear_coefficient_lower": 457605490200909,
+    "safe_pre_error_margin_coefficient": "9/200",
+    "status": "PASS: elementary inequalities in the analytic exceptional-zero reduction",
+    "scope": "Uniform on u0<=u<=0.1 for fixed u0>0. For smaller u, use the effective q^(3+epsilon) implication stated in Heath-Brown (1992), introduction. No numerical u0 or q0 is computed."
+  },
+  "new_second_zero_proof": {
+    "status": "PASS: uniform elementary exclusion for both character-alias cases",
+    "a": "7/10",
+    "b": "281/400",
+    "second_lo": "7/10",
+    "second_hi": "381/500",
+    "gamma": "109/100",
+    "polynomial": "(7/8 + cos(theta))^2 / (81/64)",
+    "c1": "112/81",
+    "c2": "32/81",
+    "scale": 10000000000000000,
+    "generic_normalized_margin_lower": 3625705913676,
+    "order4_normalized_margin_lower": 820727145566982,
+    "uniform_margin_lower": 3625705913676,
+    "correlation": {
+      "sample_upper": -5163048910405,
+      "height_interpolation_error": 58099157564,
+      "parameter_interpolation_error": 4709204507709,
+      "infinite_tail_upper": 9755003619088,
+      "sup_upper": 9755003619088,
+      "height_end": 30,
+      "height_denominator": 200,
+      "corner_evaluations": 24004
+    },
+    "scope": "Two distinct nonprincipal characters; first real with real first zero, second nonreal. Source explicit-formula, zero ordering, and conductor bounds remain analytic inputs. No Linnik exponent is certified by this local exclusion.",
+    "real_second_normalized_margin_lower": 336740616881575,
+    "real_second_gamma": "41/50",
+    "conclusion": "Real character and real first zero, .700<=lambda_1<=.7025 imply lambda_2>.762, using the source conventions and sufficiently small fixed errors."
+  },
+  "new_complex_polynomials": {
+    "status": "PASS: all elementary polynomial rows regenerated",
+    "rows": 94,
+    "second_rows": 25,
+    "additional_rows": 69,
+    "minimum_normalized_margin": 8270994490101,
+    "scale": 10000000000000000
+  },
+  "polynomial_table_sha256": "81f32d7dd43ee976c124ee4c22205b869d1f7fc8c525ac781a4b9be0e10fc915",
+  "source_alias_enclosure": {
+    "status": "PASS: elementary uniform source alias condition",
+    "gamma": "5/4",
+    "lambda_interval": [
+      "11/25",
+      "17/20"
+    ],
+    "lambda_step": "1/100",
+    "height_end": 30,
+    "height_step": "1/100",
+    "sample_evaluations": 126042,
+    "sample_upper": -15996201905531,
+    "lambda_interpolation_error": 780278852648,
+    "height_interpolation_error": 1310097917319,
+    "tail_upper": 33430834659906,
+    "supremum_upper": 33430834659906,
+    "permitted_upper_lower": 5425347222222222,
+    "margin_lower": 5391916387562316,
+    "scale": 10000000000000000,
+    "scope": "Verifies X (4.29) for the fixed test and all real heights. It does not formalize the character-product argument deriving (4.28)."
+  },
+  "small_exception_at_3_99": {
+    "status": "PASS: elementary uniform exceptional-zero endgame at L=3.99",
+    "L": "399/100",
+    "K": "1821/10000",
+    "c1": "57/1000",
+    "c2": "777/5000",
+    "alpha": "109/100",
+    "A": "18129/5000",
+    "density_exp_hi": "3724/1875",
+    "density_exp_lo": "671/750",
+    "density_constant": "184750/6993",
+    "scale": 10000000000000000,
+    "min_gap_lower": 25098177513635097,
+    "ordinary_envelope_upper": 647848960720282,
+    "first_envelope": "7868541/100000000",
+    "main_linear_lower": 1050056697697413,
+    "ordinary_linear_upper": 1041138351788155,
+    "first_remainder_linear_upper": 878561589524,
+    "remaining_linear_lower": 8039784319735,
+    "safe_pre_error_linear_margin": "8/10000",
+    "support_margin": "3129/5000",
+    "monotonicity_margin": "236171/327000",
+    "scope": "For a real exceptional zero with u0<=lambda1<=.1, fixed u0>0. For lambda1<=u0 use the published effective exponent 3+epsilon with epsilon=.5. This is a restricted branch, NOT a general Linnik exponent of 3.99. No cube-free assumption, no far block, no new near-density inequality."
+  },
+  "large_case_at_3_99": {
+    "maximum": 9946508085154141,
+    "branches": 36,
+    "excluded": 0,
+    "checks": 5436,
+    "binding": {
+      "case": null,
+      "height": "all",
+      "second": null,
+      "ordinary_lower": "3/2",
+      "gamma_gram": "3/2",
+      "gamma_zero": "1",
+      "shift": "3/2",
+      "branch": {
+        "a": 162500,
+        "b": 165000,
+        "Y": 5139815868,
+        "Z": 1622818786878,
+        "upper": 9946508085154141
+      },
+      "first": 0,
+      "first_bounds": {},
+      "far_budget": 1752665785811216087,
+      "near_budget": 578055094953424,
+      "final": 50000000000,
+      "norm_certificate": [
+        2043548113372930796760,
+        2043550777335856605266,
+        10000000000000000000000
+      ],
+      "spec_id": null
+    }
+  },
+  "support_margin": 4963419999999999,
+  "decay_margin": 11489726666666666,
+  "capacity_blocks_used": 0,
+  "certificate_sha256": "c4adf2f3978ce87fd853a7ffef327f5d660a04bd3e4ffecbe58a4bb85537fede",
+  "seconds": 1093.9109480381012,
+  "scope": "Source lemmas and new weighted-near, shifted-envelope and family-transfer deductions are mathematical premises. All elementary interval inputs and dual inequalities are regenerated. Published single-zero height-one far density only."
+}

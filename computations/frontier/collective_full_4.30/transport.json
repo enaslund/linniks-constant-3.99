@@ -1,0 +1,8 @@
+{
+  "logical_identity_verified": true,
+  "corpus_sha256": "8ea390a01c7f994e28fa050550510d7aa211f14b6a34ad168700042913554fe1",
+  "packed_sha256": "96a50efd741cce49cd328dbeda4cab0f8e86b588c5550fe464deb25231621a94",
+  "packed_bytes": 4114980,
+  "source_roots": 2768,
+  "all_roots_pass": true
+}

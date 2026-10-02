@@ -1,6 +1,6 @@
 # Adversarial review of the 3.99 manuscript
 
-This report is copied from the [research repository at commit 32b512b](https://github.com/enaslund/linniks-constant/blob/32b512bfac76806bbeb99134d5ec4fdf5ec9452b/research/notes/adversarial-review-2026-10-01.md). Audit code, raw results, and reproduction commands refer to that repository, which requires access where private.
+This report is copied from the research repository (commit 32b512b). Its audit code, raw results and reproduction commands are in this repository at the same paths (`computations/`), and the commands run from this repository's root.
 
 Review of commit `22c11027d946951ef5ec67be80f85250f73a0dad`, begun
 2026-10-01 and completed 2026-10-02, in response to a request to find errors in the entire paper and
@@ -17,10 +17,10 @@ not an independent proof of the global theorem.
 
 The manuscript and its existing certificates were not edited. New source
 checks are in
-[`adversarial_source_checks.py`](https://github.com/enaslund/linniks-constant/blob/32b512bfac76806bbeb99134d5ec4fdf5ec9452b/computations/audit/adversarial_source_checks.py).
+[`adversarial_source_checks.py`](../../computations/audit/adversarial_source_checks.py).
 Fresh numerical evidence is retained in
-[`adversarial_20261001/`](https://github.com/enaslund/linniks-constant/tree/32b512bfac76806bbeb99134d5ec4fdf5ec9452b/computations/audit/adversarial_20261001/);
-the [aggregate report](https://github.com/enaslund/linniks-constant/blob/32b512bfac76806bbeb99134d5ec4fdf5ec9452b/computations/audit/adversarial_20261001/summary.json)
+[`adversarial_20261001/`](../../computations/audit/adversarial_20261001/);
+the [aggregate report](../../computations/audit/adversarial_20261001/summary.json)
 records the counts, maxima and file hashes.
 
 ## Confirmed error: a missing sign assumption in Example 8.9(i)
@@ -272,6 +272,8 @@ The data-availability statement still calls for a public versioned archive
 before submission. The certificates are available to this repository review;
 external availability is a reproducibility issue, separate from whether the
 mathematical argument is valid.
+
+*[Added 2026-10-02: the certificates, programs, reports and Lean sources are now public in this repository; see [computations/README.md](../../computations/README.md). The paper's §14 cites it.]*
 
 ## Reproduction
 

@@ -1,0 +1,100 @@
+Heath-Brown 1992, §8 tables recomputed (mpmath, 30 digits); runtime 61.6 s
+transcription check: ok
+Lemma 7.5 theta: k=3/2 -> 1.2729796060, k=2 -> 0.9873757058;  Lemma 8.2: 8cos^2 theta = 2.427767354
+Lemma 7.1 self-checks (closed form vs convolution, printed f(0),F(0),F(-lam), Lemma 7.5): max |residual| = 6.3e-30
+
+Table 4 (Lemma 8.3, (8.7)); side conditions per HB p. 43: (8.8) at l1=A, (8.6) at (B, l'_A)
+     B  printed     a     K       root    root-pr   (8.8)@A    (8.6)HB     dl_86   (8.6)@B  l1*(8.8)
+   0.3    2.293   3.9  0.89   2.293559   5.59e-04         -          -         -  8.50e-04    0.1660
+  0.35    2.195   4.0  0.88   2.195911   9.11e-04    0.1352   5.36e-04   0.30831  7.30e-04    0.1631
+   0.4    2.108   4.1  0.88   2.108696   6.96e-04    0.1822   4.73e-04   0.26926  6.44e-04    0.1559
+  0.45    2.030   4.2  0.87   2.030230   2.30e-04    0.2186   4.32e-04   0.24627  5.84e-04    0.1519
+   0.5    1.958   4.3  0.87   1.958678   6.78e-04    0.2570   4.07e-04   0.23437  5.45e-04    0.1436
+  0.55    1.893   4.4  0.86   1.893113   1.13e-04    0.2853   3.96e-04   0.23185  5.18e-04    0.1386
+   0.6    1.832   4.4  0.86   1.832765   7.65e-04    0.3238   2.73e-04   0.14973  3.92e-04    0.1386
+  0.65    1.776   4.5  0.85   1.776915   9.15e-04    0.3465   2.86e-04   0.16119  3.93e-04    0.1328
+   0.7    1.724   4.5  0.85   1.724653   6.53e-04    0.3824   1.83e-04   0.09778  2.86e-04    0.1328
+  0.75    1.676   4.6  0.84   1.676167   1.67e-04    0.4002   2.11e-04   0.11643  3.02e-04    0.1264
+   0.8    1.630   4.6  0.84   1.630463   4.63e-04    0.4339   1.22e-04   0.06454  2.13e-04    0.1264
+  0.85    1.587   4.7  0.84   1.587762   7.62e-04    0.4553   1.60e-04   0.08825  2.42e-04    0.1162
+   0.9    1.547   4.7  0.84   1.547330   3.30e-04    0.4874   8.66e-05   0.04574  1.64e-04    0.1162
+  0.95    1.509   4.8  0.83   1.509176   1.76e-04    0.4970   1.29e-04   0.07133  2.00e-04    0.1086
+   1.0    1.473   4.8  0.83   1.473272   2.72e-04    0.5271   6.52e-05   0.03480  1.34e-04    0.1086
+  1.05    1.439   4.8  0.83   1.439038   3.81e-05    0.5571   3.83e-06   0.00198  7.04e-05    0.1086
+   1.1    1.406   4.9  0.83   1.406542   5.42e-04    0.5711   5.57e-05   0.03024  1.18e-04    0.0973
+  1.15    1.375   4.9  0.83   1.375787   7.87e-04    0.5997   3.78e-06   0.00199  6.32e-05    0.0973
+ 1.175    1.360   4.9  0.83   1.360919   9.19e-04    0.6283   7.65e-06   0.00396  3.68e-05    0.0973
+   1.2    1.346  4.95  0.83   1.346316   3.16e-04    0.6336   3.45e-05   0.01831  6.11e-05    0.0915
+ 1.225    1.331   5.0  0.83   1.331853   8.53e-04    0.6386   5.85e-05   0.03192  8.63e-05    0.0856
+  1.25    1.318   5.0  0.83   1.318120   1.20e-04    0.6523   3.68e-05   0.01982  6.12e-05    0.0856
+ 1.275    1.304   5.0  0.83   1.304677   6.77e-04    0.6659   1.24e-05   0.00660  3.89e-05    0.0856
+ 1.294    1.294   5.0  0.83   1.294649   6.49e-04    0.6795   2.34e-06   0.00123  2.14e-05    0.0856
+  row 0.3: (8.6) at (0.3,2.293) = 8.50e-04, at (0.3,2.43) = 5.82e-04, at (0.3,2.84) = -9.45e-05; (8.8) at 0.25 = 0.0886, at 0 = -0.1790
+
+Table 7 (Lemma 8.7, (8.11)), k = 0.98 - 0.15*B, theta = 1
+     B lambda  printed       k       root    root-pr  root(k-.01) root(k+.01)
+  0.10   0.79     2.76  0.9650   2.767050   7.05e-03     2.766101    2.767723
+  0.12   0.79     2.56  0.9620   2.565930   5.93e-03     2.564873    2.566701
+  0.14   0.77     2.39  0.9590   2.396589   6.59e-03     2.395923    2.396993
+  0.16   0.77     2.25  0.9560   2.250897   8.97e-04     2.250136    2.251387
+  0.18   0.75     2.12  0.9530   2.122940   2.94e-03     2.122519    2.123111
+  0.20   0.75     2.01  0.9500   2.010146   1.46e-04     2.009640    2.010394
+  0.25   0.73     1.77  0.9425   1.773592   3.59e-03     1.773266    1.773672
+  0.30   0.71     1.58  0.9350   1.584657   4.66e-03     1.584482    1.584594
+  0.35   0.69     1.42  0.9275   1.428584   8.58e-03     1.428535    1.428403
+  0.40   0.68     1.29  0.9200   1.297393   7.39e-03     1.297313    1.297243
+  0.45   0.66     1.18  0.9125   1.184274   4.27e-03     1.184292    1.184033
+  0.50   0.65     1.08  0.9050   1.086452   6.45e-03     1.086428    1.086252
+  0.55   0.64     1.00  0.8975   1.000358   3.58e-04     1.000289    1.000203
+  0.60   0.63     0.92  0.8900   0.924011   4.01e-03     0.923893    0.923903
+  0.65   0.61     0.85  0.8825   0.856011   6.01e-03     0.855959    0.855845
+  0.70   0.61     0.79  0.8750   0.794771   4.77e-03     0.794546    0.794768
+ 0.745   0.59    0.745  0.8682   0.745516   5.16e-04     0.745367    0.745446
+
+Printed value = recomputed root rounded down to the printed decimals: Table 4 all rows True, Table 7 all rows True
+
+Tables 2 and 5, rows .10:
+  table2_row_0.10: lambda=0.965 printed=4.96 root=4.96355113 (root-printed=3.55e-03) [Lemma 6.3, k=3/2]
+  table5_row_0.10: lambda=0.89 printed=2.83 root=2.84576986 (root-printed=1.58e-02) [Lemma 8.5, k=2]
+
+Supplementary (not asked for): root - printed
+  table2_all_rows: range [-1.26e-01, 5.15e-02]; rows with root < printed: ['0.07', '0.16']
+  table3_all_rows: range [2.37e-03, 7.34e-03]; rows with root < printed: none
+  table5_all_rows: range [5.84e-03, 4.42e-02]; rows with root < printed: none
+  table6_all_rows_k2_assumed: range [6.20e-04, 5.17e-03]; rows with root < printed: none
+    Table 2 row 0.07: lambda 0.895 -> root 5.62375; lambda 0.985 -> root 5.79194 (printed 5.75)
+    Table 2 row 0.16: lambda 0.952 -> root 3.85785; lambda 0.925 -> root 3.87170 (printed 3.87)
+  Table 3 row 0.30: printed 2.43, root 2.436310
+
+Precision check (key roots, higher precision):
+  table4_row_1.05: 1.43903814001935  |diff| = 1.4e-20
+  table7_row_0.20: 2.01014557150933  |diff| = 4.5e-20
+  table7_row_0.55: 1.00035843323804  |diff| = 8.2e-21
+  table2_row_0.10: 4.96355112691843  |diff| = 4.7e-20
+  table5_row_0.10: 2.84576986133790  |diff| = 2.3e-20
+  table3_row_0.30: 2.43631028102446  |diff| = 3.5e-20
+
+Paper claims:
+  (a) all roots exceed printed: T4 True, T7 True; closest T4 row 1.05, closest two T7 rows ['0.20', '0.55']
+      table4 row 1.05: paper 1.43904, recomputed 1.43904  match=True
+      table7 row 0.20: paper 2.01015, recomputed 2.01015  match=True
+      table7 row 0.55: paper 1.00036, recomputed 1.00036  match=True
+      Tables 4 and 7 combined, smallest root - printed: T4 1.05 (+3.81e-05), T4 0.55 (+1.13e-04), T4 1.25 (+1.20e-04), T7 0.20 (+1.46e-04), T4 0.75 (+1.67e-04), T4 0.95 (+1.76e-04)
+  (b) side conditions hold for rows 0.35 on: True; tightest is (8.6): True; three smallest (8.6) slacks: 1.294 2.34e-06, 1.15 3.78e-06, 1.05 3.83e-06
+      row 1.05: paper 3.8e-06, recomputed 3.830e-06  match=True
+      row 1.15: paper 3.8e-06, recomputed 3.775e-06  match=True
+      row 1.294: paper 2.3e-06, recomputed 2.337e-06  match=True
+      smallest relative slacks (LHS/RHS - 1): (8.6) 2.92e-04, (8.8) 0.066
+      Table 3 row 0.30 root >= 2.43: True
+  (c) table2_row_0.10: paper 4.96355, recomputed 4.96355  match=True
+  (c) table5_row_0.10: paper 2.84577, recomputed 2.84577  match=True
+
+Cross-check of repository values (used value <= recomputed root of its source row):
+  cover_v5.H_PRIME: all ok = True
+  cover_v5.H_SECOND: all ok = True
+  case_cover.PARENTS_rr: all ok = True
+  cover_v5.PARENTS_rr: all ok = True
+  paper_tab_parents_rr: all ok = True (rr rows = cover_v5 rr rows: True)
+  section 12: 4.959 <= 4.963551: True; 2.829 <= 2.845770: True
+
+wrote computations/audit/hb_tables_recompute.json

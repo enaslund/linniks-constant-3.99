@@ -1,0 +1,12 @@
+{
+ "kind": "inside",
+ "L": "3.99",
+ "roots": 2768,
+ "leaves": 3949,
+ "boxes": 4109455,
+ "maximum_numerator": 9999998223456687,
+ "mismatches": [],
+ "seconds": 1792,
+ "checker": "python3 /home/naslund_eric/src/enaslund/linniks-constant/master/computations/audit/independent_cert_check.py --stats /tmp/linnik399-adversarial/inside-stats.jsonl",
+ "status": "PASS"
+}

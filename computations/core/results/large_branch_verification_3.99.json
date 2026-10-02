@@ -1,0 +1,33 @@
+{
+  "maximum": 9946508085154141,
+  "branches": 36,
+  "excluded": 0,
+  "checks": 5436,
+  "binding": {
+    "case": null,
+    "height": "all",
+    "second": null,
+    "ordinary_lower": "3/2",
+    "gamma_gram": "3/2",
+    "gamma_zero": "1",
+    "shift": "3/2",
+    "branch": {
+      "a": 162500,
+      "b": 165000,
+      "Y": 5139815868,
+      "Z": 1622818786878,
+      "upper": 9946508085154141
+    },
+    "first": 0,
+    "first_bounds": {},
+    "far_budget": 1752665785811216087,
+    "near_budget": 578055094953424,
+    "final": 50000000000,
+    "norm_certificate": [
+      2043548113372930796760,
+      2043550777335856605266,
+      10000000000000000000000
+    ],
+    "spec_id": null
+  }
+}

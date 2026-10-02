@@ -1,0 +1,12 @@
+{
+ "kind": "inside",
+ "L": "3.99",
+ "roots": 1,
+ "leaves": 6,
+ "boxes": 2255,
+ "maximum_numerator": 9999998132810008,
+ "mismatches": [],
+ "seconds": 88,
+ "checker": "lake env lean --run scripts/CertRun.lean",
+ "status": "PASS"
+}

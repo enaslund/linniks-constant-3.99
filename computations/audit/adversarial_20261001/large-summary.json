@@ -1,0 +1,45 @@
+{
+  "L": "3.99",
+  "status": "PASS: graded_cert accepts the certificate of the large first-zero range",
+  "program": {
+    "source": "computations/core/results/large_branch_3.99.json",
+    "bins": 150,
+    "tail": "3",
+    "far_budget": 1752665785811216087,
+    "first": 0,
+    "final": 50000000000,
+    "profile": "inherited (profile I)"
+  },
+  "row": {
+    "parameters": {
+      "gamma": "1",
+      "g1": "3/2",
+      "t0": "1",
+      "mu": "1000000000",
+      "s": "3/2",
+      "s1": "3/2"
+    },
+    "I_up": "52484969682985017/36028797018963968",
+    "D_up": "7420585556107793/1250000000000000",
+    "d": 280760811507875,
+    "D": 9719259188502126
+  },
+  "boxes": 36,
+  "maximum_numerator": 9966813270344512,
+  "maximum": 0.9966813270344512,
+  "binding": {
+    "box": [
+      162500,
+      165000
+    ],
+    "duals": {
+      "Y": 5145926349,
+      "Z": [
+        1593393341176
+      ]
+    },
+    "value": 9966813270344512
+  },
+  "earlier_maximum_numerator": 9946508085154141,
+  "seconds": 1.2
+}

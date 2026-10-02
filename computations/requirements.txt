@@ -1,0 +1,9 @@
+# Python packages for the verification programs (the replay, the independent checker, the audits and
+# the exterior checks), at the versions used for the recorded runs, with Python 3.13:
+#   python3 -m venv .venv && .venv/bin/pip install -r computations/requirements.txt
+numpy==2.5.3
+mpmath==1.4.1
+scipy==1.18.1
+numba==0.67.0
+llvmlite==0.49.0
+# Not needed for verification: generating new certificates (graded_batch.py) also uses highspy.

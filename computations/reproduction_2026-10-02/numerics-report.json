@@ -1,0 +1,68 @@
+{
+ "files": [
+  "/home/naslund_eric/src/enaslund/clean-399-out/numerics.jsonl"
+ ],
+ "roots": 3,
+ "leaves": 8,
+ "integers": 17999,
+ "exact": 17999,
+ "by_field": {
+  "C": {
+   "checked": 3595,
+   "exact": 3595
+  },
+  "E": {
+   "checked": 3595,
+   "exact": 3595
+  },
+  "F": {
+   "checked": 8,
+   "exact": 8
+  },
+  "G": {
+   "checked": 3595,
+   "exact": 3595
+  },
+  "NH": {
+   "checked": 3595,
+   "exact": 3595
+  },
+  "W": {
+   "checked": 3595,
+   "exact": 3595
+  },
+  "final": {
+   "checked": 8,
+   "exact": 8
+  },
+  "first": {
+   "checked": 8,
+   "exact": 8
+  },
+  "structure": {
+   "checked": 8,
+   "exact": 8
+  }
+ },
+ "leaf_types": {
+  "inside/inherited/complex": 7,
+  "inside/retuned/rr": 1
+ },
+ "safe_off_by_one": [],
+ "near_integer_exact": [],
+ "mismatches": [],
+ "min_distance_to_integer": "0.000905",
+ "selftest": {
+  "ok": true,
+  "worst_relative": {
+   "B": 3.4438311059246704e-41,
+   "Psi": 2.2958874039497803e-41,
+   "C": 3.4438311059246704e-41,
+   "winv": 4.591774807899561e-41,
+   "V": 2.2958874039497803e-41
+  }
+ },
+ "dps": 50,
+ "seconds": 8.3,
+ "status": "PASS"
+}

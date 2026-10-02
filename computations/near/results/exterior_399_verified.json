@@ -1,0 +1,62 @@
+{
+  "status": "PASS inherited exterior-component numerical implications, not full Linnik exponent",
+  "L": "3.99",
+  "large": {
+    "maximum": 9946508085154141,
+    "branches": 36,
+    "excluded": 0,
+    "checks": 5436,
+    "binding": {
+      "case": null,
+      "height": "all",
+      "second": null,
+      "ordinary_lower": "3/2",
+      "gamma_gram": "3/2",
+      "gamma_zero": "1",
+      "shift": "3/2",
+      "branch": {
+        "a": 162500,
+        "b": 165000,
+        "Y": 5139815868,
+        "Z": 1622818786878,
+        "upper": 9946508085154141
+      },
+      "first": 0,
+      "first_bounds": {},
+      "far_budget": 1752665785811216087,
+      "near_budget": 578055094953424,
+      "final": 50000000000,
+      "norm_certificate": [
+        2043548113372930796760,
+        2043550777335856605266,
+        10000000000000000000000
+      ],
+      "spec_id": null
+    }
+  },
+  "small": {
+    "status": "PASS: elementary uniform exceptional-zero endgame at L=3.99",
+    "L": "399/100",
+    "K": "1821/10000",
+    "c1": "57/1000",
+    "c2": "777/5000",
+    "alpha": "109/100",
+    "A": "18129/5000",
+    "density_exp_hi": "3724/1875",
+    "density_exp_lo": "671/750",
+    "density_constant": "184750/6993",
+    "scale": 10000000000000000,
+    "min_gap_lower": 25098177513635097,
+    "ordinary_envelope_upper": 647848960720282,
+    "first_envelope": "7868541/100000000",
+    "main_linear_lower": 1050056697697413,
+    "ordinary_linear_upper": 1041138351788155,
+    "first_remainder_linear_upper": 878561589524,
+    "remaining_linear_lower": 8039784319735,
+    "safe_pre_error_linear_margin": "8/10000",
+    "support_margin": "3129/5000",
+    "monotonicity_margin": "236171/327000",
+    "scope": "For a real exceptional zero with u0<=lambda1<=.1, fixed u0>0. For lambda1<=u0 use the published effective exponent 3+epsilon with epsilon=.5. This is a restricted branch, NOT a general Linnik exponent of 3.99. No cube-free assumption, no far block, no new near-density inequality."
+  },
+  "seconds": 0.6380643844604492
+}

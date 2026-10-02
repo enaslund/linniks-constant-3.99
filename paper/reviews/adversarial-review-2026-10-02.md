@@ -1,6 +1,6 @@
 # Second adversarial review of the 3.99 manuscript
 
-This report is copied from the [research repository at commit 32b512b](https://github.com/enaslund/linniks-constant/blob/32b512bfac76806bbeb99134d5ec4fdf5ec9452b/research/notes/adversarial-review-2026-10-02.md). Audit code, raw results, and reproduction commands refer to that repository, which requires access where private.
+This report is copied from the research repository (commit 32b512b). Its audit code, raw results and reproduction commands are in this repository at the same paths (`computations/`), and the commands run from this repository's root.
 
 Date: 2026-10-02. This follows the
 [first review](adversarial-review-2026-10-01.md) and the subsequent one-line
@@ -23,8 +23,8 @@ the formalized boundary: source hypotheses, the envelope and representatives,
 the sieve estimate, conductor and alias corrections, fallback rows, case
 realization, exterior regimes, and the order of constants. Relevant arguments
 were checked in the repository copies of
-[Heath-Brown 1992](https://github.com/enaslund/linniks-constant/blob/32b512bfac76806bbeb99134d5ec4fdf5ec9452b/literature/heath-brown-1992-zero-free-regions-and-least-prime.pdf)
-and [Xylouris's dissertation](https://github.com/enaslund/linniks-constant/blob/32b512bfac76806bbeb99134d5ec4fdf5ec9452b/literature/xylouris-2011-dissertation.pdf).
+[Heath-Brown 1992](https://doi.org/10.1112/plms/s3-64.2.265)
+and [Xylouris's dissertation](https://bonndoc.ulb.uni-bonn.de/xmlui/handle/20.500.11811/5074).
 
 The previous full replay was not repeated. Its 4,196,879 accepted boxes are
 previous evidence, not a new result of this pass. Two new checks target
@@ -158,7 +158,7 @@ the leaf row, but could not detect a common error in those constants. Also,
 these 37 rows are outside the Lean near-row checker.
 
 The new script,
-[`fallback_integral_attack.py`](https://github.com/enaslund/linniks-constant/blob/32b512bfac76806bbeb99134d5ec4fdf5ec9452b/computations/audit/fallback_integral_attack.py),
+[`fallback_integral_attack.py`](../../computations/audit/fallback_integral_attack.py),
 uses the old routines only as targets. Its reference values use 70-digit
 quadrature of the defining norms and an integration-by-parts recurrence for
 the polynomial Laplace-transform moments. The transform recurrence was
@@ -182,7 +182,7 @@ $2.4028\cdot10^{-8}$, on root 1218. The four paired rows have $s=a$, so
 their negative-transform corrections vanish by Condition 2. None of the
 searched values exceeded its claimed bound.
 
-The [raw report](https://github.com/enaslund/linniks-constant/blob/32b512bfac76806bbeb99134d5ec4fdf5ec9452b/computations/audit/adversarial_20261002/fallback-integrals.json)
+The [raw report](../../computations/audit/adversarial_20261002/fallback-integrals.json)
 records each row. This is a numerical falsification exercise, **not an
 independent interval proof of a supremum over a continuum**. In particular,
 nonnegative supremum estimates reported as zero include the limiting value
@@ -190,7 +190,7 @@ zero; they are not claims that a maximum was attained in the search.
 
 ## New exact check of the root cover
 
-[`paper_root_cover_check.py`](https://github.com/enaslund/linniks-constant/blob/32b512bfac76806bbeb99134d5ec4fdf5ec9452b/computations/audit/paper_root_cover_check.py)
+[`paper_root_cover_check.py`](../../computations/audit/paper_root_cover_check.py)
 extracts the 58 parent implications from the LaTeX table and reads the
 compressed source-cover data. It imports no existing cover validator,
 builder, or analytic-constant routine. Exact rational checks verify:
@@ -203,7 +203,7 @@ builder, or analytic-constant routine. Exact rational checks verify:
   by the unreserved tail;
 * sequential specification identifiers and the inside/outside root census.
 
-The [report](https://github.com/enaslund/linniks-constant/blob/32b512bfac76806bbeb99134d5ec4fdf5ec9452b/computations/audit/adversarial_20261002/root-cover.json)
+The [report](../../computations/audit/adversarial_20261002/root-cover.json)
 passes with 340 base cells, 478 first-zero cells, 684 gap cases, and 2,768
 specifications, yielding 2,768 inside and 1,685 outside roots. It found no
 uncovered endpoint, missing reservation size, or stronger-than-parent bound.
@@ -242,4 +242,4 @@ Run from the repository root:
 The fallback check reads the 37 rows from the retained first-review report,
 and records that file's SHA-256. The root check records hashes of both its
 inputs. Additional source and script hashes are in
-[`provenance.json`](https://github.com/enaslund/linniks-constant/blob/32b512bfac76806bbeb99134d5ec4fdf5ec9452b/computations/audit/adversarial_20261002/provenance.json).
+[`provenance.json`](../../computations/audit/adversarial_20261002/provenance.json).

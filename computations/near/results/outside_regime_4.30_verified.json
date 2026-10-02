@@ -1,0 +1,51 @@
+{
+  "L": "4.30",
+  "status": "PASS entire FINITE outside-buffer first-zero regime; NOT an all-case exponent",
+  "source_records": 1685,
+  "regenerated_inputs": true,
+  "maximum_numerator": 9999741175938028,
+  "scale": 10000000000000000,
+  "margin_numerator": 258824061972,
+  "binding": {
+    "id": 1492,
+    "maximum": 9999741175938028,
+    "leaves": 1,
+    "branches": 1168,
+    "checks": 930677,
+    "excluded": 9,
+    "binding": {
+      "maximum": 9999741175938028,
+      "branches": 1168,
+      "excluded": 9,
+      "checks": 930677,
+      "binding": {
+        "branch": {
+          "a": 249570,
+          "b": 249574,
+          "Y": 4359557302,
+          "Z": 2972239830946,
+          "U": 275238062,
+          "upper": 9999741175938028
+        },
+        "near_budget": 93535642022420
+      },
+      "input": {
+        "compact_input": 1,
+        "sha256": "d522eaa04e07d4a3d4315d3a50a0431c9ef5bf81f08f6ed54b6ade53549a2820",
+        "lambda_den": 200,
+        "parameters": {
+          "method": "single",
+          "gg": "27/20",
+          "gz": "28/25",
+          "mix": "0",
+          "zeta": "3"
+        }
+      }
+    }
+  },
+  "seconds": 927.7952585220337,
+  "leaves": 1642,
+  "branches": 90351,
+  "checks": 65148582,
+  "excluded": 5604
+}

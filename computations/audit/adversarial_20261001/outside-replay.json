@@ -1,0 +1,12 @@
+{
+ "kind": "outside",
+ "L": "3.99",
+ "roots": 1685,
+ "leaves": 1642,
+ "boxes": 87424,
+ "maximum_numerator": 9999942478462508,
+ "mismatches": [],
+ "seconds": 377,
+ "checker": "python3 /home/naslund_eric/src/enaslund/linniks-constant/master/computations/audit/independent_cert_check.py --stats /tmp/linnik399-adversarial/outside-stats.jsonl",
+ "status": "PASS"
+}

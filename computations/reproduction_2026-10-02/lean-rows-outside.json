@@ -1,0 +1,17 @@
+{
+ "kind": "outside",
+ "L": "3.99",
+ "mode": "rows",
+ "roots": 1685,
+ "leaves": 1642,
+ "passed": 1642,
+ "rows": 3314,
+ "rows_checked": 3314,
+ "items": 2021521,
+ "special": 0,
+ "ms": 1660774,
+ "failures": [],
+ "seconds": 282,
+ "checker": ".lake/build/bin/rowcheck",
+ "status": "PASS"
+}

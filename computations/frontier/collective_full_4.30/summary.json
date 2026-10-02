@@ -1,0 +1,9 @@
+{
+  "L": "4.30",
+  "source_roots": 2768,
+  "complete_roots": 2768,
+  "pending_roots": 0,
+  "pending_leaves": 0,
+  "corpus_sha256": "8ea390a01c7f994e28fa050550510d7aa211f14b6a34ad168700042913554fe1",
+  "scope": "Coverage inventory only; complete numerical replay still required"
+}

@@ -1,0 +1,450 @@
+{
+ "kind": "inside",
+ "L": "3.99",
+ "mode": "full",
+ "roots": 13,
+ "leaves": 52,
+ "boxes": 176014,
+ "maximum_numerator": 9999998223456687,
+ "mismatches": [],
+ "numeric_failures": 0,
+ "numeric_failure_list": [],
+ "passed": 52,
+ "seconds": 766,
+ "checker": ".lake/build/bin/leafcheck",
+ "timing_ms": {
+  "wall": {
+   "total": 1286352,
+   "mean": 24737.5,
+   "median": 8179,
+   "max": 165671
+  },
+  "cert": null,
+  "num": null,
+  "replay_per_root": {
+   "total": 475766,
+   "mean": 36597.4,
+   "median": 25755,
+   "max": 134399
+  }
+ },
+ "status": "PASS",
+ "per_leaf": [
+  {
+   "name": "10_0",
+   "columns": 247,
+   "boxes": 257,
+   "wall_ms": 309,
+   "profile": "inherited",
+   "type": "rr"
+  },
+  {
+   "name": "212_0",
+   "columns": 432,
+   "boxes": 409,
+   "wall_ms": 1581,
+   "profile": "inherited",
+   "type": "rr"
+  },
+  {
+   "name": "600_0",
+   "columns": 790,
+   "boxes": 469,
+   "wall_ms": 3360,
+   "profile": "retuned",
+   "type": "rr"
+  },
+  {
+   "name": "1100_0",
+   "columns": 873,
+   "boxes": 120,
+   "wall_ms": 533,
+   "profile": "retuned",
+   "type": "rc"
+  },
+  {
+   "name": "1100_1",
+   "columns": 873,
+   "boxes": 1392,
+   "wall_ms": 6236,
+   "profile": "retuned",
+   "type": "rc"
+  },
+  {
+   "name": "1155_0",
+   "columns": 385,
+   "boxes": 15,
+   "wall_ms": 189,
+   "profile": "inherited",
+   "type": "rc"
+  },
+  {
+   "name": "1155_1",
+   "columns": 385,
+   "boxes": 22,
+   "wall_ms": 165,
+   "profile": "inherited",
+   "type": "rc"
+  },
+  {
+   "name": "1218_0",
+   "columns": 465,
+   "boxes": 3372,
+   "wall_ms": 20686,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1218_1",
+   "columns": 407,
+   "boxes": 2600,
+   "wall_ms": 8683,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1218_2",
+   "columns": 411,
+   "boxes": 9370,
+   "wall_ms": 68462,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1218_3",
+   "columns": 413,
+   "boxes": 7151,
+   "wall_ms": 50996,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1218_4",
+   "columns": 415,
+   "boxes": 6558,
+   "wall_ms": 46198,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1218_5",
+   "columns": 419,
+   "boxes": 6237,
+   "wall_ms": 43122,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1218_6",
+   "columns": 421,
+   "boxes": 5624,
+   "wall_ms": 38223,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1218_7",
+   "columns": 423,
+   "boxes": 5762,
+   "wall_ms": 39678,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1218_8",
+   "columns": 426,
+   "boxes": 5958,
+   "wall_ms": 41926,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1218_9",
+   "columns": 428,
+   "boxes": 5997,
+   "wall_ms": 41949,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1218_10",
+   "columns": 422,
+   "boxes": 4059,
+   "wall_ms": 23282,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1320_0",
+   "columns": 836,
+   "boxes": 2843,
+   "wall_ms": 29823,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1320_1",
+   "columns": 836,
+   "boxes": 637,
+   "wall_ms": 4829,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1320_2",
+   "columns": 842,
+   "boxes": 2785,
+   "wall_ms": 28730,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1320_3",
+   "columns": 842,
+   "boxes": 639,
+   "wall_ms": 4789,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1320_4",
+   "columns": 849,
+   "boxes": 3003,
+   "wall_ms": 32237,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1320_5",
+   "columns": 849,
+   "boxes": 669,
+   "wall_ms": 4955,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1320_6",
+   "columns": 853,
+   "boxes": 2982,
+   "wall_ms": 31751,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1320_7",
+   "columns": 853,
+   "boxes": 673,
+   "wall_ms": 5026,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1320_8",
+   "columns": 850,
+   "boxes": 2159,
+   "wall_ms": 21459,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1320_9",
+   "columns": 850,
+   "boxes": 580,
+   "wall_ms": 4335,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1320_10",
+   "columns": 845,
+   "boxes": 1498,
+   "wall_ms": 14398,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1320_11",
+   "columns": 427,
+   "boxes": 550,
+   "wall_ms": 2175,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1320_12",
+   "columns": 837,
+   "boxes": 1144,
+   "wall_ms": 10427,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1320_13",
+   "columns": 423,
+   "boxes": 495,
+   "wall_ms": 1887,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1320_14",
+   "columns": 831,
+   "boxes": 963,
+   "wall_ms": 8179,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1320_15",
+   "columns": 420,
+   "boxes": 453,
+   "wall_ms": 1664,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1416_0",
+   "columns": 394,
+   "boxes": 2,
+   "wall_ms": 182,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1416_1",
+   "columns": 394,
+   "boxes": 2,
+   "wall_ms": 156,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1416_2",
+   "columns": 394,
+   "boxes": 3,
+   "wall_ms": 150,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1416_3",
+   "columns": 394,
+   "boxes": 29,
+   "wall_ms": 151,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1416_4",
+   "columns": 394,
+   "boxes": 1108,
+   "wall_ms": 2144,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1416_5",
+   "columns": 394,
+   "boxes": 1111,
+   "wall_ms": 2170,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "1671_0",
+   "columns": 799,
+   "boxes": 482,
+   "wall_ms": 3350,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "1671_1",
+   "columns": 810,
+   "boxes": 441,
+   "wall_ms": 2867,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "2000_0",
+   "columns": 826,
+   "boxes": 205,
+   "wall_ms": 1350,
+   "profile": "retuned",
+   "type": "complex"
+  },
+  {
+   "name": "2432_0",
+   "columns": 419,
+   "boxes": 8187,
+   "wall_ms": 56830,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "2432_1",
+   "columns": 421,
+   "boxes": 9105,
+   "wall_ms": 65255,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "2432_2",
+   "columns": 421,
+   "boxes": 9591,
+   "wall_ms": 68017,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "2432_3",
+   "columns": 422,
+   "boxes": 9866,
+   "wall_ms": 69911,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "2432_4",
+   "columns": 423,
+   "boxes": 9415,
+   "wall_ms": 66902,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "2432_5",
+   "columns": 431,
+   "boxes": 18096,
+   "wall_ms": 138275,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "2432_6",
+   "columns": 441,
+   "boxes": 20676,
+   "wall_ms": 165671,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "2603_0",
+   "columns": 441,
+   "boxes": 241,
+   "wall_ms": 612,
+   "profile": "inherited",
+   "type": "complex"
+  },
+  {
+   "name": "2766_0",
+   "columns": 305,
+   "boxes": 9,
+   "wall_ms": 117,
+   "profile": "inherited",
+   "type": "complex"
+  }
+ ]
+}

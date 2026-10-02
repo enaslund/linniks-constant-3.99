@@ -1,0 +1,17 @@
+{
+ "kind": "inside",
+ "L": "3.99",
+ "mode": "rows",
+ "roots": 2768,
+ "leaves": 3949,
+ "passed": 3949,
+ "rows": 13565,
+ "rows_checked": 13528,
+ "items": 9113802,
+ "special": 1706,
+ "ms": 16158341,
+ "failures": [],
+ "seconds": 3665,
+ "checker": "/home/naslund_eric/src/enaslund/linniks-constant/master/lean-graded/.lake/build/bin/rowcheck",
+ "status": "PASS"
+}

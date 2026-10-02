@@ -109,7 +109,7 @@ margins; ``hand proof'' means a conventional proof in this paper. The checks are
 \label{tab:status}
 \end{table}
 
-\subsection{The data}
+\subsection{The data}\label{subsec:data}
 The certificates are stored in three compressed JSON record files. The inside and
 outside files are indexed by root case; the supplementary file records the $233$
 supplementary leaves of $199$ inside roots (\cref{subsec:refinement}). Their sizes and SHA-256 hashes are:
@@ -279,15 +279,12 @@ The Lean kernel checks the proofs, but whether each formal statement says what t
 statement of this paper says has so far been reviewed only by AI agents.
 
 \subsection{Data availability}
-The development repository contains the certificates, the programs that generate and
-check them, the verification reports, and the Lean formalization:
-\begin{center}\url{https://github.com/enaslund/linniks-constant}.\end{center}
-At the date of this revision the repository is private. A public, versioned archive
-of these materials is needed before submission so that readers can reproduce the
-computations and identify the precise data used in the proof. This paper and the Lean
-formalization are publicly available in the repository prepared for the Palomar registry of
-formalized mathematics:
+The certificates, the programs that generate and check them, the reports of every
+verification run described in this section, the Lean formalization and this paper are publicly
+available at
 \begin{center}\url{https://github.com/enaslund/linniks-constant-3.99}.\end{center}
+The certificate files are in its directory \texttt{computations/graded/corpora/3.99}, with the
+hashes of \cref{subsec:data}.
 The formalized components described in \cref{subsec:lean}, namely the graded near-density lemma
 with its zero form and the soundness of the certificate checker, are registered in Palomar as entry
 PALOMAR-2026-10-01-000020:

@@ -1,0 +1,17 @@
+{
+ "kind": "inside",
+ "L": "3.99",
+ "mode": "rows",
+ "roots": 13,
+ "leaves": 52,
+ "passed": 52,
+ "rows": 190,
+ "rows_checked": 187,
+ "items": 108334,
+ "special": 18,
+ "ms": 84125,
+ "failures": [],
+ "seconds": 150,
+ "checker": ".lake/build/bin/rowcheck",
+ "status": "PASS"
+}

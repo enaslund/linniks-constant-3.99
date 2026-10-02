@@ -1,0 +1,12 @@
+{
+ "kind": "outside",
+ "L": "3.99",
+ "roots": 1685,
+ "leaves": 1642,
+ "boxes": 87424,
+ "maximum_numerator": 9999942478462508,
+ "mismatches": [],
+ "seconds": 139,
+ "checker": "/home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python /home/naslund_eric/src/enaslund/clean-399-test/computations/audit/independent_cert_check.py --stats /home/naslund_eric/src/enaslund/clean-399-out/indep-outside-stats.jsonl",
+ "status": "PASS"
+}

@@ -1,0 +1,49 @@
+inside 200 2768 id 199 max 0.9999994042594907 sec 57
+inside 400 2768 id 399 max 0.9999994042594907 sec 112
+inside 600 2768 id 599 max 0.9999994042594907 sec 129
+inside 800 2768 id 799 max 0.9999994090193823 sec 159
+inside 1000 2768 id 999 max 0.9999994090193823 sec 190
+inside 1200 2768 id 1199 max 0.9999994874201168 sec 214
+inside 1400 2768 id 1399 max 0.9999996860659297 sec 502
+inside 1600 2768 id 1599 max 0.9999998132810008 sec 525
+inside 1800 2768 id 1799 max 0.9999998132810008 sec 572
+inside 2000 2768 id 1999 max 0.9999998132810008 sec 918
+inside 2200 2768 id 2199 max 0.9999998132810008 sec 918
+inside 2400 2768 id 2399 max 0.9999998132810008 sec 918
+inside 2600 2768 id 2599 max 0.9999998223456688 sec 918
+inside {'roots': 2768, 'leaves': 3146, 'boxes': 4109455, 'maximum_numerator': 9999998223456687, 'maximum': 0.9999998223456688, 'identities_nodes': 233}
+outside 200 1685 id 1282 max 0.9999601507762444 sec 947
+outside 400 1685 id 1482 max 0.9999601507762444 sec 961
+outside 600 1685 id 1682 max 0.9999601507762444 sec 973
+outside 800 1685 id 1882 max 0.9999601507762444 sec 986
+outside 1000 1685 id 2082 max 0.9999942478462508 sec 995
+outside 1200 1685 id 2282 max 0.9999942478462508 sec 1006
+outside 1400 1685 id 2482 max 0.9999942478462508 sec 1020
+outside 1600 1685 id 2682 max 0.9999942478462508 sec 1036
+outside {'roots': 1685, 'leaves': 1642, 'boxes': 87424, 'maximum_numerator': 9999942478462508, 'maximum': 0.9999942478462508}
+{
+  "L": "3.99",
+  "method": "graded-near",
+  "inside": {
+    "roots": 2768,
+    "leaves": 3146,
+    "boxes": 4109455,
+    "maximum_numerator": 9999998223456687,
+    "maximum": 0.9999998223456688,
+    "identities_nodes": 233
+  },
+  "outside": {
+    "roots": 1685,
+    "leaves": 1642,
+    "boxes": 87424,
+    "maximum_numerator": 9999942478462508,
+    "maximum": 0.9999942478462508
+  },
+  "seconds": 1045.0538702011108,
+  "status": "PASS: every LP leaf and identities node of the verified 4.30 inside and outside source trees has a verified graded-near certificate at L"
+}
+
+real	17m25.143s
+user	206m32.466s
+sys	0m39.013s
+exit 0

@@ -1,0 +1,51 @@
+{
+  "date": "2026-09-29T05:16:46.014148+00:00",
+  "target": "3.99",
+  "method": "graded-near (research/PROOF.md)",
+  "status": "Complete numerical implication at the target exponent, assembled from verified components; conditional on the analytic premises of research/PROOF.md \u00a711. Not a theorem; not formalized.",
+  "scope": "All moduli and coprime residue classes, conditional on the premises listed in research/PROOF.md \u00a711",
+  "components": {
+    "middle_inside": {
+      "L": "3.99",
+      "replay": {
+        "roots": 2768,
+        "leaves": 3146,
+        "boxes": 4109455,
+        "maximum_numerator": 9999998223456687,
+        "maximum": 0.9999998223456688,
+        "identities_nodes": 233
+      },
+      "corpus": "computations/graded/corpora/3.99/inside.jsonl.gz",
+      "corpus_sha256": "539362a03e7b330dad03b33d6b5037871cfcbbf7b0973e7976fccf12509fe63c",
+      "nodes_corpus": "computations/graded/corpora/3.99/nodes.jsonl.gz",
+      "nodes_corpus_sha256": "b715ac735b6976da17a2671667ecfdf07c3f19b8ab74ae5f0533dbcf6b2a6cfc",
+      "description": "Every LP leaf and identities node of the verified 4.30 inside source trees, replaced by the regular inside model of its case at the target and certified with graded near rows, second-family columns and exact integer duals; location rows, exclusions and splits of the trees are re-checked by the repository verifiers during the replay."
+    },
+    "middle_outside": {
+      "L": "3.99",
+      "replay": {
+        "roots": 1685,
+        "leaves": 1642,
+        "boxes": 87424,
+        "maximum_numerator": 9999942478462508,
+        "maximum": 0.9999942478462508
+      },
+      "corpus": "computations/graded/corpora/3.99/outside.jsonl.gz",
+      "corpus_sha256": "a53d4d5793f71c92647a7f22022110bdc8135cbda1f2575d1dc0c1f487f5ac1d",
+      "description": "Every outside-buffer leaf of the verified 4.30 outside source trees, replaced by the regular outside model at the target and certified with the outside family row and graded rows."
+    },
+    "exteriors": {
+      "L": "3.99",
+      "regimes": [
+        "0<lambda1<=0.1",
+        "lambda1>=1.5"
+      ],
+      "source": "computations/frontier/existing_components_verified.json"
+    }
+  },
+  "mathematical_join": "research/PROOF.md \u00a710: no zero in R(l); lambda1 <= .1 (small exterior); .1 <= lambda1 < 1.5 (inside or outside the buffer, covered by the replayed trees); lambda1 >= 1.5 (large exterior). Finitely many leaves with fixed tests give a common q0.",
+  "analytic_premises": "research/PROOF.md \u00a711 (premise table with review status)",
+  "replay_command": "python3 computations/graded/graded_verify.py --L 3.99 --inside computations/graded/corpora/3.99/inside.jsonl.gz --nodes computations/graded/corpora/3.99/nodes.jsonl.gz --outside computations/graded/corpora/3.99/outside.jsonl.gz --workers 4",
+  "replay_report": "computations/graded/verification_3.99.json",
+  "replay_report_sha256": "6ab4a50824d4ade2b1c9151e2b9c184a12fd07c808af07a1052e73f5d3687ef4"
+}

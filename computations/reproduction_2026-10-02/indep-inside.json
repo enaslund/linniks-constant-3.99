@@ -1,0 +1,12 @@
+{
+ "kind": "inside",
+ "L": "3.99",
+ "roots": 2768,
+ "leaves": 3949,
+ "boxes": 4109455,
+ "maximum_numerator": 9999998223456687,
+ "mismatches": [],
+ "seconds": 1771,
+ "checker": "/home/naslund_eric/src/enaslund/clean-399-test/.venv/bin/python /home/naslund_eric/src/enaslund/clean-399-test/computations/audit/independent_cert_check.py --stats /home/naslund_eric/src/enaslund/clean-399-out/indep-inside-stats.jsonl",
+ "status": "PASS"
+}

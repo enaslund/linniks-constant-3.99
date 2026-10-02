@@ -1,0 +1,23 @@
+{
+  "paper/linnik399.tex": "e8a297ff019544ccd016d96451abff705ac0bab6ca1078a5bae0a7f097c71ca9",
+  "paper/sections/01-introduction.tex": "e063ea0ae4edefae5924bc3678989019cdf74523dae78443fe2e5ecbdd1903fe",
+  "paper/sections/02-notation.tex": "c46e73d5d68f5cb3aafe1882821ed7c4677fb703349295dca14b707ed3e94535",
+  "paper/sections/03-inputs.tex": "b0c9817fb78279ce0ffada1322af921f7bc96a3c01cf44c51c51a1263edb8e2d",
+  "paper/sections/04-detection.tex": "7d81d29cb4bc2db22b85cd3f3e9795c8845dc813a3d6fffe87930635e59ef22a",
+  "paper/sections/05-costs.tex": "2f839ae65c05fa63c641700a07c6bc2312a3fe9b6f9be1aa1509763a28b91a86",
+  "paper/sections/06-far.tex": "5370f3ea2225146e4526f5edb57767f51300efaa4555c505d285698d841898e6",
+  "paper/sections/07-location.tex": "f8790272b08335f6508887bc6d793f65ed9c6101eff9d70683cba52d5f3c420f",
+  "paper/sections/08-near.tex": "2094ef3ccb5c8233afcc4f1dcf6a129f8a63012201c5643c2076442b026f3764",
+  "paper/sections/09-rows.tex": "330843ac1e5a6cc610c65321c9eccb4992f1835d85ec90604606f3a76939b978",
+  "paper/sections/10-lp.tex": "6bc5db0493e68829e215b1c1ba687d3c702e37aca4b4872efc2c9060ab10b489",
+  "paper/sections/11-casetree.tex": "5843e84a65831c0b2eb5b34f8f620b53a7f5ea6ceeaec79b2b99217f1f4793ac",
+  "paper/sections/12-exteriors.tex": "52235f7da0338d48a7236c33903f3c0c5e5fa965444a4a36b85c44c3e385b9fc",
+  "paper/sections/13-join.tex": "9a758a2751d3c8c099a1f0afa5f064f58a5e76e17d885aed50e5dbc43c75acae",
+  "paper/sections/14-verification.tex": "c1d5b6880de4ccb89b07592965b901da01536dadb2880619ea96a09f5753938d",
+  "paper/sections/15-remarks.tex": "c1104cbb776f2869216cfbedc78985ce3841dfcf148ff693f786a90f2b32d033",
+  "paper/sections/16-appendix.tex": "fb49392369ef9a66eab50eb9e9237dce67dea4d85a7aac369bf010cc0cb9e3f6",
+  "paper/references.bib": "0722809dac79ff612ce2512a3d7cd8e77991518f659f75383cb706f0f769f726",
+  "paper/dist/linnik399.tex": "583339ccd81faff1650aab25d20978ca63bc2ec07ab4a29138cb7bed2b684395",
+  "paper/linnik399.pdf": "96c628213b3dea28ef33bf87f8cf1de2d910f07eed9f2054d604d82c2f2f7b3b",
+  "paper/dist/linnik399.pdf": "11a6031318a691c92e70bff757f6af61c1ee4a20381e819e90d5eae9c6164432"
+}

@@ -1,0 +1,43 @@
+{
+ "status": "PASS: independent interval enclosures of the two small-branch pieces agree with small_exception_tables_3.99.json; both margins exceed 0.0304",
+ "digits": 60,
+ "pieces": [
+  {
+   "main": [
+    "0.10884584292900161452",
+    "0.10884584292900161452"
+   ],
+   "other": [
+    "0.07831167456184964207",
+    "0.07831167456184964207"
+   ],
+   "first": [
+    "0.000045465506191987235125",
+    "0.000045465506191987235125"
+   ],
+   "margin": [
+    "0.030488702860959985213",
+    "0.030488702860959985213"
+   ]
+  },
+  {
+   "main": [
+    "0.10500566976974139853",
+    "0.10500566976974139853"
+   ],
+   "other": [
+    "0.066887469156483912799",
+    "0.066887469156483912799"
+   ],
+   "first": [
+    "1.5277096605610470593e-8",
+    "1.5277096605610470593e-8"
+   ],
+   "margin": [
+    "0.038118185336160880118",
+    "0.038118185336160880118"
+   ]
+  }
+ ],
+ "scope": "Elementary bounds of Theorem 12.5 only; the analytic inputs and the monotonicity argument are in the paper."
+}

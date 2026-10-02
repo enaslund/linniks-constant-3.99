@@ -1,0 +1,21 @@
+{
+  "L": "3.99",
+  "method": "graded-near",
+  "inside": {
+    "roots": 2768,
+    "leaves": 3146,
+    "boxes": 4109455,
+    "maximum_numerator": 9999998223456687,
+    "maximum": 0.9999998223456688,
+    "identities_nodes": 233
+  },
+  "outside": {
+    "roots": 1685,
+    "leaves": 1642,
+    "boxes": 87424,
+    "maximum_numerator": 9999942478462508,
+    "maximum": 0.9999942478462508
+  },
+  "seconds": 6159.365653038025,
+  "status": "PASS: every LP leaf and identities node of the verified 4.30 inside and outside source trees has a verified graded-near certificate at L"
+}

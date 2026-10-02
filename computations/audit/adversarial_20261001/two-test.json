@@ -1,0 +1,8189 @@
+{
+ "L": "3.99",
+ "corpus": "computations/graded/corpora/3.99",
+ "corpus_sha256": {
+  "inside": "539362a03e7b330dad03b33d6b5037871cfcbbf7b0973e7976fccf12509fe63c",
+  "nodes": "b715ac735b6976da17a2671667ecfdf07c3f19b8ab74ae5f0533dbcf6b2a6cfc",
+  "outside": "a53d4d5793f71c92647a7f22022110bdc8135cbda1f2575d1dc0c1f487f5ac1d"
+ },
+ "scan": {
+  "inside": {
+   "roots": 2768,
+   "leaves_with_old_row": 37
+  },
+  "nodes": {
+   "roots": 199,
+   "leaves_with_old_row": 0
+  },
+  "outside": {
+   "roots": 1685,
+   "leaves_with_old_row": 0
+  }
+ },
+ "partial": false,
+ "compared": {
+  "graded": [
+   "graded_leaves.old_row (the row dict)",
+   "graded_cert.Leaf.row_case (integers used)",
+   "graded_cert.Leaf._row_case and tangent_cost, exact (floor divisions and ceil_q removed)"
+  ],
+  "reference_430": [
+   "build_progress.near (integer and exact)",
+   "verify_progress.scenario constraint statements (integer and exact)",
+   "tangent cases: the exact 4.30 code at tau = m + eps (dual numbers), value -+ h*derivative"
+  ],
+  "paper": "transcription of the threshold form of paper \u00a79.6 (display after prop:paired)",
+  "data_430": [
+   "two_test_enclosures.constants, feat",
+   "extension_enclosures.mixfeature, paired_first",
+   "the 4.30 record input (unrefined leaves) or make_endgame at L=4.30 (refined leaves)"
+  ],
+  "rewrites": {
+   "graded_cert.Leaf._row_case": {
+    "//": 5,
+    "ceildiv": 0,
+    "ceil_q": 1
+   },
+   "graded_cert.tangent_cost": {
+    "//": 1,
+    "ceildiv": 0,
+    "ceil_q": 0
+   },
+   "build_progress.near": {
+    "//": 2,
+    "ceildiv": 1,
+    "ceil_q": 0
+   },
+   "verify_progress.scenario (constraint statements)": {
+    "//": 2,
+    "ceildiv": 1,
+    "ceil_q": 0
+   }
+  },
+  "scenario_constraint": "def scenario_constraint(inp, a, b):\n    rows = inp['rows']\n    d, D, Df = (inp['d'], inp['D'], inp['Df'])\n    ss = inp['second']\n    n = inp['n']\n    n2 = ss['n'] if ss else 0\n    sh = b * (S // TS)\n    f1 = max(inp['v_first'] - sh, 0)\n    f2 = max(ss['v'] - sh, 0) if ss else 0\n    de = TS * TS * d * Df * S\n    nu = D * de - D * a * a * Df * S * S - n * D * f1 * f1 * TS * TS * d - n2 * f2 * f2 * TS * TS * d * Df\n    B = ceildiv(nu, de)\n    _costs = []\n    for row in rows:\n        cost = max(row[4] - sh, 0) ** 2 // S\n        _costs.append(cost)\n    return (_costs, B)"
+ },
+ "sampling": {
+  "rng": "random.Random(str) with the seed string of each leaf (random_boxes.seed)",
+  "seed": "20261001",
+  "boxes_per_leaf": 300,
+  "edge_boxes_per_leaf": 3,
+  "types": "rotation uniform / narrow (log-uniform width) / kink (around a feature value in ticks)",
+  "certificate": "every distinct interval of the row dimension over the terminal boxes of the stored certificate tree; all three cases on each"
+ },
+ "claims": {
+  "leaves": 37,
+  "roots": 37,
+  "one_old_row_per_leaf": true,
+  "variants": {
+   "single": 31,
+   "mixture": 2,
+   "pair": 4
+  },
+  "paper_37_31_2_4": true,
+  "paired_all_nonreal_first": true,
+  "paired_margins": [
+   0.18563639819905586,
+   0.29587777357826334
+  ],
+  "paired_B_min": 0.0005292556793117
+ },
+ "variants": {
+  "single": {
+   "leaves": 31,
+   "roots": [
+    10,
+    11,
+    15,
+    16,
+    17,
+    18,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    1198,
+    1199,
+    1200,
+    1201,
+    1212,
+    1213,
+    1214,
+    1215
+   ],
+   "types": [
+    "complex",
+    "rr"
+   ],
+   "certificate_terminal_boxes": 16034,
+   "certificate_intervals": 755,
+   "random_boxes": 9393,
+   "cases_compared": {
+    "first_order": 10148,
+    "tangent_0": 10148,
+    "tangent_1": 10148
+   },
+   "column_comparisons": 10620348
+  },
+  "mixture": {
+   "leaves": 2,
+   "roots": [
+    1218,
+    1219
+   ],
+   "types": [
+    "complex"
+   ],
+   "certificate_terminal_boxes": 5177,
+   "certificate_intervals": 144,
+   "random_boxes": 606,
+   "cases_compared": {
+    "first_order": 750,
+    "tangent_0": 750,
+    "tangent_1": 750
+   },
+   "column_comparisons": 916875
+  },
+  "pair": {
+   "leaves": 4,
+   "roots": [
+    2603,
+    2608,
+    2613,
+    2633
+   ],
+   "types": [
+    "complex"
+   ],
+   "certificate_terminal_boxes": 2130,
+   "certificate_intervals": 180,
+   "random_boxes": 1212,
+   "cases_compared": {
+    "first_order": 1392,
+    "tangent_0": 1392,
+    "tangent_1": 1392
+   },
+   "column_comparisons": 1836249
+  }
+ },
+ "totals": {
+  "leaves": 37,
+  "certificate_terminal_boxes": 23341,
+  "certificate_intervals": 1079,
+  "random_boxes": 11211,
+  "column_comparisons": 13373472,
+  "cases_compared": {
+   "first_order": 12290,
+   "tangent_0": 12290,
+   "tangent_1": 12290
+  },
+  "certificate_uses": {
+   "first_order": 8334,
+   "tangent": 15007
+  },
+  "box_case_pairs": 36870,
+  "record_430_agreement": {
+   "leaves": 37,
+   "common_bins": 13321
+  }
+ },
+ "max_rounding_gaps": {
+  "cost_first": {
+   "units_of_1_over_S": 0.9999997911773545,
+   "exact": "10711733369251489/10711735606104456",
+   "leaf": [
+    33,
+    0
+   ],
+   "real": 9.999997911773545e-17
+  },
+  "budget_first": {
+   "units_of_1_over_S": 2.804391865701716,
+   "exact": "17821135826026626405894686041894104651854906/6354723832993080897929170506525154037613741",
+   "leaf": [
+    1218,
+    0
+   ],
+   "real": 2.804391865701716e-16
+  },
+  "cost_tangent": {
+   "units_of_1_over_S": 2.080583960287713,
+   "exact": "532971541071845/256164399632372",
+   "leaf": [
+    2603,
+    0
+   ],
+   "real": 2.0805839602877132e-16
+  },
+  "budget_tangent": {
+   "units_of_1_over_S": 0.9999849142855655,
+   "exact": "247070830021262389049704093322/247074557317478126159295581121",
+   "leaf": [
+    32,
+    0
+   ],
+   "real": 9.999849142855654e-17
+  },
+  "cost_first_430": {
+   "units_of_1_over_S": 0.9999995474425625,
+   "exact": "15999992759081/16000000000000",
+   "leaf": [
+    25,
+    0
+   ],
+   "real": 9.999995474425624e-17
+  },
+  "budget_first_430": {
+   "units_of_1_over_S": 0.999985624306691,
+   "exact": "691758336097312948748001474484056836936639937/691768280745957822391642249445312500000000000",
+   "leaf": [
+    1201,
+    0
+   ],
+   "real": 9.999856243066911e-17
+  }
+ },
+ "negative_test": {
+  "perturbations": 707,
+  "detected": 707
+ },
+ "replay": {
+  "roots": 37,
+  "leaves_equal_to_corpus": 37,
+  "root_maxima": {
+   "10": 9998090773021746,
+   "11": 9924827467344362,
+   "15": 9978914423284401,
+   "16": 9997182460833021,
+   "17": 9972185699931120,
+   "18": 9996622669832508,
+   "20": 9967730556702006,
+   "21": 9997141270055672,
+   "22": 9938794262676044,
+   "23": 9991384900480883,
+   "24": 9982484764775482,
+   "25": 9985805310105820,
+   "26": 9997776144544636,
+   "27": 9990912058468447,
+   "28": 9933854266317009,
+   "29": 9999707952091303,
+   "30": 9954134872583036,
+   "31": 9998083086601789,
+   "32": 9993633850594425,
+   "33": 9999320464125731,
+   "34": 9996536714675598,
+   "35": 9999839085127074,
+   "36": 9999343673325192,
+   "1198": 9999303380064543,
+   "1199": 9998567889093482,
+   "1200": 9999320228071229,
+   "1201": 9999515621125252,
+   "1212": 9999764216564096,
+   "1213": 9999852334999307,
+   "1214": 9999230784799182,
+   "1215": 9999978316381384,
+   "1218": 9999978664339801,
+   "1219": 9999919682355244,
+   "2603": 9999709184403933,
+   "2608": 9997705112135475,
+   "2613": 9989151795154093,
+   "2633": 9998489650387127
+  }
+ },
+ "leaves": [
+  {
+   "root": 10,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 5,
+    "kind": "rr",
+    "lo": "1/5",
+    "hi": "21/100",
+    "lp": "2293/1000",
+    "source_l2": "177/100"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 247,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 123398,
+   "d": 152269173153149,
+   "D": 12911702507184427,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 247,
+    "record_rows": 247,
+    "common_bins": 247,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 493,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.3,
+    "bins": 246,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "177/100",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 247,
+   "certificate_boxes": {
+    "terminal_boxes": 257,
+    "distinct_intervals": 15,
+    "uses": {
+     "first_order": 92,
+     "tangent": 165
+    },
+    "cases_compared": {
+     "0": 15,
+     "1": 15,
+     "2": 15
+    },
+    "column_comparisons": 11115
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/10/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 224523
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999448701109345,
+     "exact": "12910990686457559/12911702507184427"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9848677782934727,
+     "exact": "57237054824761426282177556036/28836709150456389130878769749"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.7716029923698202,
+     "exact": "22874410798316841/12911702507184427"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9996458426828584,
+     "exact": "28826496418908469855844007343/28836709150456389130878769749"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.99997476689984,
+     "exact": "1562460573281/1562500000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.996509201723055,
+     "exact": "31928940017601347101046387606317637519930619/32040787944951543478754188610000000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 8.8,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9998090773021746,
+    "boxes": 257,
+    "corpus_maximum": 9998090773021746,
+    "corpus_boxes": 257
+   }
+  },
+  {
+   "root": 11,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 5,
+    "kind": "rr",
+    "lo": "21/100",
+    "hi": "11/50",
+    "lp": "2293/1000",
+    "source_l2": "177/100"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 247,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 123398,
+   "d": 152269173153149,
+   "D": 12845424484177958,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 247,
+    "record_rows": 247,
+    "common_bins": 247,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 493,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.3,
+    "bins": 246,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "177/100",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 247,
+   "certificate_boxes": {
+    "terminal_boxes": 177,
+    "distinct_intervals": 15,
+    "uses": {
+     "first_order": 86,
+     "tangent": 91
+    },
+    "cases_compared": {
+     "0": 15,
+     "1": 15,
+     "2": 15
+    },
+    "column_comparisons": 11115
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/11/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 224523
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999787908008329,
+     "exact": "12845152043011687/12845424484177958"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9098413778985508,
+     "exact": "55073540337967381332009316571/28836709150456389130878769749"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.7759305035089148,
+     "exact": "11406290585985951/6422712242088979"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9919660711059215,
+     "exact": "4086433868514628660498788541/4119529878636627018696967107"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999960719892281,
+     "exact": "9999960719892281/10000000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9983004189842073,
+     "exact": "143938494135131695248011795111444153380805987/144183545752281945654393848745000000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 12.2,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9924827467344362,
+    "boxes": 177,
+    "corpus_maximum": 9924827467344362,
+    "corpus_boxes": 177
+   }
+  },
+  {
+   "root": 15,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 6,
+    "kind": "rr",
+    "lo": "1/4",
+    "hi": "13/50",
+    "lp": "2293/1000",
+    "source_l2": "79/50"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 285,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 142895,
+   "d": 204188720243043,
+   "D": 12212470684270517,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 285,
+    "record_rows": 285,
+    "common_bins": 285,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 569,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 284,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "79/50",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 285,
+   "certificate_boxes": {
+    "terminal_boxes": 253,
+    "distinct_intervals": 17,
+    "uses": {
+     "first_order": 62,
+     "tangent": 191
+    },
+    "cases_compared": {
+     "0": 17,
+     "1": 17,
+     "2": 17
+    },
+    "column_comparisons": 14535
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/15/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 259065
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999771500758956,
+     "exact": "718364213543662/718380628486501"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.948157111928663,
+     "exact": "1298900150442627233116236125611/666732750910795091347386924398"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.8173938092866015,
+     "exact": "22194868617687343/12212470684270517"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9978292693868375,
+     "exact": "665285453717594967666969845299/666732750910795091347386924398"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999682765887364,
+     "exact": "2499920691471841/2500000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9961060409358751,
+     "exact": "6641365208720370306753392731836004070570993117/6667327509107950913473869243980000000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 14.7,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9978914423284401,
+    "boxes": 253,
+    "corpus_maximum": 9978914423284401,
+    "corpus_boxes": 253
+   }
+  },
+  {
+   "root": 16,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 6,
+    "kind": "rr",
+    "lo": "13/50",
+    "hi": "27/100",
+    "lp": "2293/1000",
+    "source_l2": "79/50"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 285,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 142895,
+   "d": 204188720243043,
+   "D": 12158806797209130,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 285,
+    "record_rows": 285,
+    "common_bins": 285,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 569,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 284,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "79/50",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 285,
+   "certificate_boxes": {
+    "terminal_boxes": 239,
+    "distinct_intervals": 15,
+    "uses": {
+     "first_order": 51,
+     "tangent": 188
+    },
+    "cases_compared": {
+     "0": 15,
+     "1": 15,
+     "2": 15
+    },
+    "column_comparisons": 12825
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/16/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 259065
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999675438143407,
+     "exact": "6079206084359162/6079403398604565"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.8983452384716555,
+     "exact": "3797066829073848560524655415353/2000198252732385274042160773194"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.8194381389860668,
+     "exact": "7374065603801773/4052935599069710"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9988480114095497,
+     "exact": "665964682388866340013542670509/666732750910795091347386924398"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.999987566166529,
+     "exact": "9999875661665289/10000000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9911940716049282,
+     "exact": "26434462001905015703218761654393342194214617/26669310036431803653895476975920000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 9.8,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9997182460833021,
+    "boxes": 239,
+    "corpus_maximum": 9997182460833021,
+    "corpus_boxes": 239
+   }
+  },
+  {
+   "root": 17,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 6,
+    "kind": "rr",
+    "lo": "27/100",
+    "hi": "7/25",
+    "lp": "2293/1000",
+    "source_l2": "79/50"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 285,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 142895,
+   "d": 204188720243043,
+   "D": 12106254064240978,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 285,
+    "record_rows": 285,
+    "common_bins": 285,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 569,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 284,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "79/50",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 285,
+   "certificate_boxes": {
+    "terminal_boxes": 206,
+    "distinct_intervals": 15,
+    "uses": {
+     "first_order": 80,
+     "tangent": 126
+    },
+    "cases_compared": {
+     "0": 15,
+     "1": 15,
+     "2": 15
+    },
+    "column_comparisons": 12825
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/17/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 259065
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999691977580962,
+     "exact": "12105881164474743/12106254064240978"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9603430679612215,
+     "exact": "653512463215346470855535629925/333366375455397545673693462199"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.8249636984020814,
+     "exact": "22093474190872443/12106254064240978"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.997653682364019,
+     "exact": "332584192049423463927402204685/333366375455397545673693462199"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.999915636624,
+     "exact": "62494727289/62500000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9865692542353552,
+     "exact": "822222541050437491413891718891971758654984609/833415938638493864184233655497500000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 10.3,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9972185699931120,
+    "boxes": 206,
+    "corpus_maximum": 9972185699931120,
+    "corpus_boxes": 206
+   }
+  },
+  {
+   "root": 18,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 6,
+    "kind": "rr",
+    "lo": "7/25",
+    "hi": "29/100",
+    "lp": "2293/1000",
+    "source_l2": "79/50"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 285,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 142895,
+   "d": 204188720243043,
+   "D": 12054789150406855,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 285,
+    "record_rows": 285,
+    "common_bins": 285,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 569,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 284,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "79/50",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 285,
+   "certificate_boxes": {
+    "terminal_boxes": 147,
+    "distinct_intervals": 13,
+    "uses": {
+     "first_order": 50,
+     "tangent": 97
+    },
+    "cases_compared": {
+     "0": 13,
+     "1": 13,
+     "2": 13
+    },
+    "column_comparisons": 11115
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/18/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 259065
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999581267327937,
+     "exact": "12054284376999644/12054789150406855"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9206943949634878,
+     "exact": "640294928806475696237712253428/333366375455397545673693462199"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.823326201097157,
+     "exact": "21979812906638554/12054789150406855"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9996281609196926,
+     "exact": "333242416808942816862598284751/333366375455397545673693462199"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999844461271601,
+     "exact": "9999844461271601/10000000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9968335085433478,
+     "exact": "332310773675582943453682556324321189812984091/333366375455397545673693462199000000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 9.3,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9996622669832508,
+    "boxes": 147,
+    "corpus_maximum": 9996622669832508,
+    "corpus_boxes": 147
+   }
+  },
+  {
+   "root": 20,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 7,
+    "kind": "rr",
+    "lo": "3/10",
+    "hi": "31/100",
+    "lp": "439/200",
+    "source_l2": "71/50"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 317,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 160658,
+   "d": 258108206813608,
+   "D": 11631484177993317,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 317,
+    "record_rows": 317,
+    "common_bins": 317,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 633,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 316,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "71/50",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 317,
+   "certificate_boxes": {
+    "terminal_boxes": 177,
+    "distinct_intervals": 15,
+    "uses": {
+     "first_order": 34,
+     "tangent": 143
+    },
+    "cases_compared": {
+     "0": 15,
+     "1": 15,
+     "2": 15
+    },
+    "column_comparisons": 14265
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/20/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 288153
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999899406753558,
+     "exact": "11631367173117877/11631484177993317"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.857162304862368,
+     "exact": "583721755268075056573637298940/314308422984782671642486114493"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.8550049416207004,
+     "exact": "7192153542853531/3877161392664439"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.99949395149057,
+     "exact": "314149367675829921489627367547/314308422984782671642486114493"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999766096349225,
+     "exact": "399990643853969/400000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.996826707152781,
+     "exact": "783277575785760926248805687249449358179353697/785771057461956679106215286232500000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 8.6,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9967730556702006,
+    "boxes": 177,
+    "corpus_maximum": 9967730556702006,
+    "corpus_boxes": 177
+   }
+  },
+  {
+   "root": 21,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 7,
+    "kind": "rr",
+    "lo": "31/100",
+    "hi": "8/25",
+    "lp": "439/200",
+    "source_l2": "71/50"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 317,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 160658,
+   "d": 258108206813608,
+   "D": 11587723276494597,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 317,
+    "record_rows": 317,
+    "common_bins": 317,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 633,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 316,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "71/50",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 317,
+   "certificate_boxes": {
+    "terminal_boxes": 177,
+    "distinct_intervals": 15,
+    "uses": {
+     "first_order": 58,
+     "tangent": 119
+    },
+    "cases_compared": {
+     "0": 15,
+     "1": 15,
+     "2": 15
+    },
+    "column_comparisons": 14265
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/21/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 288153
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999964730509412,
+     "exact": "11587682407184893/11587723276494597"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9554557466881852,
+     "exact": "614616211958094164015735572524/314308422984782671642486114493"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.8614238474097513,
+     "exact": "21569664444052102/11587723276494597"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9990057644145945,
+     "exact": "313995926365858534867822548314/314308422984782671642486114493"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.99999799673561,
+     "exact": "99999799673561/100000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9947293084941389,
+     "exact": "3126518002495361681177757063668275979878994937/3143084229847826716424861144930000000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 14.3,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9997141270055672,
+    "boxes": 177,
+    "corpus_maximum": 9997141270055672,
+    "corpus_boxes": 177
+   }
+  },
+  {
+   "root": 22,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 7,
+    "kind": "rr",
+    "lo": "8/25",
+    "hi": "33/100",
+    "lp": "439/200",
+    "source_l2": "71/50"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 317,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 160658,
+   "d": 258108206813608,
+   "D": 11544864838254192,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 317,
+    "record_rows": 317,
+    "common_bins": 317,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 633,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 316,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "71/50",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 317,
+   "certificate_boxes": {
+    "terminal_boxes": 176,
+    "distinct_intervals": 14,
+    "uses": {
+     "first_order": 53,
+     "tangent": 123
+    },
+    "cases_compared": {
+     "0": 14,
+     "1": 14,
+     "2": 14
+    },
+    "column_comparisons": 13314
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/22/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 288153
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.999991236139678,
+     "exact": "11544763660671313/11544864838254192"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9401603225057498,
+     "exact": "609808731304429559380685934427/314308422984782671642486114493"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.864930066818269,
+     "exact": "7176788518071091/3848288279418064"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9992300180816432,
+     "exact": "314066411182297177567930368626/314308422984782671642486114493"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999973328319129,
+     "exact": "9999973328319129/10000000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9941693344347557,
+     "exact": "12206085768985119971570338091002956747639027/12277672772843073111034613847382812500000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 9.3,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9938794262676044,
+    "boxes": 176,
+    "corpus_maximum": 9938794262676044,
+    "corpus_boxes": 176
+   }
+  },
+  {
+   "root": 23,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 7,
+    "kind": "rr",
+    "lo": "33/100",
+    "hi": "17/50",
+    "lp": "439/200",
+    "source_l2": "71/50"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 317,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 160658,
+   "d": 258108206813608,
+   "D": 11502890206820002,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 317,
+    "record_rows": 317,
+    "common_bins": 317,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 633,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 316,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "71/50",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 317,
+   "certificate_boxes": {
+    "terminal_boxes": 175,
+    "distinct_intervals": 14,
+    "uses": {
+     "first_order": 83,
+     "tangent": 92
+    },
+    "cases_compared": {
+     "0": 14,
+     "1": 14,
+     "2": 14
+    },
+    "column_comparisons": 13314
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/23/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 288153
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999976719341498,
+     "exact": "11502863427334133/11502890206820002"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9178837430269582,
+     "exact": "602807014738955406589122006379/314308422984782671642486114493"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.8640802689902891,
+     "exact": "21442310670894791/11502890206820002"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9987228240059772,
+     "exact": "313906995812227345956285369711/314308422984782671642486114493"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999882264580096,
+     "exact": "2441377506001/2441406250000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9984377029578667,
+     "exact": "980679312078862412738467286796481219791629/982213821827445848882769107790625000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 10.3,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9991384900480883,
+    "boxes": 175,
+    "corpus_maximum": 9991384900480883,
+    "corpus_boxes": 175
+   }
+  },
+  {
+   "root": 24,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 7,
+    "kind": "rr",
+    "lo": "17/50",
+    "hi": "87/250",
+    "lp": "439/200",
+    "source_l2": "71/50"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 317,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 160658,
+   "d": 258108206813608,
+   "D": 11461781128567508,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 317,
+    "record_rows": 317,
+    "common_bins": 317,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 633,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 316,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "71/50",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 317,
+   "certificate_boxes": {
+    "terminal_boxes": 123,
+    "distinct_intervals": 15,
+    "uses": {
+     "first_order": 40,
+     "tangent": 83
+    },
+    "cases_compared": {
+     "0": 15,
+     "1": 15,
+     "2": 15
+    },
+    "column_comparisons": 14265
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/24/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 288153
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999950458572103,
+     "exact": "11461724345267173/11461781128567508"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9053356411593994,
+     "exact": "598863040629510606458744982306/314308422984782671642486114493"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.868961260809336,
+     "exact": "21421624909168185/11461781128567508"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9964926469821722,
+     "exact": "313206032388898298656843035059/314308422984782671642486114493"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999881298536704,
+     "exact": "39062036322409/39062500000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9964264026393438,
+     "exact": "782963028084930555804032337844696657957649393/785771057461956679106215286232500000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 8.7,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9982484764775482,
+    "boxes": 123,
+    "corpus_maximum": 9982484764775482,
+    "corpus_boxes": 123
+   }
+  },
+  {
+   "root": 25,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 8,
+    "kind": "rr",
+    "lo": "87/250",
+    "hi": "7/20",
+    "lp": "439/200",
+    "source_l2": "71/50"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 317,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 160658,
+   "d": 258108206813608,
+   "D": 11429505046268427,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 317,
+    "record_rows": 317,
+    "common_bins": 317,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 633,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 316,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "71/50",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 317,
+   "certificate_boxes": {
+    "terminal_boxes": 72,
+    "distinct_intervals": 11,
+    "uses": {
+     "first_order": 26,
+     "tangent": 46
+    },
+    "cases_compared": {
+     "0": 11,
+     "1": 11,
+     "2": 11
+    },
+    "column_comparisons": 10461
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/25/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 288153
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999960213026771,
+     "exact": "11429459571727297/11429505046268427"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9314188061859285,
+     "exact": "607061199095450838403818481528/314308422984782671642486114493"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.871218492042377,
+     "exact": "21387101197469143/11429505046268427"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9971388744192746,
+     "exact": "313409147115543462307738376337/314308422984782671642486114493"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999995474425625,
+     "exact": "15999992759081/16000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9996363046735152,
+     "exact": "125677644192107317168886286753500149778214727/125723369193913068656994445797200000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 8.5,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9985805310105820,
+    "boxes": 72,
+    "corpus_maximum": 9985805310105820,
+    "corpus_boxes": 72
+   }
+  },
+  {
+   "root": 26,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 9,
+    "kind": "rr",
+    "lo": "7/20",
+    "hi": "9/25",
+    "lp": "527/250",
+    "source_l2": "129/100"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 343,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 175937,
+   "d": 309536468633287,
+   "D": 11160633003080625,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 343,
+    "record_rows": 343,
+    "common_bins": 343,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 685,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 342,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "129/100",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 343,
+   "certificate_boxes": {
+    "terminal_boxes": 221,
+    "distinct_intervals": 25,
+    "uses": {
+     "first_order": 96,
+     "tangent": 125
+    },
+    "cases_compared": {
+     "0": 25,
+     "1": 25,
+     "2": 25
+    },
+    "column_comparisons": 25725
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/26/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 311787
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999095679291993,
+     "exact": "11159623723926709/11160633003080625"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.883207419937812,
+     "exact": "5648789979404070895215164917911/2999558051651372473141117078918"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.8941054146185052,
+     "exact": "33823064642728/17857012804929"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9998487933631323,
+     "exact": "2999104498566292721957532615417/2999558051651372473141117078918"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999905527214336,
+     "exact": "39062130965681/39062500000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9995547505389242,
+     "exact": "6853080000103792220288273695144197568568081/6856132689488851367179696180384000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 14.1,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9997776144544636,
+    "boxes": 221,
+    "corpus_maximum": 9997776144544636,
+    "corpus_boxes": 221
+   }
+  },
+  {
+   "root": 27,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 9,
+    "kind": "rr",
+    "lo": "9/25",
+    "hi": "37/100",
+    "lp": "527/250",
+    "source_l2": "129/100"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 343,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 175937,
+   "d": 309536468633287,
+   "D": 11124571465127477,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 343,
+    "record_rows": 343,
+    "common_bins": 343,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 685,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.3,
+    "bins": 342,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "129/100",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 343,
+   "certificate_boxes": {
+    "terminal_boxes": 151,
+    "distinct_intervals": 16,
+    "uses": {
+     "first_order": 51,
+     "tangent": 100
+    },
+    "cases_compared": {
+     "0": 16,
+     "1": 16,
+     "2": 16
+    },
+    "column_comparisons": 16464
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/27/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 311787
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.99998562980606,
+     "exact": "11124411602878023/11124571465127477"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.903972723787438,
+     "exact": "6687443458736773014282007669/3512363058139780413514188617"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.8928890501275504,
+     "exact": "21057579513701201/11124571465127477"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9994962881883129,
+     "exact": "214146224202208191558443297908/214254146546526605224365505637"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999605148580096,
+     "exact": "39060957611641/39062500000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9929125396944477,
+     "exact": "1063678143937890549632213676175572665333520373/1071270732732633026121827528185000000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 15.5,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9990912058468447,
+    "boxes": 151,
+    "corpus_maximum": 9990912058468447,
+    "corpus_boxes": 151
+   }
+  },
+  {
+   "root": 28,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 9,
+    "kind": "rr",
+    "lo": "37/100",
+    "hi": "19/50",
+    "lp": "527/250",
+    "source_l2": "129/100"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 343,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 175937,
+   "d": 309536468633287,
+   "D": 11089254939235817,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 343,
+    "record_rows": 343,
+    "common_bins": 343,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 685,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 342,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "129/100",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 343,
+   "certificate_boxes": {
+    "terminal_boxes": 151,
+    "distinct_intervals": 16,
+    "uses": {
+     "first_order": 51,
+     "tangent": 100
+    },
+    "cases_compared": {
+     "0": 16,
+     "1": 16,
+     "2": 16
+    },
+    "column_comparisons": 16464
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/28/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 311787
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999977018533484,
+     "exact": "11089229454501709/11089254939235817"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9367068135853787,
+     "exact": "5809264516378096267928105731349/2999558051651372473141117078918"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.8960812554307815,
+     "exact": "21026128426978243/11089254939235817"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9999074439736071,
+     "exact": "2999280424477176746211910524963/2999558051651372473141117078918"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999959659024721,
+     "exact": "9999959659024721/10000000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9901166235855753,
+     "exact": "29699122903499835381792511711975078881518843359/29995580516513724731411170789180000000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 10.6,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9933854266317009,
+    "boxes": 151,
+    "corpus_maximum": 9933854266317009,
+    "corpus_boxes": 151
+   }
+  },
+  {
+   "root": 29,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 9,
+    "kind": "rr",
+    "lo": "19/50",
+    "hi": "39/100",
+    "lp": "527/250",
+    "source_l2": "129/100"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 343,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 175937,
+   "d": 309536468633287,
+   "D": 11054668247966708,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 343,
+    "record_rows": 343,
+    "common_bins": 343,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 685,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 342,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "129/100",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 343,
+   "certificate_boxes": {
+    "terminal_boxes": 124,
+    "distinct_intervals": 14,
+    "uses": {
+     "first_order": 28,
+     "tangent": 96
+    },
+    "cases_compared": {
+     "0": 14,
+     "1": 14,
+     "2": 14
+    },
+    "column_comparisons": 14406
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/29/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 311787
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999883219542224,
+     "exact": "2763634787761213/2763667061991677"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.8996229846699741,
+     "exact": "2849014709384416280691280455135/1499779025825686236570558539459"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.898049103510508,
+     "exact": "20982303157659289/11054668247966708"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9986623223844453,
+     "exact": "1497772804994560743134069787982/1499779025825686236570558539459"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999785232778281,
+     "exact": "9999785232778281/10000000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9953596220227425,
+     "exact": "227786176187666638766696456733552486874603/228848117954358861781396261514129638671875"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 9.4,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9999707952091303,
+    "boxes": 124,
+    "corpus_maximum": 9999707952091303,
+    "corpus_boxes": 124
+   }
+  },
+  {
+   "root": 30,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 9,
+    "kind": "rr",
+    "lo": "39/100",
+    "hi": "2/5",
+    "lp": "527/250",
+    "source_l2": "129/100"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 343,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 175937,
+   "d": 309536468633287,
+   "D": 11020796534427464,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 343,
+    "record_rows": 343,
+    "common_bins": 343,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 685,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 342,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "129/100",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 343,
+   "certificate_boxes": {
+    "terminal_boxes": 120,
+    "distinct_intervals": 14,
+    "uses": {
+     "first_order": 26,
+     "tangent": 94
+    },
+    "cases_compared": {
+     "0": 14,
+     "1": 14,
+     "2": 14
+    },
+    "column_comparisons": 14406
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/30/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 311787
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999902174397047,
+     "exact": "1377586090352608/1377599566803433"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.8974851441743046,
+     "exact": "2845808421048450247178849265831/1499779025825686236570558539459"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.90290252915589,
+     "exact": "20971501598674489/11020796534427464"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9990317723002345,
+     "exact": "136211536202668591895259790605/136343547802335112415505321769"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999957153826401,
+     "exact": "9999957153826401/10000000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9987298586177441,
+     "exact": "936171309012965960537138837514625425150686391/937361891141053897856599087161875000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 10.4,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9954134872583036,
+    "boxes": 120,
+    "corpus_maximum": 9954134872583036,
+    "corpus_boxes": 120
+   }
+  },
+  {
+   "root": 31,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 10,
+    "kind": "rr",
+    "lo": "2/5",
+    "hi": "41/100",
+    "lp": "203/100",
+    "source_l2": "59/50"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 365,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 189414,
+   "d": 358775660122418,
+   "D": 10770909092147274,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 365,
+    "record_rows": 365,
+    "common_bins": 365,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 729,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.4,
+    "bins": 364,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "59/50",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 365,
+   "certificate_boxes": {
+    "terminal_boxes": 306,
+    "distinct_intervals": 20,
+    "uses": {
+     "first_order": 74,
+     "tangent": 232
+    },
+    "cases_compared": {
+     "0": 20,
+     "1": 20,
+     "2": 20
+    },
+    "column_comparisons": 21900
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/31/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 331785
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999919357473007,
+     "exact": "5385411116407277/5385454546073637"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.945143401992081,
+     "exact": "305833464978495263586560095385/157229263747486080283188097077"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.9245203998528098,
+     "exact": "6909611424265845/3590303030715758"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9983200116535951,
+     "exact": "1726616324583441317527284938438/1729521901222346883115069067847"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.99998893607809,
+     "exact": "99998893607809/100000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9840985366772113,
+     "exact": "395744971201660108948560046908015829055897/402139578967249554295728484897460937500000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 13.9,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9998083086601789,
+    "boxes": 306,
+    "corpus_maximum": 9998083086601789,
+    "corpus_boxes": 306
+   }
+  },
+  {
+   "root": 32,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 10,
+    "kind": "rr",
+    "lo": "41/100",
+    "hi": "21/50",
+    "lp": "203/100",
+    "source_l2": "59/50"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 365,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 189414,
+   "d": 358775660122418,
+   "D": 10741011063392789,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 365,
+    "record_rows": 365,
+    "common_bins": 365,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 729,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.4,
+    "bins": 364,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "59/50",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 365,
+   "certificate_boxes": {
+    "terminal_boxes": 270,
+    "distinct_intervals": 18,
+    "uses": {
+     "first_order": 90,
+     "tangent": 180
+    },
+    "cases_compared": {
+     "0": 18,
+     "1": 18,
+     "2": 18
+    },
+    "column_comparisons": 19710
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/32/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 331785
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999760635766549,
+     "exact": "10740753962004822/10741011063392789"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.967613714619087,
+     "exact": "1134343670859722605681938972078/576507300407448961038356355949"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.928840644001436,
+     "exact": "20717698696741097/10741011063392789"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9999849142855655,
+     "exact": "247070830021262389049704093322/247074557317478126159295581121"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999438796375684,
+     "exact": "2499859699093921/2500000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9990880856621194,
+     "exact": "9642548690864640672561602480412969765186803/9651349895213989303097483637539062500000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 11.0,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9993633850594425,
+    "boxes": 270,
+    "corpus_maximum": 9993633850594425,
+    "corpus_boxes": 270
+   }
+  },
+  {
+   "root": 33,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 10,
+    "kind": "rr",
+    "lo": "21/50",
+    "hi": "43/100",
+    "lp": "203/100",
+    "source_l2": "59/50"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 365,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 189414,
+   "d": 358775660122418,
+   "D": 10711735606104456,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 365,
+    "record_rows": 365,
+    "common_bins": 365,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 729,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 364,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "59/50",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 365,
+   "certificate_boxes": {
+    "terminal_boxes": 274,
+    "distinct_intervals": 24,
+    "uses": {
+     "first_order": 117,
+     "tangent": 157
+    },
+    "cases_compared": {
+     "0": 24,
+     "1": 24,
+     "2": 24
+    },
+    "column_comparisons": 26280
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/33/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 331785
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999997911773545,
+     "exact": "10711733369251489/10711735606104456"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.913283037484389,
+     "exact": "3309064916566467132410941945324/1729521901222346883115069067847"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.9318718920821045,
+     "exact": "155591736337205/80539365459432"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9999024297964306,
+     "exact": "52404640952071726947962056848/52409754582495360094396032359"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999986119218756,
+     "exact": "2499996529804689/2500000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9997001368802398,
+     "exact": "9356078362496498309680553327621452344098623/9358884746874171445427862921250000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 13.3,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9999320464125731,
+    "boxes": 274,
+    "corpus_maximum": 9999320464125731,
+    "corpus_boxes": 274
+   }
+  },
+  {
+   "root": 34,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 10,
+    "kind": "rr",
+    "lo": "43/100",
+    "hi": "11/25",
+    "lp": "203/100",
+    "source_l2": "59/50"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 365,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 189414,
+   "d": 358775660122418,
+   "D": 10683070214273125,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 365,
+    "record_rows": 365,
+    "common_bins": 365,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 729,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 364,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "59/50",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 365,
+   "certificate_boxes": {
+    "terminal_boxes": 272,
+    "distinct_intervals": 24,
+    "uses": {
+     "first_order": 114,
+     "tangent": 158
+    },
+    "cases_compared": {
+     "0": 24,
+     "1": 24,
+     "2": 24
+    },
+    "column_comparisons": 26280
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/34/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 331785
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999995795386777,
+     "exact": "10683065722455296/10683070214273125"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9795649019425923,
+     "exact": "3423700852800780893345510376085/1729521901222346883115069067847"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.9328659369026642,
+     "exact": "20648942518707969/10683070214273125"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9999639072661376,
+     "exact": "247065639721236708045247929904/247074557317478126159295581121"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999925837832356,
+     "exact": "2499981459458089/2500000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9997324999529225,
+     "exact": "9221649354839190931838107971673046143859391/9224116806519183376613701695184000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 12.3,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9996536714675598,
+    "boxes": 272,
+    "corpus_maximum": 9996536714675598,
+    "corpus_boxes": 272
+   }
+  },
+  {
+   "root": 35,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 10,
+    "kind": "rr",
+    "lo": "11/25",
+    "hi": "9/20",
+    "lp": "203/100",
+    "source_l2": "59/50"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 365,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 189414,
+   "d": 358775660122418,
+   "D": 10655002651486906,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 365,
+    "record_rows": 365,
+    "common_bins": 365,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 729,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 364,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "59/50",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 365,
+   "certificate_boxes": {
+    "terminal_boxes": 184,
+    "distinct_intervals": 22,
+    "uses": {
+     "first_order": 83,
+     "tangent": 101
+    },
+    "cases_compared": {
+     "0": 22,
+     "1": 22,
+     "2": 22
+    },
+    "column_comparisons": 24090
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/35/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 331785
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999897677874571,
+     "exact": "5327446813617565/5327501325743453"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.902667040715883,
+     "exact": "3290704317652030474295560772836/1729521901222346883115069067847"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.936082534749441,
+     "exact": "20628964541252785/10655002651486906"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.998188640851639,
+     "exact": "246627016557753877753291040596/247074557317478126159295581121"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999965674758564,
+     "exact": "2499991418689641/2500000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9967256250352411,
+     "exact": "8619293990039910711946924937732695149885926597/8647609506111734415575345339235000000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 14.6,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9999839085127074,
+    "boxes": 184,
+    "corpus_maximum": 9999839085127074,
+    "corpus_boxes": 184
+   }
+  },
+  {
+   "root": 36,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "rr",
+   "case": {
+    "parent": 11,
+    "kind": "rr",
+    "lo": "9/20",
+    "hi": "23/50",
+    "lp": "979/500",
+    "source_l2": "27/25"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 385,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 202068,
+   "d": 408313066640937,
+   "D": 10435270735941385,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 385,
+    "record_rows": 385,
+    "common_bins": 385,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 769,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 384,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "27/25",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 385,
+   "certificate_boxes": {
+    "terminal_boxes": 225,
+    "distinct_intervals": 24,
+    "uses": {
+     "first_order": 83,
+     "tangent": 142
+    },
+    "cases_compared": {
+     "0": 24,
+     "1": 24,
+     "2": 24
+    },
+    "column_comparisons": 27720
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/36/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 349965
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999923746030607,
+     "exact": "10435191162859854/10435270735941385"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.990084792108466,
+     "exact": "324750268053958452391466339063/163184136345210837422624657207"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.9559062027850387,
+     "exact": "20410410760168951/10435270735941385"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9979544408251155,
+     "exact": "69793000087677556327728791752/69936058433661787466839138803"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999754580986896,
+     "exact": "624984661311681/625000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9983919487796152,
+     "exact": "17455899417387159006453936886783171847818147/17484014608415446866709784700750000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 10.7,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9999343673325192,
+    "boxes": 225,
+    "corpus_maximum": 9999343673325192,
+    "corpus_boxes": 225
+   }
+  },
+  {
+   "root": 1198,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "shifted",
+    "graded",
+    "graded",
+    "old"
+   ],
+   "old_row": 3,
+   "variant": "single",
+   "type": "complex",
+   "case": {
+    "parent": 46,
+    "kind": "complex",
+    "lo": "11/25",
+    "hi": "9/20",
+    "lp": "34/25",
+    "source_l2": "26/25"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 393,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 207229,
+   "d": 429437772655018,
+   "D": 11192008008181368,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 393,
+    "record_rows": 393,
+    "common_bins": 393,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 785,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.4,
+    "bins": 392,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "26/25",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 393,
+   "certificate_boxes": {
+    "terminal_boxes": 2674,
+    "distinct_intervals": 30,
+    "uses": {
+     "first_order": 1287,
+     "tangent": 1387
+    },
+    "cases_compared": {
+     "0": 30,
+     "1": 30,
+     "2": 30
+    },
+    "column_comparisons": 35370
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/1198/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 357237
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999872454945923,
+     "exact": "3730621753218235/3730669336060456"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9180314960963833,
+     "exact": "534425941122845200644622549809/278632515790548642462134194198"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.8905069462056865,
+     "exact": "21158568881456545/11192008008181368"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9996847214849235,
+     "exact": "278544668944718160278030426565/278632515790548642462134194198"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999935752015625,
+     "exact": "639995888129/640000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9998034639228081,
+     "exact": "348222193061146302039588016784450238427138459/348290644738185803077667742747500000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 19.7,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9999303380064543,
+    "boxes": 2674,
+    "corpus_maximum": 9999303380064543,
+    "corpus_boxes": 2674
+   }
+  },
+  {
+   "root": 1199,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "complex",
+   "case": {
+    "parent": 46,
+    "kind": "complex",
+    "lo": "9/20",
+    "hi": "23/50",
+    "lp": "34/25",
+    "source_l2": "26/25"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 393,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 207229,
+   "d": 429437772655018,
+   "D": 11143157398637098,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 393,
+    "record_rows": 393,
+    "common_bins": 393,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 785,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 392,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "26/25",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 393,
+   "certificate_boxes": {
+    "terminal_boxes": 955,
+    "distinct_intervals": 38,
+    "uses": {
+     "first_order": 273,
+     "tangent": 682
+    },
+    "cases_compared": {
+     "0": 38,
+     "1": 38,
+     "2": 38
+    },
+    "column_comparisons": 44802
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/1199/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 357237
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.999996940262678,
+     "exact": "11143123303502521/11143157398637098"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9168006731229472,
+     "exact": "4262611147138777133894342748055/2223815552085506321514846391869"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.8931886032546037,
+     "exact": "21096098591371971/11143157398637098"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9951654052765455,
+     "exact": "737688101717152600571250739643/741271850695168773838282130623"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999914222787025,
+     "exact": "399996568911481/400000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9980997173678543,
+     "exact": "338682506410947059208576717994427708820079/339327324231797229235053465556182861328125"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 18.4,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9998567889093482,
+    "boxes": 955,
+    "corpus_maximum": 9998567889093482,
+    "corpus_boxes": 955
+   }
+  },
+  {
+   "root": 1200,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "complex",
+   "case": {
+    "parent": 46,
+    "kind": "complex",
+    "lo": "23/50",
+    "hi": "47/100",
+    "lp": "34/25",
+    "source_l2": "26/25"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 393,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 207229,
+   "d": 429437772655018,
+   "D": 11095344693612286,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 393,
+    "record_rows": 393,
+    "common_bins": 393,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 785,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.2,
+    "bins": 392,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "26/25",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 393,
+   "certificate_boxes": {
+    "terminal_boxes": 613,
+    "distinct_intervals": 36,
+    "uses": {
+     "first_order": 229,
+     "tangent": 384
+    },
+    "cases_compared": {
+     "0": 36,
+     "1": 36,
+     "2": 36
+    },
+    "column_comparisons": 42444
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/1200/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 357237
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999943689328915,
+     "exact": "11095282214981725/11095344693612286"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9629960113598446,
+     "exact": "1451754904940739353491754455714/739560802232629886136714938405"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.8955841877069657,
+     "exact": "10516079979184918/5547672346806143"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9997584547118608,
+     "exact": "739382164805558100005842019084/739560802232629886136714938405"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.99998569047161,
+     "exact": "99998569047161/100000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9996333845366714,
+     "exact": "5544672508548447885058695364191746450586065083/5546706016744724146025362038037500000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 14.9,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9999320228071229,
+    "boxes": 613,
+    "corpus_maximum": 9999320228071229,
+    "corpus_boxes": 613
+   }
+  },
+  {
+   "root": 1201,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "complex",
+   "case": {
+    "parent": 46,
+    "kind": "complex",
+    "lo": "47/100",
+    "hi": "12/25",
+    "lp": "34/25",
+    "source_l2": "26/25"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 393,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 207229,
+   "d": 429437772655018,
+   "D": 11048549477814068,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 393,
+    "record_rows": 393,
+    "common_bins": 393,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 785,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.5,
+    "bins": 392,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "26/25",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 393,
+   "certificate_boxes": {
+    "terminal_boxes": 407,
+    "distinct_intervals": 30,
+    "uses": {
+     "first_order": 156,
+     "tangent": 251
+    },
+    "cases_compared": {
+     "0": 30,
+     "1": 30,
+     "2": 30
+    },
+    "column_comparisons": 35370
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/1201/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 357237
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.999999756504701,
+     "exact": "11048546787544209/11048549477814068"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.925220544475964,
+     "exact": "4261780819548590394797515302288/2213658498387065031653255198225"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.9039382791996489,
+     "exact": "478085370010034/251103397223047"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.998548838752031,
+     "exact": "2210446122957968600773615076038/2213658498387065031653255198225"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999991851865744,
+     "exact": "624999490741609/625000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.999985624306691,
+     "exact": "691758336097312948748001474484056836936639937/691768280745957822391642249445312500000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 16.6,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9999515621125252,
+    "boxes": 407,
+    "corpus_maximum": 9999515621125252,
+    "corpus_boxes": 407
+   }
+  },
+  {
+   "root": 1212,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "complex",
+   "case": {
+    "parent": 47,
+    "kind": "complex",
+    "lo": "29/50",
+    "hi": "59/100",
+    "lp": "23/20",
+    "source_l2": "17/20"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 431,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 232441,
+   "d": 540283772146119,
+   "D": 10040563352324148,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 431,
+    "record_rows": 431,
+    "common_bins": 431,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 861,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.4,
+    "bins": 430,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "17/20",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 431,
+   "certificate_boxes": {
+    "terminal_boxes": 1500,
+    "distinct_intervals": 52,
+    "uses": {
+     "first_order": 527,
+     "tangent": 973
+    },
+    "cases_compared": {
+     "0": 52,
+     "1": 52,
+     "2": 52
+    },
+    "column_comparisons": 67236
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/1212/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 391779
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999742613654039,
+     "exact": "2510076230483221/2510140838081037"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.927331384450464,
+     "exact": "10152888215327612090938407227263/5267847707581684796003327377785"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.994263035115722,
+     "exact": "1668627028773137/836713612693679"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9988260415621019,
+     "exact": "5261663473315807207867472838748/5267847707581684796003327377785"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.99999819507264,
+     "exact": "1562497179801/1562500000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.998078328221098,
+     "exact": "2190718597211029677321712628160364099478224241/2194936544825701998334719740743750000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 23.2,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9999764216564096,
+    "boxes": 1500,
+    "corpus_maximum": 9999764216564096,
+    "corpus_boxes": 1500
+   }
+  },
+  {
+   "root": 1213,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "complex",
+   "case": {
+    "parent": 47,
+    "kind": "complex",
+    "lo": "59/100",
+    "hi": "3/5",
+    "lp": "23/20",
+    "source_l2": "17/20"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 431,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 232441,
+   "d": 540283772146119,
+   "D": 10011183613421533,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 431,
+    "record_rows": 431,
+    "common_bins": 431,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 861,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.4,
+    "bins": 430,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "17/20",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 431,
+   "certificate_boxes": {
+    "terminal_boxes": 1347,
+    "distinct_intervals": 52,
+    "uses": {
+     "first_order": 445,
+     "tangent": 902
+    },
+    "cases_compared": {
+     "0": 52,
+     "1": 52,
+     "2": 52
+    },
+    "column_comparisons": 67236
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/1213/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 391779
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999868645135898,
+     "exact": "10011052111655229/10011183613421533"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.919035910956087,
+     "exact": "10093958115668001834646715035882/5259911009502198070395195704133"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.9983645308229594,
+     "exact": "20005994244617621/10011183613421533"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9975694735290671,
+     "exact": "1749042218852950604650086917243/1753303669834066023465065234711"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999832330492361,
+     "exact": "9999832330492361/10000000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.999847927684435,
+     "exact": "8765185204425528830196572431543526278557770041/8766518349170330117325326173555000000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 23.3,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9999852334999307,
+    "boxes": 1347,
+    "corpus_maximum": 9999852334999307,
+    "corpus_boxes": 1347
+   }
+  },
+  {
+   "root": 1214,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "complex",
+   "case": {
+    "parent": 47,
+    "kind": "complex",
+    "lo": "3/5",
+    "hi": "61/100",
+    "lp": "23/20",
+    "source_l2": "17/20"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 431,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 232441,
+   "d": 540283772146119,
+   "D": 9982496790409139,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 431,
+    "record_rows": 431,
+    "common_bins": 431,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 861,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.3,
+    "bins": 430,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "17/20",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 431,
+   "certificate_boxes": {
+    "terminal_boxes": 2141,
+    "distinct_intervals": 64,
+    "uses": {
+     "first_order": 844,
+     "tangent": 1297
+    },
+    "cases_compared": {
+     "0": 64,
+     "1": 64,
+     "2": 64
+    },
+    "column_comparisons": 82752
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/1214/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 391779
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.999989797755293,
+     "exact": "9982394946534096/9982496790409139"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9062563894989573,
+     "exact": "1668661068731731404690494336887/875360249504697651485706284115"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 1.9993894588205054,
+     "exact": "19958898855453561/9982496790409139"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9992259186811148,
+     "exact": "874682649488261353872237906427/875360249504697651485706284115"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999704137626609,
+     "exact": "9999704137626609/10000000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9999598191782811,
+     "exact": "8753250768105725717245959471581524516823790263/8753602495046976514857062841150000000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 24.3,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9999230784799182,
+    "boxes": 2141,
+    "corpus_maximum": 9999230784799182,
+    "corpus_boxes": 2141
+   }
+  },
+  {
+   "root": 1215,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "single",
+   "type": "complex",
+   "case": {
+    "parent": 47,
+    "kind": "complex",
+    "lo": "61/100",
+    "hi": "31/50",
+    "lp": "23/20",
+    "source_l2": "17/20"
+   },
+   "gap": null,
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 431,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 232441,
+   "d": 540283772146119,
+   "D": 9954490510248486,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 431,
+    "record_rows": 431,
+    "common_bins": 431,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 861,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1
+    },
+    "seconds": 0.4,
+    "bins": 430,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "17/20",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3"
+   },
+   "rows_430": 431,
+   "certificate_boxes": {
+    "terminal_boxes": 1920,
+    "distinct_intervals": 62,
+    "uses": {
+     "first_order": 756,
+     "tangent": 1164
+    },
+    "cases_compared": {
+     "0": 62,
+     "1": 62,
+     "2": 62
+    },
+    "column_comparisons": 80166
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/1215/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 391779
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.999986049146492,
+     "exact": "9954351636609631/9954490510248486"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9615831688018033,
+     "exact": "428654620948020907305709924281/218524826153487369575798689579"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 2.003451381245398,
+     "exact": "9971668881175769/4977245255124243"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9972459307022424,
+     "exact": "653768980916940723715009543423/655574478460462108727396068737"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999471824142336,
+     "exact": "152579831301/152587890625"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9970996834340192,
+     "exact": "1089455174900581676448607959913880995869467079/1092624130767436847878993447895000000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 18.1,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9999978316381384,
+    "boxes": 1920,
+    "corpus_maximum": 9999978316381384,
+    "corpus_boxes": 1920
+   }
+  },
+  {
+   "root": 1218,
+   "index": 0,
+   "refinement_path": [
+    [
+     "reserve",
+     "8959/10000",
+     1
+    ],
+    [
+     "second",
+     "24053/30000",
+     0
+    ]
+   ],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "mixture",
+   "type": "complex",
+   "case": {
+    "parent": 48,
+    "kind": "complex",
+    "lo": "16/25",
+    "hi": "13/20",
+    "lp": "27/25",
+    "source_l2": "79/100"
+   },
+   "gap": null,
+   "second": {
+    "lo": "79/100",
+    "hi": "24053/30000",
+    "n": 2
+   },
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 402,
+    "second": 5,
+    "hidden": 0
+   },
+   "end": 234642,
+   "d": 550567081600695,
+   "D": 9742676631360660,
+   "input_430": "make_endgame at L=4.30 on the refined case",
+   "record_430": {
+    "L": "4.30",
+    "refined": true,
+    "columns": 402,
+    "record_rows": 443,
+    "common_bins": 402,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 442,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1,
+     "extension_enclosures.mixnorm": 1,
+     "extension_enclosures.mixfeature": 845,
+     "extension_enclosures.mixrows": 1
+    },
+    "seconds": 0.5,
+    "bins": 401,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]",
+     "second.v"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": false
+    },
+    "shift": "79/100",
+    "gamma_G": "1642553/1000000",
+    "gamma_Z": "1080907/1000000",
+    "mix": "86149/500000",
+    "zeta": "3"
+   },
+   "rows_430": 402,
+   "certificate_boxes": {
+    "terminal_boxes": 2600,
+    "distinct_intervals": 72,
+    "uses": {
+     "first_order": 738,
+     "tangent": 1862
+    },
+    "cases_compared": {
+     "0": 72,
+     "1": 72,
+     "2": 72
+    },
+    "column_comparisons": 87912
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/1218/0/[[\"children\", 1], [\"children\", 0]]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 369963
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999953454696631,
+     "exact": "187358293918783/187359165987705"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 2.804391865701716,
+     "exact": "17821135826026626405894686041894104651854906/6354723832993080897929170506525154037613741"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 2.023918025829152,
+     "exact": "1643198237836273/811889719280055"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9997948603792579,
+     "exact": "141887796640706056731918564144879031128545/141916909421681707397921921981951330864823"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999869713297529,
+     "exact": "9999869713297529/10000000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9978758967390869,
+     "exact": "29289195284737904885435110345015147595412913/29351540988664751838856432573250000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v2+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v2-1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 15.8,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [
+    [
+     "children",
+     1
+    ],
+    [
+     "children",
+     0
+    ]
+   ],
+   "replay": {
+    "maximum": 9998823224326494,
+    "boxes": 2600,
+    "corpus_maximum": 9998823224326494,
+    "corpus_boxes": 2600
+   }
+  },
+  {
+   "root": 1219,
+   "index": 0,
+   "refinement_path": [
+    [
+     "reserve",
+     "4467/5000",
+     1
+    ],
+    [
+     "second",
+     "36067/45000",
+     0
+    ]
+   ],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "mixture",
+   "type": "complex",
+   "case": {
+    "parent": 48,
+    "kind": "complex",
+    "lo": "13/20",
+    "hi": "33/50",
+    "lp": "27/25",
+    "source_l2": "79/100"
+   },
+   "gap": null,
+   "second": {
+    "lo": "79/100",
+    "hi": "36067/45000",
+    "n": 2
+   },
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 403,
+    "second": 5,
+    "hidden": 0
+   },
+   "end": 234642,
+   "d": 550567081600695,
+   "D": 9719011910399083,
+   "input_430": "make_endgame at L=4.30 on the refined case",
+   "record_430": {
+    "L": "4.30",
+    "refined": true,
+    "columns": 403,
+    "record_rows": 443,
+    "common_bins": 403,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 1,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 442,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1,
+     "extension_enclosures.mixnorm": 1,
+     "extension_enclosures.mixfeature": 846,
+     "extension_enclosures.mixrows": 1
+    },
+    "seconds": 0.5,
+    "bins": 402,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]",
+     "second.v"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": false
+    },
+    "shift": "79/100",
+    "gamma_G": "1642553/1000000",
+    "gamma_Z": "1080907/1000000",
+    "mix": "86149/500000",
+    "zeta": "3"
+   },
+   "rows_430": 403,
+   "certificate_boxes": {
+    "terminal_boxes": 2577,
+    "distinct_intervals": 72,
+    "uses": {
+     "first_order": 725,
+     "tangent": 1852
+    },
+    "cases_compared": {
+     "0": 72,
+     "1": 72,
+     "2": 72
+    },
+    "column_comparisons": 88128
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/1219/0/[[\"children\", 1], [\"children\", 0]]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 370872
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999979941777043,
+     "exact": "9718992415788301/9719011910399083"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 2.674314439375525,
+     "exact": "1523911169258415910792643709867983405557525356/569832457552845550211292806865664614377181121"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 2.0268742633187102,
+     "exact": "19699215106075913/9719011910399083"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9982747540934688,
+     "exact": "41623123641808089590605072197637819665680407/41695057869720406113021424892609605930037643"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.99999807563684,
+     "exact": "24999951890921/25000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9979714300558656,
+     "exact": "16664742364624486311112564286064854811203479/16698616676523101059836206692500000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v2+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v2-1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 13.6,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [
+    [
+     "children",
+     1
+    ],
+    [
+     "children",
+     0
+    ]
+   ],
+   "replay": {
+    "maximum": 9999066866178251,
+    "boxes": 2577,
+    "corpus_maximum": 9999066866178251,
+    "corpus_boxes": 2577
+   }
+  },
+  {
+   "root": 2603,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "pair",
+   "type": "complex",
+   "case": {
+    "parent": 56,
+    "kind": "complex",
+    "lo": "321/400",
+    "hi": "161/200",
+    "lp": "443/500",
+    "source_l2": "321/400"
+   },
+   "gap": {
+    "lo": "443/500",
+    "hi": "93/100"
+   },
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 441,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 278945,
+   "d": 778101613244609,
+   "D": 9221918386765392,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 441,
+    "record_rows": 441,
+    "common_bins": 441,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 2,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 880,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1,
+     "extension_enclosures.vector_transform": 5,
+     "extension_enclosures.correlation_bound": 1,
+     "extension_enclosures.paired_first": 1
+    },
+    "seconds": 0.3,
+    "bins": 440,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "321/400",
+    "gamma_G": "27/20",
+    "gamma_Z": "28/25",
+    "mix": "0",
+    "zeta": "3",
+    "paired": {
+     "margin": "464090995497639658533/2500000000000000000000",
+     "margin_float": 0.18563639819905586,
+     "B": 7231855281847,
+     "B_float": 0.0007231855281847,
+     "e": 0,
+     "zeta": "3",
+     "lambda_prime": [
+      "443/500",
+      "93/100"
+     ]
+    }
+   },
+   "rows_430": 441,
+   "certificate_boxes": {
+    "terminal_boxes": 241,
+    "distinct_intervals": 38,
+    "uses": {
+     "first_order": 84,
+     "tangent": 157
+    },
+    "cases_compared": {
+     "0": 38,
+     "1": 38,
+     "2": 38
+    },
+    "column_comparisons": 50274
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/2603/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 400869
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999893822755499,
+     "exact": "2305455117744265/2305479596691348"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9381476997165668,
+     "exact": "6372418725818003703602276079424/3287891179165499749130061837987"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 2.080583960287713,
+     "exact": "532971541071845/256164399632372"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9999699259560799,
+     "exact": "469684614140253283312192832005/469698739880785678447151691141"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999990455533956,
+     "exact": "2499997613883489/2500000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9962333647938708,
+     "exact": "23078911974770961582414477412490579260001/23166170488122715359017503706054687500000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 12.6,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9999709184403933,
+    "boxes": 241,
+    "corpus_maximum": 9999709184403933,
+    "corpus_boxes": 241
+   }
+  },
+  {
+   "root": 2608,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "pair",
+   "type": "complex",
+   "case": {
+    "parent": 56,
+    "kind": "complex",
+    "lo": "161/200",
+    "hi": "323/400",
+    "lp": "221/250",
+    "source_l2": "161/200"
+   },
+   "gap": {
+    "lo": "221/250",
+    "hi": "93/100"
+   },
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 440,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 278625,
+   "d": 776315308577364,
+   "D": 9223704691432637,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 440,
+    "record_rows": 440,
+    "common_bins": 440,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 2,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 878,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1,
+     "extension_enclosures.vector_transform": 5,
+     "extension_enclosures.correlation_bound": 1,
+     "extension_enclosures.paired_first": 1
+    },
+    "seconds": 0.5,
+    "bins": 439,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "161/200",
+    "gamma_G": "27/20",
+    "gamma_Z": "28/25",
+    "mix": "0",
+    "zeta": "3",
+    "paired": {
+     "margin": "3734574636832656301663/20000000000000000000000",
+     "margin_float": 0.18672873184163283,
+     "B": 7205053005707,
+     "B_float": 0.0007205053005707,
+     "e": 0,
+     "zeta": "3",
+     "lambda_prime": [
+      "221/250",
+      "93/100"
+     ]
+    }
+   },
+   "rows_430": 440,
+   "certificate_boxes": {
+    "terminal_boxes": 242,
+    "distinct_intervals": 38,
+    "uses": {
+     "first_order": 83,
+     "tangent": 159
+    },
+    "cases_compared": {
+     "0": 38,
+     "1": 38,
+     "2": 38
+    },
+    "column_comparisons": 50160
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/2608/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 399960
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999984322740233,
+     "exact": "1317670033027313/1317672098776091"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9459374239069724,
+     "exact": "177389462522318507708491173325/91158873015640611691675323533"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 2.0801137546787607,
+     "exact": "19186354997744043/9223704691432637"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9996656913990665,
+     "exact": "820155580383060718070298145973/820429857140765505225077911797"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.99996179892836,
+     "exact": "24999044973209/25000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9955007443836107,
+     "exact": "4083692667490857239900934768857773116870773497/4102149285703827526125389558985000000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 18.3,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9997705112135475,
+    "boxes": 242,
+    "corpus_maximum": 9997705112135475,
+    "corpus_boxes": 242
+   }
+  },
+  {
+   "root": 2613,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "pair",
+   "type": "complex",
+   "case": {
+    "parent": 56,
+    "kind": "complex",
+    "lo": "323/400",
+    "hi": "81/100",
+    "lp": "883/1000",
+    "source_l2": "323/400"
+   },
+   "gap": {
+    "lo": "883/1000",
+    "hi": "93/100"
+   },
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 440,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 278305,
+   "d": 774531608317733,
+   "D": 9225488391692268,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 440,
+    "record_rows": 440,
+    "common_bins": 440,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 2,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 878,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1,
+     "extension_enclosures.vector_transform": 5,
+     "extension_enclosures.correlation_bound": 1,
+     "extension_enclosures.paired_first": 1
+    },
+    "seconds": 0.5,
+    "bins": 439,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "323/400",
+    "gamma_G": "27/20",
+    "gamma_Z": "28/25",
+    "mix": "0",
+    "zeta": "3",
+    "paired": {
+     "margin": "3756399842774750847263/20000000000000000000000",
+     "margin_float": 0.18781999213873754,
+     "B": 7178252839498,
+     "B_float": 0.0007178252839498,
+     "e": 0,
+     "zeta": "3",
+     "lambda_prime": [
+      "883/1000",
+      "93/100"
+     ]
+    }
+   },
+   "rows_430": 440,
+   "certificate_boxes": {
+    "terminal_boxes": 240,
+    "distinct_intervals": 38,
+    "uses": {
+     "first_order": 85,
+     "tangent": 155
+    },
+    "cases_compared": {
+     "0": 38,
+     "1": 38,
+     "2": 38
+    },
+    "column_comparisons": 50160
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/2613/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 399960
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999797081007596,
+     "exact": "3075100396337127/3075162797230756"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.9816692960944957,
+     "exact": "6491057540405624264128058490777/3275550341925517082765613268819"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 2.080509795875098,
+     "exact": "376347430797015/180891929248868"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9998877225270171,
+     "exact": "3275182571410497466258824919086/3275550341925517082765613268819"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.9999985337058225,
+     "exact": "399999413482329/400000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9920370459005984,
+     "exact": "580262015161158034347419385706000453823726393/584919703915270907636716655146250000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 23.0,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9989151795154093,
+    "boxes": 240,
+    "corpus_maximum": 9989151795154093,
+    "corpus_boxes": 240
+   }
+  },
+  {
+   "root": 2633,
+   "index": 0,
+   "refinement_path": [],
+   "row_kinds": [
+    "family",
+    "graded",
+    "old"
+   ],
+   "old_row": 2,
+   "variant": "pair",
+   "type": "complex",
+   "case": {
+    "parent": 56,
+    "kind": "complex",
+    "lo": "327/400",
+    "hi": "41/50",
+    "lp": "219/250",
+    "source_l2": "327/400"
+   },
+   "gap": {
+    "lo": "219/250",
+    "hi": "93/100"
+   },
+   "second": null,
+   "lambda_den": 200,
+   "columns": {
+    "ordinary": 438,
+    "second": 0,
+    "hidden": 0
+   },
+   "end": 236857,
+   "d": 561008887436388,
+   "D": 9439011112573613,
+   "input_430": "the 4.30 record input",
+   "record_430": {
+    "L": "4.30",
+    "refined": false,
+    "columns": 438,
+    "record_rows": 438,
+    "common_bins": 438,
+    "agree": true
+   },
+   "data": {
+    "recomputed_by": {
+     "two_test_enclosures.norm_bounds": 1,
+     "two_test_enclosures.test": 2,
+     "two_test_enclosures.cb": 2,
+     "two_test_enclosures.norm": 1,
+     "two_test_enclosures.feat": 874,
+     "two_test_enclosures.constants": 1,
+     "published_single_inputs.single_rows": 1,
+     "extension_enclosures.vector_transform": 5,
+     "extension_enclosures.correlation_bound": 1,
+     "extension_enclosures.paired_first": 1
+    },
+    "seconds": 0.3,
+    "bins": 437,
+    "fields": [
+     "d",
+     "D",
+     "Df",
+     "v_first",
+     "rows[i][4]"
+    ],
+    "clamped": {
+     "negative_bin_features": 0,
+     "tail_feature": -10000000000000000,
+     "v_first_negative": false,
+     "v2_negative": null
+    },
+    "shift": "327/400",
+    "gamma_G": "8/5",
+    "gamma_Z": "59/50",
+    "mix": "0",
+    "zeta": "3",
+    "paired": {
+     "margin": "5917555471565267141721/20000000000000000000000",
+     "margin_float": 0.29587777357826334,
+     "B": 5292556793117,
+     "B_float": 0.0005292556793117,
+     "e": 0,
+     "zeta": "3",
+     "lambda_prime": [
+      "219/250",
+      "93/100"
+     ]
+    }
+   },
+   "rows_430": 438,
+   "certificate_boxes": {
+    "terminal_boxes": 1407,
+    "distinct_intervals": 66,
+    "uses": {
+     "first_order": 574,
+     "tangent": 833
+    },
+    "cases_compared": {
+     "0": 66,
+     "1": 66,
+     "2": 66
+    },
+    "column_comparisons": 86724
+   },
+   "random_boxes": {
+    "seed": "two-test-compare/20261001/2633/0/[]",
+    "boxes": 303,
+    "by_type": {
+     "edge": 3,
+     "uniform": 100,
+     "narrow": 100,
+     "kink": 100
+    },
+    "cases_compared": {
+     "0": 303,
+     "1": 303,
+     "2": 303
+    },
+    "column_comparisons": 398142
+   },
+   "max_rounding_gaps": {
+    "cost_first": {
+     "units_of_1_over_S": 0.9999934564409432,
+     "exact": "9438949347846960/9439011112573613"
+    },
+    "budget_first": {
+     "units_of_1_over_S": 1.994243811199029,
+     "exact": "207052901123340853531895445976/103825269488413930172360224275"
+    },
+    "cost_tangent": {
+     "units_of_1_over_S": 2.0578768066007718,
+     "exact": "19424322045812184/9439011112573613"
+    },
+    "budget_tangent": {
+     "units_of_1_over_S": 0.9966892568425503,
+     "exact": "103481530687884794753829646001/103825269488413930172360224275"
+    },
+    "cost_first_430": {
+     "units_of_1_over_S": 0.999994350868801,
+     "exact": "9999943508688009/10000000000000000"
+    },
+    "budget_first_430": {
+     "units_of_1_over_S": 0.9955827795735375,
+     "exact": "1033666503872467303504229872089310693288562063/1038252694884139301723602242750000000000000000"
+    }
+   },
+   "negative_test": {
+    "row D+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row D-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row d-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row feature[0]-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row v_first-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df+1": {
+     "boxes": true,
+     "data": true
+    },
+    "row Df-1": {
+     "boxes": true,
+     "data": true
+    },
+    "row n+1": {
+     "boxes": true,
+     "data": true
+    },
+    "input v_first+1": {
+     "data": true
+    },
+    "input Df-1": {
+     "data": true
+    },
+    "input d+1": {
+     "data": true
+    },
+    "input feature[0]+1": {
+     "data": true
+    },
+    "4.30 input D+1": {
+     "data": true
+    },
+    "4.30 input feature-1": {
+     "data": true
+    },
+    "regenerated D-1": {
+     "data": true
+    },
+    "regenerated v_first-1": {
+     "data": true
+    }
+   },
+   "seconds_compare": 22.3,
+   "failures": [],
+   "status": "PASS",
+   "record_path": [],
+   "replay": {
+    "maximum": 9998489650387127,
+    "boxes": 1407,
+    "corpus_maximum": 9998489650387127,
+    "corpus_boxes": 1407
+   }
+  }
+ ],
+ "errors": [],
+ "failures": [],
+ "seconds": 463,
+ "status": "PASS"
+}

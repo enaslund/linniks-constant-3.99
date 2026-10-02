@@ -1,0 +1,96 @@
+{
+  "date": "2026-09-11",
+  "L": "4.30",
+  "corpus_sha256": "8ea390a01c7f994e28fa050550510d7aa211f14b6a34ad168700042913554fe1",
+  "scope": "Read-only structural counts of the final packed inside cover. No scalar regeneration or integer replay is performed here.",
+  "source_roots": 2768,
+  "root_provenance": {
+    "unchanged_from_frozen_partial_cover": 1799,
+    "changed_roots": 969,
+    "roots_using_collective": 966,
+    "roots_using_legacy_only": 1802,
+    "all_outer_terminals_collective": 906,
+    "mixed_collective_and_legacy": 60,
+    "resumed_legacy_roots_retained": [
+      195,
+      197,
+      210
+    ]
+  },
+  "roots_using_each_outer_mechanism": {
+    "collective_repair": 966,
+    "core": 836,
+    "far": 324,
+    "positivity": 197,
+    "repair": 435,
+    "second_exclusion": 73
+  },
+  "outer_source_partition": {
+    "binary_splits": 963,
+    "terminals": 3731,
+    "types": {
+      "collective_repair": 1517,
+      "core": 844,
+      "far": 346,
+      "positivity": 197,
+      "repair": 475,
+      "second_exclusion": 352
+    }
+  },
+  "complete_source_partition": {
+    "additional_binary_splits": 39,
+    "terminals": 3770,
+    "types": {
+      "collective": 1517,
+      "core": 844,
+      "far": 346,
+      "positivity": 197,
+      "repair_core": 95,
+      "repair_far": 111,
+      "repair_identity_cover": 233,
+      "repair_location_exclusion": 75,
+      "second_exclusion": 352
+    }
+  },
+  "structurally_predicted_verifier_entries": {
+    "total": 4380,
+    "numeric_certificate_entries": 3831,
+    "analytic_entries_without_numeric_checks": 549,
+    "types": {
+      "collective": 1517,
+      "core": 844,
+      "far": 346,
+      "positivity": 197,
+      "repair_core": 95,
+      "repair_far": 111,
+      "repair_hidden_original_far": 865,
+      "repair_hidden_retuned_far": 53,
+      "second_exclusion": 352
+    }
+  },
+  "support_nodes": {
+    "additional_source_splits": 39,
+    "complex_location_restriction": 11,
+    "outer_source_splits": 963,
+    "real_location_excluded": 75,
+    "real_location_restriction": 225
+  },
+  "source_split_axes": {
+    "outer_first": 1,
+    "outer_gap": 584,
+    "outer_second": 378,
+    "repair_gap": 9,
+    "repair_second": 30
+  },
+  "hidden_identity_numeric_entries": {
+    "distinct": 466,
+    "same_reserved": 219,
+    "unhidden": 233
+  },
+  "interpretation": [
+    "Root mechanism counts overlap. A root may use several different terminal mechanisms.",
+    "Outer terminals are leaves of the retained outer source partition. Complete source terminals additionally count the source subdivisions inside repair wrappers.",
+    "One identity-cover source terminal expands into several hidden/unhidden numeric verifier entries; a location exclusion returns no entry. The inherited positivity and second-exclusion terminals each return one analytic entry with zero numeric checks.",
+    "The complete numerical replay must independently confirm the predicted 4380 returned entries. The 1517 installed collective leaves are three fewer than the 1520 successful proposals because roots 195, 197, and 210 retain their earlier checked legacy repairs."
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "status": "PASS: complete finite replay and additional checks; no global theorem certified by this report",
+  "completed_at_utc": "2026-10-02T00:05:33.664210+00:00",
+  "reviewed_commit": "22c11027d946951ef5ec67be80f85250f73a0dad",
+  "scale": 10000000000000000,
+  "branches": {
+    "inside": {
+      "roots": 2768,
+      "trees": 3949,
+      "boxes": 4109455,
+      "dual_cases": 29067534,
+      "excluded_cases": 8711,
+      "maximum_numerator": 9999998223456687,
+      "maximum_tree": "2432_1",
+      "rejected": 0,
+      "seconds": 1792
+    },
+    "outside": {
+      "roots": 1685,
+      "trees": 1642,
+      "boxes": 87424,
+      "dual_cases": 320372,
+      "excluded_cases": 719,
+      "maximum_numerator": 9999942478462508,
+      "maximum_tree": "1990_0",
+      "rejected": 0,
+      "seconds": 377
+    }
+  },
+  "total": {
+    "roots": 4453,
+    "trees": 5591,
+    "boxes": 4196879,
+    "dual_cases": 29387906,
+    "excluded_cases": 9430,
+    "rejected": 0,
+    "relaxation_cases": 29397336
+  },
+  "global_maximum_numerator": 9999998223456687,
+  "example_error": {
+    "source": "paper/sections/08-near.tex:363",
+    "example": "8.9(i)",
+    "N": 2,
+    "v": "-1",
+    "D": "1",
+    "d": "1/4",
+    "claimed_upper_bound": "4/3",
+    "quadratic_hypothesis": "For all a_1,a_2 >= 0, (-(a_1+a_2))_+^2 = 0 <= a_1^2+a_2^2+(a_1+a_2)^2/4.",
+    "threshold": "tau=0 gives left side 0 and right side 1.",
+    "conclusion": "The example needs v>0. This does not refute the threshold lemma."
+  },
+  "mathematical_conclusion": "One local missing positivity assumption; no fatal gap in the 3.99 deduction identified. Conventional analytic arguments and source lemmas remain separate from the finite checks.",
+  "evidence_sha256": {
+    "hb-tables.json": "1f597a793bcd864bb28f3aae20f9c2b3877339ee84da36bc1133cf7e631511fd",
+    "inside-replay.json": "3195fab1383c8f0187bcdeadfe18f3f46d2d6ce29543d446fa662510894e8dd7",
+    "inside-stats.jsonl.gz": "72124b1469d9d37533d1e3ca3e76b7466ad316ff96949f99d771e30ab778d5d6",
+    "large-lean.json": "c153c58f2e6ce7d5105f7f4eedab81747986591ed85b49488554b17d6e7e3bae",
+    "large-summary.json": "472f9da5fd44e5c12977debb4dbd20c3f6ee09bef06bd6b76257462c5d6f1349",
+    "location-checks.json": "29353dc27473b5e9e8edde95e867e52a1c0e8c10f3ae423b0c19f12d14620178",
+    "outside-replay.json": "bffbd996ede4f3ab6a39cd567bbf5d504b8b0f8a8df3d75e6d8b2902a1c116fe",
+    "outside-stats.jsonl.gz": "fd00b5b066ef5b69f79082f984e31a0d201c9fc89d70e5f3a132ada228492dd9",
+    "paper-hashes.json": "edbf5b15e3ca9512f9213f606af6709e3d53dfb1ab521429b182dbf248e7d8b5",
+    "polynomial-diagnostics.json": "9d8ccd15fb5e53a11ce33bb3946d99678a7ecd286a32457af758b0485c7d846d",
+    "printed-tables.json": "ae068ba14774c0b1444ee9ff4b37dcbbe5fda2cc7fcef70fc3e9f0283ce8f421",
+    "provenance.json": "03c47c55629bde4f0c9cab84b00dfdb925c3e81bc369e90fa31a6d4e0364bf2c",
+    "small-tables.json": "44854cddc8a867d597f9542ec16e6e32736c1d8777e8ae59b6205e66eb57c3f8",
+    "source-signs.json": "ab5b80cc30e3946427238f3eeb33316edaa30fab7321e47c2ef53cdc0ae8a38e",
+    "two-test.json": "d415a9c16f8ed54f68f5abadf773f50748889328601b54848776457f74e9aa5e"
+  }
+}

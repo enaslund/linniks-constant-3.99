@@ -37,11 +37,13 @@ AMS packages, `mathtools`, `booktabs`, `longtable`, `array`, `enumitem`,
 The bibliography style command is retained because `amsart` also uses it to format
 reference labels; the standalone build does not require BibTeX or a `.bib` file.
 
-The research record behind the paper, the reviews made while it was written, the
-certificates and the programs that generate and check them are in the research repository,
-<https://github.com/enaslund/linniks-constant> (private at the time of writing; see
-`research/notes/paper-2026-09-30.md` there). The Lean formalization of parts of the proof is
-at the root of this repository; see the [repository README](../README.md).
+The certificates, the programs that generate and check them, and the reports of every
+verification run are in [`computations/`](../computations/README.md). The reviews made while the
+paper was written, and the verification notes, are in [`research/`](../research/README.md); the
+editorial record of the paper is
+[`research/notes/paper-2026-09-30.md`](../research/notes/paper-2026-09-30.md). The Lean
+formalization of parts of the proof is at the root of this repository; see the
+[repository README](../README.md).
 
 ## Adversarial reviews
 
@@ -55,6 +57,8 @@ at the root of this repository; see the [repository README](../README.md).
 Example 8.9(i) now explicitly assumes `v > 0` in both LaTeX versions and their
 PDFs. The first report records the example before this correction. Neither
 review identified an error invalidating the global bound; neither constitutes
-a complete independent proof of it. The reports link to the audit code and
-raw results archived in the research repository; reproduction commands refer
-to that repository and require access to it.
+a complete independent proof of it. The audit code and raw results the reports cite are in
+[`computations/audit/`](../computations/audit/README.md), at the paths the reports give, and their
+reproduction commands run from the repository root. The first report's remark that the paper
+still called for a public archive of the certificates refers to the version it reviewed; the
+certificates are in this repository and the paper's §14 now cites it.

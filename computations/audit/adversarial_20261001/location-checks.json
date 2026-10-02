@@ -1,0 +1,56 @@
+{
+  "polynomial_table": {
+    "status": "PASS: all elementary polynomial rows regenerated",
+    "rows": 94,
+    "second_rows": 25,
+    "additional_rows": 69,
+    "minimum_normalized_margin": 8270994490101,
+    "scale": 10000000000000000
+  },
+  "alias_429": {
+    "status": "PASS: elementary uniform source alias condition",
+    "gamma": "5/4",
+    "lambda_interval": [
+      "11/25",
+      "17/20"
+    ],
+    "lambda_step": "1/100",
+    "height_end": 30,
+    "height_step": "1/100",
+    "sample_evaluations": 126042,
+    "sample_upper": -15996201905531,
+    "lambda_interpolation_error": 780278852648,
+    "height_interpolation_error": 1310097917319,
+    "tail_upper": 33430834659906,
+    "supremum_upper": 33430834659906,
+    "permitted_upper_lower": 5425347222222222,
+    "margin_lower": 5391916387562316,
+    "scale": 10000000000000000,
+    "scope": "Verifies X (4.29) for the fixed test and all real heights. It does not formalize the character-product argument deriving (4.28)."
+  },
+  "alias_434": {
+    "status": "PASS: X (4.34) side condition",
+    "gamma": "26/25",
+    "lambda1_interval": [
+      "11/25",
+      "4/5"
+    ],
+    "lambda2_interval": [
+      "11/25",
+      "147/125"
+    ],
+    "grid_lambda": "1/100 (lambda_2 grid runs to 1.18)",
+    "height_end": 30,
+    "height_step": "1/100",
+    "sample_upper": 28839075241965,
+    "lambda1_interpolation_error": 131223849392,
+    "lambda2_interpolation_error": 345615700759,
+    "height_interpolation_error": 406440991888,
+    "tail_upper": 30941842902673,
+    "supremum_upper": 30941842902673,
+    "permitted_lower": 1351836558222222,
+    "margin_lower": 1320894715319549,
+    "scale": 10000000000000000,
+    "scope": "Bounds sup over the box and all real t of Re{F(-l2+it)-F(l1-l2+it)-F(it)} for f=f_gamma, gamma=1.04 (Xylouris (4.34), p. 59). It does not formalize the derivation of (4.31) from (4.32)-(4.34)."
+  }
+}

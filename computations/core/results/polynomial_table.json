@@ -1,0 +1,2872 @@
+{
+  "status": "PASS: each proposed row independently interval-enclosed",
+  "rows": [
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "33/50",
+        "b": "53/80",
+        "h": "763/1000",
+        "gamma": "13/10",
+        "t": "19/20",
+        "real_gamma": "23/20",
+        "real_t": "17/20",
+        "generic_normalized_margin": 14613803988347,
+        "real_normalized_margin": 323249695707127,
+        "alias": {
+          "bound": 117163753222150,
+          "normalized_margin": 1637083286789920,
+          "sample_upper": -29553157991271,
+          "height_error": 558993735473,
+          "parameter_error": 146157917477948,
+          "tail_upper": 31785068682987,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 17616280640614,
+          "normalized_margin": 1658455662075730,
+          "sample_upper": -15906263629315,
+          "height_error": 188083184230,
+          "parameter_error": 28890771480,
+          "tail_upper": 17616280640614,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 0
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "53/80",
+        "b": "133/200",
+        "h": "381/500",
+        "gamma": "13/10",
+        "t": "19/20",
+        "real_gamma": "23/20",
+        "real_t": "17/20",
+        "generic_normalized_margin": 8456347543381,
+        "real_normalized_margin": 314741711002937,
+        "alias": {
+          "bound": 107286959860976,
+          "normalized_margin": 1639577137677521,
+          "sample_upper": -29666392543414,
+          "height_error": 559731656812,
+          "parameter_error": 136393620747578,
+          "tail_upper": 31898265821818,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 17677695964320,
+          "normalized_margin": 1658427036197476,
+          "sample_upper": -15964440185026,
+          "height_error": 188301280181,
+          "parameter_error": 28890771480,
+          "tail_upper": 17677695964320,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 1
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "133/200",
+        "b": "267/400",
+        "h": "19/25",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "23/20",
+        "real_t": "17/20",
+        "generic_normalized_margin": 11408679217822,
+        "real_normalized_margin": 311429716290100,
+        "alias": {
+          "bound": 88556170359788,
+          "normalized_margin": 1644306587238209,
+          "sample_upper": -29777690791364,
+          "height_error": 542345038751,
+          "parameter_error": 117791516112401,
+          "tail_upper": 32011483726654,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 17739121780605,
+          "normalized_margin": 1658398405428597,
+          "sample_upper": -16022606307145,
+          "height_error": 188520104313,
+          "parameter_error": 28890771480,
+          "tail_upper": 17739121780605,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 2
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "267/400",
+        "b": "67/100",
+        "h": "379/500",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "23/20",
+        "real_t": "17/20",
+        "generic_normalized_margin": 14811875441566,
+        "real_normalized_margin": 308142292371660,
+        "alias": {
+          "bound": 77548744542972,
+          "normalized_margin": 1647085918306466,
+          "sample_upper": -29890960651245,
+          "height_error": 543088591492,
+          "parameter_error": 106896616602725,
+          "tail_upper": 32124722532912,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 17800558149976,
+          "normalized_margin": 1658369769740892,
+          "sample_upper": -16080761937500,
+          "height_error": 188739659242,
+          "parameter_error": 28890771480,
+          "tail_upper": 17800558149976,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 3
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "67/100",
+        "b": "269/400",
+        "h": "757/1000",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "23/20",
+        "real_t": "17/20",
+        "generic_normalized_margin": 9161527436981,
+        "real_normalized_margin": 299630297751103,
+        "alias": {
+          "bound": 69327839867979,
+          "normalized_margin": 1649161663912445,
+          "sample_upper": -30004248345227,
+          "height_error": 543834977221,
+          "parameter_error": 98788253235985,
+          "tail_upper": 32237982376894,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 17862005133288,
+          "normalized_margin": 1658341129105995,
+          "sample_upper": -16138907017602,
+          "height_error": 188959947593,
+          "parameter_error": 28890771480,
+          "tail_upper": 17862005133288,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 4
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "269/400",
+        "b": "27/40",
+        "h": "151/200",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "23/20",
+        "real_t": "17/20",
+        "generic_normalized_margin": 12670207808866,
+        "real_normalized_margin": 296371942619403,
+        "alias": {
+          "bound": 59260105729867,
+          "normalized_margin": 1651703726583834,
+          "sample_upper": -30117553994562,
+          "height_error": 544584207528,
+          "parameter_error": 88833075516901,
+          "tail_upper": 32351263395792,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 17923462791746,
+          "normalized_margin": 1658312483495378,
+          "sample_upper": -16197041488648,
+          "height_error": 189180972002,
+          "parameter_error": 28890771480,
+          "tail_upper": 17923462791746,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 5
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "27/40",
+        "b": "271/400",
+        "h": "753/1000",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "23/20",
+        "real_t": "17/20",
+        "generic_normalized_margin": 16252763357484,
+        "real_normalized_margin": 293138801696656,
+        "alias": {
+          "bound": 49720949877750,
+          "normalized_margin": 1654112325348518,
+          "sample_upper": -30230877721329,
+          "height_error": 545336294054,
+          "parameter_error": 79406491305025,
+          "tail_upper": 32464565727689,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 17984931186910,
+          "normalized_margin": 1658283832880348,
+          "sample_upper": -16255165291513,
+          "height_error": 189402735113,
+          "parameter_error": 28890771480,
+          "tail_upper": 17984931186910,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 6
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "271/400",
+        "b": "17/25",
+        "h": "94/125",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "23/20",
+        "real_t": "17/20",
+        "generic_normalized_margin": 10669480741257,
+        "real_normalized_margin": 284623670078576,
+        "alias": {
+          "bound": 42642022547734,
+          "normalized_margin": 1655899726234581,
+          "sample_upper": -30344219648442,
+          "height_error": 546091248491,
+          "parameter_error": 72440150947685,
+          "tail_upper": 32577889511573,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 18046410380693,
+          "normalized_margin": 1658255177232048,
+          "sample_upper": -16313278366751,
+          "height_error": 189625239584,
+          "parameter_error": 28890771480,
+          "tail_upper": 18046410380693,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 7
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "17/25",
+        "b": "273/400",
+        "h": "3/4",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "23/20",
+        "real_t": "17/20",
+        "generic_normalized_margin": 14360242251206,
+        "real_normalized_margin": 281420615989519,
+        "alias": {
+          "bound": 34042557709329,
+          "normalized_margin": 1658071056770305,
+          "sample_upper": -30457579899652,
+          "height_error": 546849082580,
+          "parameter_error": 63953288526401,
+          "tail_upper": 32691234887335,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 18107900435367,
+          "normalized_margin": 1658226516521452,
+          "sample_upper": -16371380654595,
+          "height_error": 189848488078,
+          "parameter_error": 28890771480,
+          "tail_upper": 18107900435367,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 8
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "17/25",
+        "b": "273/400",
+        "old_lower": "24/25",
+        "new_lower": "39/40",
+        "gamma": "23/20",
+        "t": "19/20",
+        "normalized_margin": 17979509886723,
+        "correlation": {
+          "bound": 16887497897151,
+          "sample_upper": -26366664993412,
+          "height_error": 261220023074,
+          "parameter_error": 577769314575,
+          "tail_upper": 16887497897151,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 9
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "273/400",
+        "b": "137/200",
+        "h": "749/1000",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "23/20",
+        "real_t": "17/20",
+        "generic_normalized_margin": 8812366371807,
+        "real_normalized_margin": 272898398044024,
+        "alias": {
+          "bound": 32804601995779,
+          "normalized_margin": 1658383635645063,
+          "sample_upper": -30570958599559,
+          "height_error": 547609808113,
+          "parameter_error": 57717842895077,
+          "tail_upper": 32804601995779,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 18169401413561,
+          "normalized_margin": 1658197850719368,
+          "sample_upper": -16429472094953,
+          "height_error": 190072483273,
+          "parameter_error": 28890771480,
+          "tail_upper": 18169401413561,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 10
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "273/400",
+        "b": "137/200",
+        "old_lower": "24/25",
+        "new_lower": "973/1000",
+        "gamma": "23/20",
+        "t": "19/20",
+        "normalized_margin": 17555906671831,
+        "correlation": {
+          "bound": 16944887700325,
+          "sample_upper": -26321928875804,
+          "height_error": 261482507712,
+          "parameter_error": 437855448127,
+          "tail_upper": 16944887700325,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 11
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "137/200",
+        "b": "11/16",
+        "h": "747/1000",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "23/20",
+        "real_t": "17/20",
+        "generic_normalized_margin": 12613046518494,
+        "real_normalized_margin": 269726060730417,
+        "alias": {
+          "bound": 32917990978628,
+          "normalized_margin": 1658355005379633,
+          "sample_upper": -30684355873611,
+          "height_error": 548373436934,
+          "parameter_error": 50170702264385,
+          "tail_upper": 32917990978628,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 18230913378267,
+          "normalized_margin": 1658169179796436,
+          "sample_upper": -16487552627406,
+          "height_error": 190297227853,
+          "parameter_error": 28890771480,
+          "tail_upper": 18230913378267,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 12
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "137/200",
+        "b": "11/16",
+        "old_lower": "24/25",
+        "new_lower": "971/1000",
+        "gamma": "23/20",
+        "t": "19/20",
+        "normalized_margin": 17164702452761,
+        "correlation": {
+          "bound": 17002287627557,
+          "sample_upper": -26277184080078,
+          "height_error": 261745870504,
+          "parameter_error": 317929276885,
+          "tail_upper": 17002287627557,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 13
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "11/16",
+        "b": "69/100",
+        "h": "149/200",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "23/20",
+        "real_t": "17/20",
+        "generic_normalized_margin": 16490363615712,
+        "real_normalized_margin": 266580005001584,
+        "alias": {
+          "bound": 33031401978528,
+          "normalized_margin": 1658326369554986,
+          "sample_upper": -30797771848111,
+          "height_error": 549139980936,
+          "parameter_error": 43152155140901,
+          "tail_upper": 33031401978528,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 18292436392839,
+          "normalized_margin": 1658140503723126,
+          "sample_upper": -16545622191209,
+          "height_error": 190522724516,
+          "parameter_error": 28890771480,
+          "tail_upper": 18292436392839,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 14
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "11/16",
+        "b": "69/100",
+        "old_lower": "24/25",
+        "new_lower": "121/125",
+        "gamma": "23/20",
+        "t": "19/20",
+        "normalized_margin": 22820137741470,
+        "correlation": {
+          "bound": 17059697737227,
+          "sample_upper": -26232430564919,
+          "height_error": 262010114609,
+          "parameter_error": 175516948536,
+          "tail_upper": 17059697737227,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 15
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "69/100",
+        "b": "277/400",
+        "h": "93/125",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "23/20",
+        "real_t": "17/20",
+        "generic_normalized_margin": 11013913581264,
+        "real_normalized_margin": 258056082570352,
+        "alias": {
+          "bound": 33144835139057,
+          "normalized_margin": 1658297728134869,
+          "sample_upper": -30911206650227,
+          "height_error": 549909452067,
+          "parameter_error": 38058732518977,
+          "tail_upper": 33144835139057,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 18353970520996,
+          "normalized_margin": 1658111822469738,
+          "sample_upper": -16603680725284,
+          "height_error": 190748975966,
+          "parameter_error": 28890771480,
+          "tail_upper": 18353970520996,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 16
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "69/100",
+        "b": "277/400",
+        "old_lower": "24/25",
+        "new_lower": "483/500",
+        "gamma": "23/20",
+        "t": "19/20",
+        "normalized_margin": 22517467639211,
+        "correlation": {
+          "bound": 17117118088054,
+          "sample_upper": -26187668288766,
+          "height_error": 262275243200,
+          "parameter_error": 105560015312,
+          "tail_upper": 17117118088054,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 17
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "277/400",
+        "b": "139/200",
+        "h": "371/500",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "23/20",
+        "real_t": "17/20",
+        "generic_normalized_margin": 15003971934228,
+        "real_normalized_margin": 254941798522781,
+        "alias": {
+          "bound": 33258290604728,
+          "normalized_margin": 1658269081082792,
+          "sample_upper": -31024660407991,
+          "height_error": 550681862322,
+          "parameter_error": 31979907186085,
+          "tail_upper": 33258290604728,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 18415515826827,
+          "normalized_margin": 1658083136006401,
+          "sample_upper": -16661728168224,
+          "height_error": 190975984922,
+          "parameter_error": 28890771480,
+          "tail_upper": 18415515826827,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 18
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "277/400",
+        "b": "139/200",
+        "old_lower": "24/25",
+        "new_lower": "241/250",
+        "gamma": "23/20",
+        "t": "19/20",
+        "normalized_margin": 22248128274828,
+        "correlation": {
+          "bound": 17174548739094,
+          "sample_upper": -26142897209815,
+          "height_error": 262541259458,
+          "parameter_error": 55590777295,
+          "tail_upper": 17174548739094,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 19
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "139/200",
+        "b": "279/400",
+        "h": "741/1000",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "23/20",
+        "real_t": "17/20",
+        "generic_normalized_margin": 9565622482184,
+        "real_normalized_margin": 246411642919342,
+        "alias": {
+          "bound": 33371768520997,
+          "normalized_margin": 1658240428362029,
+          "sample_upper": -31138133250310,
+          "height_error": 551457223751,
+          "parameter_error": 27617379290177,
+          "tail_upper": 33371768520997,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 18477072374787,
+          "normalized_margin": 1658054444303072,
+          "sample_upper": -16719764458287,
+          "height_error": 191203754110,
+          "parameter_error": 28890771480,
+          "tail_upper": 18477072374787,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 20
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "139/200",
+        "b": "279/400",
+        "old_lower": "24/25",
+        "new_lower": "481/500",
+        "gamma": "23/20",
+        "t": "19/20",
+        "normalized_margin": 22012398466806,
+        "correlation": {
+          "bound": 17231989749743,
+          "sample_upper": -26098117286014,
+          "height_error": 262808166580,
+          "parameter_error": 25609234484,
+          "tail_upper": 17231989749743,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 21
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "279/400",
+        "b": "7/10",
+        "h": "739/1000",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "11/10",
+        "real_t": "17/20",
+        "generic_normalized_margin": 13670199269834,
+        "real_normalized_margin": 243727401672737,
+        "alias": {
+          "bound": 33485269034267,
+          "normalized_margin": 1658211769935614,
+          "sample_upper": -31251625306969,
+          "height_error": 552235548456,
+          "parameter_error": 22478275747877,
+          "tail_upper": 33485269034267,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 14982174315338,
+          "normalized_margin": 1657945337137120,
+          "sample_upper": -13611450663435,
+          "height_error": 132237895386,
+          "parameter_error": 20245005428,
+          "tail_upper": 14982174315338,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 22
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "7/10",
+        "b": "281/400",
+        "h": "369/500",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "11/10",
+        "real_t": "17/20",
+        "generic_normalized_margin": 8270994490101,
+        "real_normalized_margin": 236717656999891,
+        "alias": {
+          "bound": 33598792291897,
+          "normalized_margin": 1658183105766339,
+          "sample_upper": -31365136708638,
+          "height_error": 553016848590,
+          "parameter_error": 18846642577985,
+          "tail_upper": 33598792291897,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 15031515959027,
+          "normalized_margin": 1657916614688356,
+          "sample_upper": -13660902609663,
+          "height_error": 132385474430,
+          "parameter_error": 20245005428,
+          "tail_upper": 15031515959027,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 23
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "7/10",
+        "b": "281/400",
+        "old_lower": "93/100",
+        "new_lower": "479/500",
+        "gamma": "23/20",
+        "t": "19/20",
+        "normalized_margin": 21642892581416,
+        "correlation": {
+          "bound": 17346903089171,
+          "sample_upper": -24820963097190,
+          "height_error": 263344666258,
+          "parameter_error": 1974409517157,
+          "tail_upper": 17346903089171,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 24
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "281/400",
+        "b": "141/200",
+        "h": "92/125",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "11/10",
+        "real_t": "17/20",
+        "generic_normalized_margin": 12491892409784,
+        "real_normalized_margin": 234737816840228,
+        "alias": {
+          "bound": 33712338442208,
+          "normalized_margin": 1658154435816752,
+          "sample_upper": -31478667586876,
+          "height_error": 553801136359,
+          "parameter_error": 14647260826277,
+          "tail_upper": 33712338442208,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 15080866552865,
+          "normalized_margin": 1657887887029588,
+          "sample_upper": -13710362018030,
+          "height_error": 132533525091,
+          "parameter_error": 20245005428,
+          "tail_upper": 15080866552865,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 25
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "281/400",
+        "b": "141/200",
+        "old_lower": "93/100",
+        "new_lower": "239/250",
+        "gamma": "23/20",
+        "t": "19/20",
+        "normalized_margin": 21509683968761,
+        "correlation": {
+          "bound": 17404375538465,
+          "sample_upper": -24776175329453,
+          "height_error": 263614265266,
+          "parameter_error": 1704575631864,
+          "tail_upper": 17404375538465,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 26
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "141/200",
+        "b": "283/400",
+        "h": "367/500",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "11/10",
+        "real_t": "17/20",
+        "generic_normalized_margin": 16793412074767,
+        "real_normalized_margin": 232784708110663,
+        "alias": {
+          "bound": 33825907634486,
+          "normalized_margin": 1658125760049162,
+          "sample_upper": -31592218074141,
+          "height_error": 554588424022,
+          "parameter_error": 10976472581777,
+          "tail_upper": 33825907634486,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 15130226146214,
+          "normalized_margin": 1657859154132080,
+          "sample_upper": -13759828929737,
+          "height_error": 132682048990,
+          "parameter_error": 20245005428,
+          "tail_upper": 15130226146214,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 27
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "141/200",
+        "b": "283/400",
+        "old_lower": "93/100",
+        "new_lower": "477/500",
+        "gamma": "23/20",
+        "t": "19/20",
+        "normalized_margin": 21411219868846,
+        "correlation": {
+          "bound": 17461858588400,
+          "sample_upper": -24731378732469,
+          "height_error": 263884768042,
+          "parameter_error": 1454729441778,
+          "tail_upper": 17461858588400,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 28
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "283/400",
+        "b": "71/100",
+        "h": "733/1000",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "11/10",
+        "real_t": "17/20",
+        "generic_normalized_margin": 11471941343443,
+        "real_normalized_margin": 225782330006779,
+        "alias": {
+          "bound": 33939500018993,
+          "normalized_margin": 1658097078425626,
+          "sample_upper": -31705788303789,
+          "height_error": 555378723891,
+          "parameter_error": 8486862421285,
+          "tail_upper": 33939500018993,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 15179594788707,
+          "normalized_margin": 1657830415966942,
+          "sample_upper": -13809303386214,
+          "height_error": 132831047754,
+          "parameter_error": 20245005428,
+          "tail_upper": 15179594788707,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 29
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "283/400",
+        "b": "71/100",
+        "old_lower": "93/100",
+        "new_lower": "119/125",
+        "gamma": "23/20",
+        "t": "19/20",
+        "normalized_margin": 21347789008766,
+        "correlation": {
+          "bound": 17519352300106,
+          "sample_upper": -24686573263721,
+          "height_error": 264156177842,
+          "parameter_error": 1224870946898,
+          "tail_upper": 17519352300106,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 30
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "71/100",
+        "b": "57/80",
+        "h": "731/1000",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "11/10",
+        "real_t": "17/20",
+        "generic_normalized_margin": 15892750601209,
+        "real_normalized_margin": 223863895865911,
+        "alias": {
+          "bound": 34053115746968,
+          "normalized_margin": 1658068390907957,
+          "sample_upper": -31819378410087,
+          "height_error": 556172048332,
+          "parameter_error": 5755795967377,
+          "tail_upper": 34053115746968,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 15228972530252,
+          "normalized_margin": 1657801672505120,
+          "sample_upper": -13858785429128,
+          "height_error": 132980523016,
+          "parameter_error": 20245005428,
+          "tail_upper": 15228972530252,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 31
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "71/100",
+        "b": "57/80",
+        "old_lower": "93/100",
+        "new_lower": "19/20",
+        "gamma": "23/20",
+        "t": "9/10",
+        "normalized_margin": 21443966070216,
+        "correlation": {
+          "bound": 18115002938929,
+          "sample_upper": -25367511740339,
+          "height_error": 277684024125,
+          "parameter_error": 1048581200915,
+          "tail_upper": 18115002938929,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 32
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "57/80",
+        "b": "143/200",
+        "h": "73/100",
+        "gamma": "13/10",
+        "t": "9/10",
+        "real_gamma": "11/10",
+        "real_t": "17/20",
+        "generic_normalized_margin": 10613279890610,
+        "real_normalized_margin": 216861853575434,
+        "alias": {
+          "bound": 34166754970638,
+          "normalized_margin": 1658039697457720,
+          "sample_upper": -31932988528215,
+          "height_error": 556968409763,
+          "parameter_error": 3997080532901,
+          "tail_upper": 34166754970638,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 15278359421031,
+          "normalized_margin": 1657772923717404,
+          "sample_upper": -13908275100377,
+          "height_error": 133130476415,
+          "parameter_error": 20245005428,
+          "tail_upper": 15278359421031,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 33
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "57/80",
+        "b": "143/200",
+        "old_lower": "93/100",
+        "new_lower": "237/250",
+        "gamma": "23/20",
+        "t": "9/10",
+        "normalized_margin": 21851073861652,
+        "correlation": {
+          "bound": 18174282664855,
+          "sample_upper": -25321651635438,
+          "height_error": 277972070419,
+          "parameter_error": 852415856251,
+          "tail_upper": 18174282664855,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 34
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "143/200",
+        "b": "287/400",
+        "h": "91/125",
+        "gamma": "5/4",
+        "t": "19/20",
+        "real_gamma": "11/10",
+        "real_t": "17/20",
+        "generic_normalized_margin": 14698998745327,
+        "real_normalized_margin": 214978700123554,
+        "alias": {
+          "bound": 28352958877160,
+          "normalized_margin": 1657956637699603,
+          "sample_upper": -26030628969643,
+          "height_error": 414496681862,
+          "parameter_error": 1701249016656,
+          "tail_upper": 28352958877160,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 15327755511504,
+          "normalized_margin": 1657744169574419,
+          "sample_upper": -13957772442097,
+          "height_error": 133280909596,
+          "parameter_error": 20245005428,
+          "tail_upper": 15327755511504,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 35
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "143/200",
+        "b": "287/400",
+        "old_lower": "93/100",
+        "new_lower": "473/500",
+        "gamma": "23/20",
+        "t": "9/10",
+        "normalized_margin": 22295632578601,
+        "correlation": {
+          "bound": 18233573555033,
+          "sample_upper": -25275782260293,
+          "height_error": 278261083289,
+          "parameter_error": 676899495237,
+          "tail_upper": 18233573555033,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 36
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "287/400",
+        "b": "18/25",
+        "h": "727/1000",
+        "gamma": "5/4",
+        "t": "19/20",
+        "real_gamma": "11/10",
+        "real_t": "17/20",
+        "generic_normalized_margin": 10594172200171,
+        "real_normalized_margin": 207977312956033,
+        "alias": {
+          "bound": 28446427774889,
+          "normalized_margin": 1657927924054220,
+          "sample_upper": -26118551063194,
+          "height_error": 415037262416,
+          "parameter_error": 908507241144,
+          "tail_upper": 28446427774889,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 15377160852408,
+          "normalized_margin": 1657715410046631,
+          "sample_upper": -14007277496657,
+          "height_error": 133431824209,
+          "parameter_error": 20245005428,
+          "tail_upper": 15377160852408,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 37
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "287/400",
+        "b": "18/25",
+        "old_lower": "93/100",
+        "new_lower": "189/200",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 17060672012132,
+        "correlation": {
+          "bound": 14340113359588,
+          "sample_upper": -19872685781683,
+          "height_error": 183513114232,
+          "parameter_error": 404867793782,
+          "tail_upper": 14340113359588,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 38
+    },
+    {
+      "type": "second",
+      "proof": {
+        "status": "PASS: elementary second-family exclusion, complex first character",
+        "a": "18/25",
+        "b": "289/400",
+        "h": "29/40",
+        "gamma": "5/4",
+        "t": "19/20",
+        "real_gamma": "11/10",
+        "real_t": "17/20",
+        "generic_normalized_margin": 15519258267351,
+        "real_normalized_margin": 206130054241504,
+        "alias": {
+          "bound": 28539915772518,
+          "normalized_margin": 1657899204541349,
+          "sample_upper": -26206454195683,
+          "height_error": 415579828226,
+          "parameter_error": 251664055719,
+          "tail_upper": 28539915772518,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "real_alias": {
+          "bound": 15426575494761,
+          "normalized_margin": 1657686645104342,
+          "sample_upper": -14056790306669,
+          "height_error": 133583221912,
+          "parameter_error": 20245005428,
+          "tail_upper": 15426575494761,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "scale": 10000000000000000,
+        "scope": "New positive-polynomial deduction for every second-family type. Distinct-family conventions and the injective principal-index matching proof remain analytic premises. Not an exponent theorem."
+      },
+      "id": 39
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "18/25",
+        "b": "289/400",
+        "old_lower": "91/100",
+        "new_lower": "943/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 18175262866273,
+        "correlation": {
+          "bound": 14386222772948,
+          "sample_upper": -19199773635374,
+          "height_error": 183690526838,
+          "parameter_error": 1917541410332,
+          "tail_upper": 14386222772948,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 40
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "289/400",
+        "b": "29/40",
+        "old_lower": "91/100",
+        "new_lower": "941/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 19325314119512,
+        "correlation": {
+          "bound": 14432340804808,
+          "sample_upper": -19166057952403,
+          "height_error": 183868507491,
+          "parameter_error": 1693441615287,
+          "tail_upper": 14432340804808,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 41
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "29/40",
+        "b": "291/400",
+        "old_lower": "91/100",
+        "new_lower": "939/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 20511091732272,
+        "correlation": {
+          "bound": 14478467502702,
+          "sample_upper": -19132347303693,
+          "height_error": 184047058148,
+          "parameter_error": 1483348057433,
+          "tail_upper": 14478467502702,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 42
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "291/400",
+        "b": "73/100",
+        "old_lower": "91/100",
+        "new_lower": "937/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 21732863415590,
+        "correlation": {
+          "bound": 14524602914423,
+          "sample_upper": -19098641721939,
+          "height_error": 184226180772,
+          "parameter_error": 1287260736769,
+          "tail_upper": 14524602914423,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 43
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "73/100",
+        "b": "293/400",
+        "old_lower": "91/100",
+        "new_lower": "117/125",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 17078020457004,
+        "correlation": {
+          "bound": 14570747088031,
+          "sample_upper": -19064941240001,
+          "height_error": 184405877332,
+          "parameter_error": 1194469415384,
+          "tail_upper": 14570747088031,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 44
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "293/400",
+        "b": "147/200",
+        "old_lower": "91/100",
+        "new_lower": "467/500",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 18350664199935,
+        "correlation": {
+          "bound": 14616900071847,
+          "sample_upper": -19031245890908,
+          "height_error": 184586149804,
+          "parameter_error": 1019391450505,
+          "tail_upper": 14616900071847,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 45
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "147/200",
+        "b": "59/80",
+        "old_lower": "91/100",
+        "new_lower": "233/250",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 19660015079140,
+        "correlation": {
+          "bound": 14663061914462,
+          "sample_upper": -18997555707859,
+          "height_error": 184767000175,
+          "parameter_error": 858319722817,
+          "tail_upper": 14663061914462,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 46
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "59/80",
+        "b": "37/50",
+        "old_lower": "91/100",
+        "new_lower": "93/100",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 21006347394335,
+        "correlation": {
+          "bound": 14709232664733,
+          "sample_upper": -18963870724220,
+          "height_error": 184948430434,
+          "parameter_error": 711254232319,
+          "tail_upper": 14709232664733,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 47
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "37/50",
+        "b": "297/400",
+        "old_lower": "89/100",
+        "new_lower": "116/125",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 22389937250306,
+        "correlation": {
+          "bound": 14755412371788,
+          "sample_upper": -18290708119102,
+          "height_error": 185130442581,
+          "parameter_error": 2539068185650,
+          "tail_upper": 14755412371788,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 48
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "297/400",
+        "b": "149/200",
+        "old_lower": "89/100",
+        "new_lower": "927/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 17792512445156,
+        "correlation": {
+          "bound": 14801601085024,
+          "sample_upper": -18257015978682,
+          "height_error": 185313038621,
+          "parameter_error": 2407759711992,
+          "tail_upper": 14801601085024,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 49
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "149/200",
+        "b": "299/400",
+        "old_lower": "89/100",
+        "new_lower": "37/40",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 19229040861249,
+        "correlation": {
+          "bound": 14847798854111,
+          "sample_upper": -18223329078630,
+          "height_error": 185496220568,
+          "parameter_error": 2155647442567,
+          "tail_upper": 14847798854111,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 50
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "299/400",
+        "b": "3/4",
+        "old_lower": "89/100",
+        "new_lower": "923/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 20703562845169,
+        "correlation": {
+          "bound": 14894005728995,
+          "sample_upper": -18189647452538,
+          "height_error": 185679990443,
+          "parameter_error": 1917541410332,
+          "tail_upper": 14894005728995,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 51
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "3/4",
+        "b": "301/400",
+        "old_lower": "89/100",
+        "new_lower": "921/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 22216361297158,
+        "correlation": {
+          "bound": 14940221759895,
+          "sample_upper": -18155971134166,
+          "height_error": 185864350272,
+          "parameter_error": 1693441615287,
+          "tail_upper": 14940221759895,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 52
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "301/400",
+        "b": "151/200",
+        "old_lower": "89/100",
+        "new_lower": "23/25",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 17663959510933,
+        "correlation": {
+          "bound": 14986446997308,
+          "sample_upper": -18122300157448,
+          "height_error": 186049302093,
+          "parameter_error": 1586644056712,
+          "tail_upper": 14986446997308,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 53
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "151/200",
+        "b": "303/400",
+        "old_lower": "89/100",
+        "new_lower": "459/500",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 19231362085382,
+        "correlation": {
+          "bound": 15032681492009,
+          "sample_upper": -18088634556491,
+          "height_error": 186234847947,
+          "parameter_error": 1383553617453,
+          "tail_upper": 15032681492009,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 54
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "303/400",
+        "b": "19/25",
+        "old_lower": "89/100",
+        "new_lower": "229/250",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 20837795742775,
+        "correlation": {
+          "bound": 15078925295054,
+          "sample_upper": -18054974365579,
+          "height_error": 186420989885,
+          "parameter_error": 1194469415384,
+          "tail_upper": 15078925295054,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 55
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "19/25",
+        "b": "61/80",
+        "old_lower": "43/50",
+        "new_lower": "183/200",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 16316181376274,
+        "correlation": {
+          "bound": 15125178457779,
+          "sample_upper": -17061603879324,
+          "height_error": 186607729963,
+          "parameter_error": 5307050810379,
+          "tail_upper": 15125178457779,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 56
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "61/80",
+        "b": "153/200",
+        "old_lower": "43/50",
+        "new_lower": "913/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 17978449848865,
+        "correlation": {
+          "bound": 15171441031805,
+          "sample_upper": -17027926389872,
+          "height_error": 186795070248,
+          "parameter_error": 4928882406242,
+          "tail_upper": 15171441031805,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 57
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "153/200",
+        "b": "307/400",
+        "old_lower": "43/50",
+        "new_lower": "911/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 19680517877534,
+        "correlation": {
+          "bound": 15217713069036,
+          "sample_upper": -16994254310887,
+          "height_error": 186983012813,
+          "parameter_error": 4564720239294,
+          "tail_upper": 15217713069036,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 58
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "307/400",
+        "b": "77/100",
+        "old_lower": "43/50",
+        "new_lower": "909/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 21422680520034,
+        "correlation": {
+          "bound": 15263994621664,
+          "sample_upper": -16960587676588,
+          "height_error": 187171559736,
+          "parameter_error": 4214564309537,
+          "tail_upper": 15263994621664,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 59
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "77/100",
+        "b": "309/400",
+        "old_lower": "43/50",
+        "new_lower": "227/250",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 16950041101736,
+        "correlation": {
+          "bound": 15310285742167,
+          "sample_upper": -16926926521367,
+          "height_error": 187360713106,
+          "parameter_error": 4044738683605,
+          "tail_upper": 15310285742167,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 60
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "309/400",
+        "b": "31/40",
+        "old_lower": "43/50",
+        "new_lower": "453/500",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 18749780450151,
+        "correlation": {
+          "bound": 15356586483313,
+          "sample_upper": -16893270879794,
+          "height_error": 187550475019,
+          "parameter_error": 3715592109634,
+          "tail_upper": 15356586483313,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 61
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "31/40",
+        "b": "311/400",
+        "old_lower": "43/50",
+        "new_lower": "113/125",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 20590402285791,
+        "correlation": {
+          "bound": 15402896898162,
+          "sample_upper": -16859620786617,
+          "height_error": 187740847578,
+          "parameter_error": 3400451772852,
+          "tail_upper": 15402896898162,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 62
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "311/400",
+        "b": "39/50",
+        "old_lower": "43/50",
+        "new_lower": "903/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 16151452785105,
+        "correlation": {
+          "bound": 15449217040066,
+          "sample_upper": -16825976276759,
+          "height_error": 187931832892,
+          "parameter_error": 3248133943408,
+          "tail_upper": 15449217040066,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 63
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "39/50",
+        "b": "313/400",
+        "old_lower": "21/25",
+        "new_lower": "901/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 18050938885699,
+        "correlation": {
+          "bound": 15495546962671,
+          "sample_upper": -16152177502726,
+          "height_error": 188123433081,
+          "parameter_error": 6525593445933,
+          "tail_upper": 15495546962671,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 64
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "313/400",
+        "b": "157/200",
+        "old_lower": "21/25",
+        "new_lower": "899/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 19992109813113,
+        "correlation": {
+          "bound": 15541886719920,
+          "sample_upper": -16118524129271,
+          "height_error": 188315650271,
+          "parameter_error": 6105406330225,
+          "tail_upper": 15541886719920,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 65
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "157/200",
+        "b": "63/80",
+        "old_lower": "21/25",
+        "new_lower": "897/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 21975273308502,
+        "correlation": {
+          "bound": 15588236366050,
+          "sample_upper": -16084876366309,
+          "height_error": 188508486595,
+          "parameter_error": 5699225451707,
+          "tail_upper": 15588236366050,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 66
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "63/80",
+        "b": "79/100",
+        "old_lower": "21/25",
+        "new_lower": "112/125",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 17589453221224,
+        "correlation": {
+          "bound": 15634595955602,
+          "sample_upper": -16051234248919,
+          "height_error": 188701944196,
+          "parameter_error": 5501387351394,
+          "tail_upper": 15634595955602,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 67
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "79/100",
+        "b": "317/400",
+        "old_lower": "21/25",
+        "new_lower": "447/500",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 19633302602590,
+        "correlation": {
+          "bound": 15680965543415,
+          "sample_upper": -16017597812360,
+          "height_error": 188896025222,
+          "parameter_error": 5116215828661,
+          "tail_upper": 15680965543415,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 68
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "317/400",
+        "b": "159/200",
+        "old_lower": "21/25",
+        "new_lower": "223/250",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 21719967140324,
+        "correlation": {
+          "bound": 15727345184631,
+          "sample_upper": -15983967092070,
+          "height_error": 189090731831,
+          "parameter_error": 4745050543119,
+          "tail_upper": 15727345184631,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 69
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "159/200",
+        "b": "319/400",
+        "old_lower": "21/25",
+        "new_lower": "891/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 17370890077974,
+        "correlation": {
+          "bound": 15773734934695,
+          "sample_upper": -15950342123670,
+          "height_error": 189286066189,
+          "parameter_error": 4564720239294,
+          "tail_upper": 15773734934695,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 70
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "319/400",
+        "b": "4/5",
+        "old_lower": "21/25",
+        "new_lower": "889/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 19519587471879,
+        "correlation": {
+          "bound": 15820134849360,
+          "sample_upper": -15916722942965,
+          "height_error": 189482030468,
+          "parameter_error": 4214564309537,
+          "tail_upper": 15820134849360,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 71
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "4/5",
+        "b": "321/400",
+        "old_lower": "83/100",
+        "new_lower": "887/1000",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 21711937711767,
+        "correlation": {
+          "bound": 15866544984685,
+          "sample_upper": -15562885096322,
+          "height_error": 189678626850,
+          "parameter_error": 5699225451707,
+          "tail_upper": 15866544984685,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 72
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "321/400",
+        "b": "161/200",
+        "old_lower": "83/100",
+        "new_lower": "443/500",
+        "gamma": "11/10",
+        "t": "19/20",
+        "normalized_margin": 17400924670934,
+        "correlation": {
+          "bound": 15912965397039,
+          "sample_upper": -15529266954799,
+          "height_error": 189875857522,
+          "parameter_error": 5501387351394,
+          "tail_upper": 15912965397039,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 73
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "161/200",
+        "b": "323/400",
+        "old_lower": "83/100",
+        "new_lower": "221/250",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 19705830654383,
+        "correlation": {
+          "bound": 16447994044590,
+          "sample_upper": -15968406728895,
+          "height_error": 199621430630,
+          "parameter_error": 5285484689257,
+          "tail_upper": 16447994044590,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 74
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "323/400",
+        "b": "81/100",
+        "old_lower": "83/100",
+        "new_lower": "883/1000",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 15742069445784,
+        "correlation": {
+          "bound": 16495859378969,
+          "sample_upper": -15934038768177,
+          "height_error": 199830697944,
+          "parameter_error": 5091953382301,
+          "tail_upper": 16495859378969,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 75
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "81/100",
+        "b": "13/16",
+        "old_lower": "83/100",
+        "new_lower": "881/1000",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 18484953960589,
+        "correlation": {
+          "bound": 16543735466650,
+          "sample_upper": -15899676909322,
+          "height_error": 200040640909,
+          "parameter_error": 4715742991210,
+          "tail_upper": 16543735466650,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 76
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "13/16",
+        "b": "163/200",
+        "old_lower": "83/100",
+        "new_lower": "879/1000",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 21274494629444,
+        "correlation": {
+          "bound": 16591622366940,
+          "sample_upper": -15865321190016,
+          "height_error": 200251261868,
+          "parameter_error": 4354002230546,
+          "tail_upper": 16591622366940,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 77
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "163/200",
+        "b": "327/400",
+        "old_lower": "83/100",
+        "new_lower": "439/500",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 17354460660872,
+        "correlation": {
+          "bound": 16639520139470,
+          "sample_upper": -15830971648137,
+          "height_error": 200462563170,
+          "parameter_error": 4178557961624,
+          "tail_upper": 16639520139470,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 78
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "327/400",
+        "b": "41/50",
+        "old_lower": "83/100",
+        "new_lower": "219/250",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 20212568029608,
+        "correlation": {
+          "bound": 16687428844205,
+          "sample_upper": -15796628321760,
+          "height_error": 200674547174,
+          "parameter_error": 3838521646600,
+          "tail_upper": 16687428844205,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 79
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "41/50",
+        "b": "329/400",
+        "old_lower": "827/1000",
+        "new_lower": "7/8",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 16315780564515,
+        "correlation": {
+          "bound": 16735348541435,
+          "sample_upper": -15663567331147,
+          "height_error": 200887216247,
+          "parameter_error": 4178557961624,
+          "tail_upper": 16735348541435,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 80
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "329/400",
+        "b": "33/40",
+        "old_lower": "827/1000",
+        "new_lower": "873/1000",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 19243367038511,
+        "correlation": {
+          "bound": 16783279291787,
+          "sample_upper": -15629233132837,
+          "height_error": 201100572765,
+          "parameter_error": 3838521646600,
+          "tail_upper": 16783279291787,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 81
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "33/40",
+        "b": "331/400",
+        "old_lower": "827/1000",
+        "new_lower": "109/125",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 15370361830131,
+        "correlation": {
+          "bound": 16831221156221,
+          "sample_upper": -15594905251056,
+          "height_error": 201314619114,
+          "parameter_error": 3673929600497,
+          "tail_upper": 16831221156221,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 82
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "331/400",
+        "b": "83/100",
+        "old_lower": "331/400",
+        "new_lower": "87/100",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 18368350883393,
+        "correlation": {
+          "bound": 16879174196031,
+          "sample_upper": -15577039715067,
+          "height_error": 201529357685,
+          "parameter_error": 3278275643521,
+          "tail_upper": 16879174196031,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 83
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "83/100",
+        "b": "333/400",
+        "old_lower": "83/100",
+        "new_lower": "217/250",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 21415039241254,
+        "correlation": {
+          "bound": 16927138472853,
+          "sample_upper": -15625006268694,
+          "height_error": 201744790883,
+          "parameter_error": 2623072690767,
+          "tail_upper": 16927138472853,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 84
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "333/400",
+        "b": "167/200",
+        "old_lower": "333/400",
+        "new_lower": "867/1000",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 17588997498937,
+        "correlation": {
+          "bound": 16975114048659,
+          "sample_upper": -15672982153636,
+          "height_error": 201960921117,
+          "parameter_error": 2164114100675,
+          "tail_upper": 16975114048659,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 85
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "167/200",
+        "b": "67/80",
+        "old_lower": "167/200",
+        "new_lower": "173/200",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 20707604779629,
+        "correlation": {
+          "bound": 17023100985765,
+          "sample_upper": -15720967421573,
+          "height_error": 202177750807,
+          "parameter_error": 1639137821761,
+          "tail_upper": 17023100985765,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 86
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "67/80",
+        "b": "21/25",
+        "old_lower": "67/80",
+        "new_lower": "108/125",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 16906803757165,
+        "correlation": {
+          "bound": 17071099346832,
+          "sample_upper": -15768962124471,
+          "height_error": 202395282382,
+          "parameter_error": 1281466644654,
+          "tail_upper": 17071099346832,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 87
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "21/25",
+        "b": "337/400",
+        "old_lower": "21/25",
+        "new_lower": "431/500",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 20098282737375,
+        "correlation": {
+          "bound": 17119109194863,
+          "sample_upper": -15816966314585,
+          "height_error": 202613518280,
+          "parameter_error": 886717039579,
+          "tail_upper": 17119109194863,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 88
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "337/400",
+        "b": "169/200",
+        "old_lower": "337/400",
+        "new_lower": "861/1000",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 16323285700161,
+        "correlation": {
+          "bound": 17167130593211,
+          "sample_upper": -15864980044459,
+          "height_error": 202832460946,
+          "parameter_error": 630333275458,
+          "tail_upper": 17167130593211,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 89
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "169/200",
+        "b": "339/400",
+        "old_lower": "169/200",
+        "new_lower": "859/1000",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 19588600707198,
+        "correlation": {
+          "bound": 17215163605578,
+          "sample_upper": -15913003366929,
+          "height_error": 203052112837,
+          "parameter_error": 365810344222,
+          "tail_upper": 17215163605578,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 90
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "339/400",
+        "b": "17/20",
+        "old_lower": "339/400",
+        "new_lower": "429/500",
+        "gamma": "11/10",
+        "t": "9/10",
+        "normalized_margin": 15839978775652,
+        "correlation": {
+          "bound": 17263208296016,
+          "sample_upper": -15961036335124,
+          "height_error": 203272476417,
+          "parameter_error": 210713993087,
+          "tail_upper": 17263208296016,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 91
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "17/20",
+        "b": "341/400",
+        "old_lower": "17/20",
+        "new_lower": "107/125",
+        "gamma": "21/20",
+        "t": "19/20",
+        "normalized_margin": 19333659384653,
+        "correlation": {
+          "bound": 13429417585041,
+          "sample_upper": -12098453531586,
+          "height_error": 131356285120,
+          "parameter_error": 50983672329,
+          "tail_upper": 13429417585041,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 92
+    },
+    {
+      "type": "additional",
+      "proof": {
+        "status": "PASS: elementary additional-zero exclusion, complex first character",
+        "a": "341/400",
+        "b": "171/200",
+        "old_lower": "341/400",
+        "new_lower": "171/200",
+        "gamma": "21/20",
+        "t": "19/20",
+        "normalized_margin": 16609857695589,
+        "correlation": {
+          "bound": 13466394889048,
+          "sample_upper": -12132495365176,
+          "height_error": 131487951561,
+          "parameter_error": 15083926725,
+          "tail_upper": 13466394889048,
+          "Y": 30,
+          "den": 200,
+          "scale": 10000000000000000
+        },
+        "low_order_source": "X Table 3, lambda1<=.86 implies lambda-prime>1.35 for orders 2,3,4",
+        "scale": 10000000000000000,
+        "scope": "Orders >=5 use the new nonnegative product; orders 3,4 use the published source row. Finite-zero-selection and character conventions remain analytic inputs."
+      },
+      "id": 93
+    }
+  ],
+  "cells_considered": 84,
+  "row_count": 94,
+  "scale": 10000000000000000,
+  "seconds": 4.215479850769043
+}

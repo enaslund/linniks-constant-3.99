@@ -1,0 +1,42 @@
+{
+  "status": "PASS: small real exceptional zero, u0 <= u <= .1, at L=3.99 with Heath-Brown table rows near .1",
+  "L": "399/100",
+  "K": "1821/10000",
+  "c1": "57/1000",
+  "c2": "777/5000",
+  "alpha": "109/100",
+  "eps": "1/1000",
+  "scale": 10000000000000000,
+  "pieces": [
+    {
+      "piece": [
+        "u0",
+        "2/25"
+      ],
+      "rule": "alpha*log(1/u), alpha=109/100 (H Lemmas 8.4, 8.8)",
+      "gap_lower": 27530442222959984,
+      "main_lower": 1088458429290016,
+      "other_upper": 783116745618497,
+      "first_upper": 454655061920,
+      "margin_lower": 304887028609599
+    },
+    {
+      "piece": [
+        "2/25",
+        "1/10"
+      ],
+      "rule": "H Table 5 row .10 (p.46) and Table 2 row .10 (p.39)",
+      "gap_other": "2829/1000",
+      "gap_first": "4959/1000",
+      "main_lower": 1050056697697413,
+      "other_upper": 668874691564840,
+      "first_upper": 152770967,
+      "margin_lower": 381181853361608
+    }
+  ],
+  "relative_margin_lower": [
+    0.280109,
+    0.363011
+  ],
+  "scope": "Real simple exceptional zero with u0 <= lambda1 <= .1, fixed u0 > 0, q large. For lambda1 <= u0 use Heath-Brown's effective exponent 3+eps (eps=1/2), H p.6. Replaces the single alpha-rule check of small_exception_399.py near .1; not a general Linnik exponent."
+}

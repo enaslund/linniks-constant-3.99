@@ -1,0 +1,20 @@
+{
+  "reviewed_commit": "22c11027d946951ef5ec67be80f85250f73a0dad",
+  "recorded_at_utc": "2026-10-01T23:58:11.708802+00:00",
+  "paper_hashes_file": "paper-hashes.json",
+  "code_and_corpus_sha256": {
+    "computations/audit/independent_cert_check.py": "33bcc88ed5770537e446019b7fb604b7dfb4e9a3994b7bfe5169c59e65b64d2b",
+    "computations/audit/adversarial_source_checks.py": "8746a7a719ef62a681650c202927c5298dffc3e70aaa174ced71e21680b85f94",
+    "computations/audit/printed_tables_check.py": "ec5234a99ed8a375d584c428237064f037096de95d539784af3687d7a3bdae25",
+    "computations/audit/hb_tables_recompute.py": "eda4b3194daa3c8a5f19d7a0167026c0ff640e39b888b8a6bf0f8485457759b3",
+    "computations/graded/graded_lean_export.py": "a9b45330d90b97fd1c7130ceb4927802ca862be5de0078e070696b0e5f0e3f0c",
+    "computations/graded/graded_verify.py": "da5f907ba0fa5c0a85c54fcba35d902295a25e1adcd6a89dac3a98f9ad159906",
+    "computations/graded/two_test_compare.py": "4088151760f1a1c0e0553b25617f3b741d39b8f14039aa10e96a88ebc3c0ec0f",
+    "computations/graded/corpora/3.99/inside.jsonl.gz": "539362a03e7b330dad03b33d6b5037871cfcbbf7b0973e7976fccf12509fe63c",
+    "computations/graded/corpora/3.99/nodes.jsonl.gz": "b715ac735b6976da17a2671667ecfdf07c3f19b8ab74ae5f0533dbcf6b2a6cfc",
+    "computations/graded/corpora/3.99/outside.jsonl.gz": "a53d4d5793f71c92647a7f22022110bdc8135cbda1f2575d1dc0c1f487f5ac1d"
+  },
+  "new_implementation": "computations/audit/adversarial_source_checks.py",
+  "independent_checker_provenance": "Previously committed implementation, rerun during this review; its inputs use the replay leaf generator.",
+  "lean_scope": "Fresh native large-leaf certificate, numeric and row checks using existing binaries; no full Lean rebuild during this review."
+}

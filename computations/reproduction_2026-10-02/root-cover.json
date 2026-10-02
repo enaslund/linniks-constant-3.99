@@ -1,0 +1,18 @@
+{
+  "parents": 58,
+  "base_cells": 340,
+  "first_zero_cells": 478,
+  "gap_cases": 684,
+  "specifications": 2768,
+  "type_rr": 1083,
+  "inside_roots": 2768,
+  "outside_roots": 1685,
+  "type_rc": 115,
+  "type_complex": 1570,
+  "status": "PASS",
+  "scope": "Root cover only; parent implications are analytic premises.",
+  "inputs": {
+    "paper/sections/07-location.tex": "f8790272b08335f6508887bc6d793f65ed9c6101eff9d70683cba52d5f3c420f",
+    "computations/core/results/source_cover.json.gz": "54bbcc51d20c394288585039a59f5767c8ad1e0a5174304ee041ed339492db19"
+  }
+}

@@ -1,2 +1,11 @@
 .lake/
 *.log
+# Python caches
+__pycache__/
+*.py[cod]
+.venv/
+# Certificate corpora (computations/graded/corpora/README.md): the two large files are committed as
+# parts; the files rebuilt from them by assemble.sh stay local.
+/computations/graded/corpora/*/inside.jsonl.gz
+/computations/graded/corpora/*/nodes.jsonl.gz
+/computations/graded/corpora/*/*.tmp
